@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF051F54E00800284B44 /* AppDelegate.swift */; };
-		C92BDF081F54E00800284B44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF071F54E00800284B44 /* ViewController.swift */; };
-		C92BDF0B1F54E00800284B44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF091F54E00800284B44 /* Main.storyboard */; };
 		C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0C1F54E00800284B44 /* Assets.xcassets */; };
 		C92BDF101F54E00800284B44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */; };
 		C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF1A1F54E00800284B44 /* CeairTests.swift */; };
+		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
+		C92BDF2C1F54E0CA00284B44 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2B1F54E0CA00284B44 /* TabBarViewController.swift */; };
+		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +29,15 @@
 /* Begin PBXFileReference section */
 		C92BDF021F54E00800284B44 /* Ceair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ceair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92BDF051F54E00800284B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C92BDF071F54E00800284B44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C92BDF0A1F54E00800284B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C92BDF0C1F54E00800284B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C92BDF0F1F54E00800284B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C92BDF111F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92BDF161F54E00800284B44 /* CeairTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CeairTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92BDF1A1F54E00800284B44 /* CeairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeairTests.swift; sourceTree = "<group>"; };
 		C92BDF1C1F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
+		C92BDF2B1F54E0CA00284B44 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,10 +80,11 @@
 			isa = PBXGroup;
 			children = (
 				C92BDF051F54E00800284B44 /* AppDelegate.swift */,
-				C92BDF071F54E00800284B44 /* ViewController.swift */,
-				C92BDF091F54E00800284B44 /* Main.storyboard */,
-				C92BDF0C1F54E00800284B44 /* Assets.xcassets */,
-				C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */,
+				C92BDF2D1F54E0CF00284B44 /* Coordinators */,
+				C92BDF261F54E06100284B44 /* Views */,
+				C92BDF271F54E06700284B44 /* Models */,
+				C92BDF281F54E07000284B44 /* Extensions */,
+				C92BDF251F54E04100284B44 /* Supporting Files */,
 				C92BDF111F54E00800284B44 /* Info.plist */,
 			);
 			path = Ceair;
@@ -94,6 +97,54 @@
 				C92BDF1C1F54E00800284B44 /* Info.plist */,
 			);
 			path = CeairTests;
+			sourceTree = "<group>";
+		};
+		C92BDF251F54E04100284B44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */,
+				C92BDF0C1F54E00800284B44 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C92BDF261F54E06100284B44 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C92BDF2B1F54E0CA00284B44 /* TabBarViewController.swift */,
+				C92BDF2E1F54E14600284B44 /* Booking */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C92BDF271F54E06700284B44 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C92BDF281F54E07000284B44 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C92BDF2D1F54E0CF00284B44 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		C92BDF2E1F54E14600284B44 /* Booking */ = {
+			isa = PBXGroup;
+			children = (
+				C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */,
+			);
+			path = Booking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +197,7 @@
 				TargetAttributes = {
 					C92BDF011F54E00800284B44 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C92BDF151F54E00800284B44 = {
 						CreatedOnToolsVersion = 9.0;
@@ -181,7 +232,6 @@
 			files = (
 				C92BDF101F54E00800284B44 /* LaunchScreen.storyboard in Resources */,
 				C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */,
-				C92BDF0B1F54E00800284B44 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C92BDF081F54E00800284B44 /* ViewController.swift in Sources */,
+				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
+				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
+				C92BDF2C1F54E0CA00284B44 /* TabBarViewController.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,14 +275,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C92BDF091F54E00800284B44 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C92BDF0A1F54E00800284B44 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -353,11 +397,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Ceair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bizersoft.Ceair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -367,11 +413,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Ceair/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bizersoft.Ceair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
