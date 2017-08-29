@@ -14,6 +14,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         let bookingTab = UINavigationController(rootViewController: BookingTabViewController())
+        bookingTab.tabBarItem.title = "Booking"
         
         let dummyTabOne = createDummyTabItem(title: "One")
         let dummyTabTwo = createDummyTabItem(title: "Two")
@@ -25,10 +26,10 @@ class TabBarViewController: UITabBarController {
     private func createDummyTabItem(title: String) -> UINavigationController {
         let dummyViewController = UIViewController()
         dummyViewController.view.backgroundColor = UIColor.fromHEX(string: "#ABCDEF")
+        dummyViewController.navigationItem.title = title
         
         let navController = UINavigationController(rootViewController: dummyViewController)
         navController.tabBarItem.title = title
-        navController.navigationItem.title = title
         
         return navController
     }
