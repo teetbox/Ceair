@@ -15,10 +15,11 @@ class TabBarViewController: UITabBarController {
         
         let bookingTab = UINavigationController(rootViewController: BookingTabViewController())
         bookingTab.tabBarItem.title = "Booking"
+        bookingTab.tabBarItem.image = UIImage(named: "Booking")
         
-        let dummyTabOne = createDummyTabItem(title: "One")
-        let dummyTabTwo = createDummyTabItem(title: "Two")
-        let dummyTabThree = createDummyTabItem(title: "Three")
+        let dummyTabOne = createDummyTabItem(title: "Flight")
+        let dummyTabTwo = createDummyTabItem(title: "More")
+        let dummyTabThree = createDummyTabItem(title: "My")
         
         viewControllers = [bookingTab, dummyTabOne, dummyTabTwo, dummyTabThree]
     }
@@ -30,6 +31,7 @@ class TabBarViewController: UITabBarController {
         
         let navController = UINavigationController(rootViewController: dummyViewController)
         navController.tabBarItem.title = title
+        navController.tabBarItem.image = UIImage(named: title)
         
         return navController
     }
