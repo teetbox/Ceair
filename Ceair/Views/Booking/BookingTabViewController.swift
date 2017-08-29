@@ -13,7 +13,7 @@ class BookingTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Booking"
+        navigationItem.title = TabBars.Booking
         view.backgroundColor = UIColor.white
     }
 

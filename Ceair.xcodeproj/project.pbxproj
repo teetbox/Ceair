@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
+		C9171AF81F5630DA00D9BE66 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* Images.swift */; };
+		C9171AFA1F56317500D9BE66 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF91F56317500D9BE66 /* Colors.swift */; };
+		C9171AFC1F5631D900D9BE66 /* TabBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AFB1F5631D900D9BE66 /* TabBars.swift */; };
 		C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF051F54E00800284B44 /* AppDelegate.swift */; };
 		C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0C1F54E00800284B44 /* Assets.xcassets */; };
 		C92BDF101F54E00800284B44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */; };
@@ -28,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
+		C9171AF71F5630DA00D9BE66 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		C9171AF91F56317500D9BE66 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C9171AFB1F5631D900D9BE66 /* TabBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBars.swift; sourceTree = "<group>"; };
 		C92BDF021F54E00800284B44 /* Ceair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ceair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92BDF051F54E00800284B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C92BDF0C1F54E00800284B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +68,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C9171AF61F56308300D9BE66 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C9171AF71F5630DA00D9BE66 /* Images.swift */,
+				C9171AF91F56317500D9BE66 /* Colors.swift */,
+				C9171AFB1F5631D900D9BE66 /* TabBars.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		C92BDEF91F54E00800284B44 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +105,7 @@
 				C92BDF271F54E06700284B44 /* Models */,
 				C9CF91A01F554F1000F352F0 /* Networks */,
 				C92BDF281F54E07000284B44 /* Extensions */,
+				C9171AF61F56308300D9BE66 /* Constants */,
 				C92BDF251F54E04100284B44 /* Supporting Files */,
 				C92BDF111F54E00800284B44 /* Info.plist */,
 			);
@@ -170,6 +189,7 @@
 		C9CF91A41F5552C400F352F0 /* Flight */ = {
 			isa = PBXGroup;
 			children = (
+				C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */,
 			);
 			path = Flight;
 			sourceTree = "<group>";
@@ -276,10 +296,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9171AF81F5630DA00D9BE66 /* Images.swift in Sources */,
+				C9171AFC1F5631D900D9BE66 /* TabBars.swift in Sources */,
+				C9171AFA1F56317500D9BE66 /* Colors.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C92BDF2C1F54E0CA00284B44 /* TabBarViewController.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
+				C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

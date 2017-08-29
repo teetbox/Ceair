@@ -14,19 +14,22 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         let bookingTab = UINavigationController(rootViewController: BookingTabViewController())
-        bookingTab.tabBarItem.title = "Booking"
-        bookingTab.tabBarItem.image = UIImage(named: "Booking")
+        bookingTab.tabBarItem.title = TabBars.Booking
+        bookingTab.tabBarItem.image = UIImage(named: Images.Booking)
         
-        let dummyTabOne = createDummyTabItem(title: "Flight")
-        let dummyTabTwo = createDummyTabItem(title: "More")
-        let dummyTabThree = createDummyTabItem(title: "My")
+        let flightTab = UINavigationController(rootViewController: FlightTabViewController())
+        flightTab.tabBarItem.title = TabBars.Flight
+        flightTab.tabBarItem.image = UIImage(named: Images.Flight)
         
-        viewControllers = [bookingTab, dummyTabOne, dummyTabTwo, dummyTabThree]
+        let dummyMoreTab = createDummyTabItem(title: TabBars.More)
+        let dummyMyTab = createDummyTabItem(title: TabBars.My)
+        
+        viewControllers = [bookingTab, flightTab, dummyMoreTab, dummyMyTab]
     }
     
     private func createDummyTabItem(title: String) -> UINavigationController {
         let dummyViewController = UIViewController()
-        dummyViewController.view.backgroundColor = UIColor.fromHEX(string: "#ABCDEF")
+        dummyViewController.view.backgroundColor = UIColor.fromHEX(string: Colors.defaultBackground)
         dummyViewController.navigationItem.title = title
         
         let navController = UINavigationController(rootViewController: dummyViewController)
