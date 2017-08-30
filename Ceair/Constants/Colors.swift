@@ -9,5 +9,6 @@
 import Foundation
 
 struct Colors {
-    static let defaultBackground = "#ABCDEF"
+    static let BarTintColor = "#E3287F"
+    static let DefaultBackground = "#ABCDEF"
 }

@@ -25,11 +25,14 @@ class TabBarViewController: UITabBarController {
         let dummyMyTab = createDummyTabItem(title: TabBars.My)
         
         viewControllers = [bookingTab, flightTab, dummyMoreTab, dummyMyTab]
+        
+        tabBar.isTranslucent = false
+        tabBar.tintColor = UIColor.fromHEX(string: Colors.BarTintColor)
     }
     
     private func createDummyTabItem(title: String) -> UINavigationController {
         let dummyViewController = UIViewController()
-        dummyViewController.view.backgroundColor = UIColor.fromHEX(string: Colors.defaultBackground)
+        dummyViewController.view.backgroundColor = UIColor.fromHEX(string: Colors.DefaultBackground)
         dummyViewController.navigationItem.title = title
         
         let navController = UINavigationController(rootViewController: dummyViewController)
