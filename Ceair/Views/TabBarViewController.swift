@@ -28,6 +28,8 @@ class TabBarViewController: UITabBarController {
         
         tabBar.isTranslucent = false
         tabBar.tintColor = UIColor.fromHEX(string: Colors.BarTintColor)
+        
+        selectedIndex = 1;
     }
     
     private func createDummyTabItem(title: String) -> UINavigationController {
