@@ -18,6 +18,11 @@
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF2C1F54E0CA00284B44 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2B1F54E0CA00284B44 /* TabBarViewController.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
+		C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C761E1F57DD97007EB4E2 /* Coordinator.swift */; };
+		C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */; };
+		C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */; };
+		C98C76261F57DEC6007EB4E2 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76251F57DEC6007EB4E2 /* Defaults.swift */; };
+		C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */; };
 		C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CF91A21F554F4800F352F0 /* Flight.swift */; };
 		C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBABF1F577D6F00B6788A /* Aintx.swift */; };
 		C9FCBAC21F577EFE00B6788A /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC11F577EFE00B6788A /* URLs.swift */; };
@@ -51,6 +56,11 @@
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2B1F54E0CA00284B44 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
+		C98C761E1F57DD97007EB4E2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchUtility.swift; sourceTree = "<group>"; };
+		C98C76251F57DEC6007EB4E2 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C9CF91A21F554F4800F352F0 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		C9FCBABF1F577D6F00B6788A /* Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aintx.swift; sourceTree = "<group>"; };
 		C9FCBAC11F577EFE00B6788A /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
@@ -84,6 +94,7 @@
 				C9171AFB1F5631D900D9BE66 /* TabBars.swift */,
 				C9FCBAC11F577EFE00B6788A /* URLs.swift */,
 				C9FCBAC31F57847700B6788A /* Labels.swift */,
+				C98C76251F57DEC6007EB4E2 /* Defaults.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -115,6 +126,7 @@
 				C92BDF271F54E06700284B44 /* Models */,
 				C9CF91A01F554F1000F352F0 /* Networks */,
 				C92BDF281F54E07000284B44 /* Extensions */,
+				C98C76221F57DE4E007EB4E2 /* Utilities */,
 				C9171AF61F56308300D9BE66 /* Constants */,
 				C92BDF251F54E04100284B44 /* Supporting Files */,
 				C92BDF111F54E00800284B44 /* Info.plist */,
@@ -170,6 +182,9 @@
 		C92BDF2D1F54E0CF00284B44 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				C98C761E1F57DD97007EB4E2 /* Coordinator.swift */,
+				C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */,
+				C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -180,6 +195,14 @@
 				C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */,
 			);
 			path = Booking;
+			sourceTree = "<group>";
+		};
+		C98C76221F57DE4E007EB4E2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C9CF91A01F554F1000F352F0 /* Networks */ = {
@@ -321,12 +344,17 @@
 				C9FCBAC41F57847700B6788A /* Labels.swift in Sources */,
 				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
 				C9171AFA1F56317500D9BE66 /* Colors.swift in Sources */,
+				C98C76261F57DEC6007EB4E2 /* Defaults.swift in Sources */,
 				C9FCBAC21F577EFE00B6788A /* URLs.swift in Sources */,
+				C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C92BDF2C1F54E0CA00284B44 /* TabBarViewController.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
+				C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */,
+				C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */,
+				C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */,
 				C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
 			);
