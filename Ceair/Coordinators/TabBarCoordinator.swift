@@ -17,26 +17,28 @@ class TabBarCoordinator: Coordinator {
     }
     
     func start() {
-        let tabBarViewController = TabBarViewController()
-        window.rootViewController = tabBarViewController
+        let tabBarController = UITabBarController()
+        tabBarController.tabBar.isTranslucent = false
+        tabBarController.tabBar.tintColor = UIColor.fromHEX(string: Colors.BarTintColor)
+        window.rootViewController = tabBarController
         
         let bookingTab = UINavigationController(rootViewController: BookingTabViewController())
         bookingTab.tabBarItem.title = TabBars.Booking
         bookingTab.tabBarItem.image = UIImage(named: Images.Booking)
         
-        let flightViewController = FlightTabViewController()
-        flightViewController.viewModel = FlightTabViewModel()
+        let flightTabViewController = FlightTabViewController()
+        let flightTabDataModel = FlightTabDateModel()
+        flightTabViewController.viewModel = FlightTabViewModel(dataModel: flightTabDataModel)
         
-        let flightTab = UINavigationController(rootViewController: flightViewController)
+        let flightTab = UINavigationController(rootViewController: flightTabViewController)
         flightTab.tabBarItem.title = TabBars.Flight
         flightTab.tabBarItem.image = UIImage(named: Images.Flight)
         
         let dummyMoreTab = createDummyTabItem(title: TabBars.More)
         let dummyMyTab = createDummyTabItem(title: TabBars.My)
         
-        tabBarViewController.viewControllers = [bookingTab, flightTab, dummyMoreTab, dummyMyTab]
-        
-        tabBarViewController.selectedIndex = 1
+        tabBarController.viewControllers = [bookingTab, flightTab, dummyMoreTab, dummyMyTab]
+        tabBarController.selectedIndex = 1
     }
     
     private func createDummyTabItem(title: String) -> UINavigationController {

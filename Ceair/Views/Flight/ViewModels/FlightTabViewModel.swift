@@ -8,6 +8,12 @@
 
 import Foundation
 
-struct FlightTabViewModel {
+class FlightTabViewModel {
+    
+    let dataModel: FlightTabDataModelProtocol
+    
+    init(dataModel: FlightTabDataModelProtocol) {
+        self.dataModel = dataModel
+    }
     
 }
