@@ -16,10 +16,6 @@ class AppCoordinator: Coordinator {
         self.window = window
     }
     
-    deinit {
-        print("Deinit AppCoordinator")
-    }
-    
     func start() {
         if !LaunchUtility.isFirstLaunch {
             showLogin()

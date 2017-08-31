@@ -13,35 +13,8 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let bookingTab = UINavigationController(rootViewController: BookingTabViewController())
-        bookingTab.tabBarItem.title = TabBars.Booking
-        bookingTab.tabBarItem.image = UIImage(named: Images.Booking)
-        
-        let flightTab = UINavigationController(rootViewController: FlightTabViewController())
-        flightTab.tabBarItem.title = TabBars.Flight
-        flightTab.tabBarItem.image = UIImage(named: Images.Flight)
-        
-        let dummyMoreTab = createDummyTabItem(title: TabBars.More)
-        let dummyMyTab = createDummyTabItem(title: TabBars.My)
-        
-        viewControllers = [bookingTab, flightTab, dummyMoreTab, dummyMyTab]
-        
         tabBar.isTranslucent = false
         tabBar.tintColor = UIColor.fromHEX(string: Colors.BarTintColor)
-        
-        selectedIndex = 1;
-    }
-    
-    private func createDummyTabItem(title: String) -> UINavigationController {
-        let dummyViewController = UIViewController()
-        dummyViewController.view.backgroundColor = UIColor.fromHEX(string: Colors.DefaultBackground)
-        dummyViewController.navigationItem.title = title
-        
-        let navController = UINavigationController(rootViewController: dummyViewController)
-        navController.tabBarItem.title = title
-        navController.tabBarItem.image = UIImage(named: title)
-        
-        return navController
     }
 
 }
