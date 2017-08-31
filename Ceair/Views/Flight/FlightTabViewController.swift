@@ -16,6 +16,7 @@ class FlightTabViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         setupUI()
+        setupLogin()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,4 +39,36 @@ class FlightTabViewController: UIViewController {
         view.addSubview(backgroundImageView)
     }
     
+    private func setupLogin() {
+        let loginButton = UIButton()
+        loginButton.setTitle(Labels.Login, for: .normal)
+        loginButton.layer.borderWidth = 1
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        
+        view.addSubview(loginButton)
+        view.addConstraints(format: "H:[v0(100)]", views: loginButton)
+        view.addConstraints(format: "V:[v0(50)]", views: loginButton)
+        
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

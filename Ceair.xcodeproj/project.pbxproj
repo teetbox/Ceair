@@ -19,6 +19,10 @@
 		C92BDF2C1F54E0CA00284B44 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2B1F54E0CA00284B44 /* TabBarViewController.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
 		C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CF91A21F554F4800F352F0 /* Flight.swift */; };
+		C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBABF1F577D6F00B6788A /* Aintx.swift */; };
+		C9FCBAC21F577EFE00B6788A /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC11F577EFE00B6788A /* URLs.swift */; };
+		C9FCBAC41F57847700B6788A /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC31F57847700B6788A /* Labels.swift */; };
+		C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,10 @@
 		C92BDF2B1F54E0CA00284B44 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
 		C9CF91A21F554F4800F352F0 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		C9FCBABF1F577D6F00B6788A /* Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aintx.swift; sourceTree = "<group>"; };
+		C9FCBAC11F577EFE00B6788A /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		C9FCBAC31F57847700B6788A /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,8 @@
 				C9171AF71F5630DA00D9BE66 /* Images.swift */,
 				C9171AF91F56317500D9BE66 /* Colors.swift */,
 				C9171AFB1F5631D900D9BE66 /* TabBars.swift */,
+				C9FCBAC11F577EFE00B6788A /* URLs.swift */,
+				C9FCBAC31F57847700B6788A /* Labels.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -152,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */,
+				C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 		C9CF91A01F554F1000F352F0 /* Networks */ = {
 			isa = PBXGroup;
 			children = (
+				C9FCBABE1F577D5400B6788A /* Aintx */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -192,6 +204,14 @@
 				C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */,
 			);
 			path = Flight;
+			sourceTree = "<group>";
+		};
+		C9FCBABE1F577D5400B6788A /* Aintx */ = {
+			isa = PBXGroup;
+			children = (
+				C9FCBABF1F577D6F00B6788A /* Aintx.swift */,
+			);
+			path = Aintx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,11 +318,15 @@
 			files = (
 				C9171AF81F5630DA00D9BE66 /* Images.swift in Sources */,
 				C9171AFC1F5631D900D9BE66 /* TabBars.swift in Sources */,
+				C9FCBAC41F57847700B6788A /* Labels.swift in Sources */,
+				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
 				C9171AFA1F56317500D9BE66 /* Colors.swift in Sources */,
+				C9FCBAC21F577EFE00B6788A /* URLs.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C92BDF2C1F54E0CA00284B44 /* TabBarViewController.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
+				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
 				C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
 			);
