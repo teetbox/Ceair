@@ -39,6 +39,25 @@ class FlightTabViewController: UIViewController {
         backgroundImageView.image = fligtTabBackgroundImage
         
         view.addSubview(backgroundImageView)
+        
+        setupNaviBar()
+    }
+    
+    private func setupNaviBar() {
+        let naviBar = UIView()
+        view.addSubview(naviBar)
+
+        view.addConstraints(format: "H:|[v0]|", views: naviBar)
+        view.addConstraints(format: "V:|[v0(64)]", views: naviBar)
+        
+        let naviLabel = UILabel()
+        naviLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        naviLabel.text = Labels.MyFlights
+        naviLabel.textColor = UIColor.white
+        
+        naviBar.addSubview(naviLabel)
+        naviBar.addConstraints(format: "V:[v0(20)]-10-|", views: naviLabel)
+        naviLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func setupLogin() {
