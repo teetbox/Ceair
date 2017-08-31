@@ -16,8 +16,12 @@ class AppCoordinator: Coordinator {
         self.window = window
     }
     
+    deinit {
+        print("Deinit AppCoordinator")
+    }
+    
     func start() {
-        if LaunchUtility.isFirstLaunch {
+        if !LaunchUtility.isFirstLaunch {
             showLogin()
         } else {
             showTabBar()
@@ -29,7 +33,8 @@ class AppCoordinator: Coordinator {
     }
     
     private func showTabBar() {
-        
+        let tabBarCoordinator = TabBarCoordinator(window: window)
+        tabBarCoordinator.start()
     }
     
 }

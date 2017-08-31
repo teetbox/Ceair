@@ -9,6 +9,8 @@
 import UIKit
 
 class FlightTabViewController: UIViewController {
+    
+    var viewModel: FlightTabViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
