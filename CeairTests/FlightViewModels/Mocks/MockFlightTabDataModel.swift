@@ -9,6 +9,12 @@
 import Foundation
 @testable import Ceair
 
-struct MockFlightTabDataModel: FlightTabDataModelProtocol {
+class MockFlightTabDataModel: FlightTabDataModelProtocol {
+    
+    var isPerformLoginCalled = false
+    
+    func performLogin(user: String, pwd: String) {
+        isPerformLoginCalled = true
+    }
     
 }

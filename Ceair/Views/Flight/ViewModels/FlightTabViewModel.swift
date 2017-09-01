@@ -16,4 +16,8 @@ class FlightTabViewModel {
         self.dataModel = dataModel
     }
     
+    func login(user: String, pwd: String) {
+        dataModel.performLogin(user: user, pwd: pwd)
+    }
+    
 }

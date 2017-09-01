@@ -8,8 +8,14 @@
 
 import Foundation
 
-protocol FlightTabDataModelProtocol {}
+protocol FlightTabDataModelProtocol {
+    func performLogin(user: String, pwd: String)
+}
 
 struct FlightTabDateModel: FlightTabDataModelProtocol {
+    
+    func performLogin(user: String, pwd: String) {
+        
+    }
     
 }

@@ -25,8 +25,13 @@ class FlightTabViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testLogin() {
+        let user = "623010648025"
+        let pwd = "12345678"
+        
+        viewModel.login(user: user, pwd: pwd)
 
+        XCTAssertTrue(dataModel.isPerformLoginCalled)
     }
     
 }
