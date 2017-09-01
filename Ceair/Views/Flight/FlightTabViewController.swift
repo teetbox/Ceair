@@ -11,6 +11,8 @@ import UIKit
 class FlightTabViewController: UIViewController {
     
     var viewModel: FlightTabViewModel!
+    
+    var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +20,7 @@ class FlightTabViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         setupUI()
-        setupLogin()
+//        setupLogin()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +43,7 @@ class FlightTabViewController: UIViewController {
         view.addSubview(backgroundImageView)
         
         setupNaviBar()
+        setupFlightsTable()
     }
     
     private func setupNaviBar() {
@@ -60,6 +63,17 @@ class FlightTabViewController: UIViewController {
         naviLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
+    private func setupFlightsTable() {
+        tableView = UITableView()
+        tableView.frame = CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64 - 40)
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(FlightTabFlightTVC.self, forCellReuseIdentifier: Identifiers.Cell.TVC)
+        
+        view.addSubview(tableView)
+    }
+    
     private func setupLogin() {
         let loginButton = UIButton()
         loginButton.setTitle(Labels.Login, for: .normal)
@@ -76,7 +90,41 @@ class FlightTabViewController: UIViewController {
     
 }
 
+// MARK: - TableView DataSource & Delegate
 
+extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    // MARK: DataSource
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.Cell.TVC, for: indexPath) as! FlightTabFlightTVC
+        cell.backgroundColor = UIColor.red
+        return cell
+    }
+    
+    // MARK: Delegate
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 10
+    }
+    
+}
 
 
 
