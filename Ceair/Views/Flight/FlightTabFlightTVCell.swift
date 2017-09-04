@@ -1,5 +1,5 @@
 //
-//  FlightTabFlightTVC.swift
+//  FlightTabFlightTVCell.swift
 //  Ceair
 //
 //  Created by Tong Tian on 9/1/17.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class FlightTabFlightTVC: BaseTVC {
+class FlightTabFlightTVCell: BaseTVCell {
     
     override func setupViews() {
-        
+        backgroundColor = UIColor(white: 1, alpha: 0.2)
     }
     
 }

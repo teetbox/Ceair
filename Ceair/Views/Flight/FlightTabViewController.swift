@@ -58,8 +58,16 @@ class FlightTabViewController: UIViewController {
         naviLabel.text = Labels.MyFlights
         naviLabel.textColor = UIColor.white
         
+        let historyLabel = UILabel()
+        historyLabel.font = UIFont.systemFont(ofSize: 14)
+        historyLabel.text = Labels.History
+        historyLabel.textColor = UIColor.white
+        
         naviBar.addSubview(naviLabel)
+        naviBar.addSubview(historyLabel)
         naviBar.addConstraints(format: "V:[v0(20)]-10-|", views: naviLabel)
+        naviBar.addConstraints(format: "V:[v0(20)]-10-|", views: historyLabel)
+        naviBar.addConstraints(format: "H:[v0]-10-|", views: historyLabel)
         naviLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
@@ -68,8 +76,10 @@ class FlightTabViewController: UIViewController {
         tableView.frame = CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64 - 40)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.backgroundColor = UIColor.clear
+        tableView.separatorStyle = .none
         
-        tableView.register(FlightTabFlightTVC.self, forCellReuseIdentifier: Identifiers.Cell.TVC)
+        tableView.register(FlightTabFlightTVCell.self, forCellReuseIdentifier: Identifiers.Cell.TVC)
         
         view.addSubview(tableView)
     }
@@ -97,7 +107,7 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: DataSource
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,23 +115,46 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.Cell.TVC, for: indexPath) as! FlightTabFlightTVC
-        cell.backgroundColor = UIColor.red
+        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.Cell.TVC, for: indexPath) as! FlightTabFlightTVCell
+        
         return cell
     }
     
     // MARK: Delegate
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+        headerView.backgroundColor = UIColor(white: 1, alpha: 0.4)
+        
+        let departureLabel = UILabel()
+        departureLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        departureLabel.textColor = UIColor.white
+        
+        let arrivalLabel = UILabel()
+        arrivalLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        departureLabel.textColor = UIColor.white
+        
+        let dashLineImageView = UIImageView()
+        dashLineImageView.image = UIImage(named: Images.DashLine)
+        
+        headerView.addSubview(departureLabel)
+        headerView.addSubview(dashLineImageView)
+        headerView.addSubview(arrivalLabel)
+        
+        let flight = viewModel.getFlight(at: section)
+        let cellViewModel = FlightTabFlightTVCellViewModel(flight: flight)
+        departureLabel.text = cellViewModel.departureCity
+        departureLabel.text = cellViewModel.arrivalCity
+        
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return 40
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 10
+        return 160
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  FlightTabFlightCVC.swift
+//  FlightTabFlightCVCell.swift
 //  Ceair
 //
 //  Created by Tong Tian on 9/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlightTabFlightCVC: BaseCVC {
+class FlightTabFlightCVCell: BaseCVCell {
     
     override func setupViews() {
         

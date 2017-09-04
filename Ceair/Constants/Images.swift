@@ -15,4 +15,6 @@ struct Images {
     static let My = "My"
     
     static let FlightBackground = "FlightBackground"
+    
+    static let DashLine = "DashLine"
 }

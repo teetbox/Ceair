@@ -12,8 +12,18 @@ class FlightTabViewModel {
     
     let dataModel: FlightTabDataModelProtocol
     
+    var flights = [Flight]()
+    
     init(dataModel: FlightTabDataModelProtocol) {
         self.dataModel = dataModel
+    }
+    
+    func getFlight(at index: Int) -> Flight? {
+        guard index < flights.count else {
+            return nil
+        }
+        
+        return flights[index]
     }
     
     func login(user: String, pwd: String) {

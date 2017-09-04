@@ -1,5 +1,5 @@
 //
-//  BaseTVC.swift
+//  BaseCVCell.swift
 //  Ceair
 //
 //  Created by Tong Tian on 9/1/17.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BaseTVC: UITableViewCell {
+class BaseCVCell: UICollectionViewCell {
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setupViews()
         print(#function)
