@@ -17,4 +17,6 @@ struct Images {
     static let FlightBackground = "FlightBackground"
     
     static let DashLine = "DashLine"
+    static let Airport = "Airport"
+    static let Date = "Date"
 }

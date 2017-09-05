@@ -127,8 +127,6 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
-        headerView.backgroundColor = UIColor(white: 1, alpha: 0.4)
-        
         let labelWidth = view.frame.width - (view.frame.width / 2 + 20)
         
         let departureLabel = UILabel()
@@ -151,7 +149,6 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
         headerView.addConstraints(format: "H:|[v0(\(labelWidth))]-10-[v1(20)]-10-[v2(\(labelWidth))]|", views: departureLabel, dashLineImageView, arrivalLabel)
         headerView.addConstraints(format: "V:|[v0(40)]|", views: departureLabel)
         headerView.addConstraints(format: "V:|[v0(40)]|", views: arrivalLabel)
-        
         dashLineImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         
         let flight = viewModel.getFlight(at: section)
@@ -167,7 +164,7 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 170
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -175,19 +172,3 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
