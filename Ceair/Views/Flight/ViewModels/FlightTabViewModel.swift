@@ -18,11 +18,18 @@ class FlightTabViewModel {
         self.dataModel = dataModel
     }
     
+    func loadFlights(completionHandler: @escaping () -> Void) {
+        dataModel.performQueryFlights { (flights) in
+            self.flights = flights
+
+            completionHandler()
+        }
+    }
+    
     func getFlight(at index: Int) -> Flight? {
         guard index < flights.count else {
             return nil
         }
-        
         return flights[index]
     }
     

@@ -34,4 +34,10 @@ class FlightTabViewModelTests: XCTestCase {
         XCTAssertTrue(dataModel.isPerformLoginCalled)
     }
     
+    func testLoadFlights() {
+        viewModel.loadFlights(completionHandler: {})
+        
+        XCTAssertTrue(dataModel.isPerformQueryFlightsCalled)
+    }
+    
 }

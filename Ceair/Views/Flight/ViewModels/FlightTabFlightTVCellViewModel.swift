@@ -9,14 +9,13 @@
 import Foundation
 
 class FlightTabFlightTVCellViewModel {
-    
-    var flight: Flight?
-    
-    init(flight: Flight?) {
-        self.flight = flight
-    }
-    
+
     var departureCity: String?
     var arrivalCity: String?
     
+    init(flight: Flight?) {
+        self.departureCity = flight?.dCityName
+        self.arrivalCity = flight?.aCityName
+    }
+
 }

@@ -13,8 +13,8 @@ class BaseTVCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        selectionStyle = .none
         setupViews()
-        print(#function)
     }
     
     func setupViews() {}

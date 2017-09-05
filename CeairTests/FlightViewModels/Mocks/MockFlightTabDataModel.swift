@@ -12,9 +12,14 @@ import Foundation
 class MockFlightTabDataModel: FlightTabDataModelProtocol {
     
     var isPerformLoginCalled = false
+    var isPerformQueryFlightsCalled = false
     
     func performLogin(user: String, pwd: String) {
         isPerformLoginCalled = true
+    }
+    
+    func performQueryFlights(completionHandler: @escaping ([Flight]) -> Void) {
+        isPerformQueryFlightsCalled = true
     }
     
 }

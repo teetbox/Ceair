@@ -9,17 +9,17 @@
 import Foundation
 
 struct Flight: Codable {
-    let flightNo: String
-    let dCityName: String
-    let dPort: String
-    let departureTime: String
-    let aCityName: String
-    let aPort: String
-    let arrivalTime: String
-    let duration: String
-    let crossDay: String
-    let dAirportName: String
-    let aAirportName: String
-    let equipment: String
-    let trnInfo: String
+    let flightNo: String?
+    let dCityName: String?
+    let dPort: String?
+    let departureTime: String?
+    let aCityName: String?
+    let aPort: String?
+    let arrivalTime: String?
+    let duration: String?
+    let crossDay: String?
+    let dAirportName: String?
+    let aAirportName: String?
+    let equipment: String?
+    let trnInfo: String?
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */; };
+		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
 		C9171AF81F5630DA00D9BE66 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* Images.swift */; };
 		C9171AFA1F56317500D9BE66 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF91F56317500D9BE66 /* Colors.swift */; };
@@ -51,6 +52,7 @@
 
 /* Begin PBXFileReference section */
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
+		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
 		C9171AF71F5630DA00D9BE66 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		C9171AF91F56317500D9BE66 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */,
+				C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */,
 				C9E927181F58CEC000BC5183 /* Mocks */,
 			);
 			path = FlightViewModels;
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,

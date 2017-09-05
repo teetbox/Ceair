@@ -20,7 +20,10 @@ class FlightTabViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         setupUI()
-//        setupLogin()
+
+        viewModel.loadFlights {
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -126,25 +129,33 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
         headerView.backgroundColor = UIColor(white: 1, alpha: 0.4)
         
-        let departureLabel = UILabel()
-        departureLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        departureLabel.textColor = UIColor.white
+        let labelWidth = view.frame.width - (view.frame.width / 2 + 20)
         
-        let arrivalLabel = UILabel()
-        arrivalLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        let departureLabel = UILabel(frame: CGRect(x: 0, y: 0, width: labelWidth, height: 40))
+        departureLabel.font = UIFont.boldSystemFont(ofSize: 18)
         departureLabel.textColor = UIColor.white
+        departureLabel.textAlignment = .right
+        
+        let arrivalLabel = UILabel(frame: CGRect(x: view.frame.width / 2 + 20, y: 0, width: labelWidth, height: 40))
+        arrivalLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        arrivalLabel.textColor = UIColor.white
+        arrivalLabel.textAlignment = .left
         
         let dashLineImageView = UIImageView()
+        dashLineImageView.frame = CGRect(x: view.frame.width / 2 - 10, y: 20, width: 20, height: 2)
         dashLineImageView.image = UIImage(named: Images.DashLine)
         
-        headerView.addSubview(departureLabel)
         headerView.addSubview(dashLineImageView)
+        headerView.addSubview(departureLabel)
         headerView.addSubview(arrivalLabel)
+        
+//        headerView.addConstraints(format: "H:|-10-[v0(\(labelWidth))]", views: arrivalLabel)
+//        headerView.addConstraints(format: "V:|[v0(40)]|", views: arrivalLabel)
         
         let flight = viewModel.getFlight(at: section)
         let cellViewModel = FlightTabFlightTVCellViewModel(flight: flight)
         departureLabel.text = cellViewModel.departureCity
-        departureLabel.text = cellViewModel.arrivalCity
+        arrivalLabel.text = cellViewModel.arrivalCity
         
         return headerView
     }
@@ -155,6 +166,10 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
     }
     
 }
