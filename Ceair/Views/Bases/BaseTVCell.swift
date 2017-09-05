@@ -19,6 +19,8 @@ class BaseTVCell: UITableViewCell {
     
     func setupViews() {}
     
+    func config() {}
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

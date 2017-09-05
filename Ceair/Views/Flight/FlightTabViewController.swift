@@ -75,8 +75,8 @@ class FlightTabViewController: UIViewController {
     }
     
     private func setupFlightsTable() {
-        tableView = UITableView()
-        tableView.frame = CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64 - 40)
+        let frame = CGRect(x: 0, y: 64, width: view.frame.width, height: view.frame.height - 64 - 40)
+        tableView = UITableView(frame: frame, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = UIColor.clear
@@ -119,6 +119,10 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.Cell.TVC, for: indexPath) as! FlightTabFlightTVCell
+        
+        let flight = viewModel.getFlight(at: indexPath.section)
+        cell.viewModel = FlightTabFlightTVCellViewModel(flight: flight)
+        cell.config()
         
         return cell
     }
@@ -164,7 +168,7 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170
+        return 160
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

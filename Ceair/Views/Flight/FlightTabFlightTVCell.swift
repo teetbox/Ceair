@@ -10,6 +10,8 @@ import UIKit
 
 class FlightTabFlightTVCell: BaseTVCell {
     
+    var viewModel: FlightTabFlightTVCellViewModel!
+    
     let airportImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: Images.Airport)
@@ -26,13 +28,13 @@ class FlightTabFlightTVCell: BaseTVCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.white
-        label.text = "2018-08-08"
+        label.text = "2018-08-08, Fri"
         return label
     }()
     
     let ticketView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 1.0, alpha: 0.2)
+        view.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
         return view
     }()
     
@@ -51,6 +53,21 @@ class FlightTabFlightTVCell: BaseTVCell {
         dateImageView.centerYAnchor.constraint(equalTo: airportImageView.centerYAnchor).isActive = true
         dateLabel.centerYAnchor.constraint(equalTo: airportImageView.centerYAnchor).isActive = true
         
+        setupTicketView()
     }
 
+    private func setupTicketView() { // 12*10.5 74*7
+        let logoImageView = UIImageView()
+        logoImageView.image = UIImage(named: Images.Logo)
+        
+        ticketView.addSubview(logoImageView)
+        
+        ticketView.addConstraints(format: "H:|-10-[v0(12)]", views: logoImageView)
+        ticketView.addConstraints(format: "V:|-10-[v0(10.5)]", views: logoImageView)
+    }
+    
+    override func config() {
+        
+    }
+    
 }

@@ -17,7 +17,11 @@ class FlightTabFlightTVCellViewModelTests: XCTestCase {
         flight = Flight(flightNo: "MU2453", dCityName: "XIAN", dPort: "XIY", departureTime: "2017-09-11 07:10", aCityName: "SHANGHAI", aPort: "SHA", arrivalTime: "2017-09-11 11:45", duration: "245/245", crossDay: "0", dAirportName: "Xi an Xianyang Airport", aAirportName: "SHANGHAI HONGQIAO APT", equipment: "320", trnInfo: nil)
     }
     
-    func testCellInit() {
+    func testInit() {
+        XCTAssertNotNil(flight)
+    }
+    
+    func testConfigCell() {
         XCTAssertEqual(flight?.flightNo, "MU2453")
         XCTAssertEqual(flight?.dCityName, "XIAN")
         XCTAssertEqual(flight?.dPort, "XIY")
