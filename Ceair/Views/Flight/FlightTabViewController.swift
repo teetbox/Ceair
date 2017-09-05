@@ -131,26 +131,28 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
         
         let labelWidth = view.frame.width - (view.frame.width / 2 + 20)
         
-        let departureLabel = UILabel(frame: CGRect(x: 0, y: 0, width: labelWidth, height: 40))
+        let departureLabel = UILabel()
         departureLabel.font = UIFont.boldSystemFont(ofSize: 18)
         departureLabel.textColor = UIColor.white
         departureLabel.textAlignment = .right
         
-        let arrivalLabel = UILabel(frame: CGRect(x: view.frame.width / 2 + 20, y: 0, width: labelWidth, height: 40))
+        let arrivalLabel = UILabel()
         arrivalLabel.font = UIFont.boldSystemFont(ofSize: 18)
         arrivalLabel.textColor = UIColor.white
         arrivalLabel.textAlignment = .left
         
         let dashLineImageView = UIImageView()
-        dashLineImageView.frame = CGRect(x: view.frame.width / 2 - 10, y: 20, width: 20, height: 2)
         dashLineImageView.image = UIImage(named: Images.DashLine)
         
         headerView.addSubview(dashLineImageView)
         headerView.addSubview(departureLabel)
         headerView.addSubview(arrivalLabel)
         
-//        headerView.addConstraints(format: "H:|-10-[v0(\(labelWidth))]", views: arrivalLabel)
-//        headerView.addConstraints(format: "V:|[v0(40)]|", views: arrivalLabel)
+        headerView.addConstraints(format: "H:|[v0(\(labelWidth))]-10-[v1(20)]-10-[v2(\(labelWidth))]|", views: departureLabel, dashLineImageView, arrivalLabel)
+        headerView.addConstraints(format: "V:|[v0(40)]|", views: departureLabel)
+        headerView.addConstraints(format: "V:|[v0(40)]|", views: arrivalLabel)
+        
+        dashLineImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         
         let flight = viewModel.getFlight(at: section)
         let cellViewModel = FlightTabFlightTVCellViewModel(flight: flight)
