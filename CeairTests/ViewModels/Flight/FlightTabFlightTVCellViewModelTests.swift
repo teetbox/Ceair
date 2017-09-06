@@ -40,16 +40,16 @@ class FlightTabFlightTVCellViewModelTests: XCTestCase {
         viewModel.configCell {}
         
         XCTAssertEqual(viewModel.flightNo, "MU2453")
-        XCTAssertEqual(viewModel.flightDate, "2017-09-11, Mon")
+        XCTAssertEqual(viewModel.flightDate, "2017-09-11, Monday")
         XCTAssertEqual(viewModel.flightEquipment, "320")
         XCTAssertEqual(viewModel.departureCity, "XIAN")
         XCTAssertEqual(viewModel.departureAirport, "Xi an Xianyang Airport")
         XCTAssertEqual(viewModel.departureAirportCode, "XIY")
-        XCTAssertEqual(viewModel.departureTime, "07:10")
+        XCTAssertEqual(viewModel.departureTime, "16:00")
         XCTAssertEqual(viewModel.arrivalCity, "SHANGHAI")
         XCTAssertEqual(viewModel.arrivalAirport, "SHANGHAI HONGQIAO APT")
         XCTAssertEqual(viewModel.arrivalAirportCode, "SHA")
-        XCTAssertEqual(viewModel.arrivalTime, "11:45")
+        XCTAssertEqual(viewModel.arrivalTime, "18:20")
         XCTAssertEqual(viewModel.flyTime, "2H 20M")
     }
     

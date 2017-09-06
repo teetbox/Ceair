@@ -25,7 +25,7 @@ struct DateUtility {
         return dateFormatter.date(from: dateString)
     }
     
-    static func getWeekDay(from date: Date?) -> String? {
+    static func getWeekday(from date: Date?) -> String? {
         guard let date = date else { return nil }
         
         /* Using DateComponments
@@ -39,7 +39,7 @@ struct DateUtility {
         return dateFormatter.string(from: date)
     }
     
-    static func getDurationHours(start: String?, end: String?, format: DateStringFormat) -> String? {
+    static func getDurationHourAndMinute(start: String?, end: String?, format: DateStringFormat) -> (hour: Int, minute: Int)? {
         guard let startString = start, let endString = end else { return nil }
         
         let dateFormatter = DateFormatter()
@@ -50,7 +50,7 @@ struct DateUtility {
             let dateComponents = Calendar.current.dateComponents([.hour, .minute], from: startDate, to: endDate)
             
             if let hour = dateComponents.hour, let minute = dateComponents.minute {
-                return "\(hour)H \(minute)M"
+                return (hour, minute)
             }
         }
         

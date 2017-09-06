@@ -192,8 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				C922E5571F5F75C400689AE7 /* ViewModels */,
-				C922E55B1F5F791500689AE7 /* Networks */,
 				C922E5581F5F75DD00689AE7 /* Utilities */,
+				C922E55B1F5F791500689AE7 /* Networks */,
 				C92BDF1A1F54E00800284B44 /* CeairTests.swift */,
 				C92BDF1C1F54E00800284B44 /* Info.plist */,
 			);

@@ -42,7 +42,7 @@ class FlightTabFlightTVCellViewModel {
             flightDate = dateString
             
             let date = DateUtility.getDate(from: dateString, format: .YMD)
-            if let weekDay = DateUtility.getWeekDay(from: date) {
+            if let weekDay = DateUtility.getWeekday(from: date) {
                 flightDate?.append(", \(weekDay)")
             }
         
@@ -59,7 +59,11 @@ class FlightTabFlightTVCellViewModel {
             arrivalTime = dateString
         }
         
-        flyTime = DateUtility.getDurationHours(start: flight?.departureTime, end: flight?.arrivalTime, format: .YMDHM)
+        let durationTime: (hour: Int, minute: Int)?
+        durationTime = DateUtility.getDurationHourAndMinute(start: flight?.departureTime, end: flight?.arrivalTime, format: .YMDHM)
+        if durationTime != nil {
+            flyTime = "\(durationTime!.hour)H \(durationTime!.minute)M"
+        }
         
         completionHandler()
     }
