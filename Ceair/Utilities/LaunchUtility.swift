@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LaunchUtility {
+struct LaunchUtility {
     
     static let isFirstLaunch = !UserDefaults.standard.bool(forKey: Defaults.IsFirstLaunch)
     

@@ -67,7 +67,9 @@ class FlightTabFlightTVCell: BaseTVCell {
     }
     
     override func config() {
-        
+        viewModel.configCell {
+            dateLabel.text = viewModel.flightDate
+        }
     }
     
 }

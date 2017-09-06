@@ -13,6 +13,8 @@
 		C9171AF81F5630DA00D9BE66 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* Images.swift */; };
 		C9171AFA1F56317500D9BE66 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF91F56317500D9BE66 /* Colors.swift */; };
 		C9171AFC1F5631D900D9BE66 /* TabBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AFB1F5631D900D9BE66 /* TabBars.swift */; };
+		C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5551F5F747400689AE7 /* DateUtility.swift */; };
+		C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5591F5F761100689AE7 /* DateUtilityTests.swift */; };
 		C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF051F54E00800284B44 /* AppDelegate.swift */; };
 		C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0C1F54E00800284B44 /* Assets.xcassets */; };
 		C92BDF101F54E00800284B44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */; };
@@ -56,6 +58,8 @@
 		C9171AF71F5630DA00D9BE66 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		C9171AF91F56317500D9BE66 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C9171AFB1F5631D900D9BE66 /* TabBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBars.swift; sourceTree = "<group>"; };
+		C922E5551F5F747400689AE7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
+		C922E5591F5F761100689AE7 /* DateUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilityTests.swift; sourceTree = "<group>"; };
 		C92BDF021F54E00800284B44 /* Ceair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ceair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92BDF051F54E00800284B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C92BDF0C1F54E00800284B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,10 +122,42 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		C922E5571F5F75C400689AE7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C9E927171F58CE9800BC5183 /* Flight */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C922E5581F5F75DD00689AE7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C922E5591F5F761100689AE7 /* DateUtilityTests.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C922E55B1F5F791500689AE7 /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				C922E55C1F5F793C00689AE7 /* Aintx */,
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
+		C922E55C1F5F793C00689AE7 /* Aintx */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Aintx;
+			sourceTree = "<group>";
+		};
 		C92BDEF91F54E00800284B44 = {
 			isa = PBXGroup;
 			children = (
 				C92BDF041F54E00800284B44 /* Ceair */,
+				C92BDF111F54E00800284B44 /* Info.plist */,
 				C92BDF191F54E00800284B44 /* CeairTests */,
 				C92BDF031F54E00800284B44 /* Products */,
 			);
@@ -148,7 +184,6 @@
 				C98C76221F57DE4E007EB4E2 /* Utilities */,
 				C9171AF61F56308300D9BE66 /* Constants */,
 				C92BDF251F54E04100284B44 /* Supporting Files */,
-				C92BDF111F54E00800284B44 /* Info.plist */,
 			);
 			path = Ceair;
 			sourceTree = "<group>";
@@ -156,7 +191,9 @@
 		C92BDF191F54E00800284B44 /* CeairTests */ = {
 			isa = PBXGroup;
 			children = (
-				C9E927171F58CE9800BC5183 /* FlightViewModels */,
+				C922E5571F5F75C400689AE7 /* ViewModels */,
+				C922E55B1F5F791500689AE7 /* Networks */,
+				C922E5581F5F75DD00689AE7 /* Utilities */,
 				C92BDF1A1F54E00800284B44 /* CeairTests.swift */,
 				C92BDF1C1F54E00800284B44 /* Info.plist */,
 			);
@@ -230,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */,
+				C922E5551F5F747400689AE7 /* DateUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -268,14 +306,14 @@
 			path = DataModels;
 			sourceTree = "<group>";
 		};
-		C9E927171F58CE9800BC5183 /* FlightViewModels */ = {
+		C9E927171F58CE9800BC5183 /* Flight */ = {
 			isa = PBXGroup;
 			children = (
 				C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */,
 				C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */,
 				C9E927181F58CEC000BC5183 /* Mocks */,
 			);
-			path = FlightViewModels;
+			path = Flight;
 			sourceTree = "<group>";
 		};
 		C9E927181F58CEC000BC5183 /* Mocks */ = {
@@ -421,6 +459,7 @@
 				C99A97DE1F5950C500318E83 /* Identifiers.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
+				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,
 				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
@@ -440,6 +479,7 @@
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
+				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
