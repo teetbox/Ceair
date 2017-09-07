@@ -22,6 +22,7 @@
 		C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF1A1F54E00800284B44 /* CeairTests.swift */; };
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
+		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
 		C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C761E1F57DD97007EB4E2 /* Coordinator.swift */; };
 		C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */; };
@@ -72,6 +73,7 @@
 		C92BDF1C1F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
+		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C973BBDF1F59547500391516 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
 		C98C761E1F57DD97007EB4E2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */,
 				C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */,
 				C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */,
+				C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* Defaults.swift in Sources */,
 				C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */,
+				C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */,
 				C9FCBAC21F577EFE00B6788A /* URLs.swift in Sources */,
 				C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */,
 				C9EB9DE71F57E83000A39AB0 /* FlightTabViewModel.swift in Sources */,

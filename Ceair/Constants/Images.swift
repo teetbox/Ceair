@@ -21,4 +21,5 @@ struct Images {
     static let Date = "Date"
     static let Logo = "Logo"
     static let TimeLine = "TimeLine"
+    static let CheckInTime = "CheckInTime"
 }

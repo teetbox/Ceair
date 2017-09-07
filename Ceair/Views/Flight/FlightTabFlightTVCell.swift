@@ -46,7 +46,7 @@ class FlightTabFlightTVCell: BaseTVCell {
         addSubview(ticketView)
         
         addConstraints(format: "H:|-10-[v0(23)]-7-[v1(13)]-[v2]", views: airportImageView, dateImageView, flightDateLabel)
-        addConstraints(format: "V:|[v0(26)][v1(134)]", views: airportImageView, ticketView)
+        addConstraints(format: "V:|[v0(26)][v1(164)]", views: airportImageView, ticketView)
         addConstraints(format: "H:|-10-[v0]-10-|", views: ticketView)
         addConstraints(format: "V:[v0(11)]", views: dateImageView)
         dateImageView.centerYAnchor.constraint(equalTo: airportImageView.centerYAnchor).isActive = true
@@ -88,7 +88,7 @@ class FlightTabFlightTVCell: BaseTVCell {
     let departureAirportLabel: TopAlignLabel = {
         let label = TopAlignLabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.darkGray
         label.textAlignment = .left
         label.numberOfLines = 0
         return label
@@ -97,9 +97,25 @@ class FlightTabFlightTVCell: BaseTVCell {
     let arrivalAirportLabel: TopAlignLabel = {
         let label = TopAlignLabel()
         label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = UIColor.black
+        label.textColor = UIColor.darkGray
         label.textAlignment = .right
         label.numberOfLines = 0
+        return label
+    }()
+    
+    let departureTime: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = UIColor.darkGray
+        label.textAlignment = .left
+        return label
+    }()
+    
+    let arrivalTime: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = UIColor.darkGray
+        label.textAlignment = .right
         return label
     }()
 
@@ -110,6 +126,16 @@ class FlightTabFlightTVCell: BaseTVCell {
         let timeLineImageView = UIImageView()
         timeLineImageView.image = UIImage(named: Images.TimeLine)
         
+        let separateLineView = UIView()
+        separateLineView.backgroundColor = UIColor.lightGray
+        
+        let checkInTimeButton = UIButton()
+        checkInTimeButton.setTitle(Labels.CheckInTime, for: .normal)
+        checkInTimeButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        checkInTimeButton.setTitleColor(UIColor.gray, for: .normal)
+        checkInTimeButton.setImage(UIImage(named: Images.CheckInTime), for: .normal)
+        checkInTimeButton.centerImageAndTitle(with: 5)
+        
         ticketView.addSubview(logoImageView)
         ticketView.addSubview(flightNoLabel)
         ticketView.addSubview(departureAirportCodeLabel)
@@ -118,9 +144,13 @@ class FlightTabFlightTVCell: BaseTVCell {
         ticketView.addSubview(flyTimeLabel)
         ticketView.addSubview(departureAirportLabel)
         ticketView.addSubview(arrivalAirportLabel)
+        ticketView.addSubview(departureTime)
+        ticketView.addSubview(arrivalTime)
+        ticketView.addSubview(separateLineView)
+        ticketView.addSubview(checkInTimeButton)
         
         ticketView.addConstraints(format: "H:|-12-[v0(13)]-5-[v1]", views: logoImageView, flightNoLabel)
-        ticketView.addConstraints(format: "V:|-10-[v0(11)]-10-[v1(12)]-2-[v2(7)]-15-[v3(30)]", views: logoImageView, flyTimeLabel, timeLineImageView, departureAirportLabel)
+        ticketView.addConstraints(format: "V:|-10-[v0(11)]-10-[v1(12)]-2-[v2(7)]-15-[v3(30)]-3-[v4(15)]-10-[v5(0.5)]-4-[v6(30)]", views: logoImageView, flyTimeLabel, timeLineImageView, departureAirportLabel, departureTime, separateLineView, checkInTimeButton)
         flightNoLabel.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor).isActive = true
         flyTimeLabel.centerXAnchor.constraint(equalTo: ticketView.centerXAnchor).isActive = true
         timeLineImageView.centerXAnchor.constraint(equalTo: ticketView.centerXAnchor).isActive = true
@@ -135,6 +165,14 @@ class FlightTabFlightTVCell: BaseTVCell {
         ticketView.addConstraints(format: "H:|-\(halfWidth)-[v0]-12-|", views: arrivalAirportLabel)
         ticketView.addConstraints(format: "V:[v0(30)]", views: arrivalAirportLabel)
         arrivalAirportLabel.centerYAnchor.constraint(equalTo: departureAirportLabel.centerYAnchor).isActive = true
+        
+        ticketView.addConstraints(format: "H:|-12-[v0]", views: departureTime)
+        ticketView.addConstraints(format: "H:[v0]-12-|", views: arrivalTime)
+        ticketView.addConstraints(format: "V:[v0(15)]", views: arrivalTime)
+        arrivalTime.centerYAnchor.constraint(equalTo: departureTime.centerYAnchor).isActive = true
+        
+        ticketView.addConstraints(format: "H:|[v0]|", views: separateLineView)
+        checkInTimeButton.centerXAnchor.constraint(equalTo: ticketView.centerXAnchor).isActive = true
     }
     
     override func config() {
@@ -146,6 +184,8 @@ class FlightTabFlightTVCell: BaseTVCell {
             flyTimeLabel.text = viewModel.flyTime
             departureAirportLabel.text = viewModel.departureAirport
             arrivalAirportLabel.text = viewModel.arrivalAirport
+            departureTime.text = viewModel.departureTime
+            arrivalTime.text = viewModel.arrivalTime
         }
     }
     

@@ -12,4 +12,5 @@ struct Labels {
     static let Login = "Login"
     static let MyFlights = "My Flights"
     static let History = "History"
+    static let CheckInTime = "Check-in Time"
 }
