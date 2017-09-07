@@ -22,14 +22,13 @@ class FlightTabFlightTVCellViewModelTests: XCTestCase {
     
     func testInit() {
         XCTAssertNotNil(viewModel.flight)
+        XCTAssertEqual(viewModel.departureCity, "XIAN")
+        XCTAssertEqual(viewModel.arrivalCity, "SHANGHAI")
         XCTAssertNil(viewModel.flightNo)
         XCTAssertNil(viewModel.flightDate)
-        XCTAssertNil(viewModel.flightEquipment)
-        XCTAssertNil(viewModel.departureCity)
         XCTAssertNil(viewModel.departureAirport)
         XCTAssertNil(viewModel.departureAirportCode)
         XCTAssertNil(viewModel.departureTime)
-        XCTAssertNil(viewModel.arrivalCity)
         XCTAssertNil(viewModel.arrivalAirport)
         XCTAssertNil(viewModel.arrivalAirportCode)
         XCTAssertNil(viewModel.arrivalTime)
@@ -39,9 +38,8 @@ class FlightTabFlightTVCellViewModelTests: XCTestCase {
     func testConfigCell() {
         viewModel.configCell {}
         
-        XCTAssertEqual(viewModel.flightNo, "MU2453")
+        XCTAssertEqual(viewModel.flightNo, "MU2453 | 320")
         XCTAssertEqual(viewModel.flightDate, "2017-09-11, Monday")
-        XCTAssertEqual(viewModel.flightEquipment, "320")
         XCTAssertEqual(viewModel.departureCity, "XIAN")
         XCTAssertEqual(viewModel.departureAirport, "Xi an Xianyang Airport")
         XCTAssertEqual(viewModel.departureAirportCode, "XIY")

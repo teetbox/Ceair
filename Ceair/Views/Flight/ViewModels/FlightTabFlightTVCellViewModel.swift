@@ -14,7 +14,6 @@ class FlightTabFlightTVCellViewModel {
     
     var flightNo: String?
     var flightDate: String?
-    var flightEquipment: String?
     var departureCity: String?
     var departureAirport: String?
     var departureAirportCode: String?
@@ -27,13 +26,15 @@ class FlightTabFlightTVCellViewModel {
     
     init(flight: Flight?) {
         self.flight = flight
+        self.departureCity = flight?.dCityName
+        self.arrivalCity = flight?.aCityName
     }
     
     func configCell(completionHandler: () -> Void) {
-        flightNo = flight?.flightNo
-        flightEquipment = flight?.equipment
+        if let _flightNo = flight?.flightNo, let _flightEquipment = flight?.equipment {
+            flightNo = _flightNo + " | " + _flightEquipment
+        }
 
-        departureCity = flight?.dCityName
         departureAirport = flight?.dAirportName
         departureAirportCode = flight?.dPort
         
@@ -48,9 +49,7 @@ class FlightTabFlightTVCellViewModel {
         
             departureTime = _departureTime.components(separatedBy: " ").last
         }
-        
-        
-        arrivalCity = flight?.aCityName
+
         arrivalAirport = flight?.aAirportName
         arrivalAirportCode = flight?.aPort
         

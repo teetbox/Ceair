@@ -28,7 +28,6 @@ class FlightTabFlightTVCell: BaseTVCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.white
-        label.text = "2018-08-08, Fri"
         return label
     }()
     
@@ -60,7 +59,6 @@ class FlightTabFlightTVCell: BaseTVCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.gray
-        label.text = "MU2155 | 320"
         return label
     }()
     
@@ -69,7 +67,6 @@ class FlightTabFlightTVCell: BaseTVCell {
         label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textColor = UIColor.fromHEX(string: "#1D3C5F")
         label.textAlignment = .left
-        label.text = "XIA"
         return label
     }()
     
@@ -78,35 +75,31 @@ class FlightTabFlightTVCell: BaseTVCell {
         label.font = UIFont.boldSystemFont(ofSize: 26)
         label.textColor = UIColor.fromHEX(string: "#1D3C5F")
         label.textAlignment = .right
-        label.text = "SHA"
         return label
     }()
     
-    let timeLineLabel: UILabel = {
+    let flyTimeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.gray
-        label.text = "2H 50M"
         return label
     }()
     
-    let departureAirportLabel: UILabel = {
-        let label = UILabel()
+    let departureAirportLabel: TopAlignLabel = {
+        let label = TopAlignLabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.black
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.text = "Xi an Xian Yang"
         return label
     }()
     
-    let arrivalAirportLabel: UILabel = {
-        let label = UILabel()
+    let arrivalAirportLabel: TopAlignLabel = {
+        let label = TopAlignLabel()
         label.font = UIFont.systemFont(ofSize: 12)
         label.textColor = UIColor.black
         label.textAlignment = .right
         label.numberOfLines = 0
-        label.text = "Shang Hai Hong Qiao"
         return label
     }()
 
@@ -122,14 +115,14 @@ class FlightTabFlightTVCell: BaseTVCell {
         ticketView.addSubview(departureAirportCodeLabel)
         ticketView.addSubview(arrivalAirportCodeLabel)
         ticketView.addSubview(timeLineImageView)
-        ticketView.addSubview(timeLineLabel)
+        ticketView.addSubview(flyTimeLabel)
         ticketView.addSubview(departureAirportLabel)
         ticketView.addSubview(arrivalAirportLabel)
         
         ticketView.addConstraints(format: "H:|-12-[v0(13)]-5-[v1]", views: logoImageView, flightNoLabel)
-        ticketView.addConstraints(format: "V:|-10-[v0(11)]-10-[v1(12)]-2-[v2(7)]-10-[v3(30)]", views: logoImageView, timeLineLabel, timeLineImageView, departureAirportLabel)
+        ticketView.addConstraints(format: "V:|-10-[v0(11)]-10-[v1(12)]-2-[v2(7)]-15-[v3(30)]", views: logoImageView, flyTimeLabel, timeLineImageView, departureAirportLabel)
         flightNoLabel.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor).isActive = true
-        timeLineLabel.centerXAnchor.constraint(equalTo: ticketView.centerXAnchor).isActive = true
+        flyTimeLabel.centerXAnchor.constraint(equalTo: ticketView.centerXAnchor).isActive = true
         timeLineImageView.centerXAnchor.constraint(equalTo: ticketView.centerXAnchor).isActive = true
         
         ticketView.addConstraints(format: "H:|-12-[v0]-10-[v1(74)]", views: departureAirportCodeLabel, timeLineImageView)
@@ -137,15 +130,22 @@ class FlightTabFlightTVCell: BaseTVCell {
         departureAirportCodeLabel.centerYAnchor.constraint(equalTo: timeLineImageView.centerYAnchor).isActive = true
         arrivalAirportCodeLabel.centerYAnchor.constraint(equalTo: timeLineImageView.centerYAnchor).isActive = true
         
-        let halfWidth = frame.width / 2 - 10
+        let halfWidth = frame.width / 2
         ticketView.addConstraints(format: "H:|-12-[v0]-\(halfWidth)-|", views: departureAirportLabel)
         ticketView.addConstraints(format: "H:|-\(halfWidth)-[v0]-12-|", views: arrivalAirportLabel)
+        ticketView.addConstraints(format: "V:[v0(30)]", views: arrivalAirportLabel)
         arrivalAirportLabel.centerYAnchor.constraint(equalTo: departureAirportLabel.centerYAnchor).isActive = true
     }
     
     override func config() {
         viewModel.configCell {
             flightDateLabel.text = viewModel.flightDate
+            flightNoLabel.text = viewModel.flightNo
+            departureAirportCodeLabel.text = viewModel.departureAirportCode
+            arrivalAirportCodeLabel.text = viewModel.arrivalAirportCode
+            flyTimeLabel.text = viewModel.flyTime
+            departureAirportLabel.text = viewModel.departureAirport
+            arrivalAirportLabel.text = viewModel.arrivalAirport
         }
     }
     
