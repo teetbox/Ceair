@@ -36,6 +36,7 @@
 		C9EB9DE71F57E83000A39AB0 /* FlightTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB9DE61F57E83000A39AB0 /* FlightTabViewModel.swift */; };
 		C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE0B681F5956C9009AF961 /* BaseTVCell.swift */; };
 		C9EE0B6B1F59575A009AF961 /* FlightTabFlightTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE0B6A1F59575A009AF961 /* FlightTabFlightTVCell.swift */; };
+		C9EE6F101F6128C3009A4268 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9EE6F0F1F6128C2009A4268 /* Info.plist */; };
 		C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBABF1F577D6F00B6788A /* Aintx.swift */; };
 		C9FCBAC21F577EFE00B6788A /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC11F577EFE00B6788A /* URLs.swift */; };
 		C9FCBAC41F57847700B6788A /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC31F57847700B6788A /* Labels.swift */; };
@@ -66,7 +67,6 @@
 		C92BDF051F54E00800284B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C92BDF0C1F54E00800284B44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C92BDF0F1F54E00800284B44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C92BDF111F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92BDF161F54E00800284B44 /* CeairTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CeairTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92BDF1A1F54E00800284B44 /* CeairTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeairTests.swift; sourceTree = "<group>"; };
 		C92BDF1C1F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +86,7 @@
 		C9EB9DE61F57E83000A39AB0 /* FlightTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewModel.swift; sourceTree = "<group>"; };
 		C9EE0B681F5956C9009AF961 /* BaseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTVCell.swift; sourceTree = "<group>"; };
 		C9EE0B6A1F59575A009AF961 /* FlightTabFlightTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCell.swift; sourceTree = "<group>"; };
+		C9EE6F0F1F6128C2009A4268 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9FCBABF1F577D6F00B6788A /* Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aintx.swift; sourceTree = "<group>"; };
 		C9FCBAC11F577EFE00B6788A /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		C9FCBAC31F57847700B6788A /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
@@ -159,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				C92BDF041F54E00800284B44 /* Ceair */,
-				C92BDF111F54E00800284B44 /* Info.plist */,
 				C92BDF191F54E00800284B44 /* CeairTests */,
 				C92BDF031F54E00800284B44 /* Products */,
 			);
@@ -205,6 +205,7 @@
 		C92BDF251F54E04100284B44 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C9EE6F0F1F6128C2009A4268 /* Info.plist */,
 				C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */,
 				C92BDF0C1F54E00800284B44 /* Assets.xcassets */,
 			);
@@ -430,6 +431,7 @@
 			files = (
 				C92BDF101F54E00800284B44 /* LaunchScreen.storyboard in Resources */,
 				C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */,
+				C9EE6F101F6128C3009A4268 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
