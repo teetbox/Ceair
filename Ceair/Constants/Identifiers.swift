@@ -11,10 +11,8 @@ import Foundation
 struct Identifiers {
     
     struct Cell {
-        
         static let TVC = "TableViewCell"
         static let CVC = "CollectionViewCell"
-        
     }
     
 }

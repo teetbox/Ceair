@@ -14,10 +14,11 @@ class BaseCVCell: UICollectionViewCell {
         super.init(frame: frame)
         
         setupViews()
-        print(#function)
     }
     
     func setupViews() {}
+    
+    func config() {}
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
