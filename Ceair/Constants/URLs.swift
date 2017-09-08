@@ -10,9 +10,8 @@ import Foundation
 
 struct URLs {
     
-//    static let SERVER_URL = "https://efbplus.ceair.com:600/portal/"
-//    static let LOGIN_URL = "member/loginWithFFP?loginType=0&password=12345678&username=623010648025&verifyCode"
+    static let Server = "http://172.31.65.187:8080/portal/"
     
-    static let Server = ""
+    static let LoginURL = URLs.Server + "member/loginWithFFP?loginType=0&password=12345678&username=623010648025&verifyCode"
     
 }

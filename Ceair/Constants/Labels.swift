@@ -9,6 +9,7 @@
 import Foundation
 
 struct Labels {
+    static let Aintx = "Aintx"
     static let Login = "Login"
     static let MyFlights = "My Flights"
     static let History = "History"

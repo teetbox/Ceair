@@ -12,9 +12,9 @@ class Aintx {
     
     private static let session = URLSession.shared
     
-    static func performGetRequest(_ url: String, params: NSDictionary, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    static func performGetRequest(_ url: String, params: NSDictionary?, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
-        let requestURL = URL(string: URLs.Server + url)!
+        let requestURL = URL(string: url)!
         let task = session.dataTask(with: requestURL, completionHandler: completionHandler)
         task.resume()
     }
