@@ -1,0 +1,6 @@
+framework module Pods_Ceair {
+  umbrella header "Pods-Ceair-umbrella.h"
+
+  export *
+  module * { export * }
+}
