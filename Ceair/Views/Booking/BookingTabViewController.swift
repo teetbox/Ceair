@@ -56,8 +56,21 @@ class BookingTabViewController: UIViewController {
     }
     
     @objc func startAintx() {
-        Aintx.performGetRequest(URLs.LoginURL, params: nil) { (data, response, error) in
+        let login = URLs.LoginURL
+        Aintx.shared.request(endPoint: login) { (response) in
+            if let error = response.error {
+                print(error.localizedDescription)
+                return
+            }
             
+            if let data = response.data {
+                do {
+                    let user = try JSONDecoder().decode(User.self, from: data)
+                    print(user)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 

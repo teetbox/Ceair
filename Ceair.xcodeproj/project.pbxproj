@@ -30,6 +30,8 @@
 		C98C76261F57DEC6007EB4E2 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76251F57DEC6007EB4E2 /* Defaults.swift */; };
 		C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */; };
 		C99A97DE1F5950C500318E83 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99A97DD1F5950C500318E83 /* Identifiers.swift */; };
+		C9C306651F627F600020A316 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306641F627F600020A316 /* User.swift */; };
+		C9C306671F62809F0020A316 /* Centificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306661F62809F0020A316 /* Centificate.swift */; };
 		C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CF91A21F554F4800F352F0 /* Flight.swift */; };
 		C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */; };
 		C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */; };
@@ -85,6 +87,8 @@
 		C98C76251F57DEC6007EB4E2 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C99A97DD1F5950C500318E83 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		C9C306641F627F600020A316 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C9C306661F62809F0020A316 /* Centificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centificate.swift; sourceTree = "<group>"; };
 		C9CF91A21F554F4800F352F0 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabDataModel.swift; sourceTree = "<group>"; };
 		C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewModelTests.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 		C92BDF271F54E06700284B44 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C9C306631F627F3D0020A316 /* Users */,
 				C9CF91A11F554F2200F352F0 /* Flights */,
 			);
 			path = Models;
@@ -301,6 +306,15 @@
 				C922E5551F5F747400689AE7 /* DateUtility.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C9C306631F627F3D0020A316 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				C9C306641F627F600020A316 /* User.swift */,
+				C9C306661F62809F0020A316 /* Centificate.swift */,
+			);
+			path = Users;
 			sourceTree = "<group>";
 		};
 		C9CF91A01F554F1000F352F0 /* Networks */ = {
@@ -533,6 +547,7 @@
 				C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */,
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,
 				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
+				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
 				C9171AFA1F56317500D9BE66 /* Colors.swift in Sources */,
 				C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* Defaults.swift in Sources */,
@@ -547,6 +562,7 @@
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,
+				C9C306651F627F600020A316 /* User.swift in Sources */,
 				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
 				C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */,
 				C9EE0B6B1F59575A009AF961 /* FlightTabFlightTVCell.swift in Sources */,

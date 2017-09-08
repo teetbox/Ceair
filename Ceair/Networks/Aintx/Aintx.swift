@@ -8,19 +8,69 @@
 
 import Foundation
 
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case delete = "DELETE"
+}
+
+typealias Parameters = [String: Any]
+
 class Aintx {
     
-    private static let session = URLSession.shared
+    static let shared = Aintx()
     
-    static func performGetRequest(_ url: String, params: NSDictionary?, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    private init() {}
+    
+    let session = HTTPSession(session: URLSession.shared)
+    
+    func request(endPoint: String, method: HTTPMethod = .get, parameters: Parameters? = nil, completion: @escaping (HTTPResponse) -> Void) {
         
-        let requestURL = URL(string: url)!
-        let task = session.dataTask(with: requestURL, completionHandler: completionHandler)
+        guard let url = URL(string: endPoint) else {
+            return
+        }
+        
+        performDataRequest(url: url, method: method, completion: completion)
+    }
+    
+    private func performDataRequest(url: URL, method: HTTPMethod, completion: @escaping (HTTPResponse) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        session.performDataTask(with: request, completion: completion)
+    }
+    
+}
+
+class HTTPSession {
+    
+    let session: URLSession
+    
+    init(session: URLSession) {
+        self.session = session
+    }
+    
+    func performDataTask(with request: URLRequest, completion: @escaping (HTTPResponse) -> Void) {
+        let task = session.dataTask(with: request) { (data, response, error) in
+            let httpResponse = HTTPResponse(data: data, response: response, error: error)
+            
+            DispatchQueue.main.async {
+                completion(httpResponse)
+            }
+        }
         task.resume()
     }
+}
+
+struct HTTPResponse {
+    let data: Data?
+    let response: URLResponse?
+    let error: Error?
     
-    static func performPostRequest() {
-        
+    var parameters: Parameters?
+    
+    init(data: Data?, response: URLResponse?, error: Error?) {
+        self.data = data
+        self.response = response
+        self.error = error
     }
-    
 }
