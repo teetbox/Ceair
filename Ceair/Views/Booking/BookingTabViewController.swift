@@ -51,20 +51,13 @@ class BookingTabViewController: UIViewController {
     
     @objc func loginTapped() {
         Alamofire.request(URLs.LoginURL).responseJSON { (response) in
-            let request = String(describing: response.request)
-            print(request)
+        
         }
     }
     
     @objc func startAintx() {
         Aintx.performGetRequest(URLs.LoginURL, params: nil) { (data, response, error) in
-            if let err = error {
-                print(err.localizedDescription)
-            }
             
-            if let _ = data {
-                print("Got data")
-            }
         }
     }
 
