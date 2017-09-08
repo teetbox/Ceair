@@ -19,7 +19,7 @@ class FlightTabViewController: UIViewController {
 
         navigationController?.isNavigationBarHidden = true
         
-        setupUI()
+        setupViews()
 
         viewModel.loadFlights {
             self.tableView.reloadData()
@@ -38,7 +38,7 @@ class FlightTabViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
     }
     
-    private func setupUI() {
+    private func setupViews() {
         let backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         let fligtTabBackgroundImage = UIImage(named: Images.FlightBackground)
         backgroundImageView.image = fligtTabBackgroundImage
