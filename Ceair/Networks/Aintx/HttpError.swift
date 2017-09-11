@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum ATXError: Error {
+enum HttpError: Error {
     
 }
