@@ -1,5 +1,5 @@
 //
-//  HttpError.swift
+//  ATXError.swift
 //  Ceair
 //
 //  Created by Tong Tian on 9/11/17.
@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+enum ATXError: Error {
+    
+}

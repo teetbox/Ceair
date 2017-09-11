@@ -35,7 +35,7 @@ class BookingTabViewController: UIViewController {
         aintxButton.setTitle(Labels.Aintx, for: .normal)
         aintxButton.setTitleColor(UIColor.fromHEX(string: "#008080"), for: .normal)
         aintxButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
-        aintxButton.addTarget(self, action: #selector(startAintx), for: .touchUpInside)
+        aintxButton.addTarget(self, action: #selector(goAintx), for: .touchUpInside)
         
         view.addSubview(loginButton)
         view.addSubview(aintxButton)
@@ -57,11 +57,10 @@ class BookingTabViewController: UIViewController {
         }
     }
     
-    @objc func startAintx() {
-        let login = URLs.Login
+    @objc func goAintx() {
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
         
-        Aintx.shared.request(endPoint: login, parameters: params) { (response) in
+        Aintx.shared.request(endPoint: URLs.Login, parameters: params) { (response) in
             if let error = response.error {
                 print(error.localizedDescription)
                 return
