@@ -50,14 +50,18 @@ class BookingTabViewController: UIViewController {
     }
     
     @objc func loginTapped() {
-        Alamofire.request(URLs.LoginURL).responseJSON { (response) in
-            
+        let url = URL(string: URLs.Host + URLs.Login)!
+        let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
+        Alamofire.request(url, parameters: params).responseJSON { (jsonData) in
+            print(jsonData)
         }
     }
     
     @objc func startAintx() {
-        let login = URLs.LoginURL
-        Aintx.shared.request(endPoint: login) { (response) in
+        let login = URLs.Login
+        let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
+        
+        Aintx.shared.request(endPoint: login, parameters: params) { (response) in
             if let error = response.error {
                 print(error.localizedDescription)
                 return

@@ -8,10 +8,9 @@
 
 import Foundation
 
-enum HTTPMethod: String {
+enum HttpMethod: String {
     case get = "GET"
     case post = "POST"
-    case delete = "DELETE"
 }
 
 typealias Parameters = [String: Any]
@@ -22,26 +21,32 @@ class Aintx {
     
     private init() {}
     
-    let session = HTTPSession(session: URLSession.shared)
+    let session = HttpSession(session: URLSession.shared)
     
-    func request(endPoint: String, method: HTTPMethod = .get, parameters: Parameters? = nil, completion: @escaping (HTTPResponse) -> Void) {
-        
-        guard let url = URL(string: endPoint) else {
+    func request(endPoint: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (HttpResponse) -> Void) {
+
+        guard let url = composeURL(endPoint: endPoint, method: method, parameters: parameters) else {
             return
         }
         
-        performDataRequest(url: url, method: method, completion: completion)
+        performDataRequest(url: url, method: method, parameters: parameters, completion: completion)
     }
     
-    private func performDataRequest(url: URL, method: HTTPMethod, completion: @escaping (HTTPResponse) -> Void) {
+    func composeURL(endPoint: String, method: HttpMethod, parameters: Parameters?) -> URL? {
+        return nil
+    }
+    
+    private func performDataRequest(url: URL, method: HttpMethod, parameters: Parameters?, completion: @escaping (HttpResponse) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
         session.performDataTask(with: request, completion: completion)
     }
-    
+
 }
 
-class HTTPSession {
+class HttpSession {
     
     let session: URLSession
     
@@ -49,9 +54,9 @@ class HTTPSession {
         self.session = session
     }
     
-    func performDataTask(with request: URLRequest, completion: @escaping (HTTPResponse) -> Void) {
+    func performDataTask(with request: URLRequest, completion: @escaping (HttpResponse) -> Void) {
         let task = session.dataTask(with: request) { (data, response, error) in
-            let httpResponse = HTTPResponse(data: data, response: response, error: error)
+            let httpResponse = HttpResponse(data: data, response: response, error: error)
             
             DispatchQueue.main.async {
                 completion(httpResponse)
@@ -61,7 +66,7 @@ class HTTPSession {
     }
 }
 
-struct HTTPResponse {
+struct HttpResponse {
     let data: Data?
     let response: URLResponse?
     let error: Error?
