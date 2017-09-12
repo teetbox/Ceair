@@ -66,13 +66,8 @@ class BookingTabViewController: UIViewController {
                 return
             }
             
-            if let data = response.data {
-                do {
-                    let user = try JSONDecoder().decode(User.self, from: data)
-                    print(user)
-                } catch {
-                    print(error.localizedDescription)
-                }
+            if let data = response.data, let user = try? JSONDecoder().decode(User.self, from: data) {
+                UserConfig.shared.update(user: user)
             }
         }
     }

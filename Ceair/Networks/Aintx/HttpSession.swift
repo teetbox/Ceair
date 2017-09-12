@@ -8,7 +8,7 @@
 
 import Foundation
 
-class HttpSession {
+struct HttpSession {
     
     let session: URLSession
     
@@ -26,4 +26,5 @@ class HttpSession {
         }
         task.resume()
     }
+    
 }

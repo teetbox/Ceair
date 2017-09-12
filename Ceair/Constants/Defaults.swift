@@ -9,5 +9,5 @@
 import Foundation
 
 struct Defaults {
-     static let IsFirstLaunch = "IsFirstLaunch"
+    static let IsFirstLaunch = "IsFirstLaunch"
 }

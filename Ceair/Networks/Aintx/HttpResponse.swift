@@ -14,12 +14,12 @@ struct HttpResponse {
     let response: URLResponse?
     let error: Error?
     
-    var parameters: Parameters?
+    var jsonData: Parameters?
     
     init(data: Data?, response: URLResponse?, error: Error?) {
         self.data = data
         self.response = response
         self.error = error
     }
-    
+
 }
