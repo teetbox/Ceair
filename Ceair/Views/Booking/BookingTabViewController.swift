@@ -104,13 +104,20 @@ class BookingTabViewController: UIViewController {
     @objc func goAintx() {
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
         
-        Aintx.shared.request(endPoint: URLs.Login, parameters: params) { [unowned self] (response) in
-            if let error = response.error {
-                print(error.localizedDescription)
-                return
-            }
+        let requestInfo: RequestInfo = ["method": "GET", "params": params]
+        
+        RequestHandler.performLogin(requestInfo: requestInfo) { (data, error) in
             
-            if let data = response.data, let user = try? JSONDecoder().decode(User.self, from: data) {
+        }
+        
+        Aintx.standard.request(endPoint: URLs.Login, parameters: params) { [unowned self] (result) in
+            switch result {
+            case .failure(let response):
+                print(response.error!)
+                
+            case .success(let response):
+                let user = try! JSONDecoder().decode(User.self, from: response.data!)
+                
                 UserConfig.shared.userLogin(user)
                 self.loginButton.alpha = 0
                 self.aintxButton.alpha = 0

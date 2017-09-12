@@ -1,5 +1,5 @@
 //
-//  HttpResponse.swift
+//  Response.swift
 //  Ceair
 //
 //  Created by Tong Tian on 9/12/17.
@@ -8,22 +8,17 @@
 
 import Foundation
 
-struct HttpResponse {
+struct Response {
     
     let data: Data?
     let response: URLResponse?
     let error: Error?
-    
-    var httpError: HttpError?
     var jsonData: Parameters?
     
     init(data: Data?, response: URLResponse?, error: Error?) {
         self.data = data
         self.response = response
         self.error = error
-        
-        print(response)
-        print(error)
     }
 
 }

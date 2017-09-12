@@ -17,18 +17,30 @@ typealias Parameters = [String: Any]
 
 class Aintx {
     
-    static let shared = Aintx()
+    let session: URLSession
     
-    private init() {}
+    static let standard: Aintx = {
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        return Aintx(session: session)
+    }()
     
-    let session = HttpSession(session: URLSession.shared)
+    static let ephemeral: Aintx = {
+        let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
+        return Aintx(session: session)
+    }()
     
-    func request(endPoint: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (HttpResponse) -> Void) {
-
+    private init(session: URLSession) {
+        self.session = session
+    }
+    
+    init(bgIdentifier: String) {
+        session = URLSession(configuration: URLSessionConfiguration.background(withIdentifier: bgIdentifier))
+    }
+    
+    func request(endPoint: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (Result) -> Void) {
         guard let url = composeURL(endPoint: endPoint, method: method, parameters: parameters) else {
             return
         }
-        
         performDataRequest(url: url, method: method, parameters: parameters, completion: completion)
     }
     
@@ -51,7 +63,7 @@ class Aintx {
         return queryString
     }
     
-    private func performDataRequest(url: URL, method: HttpMethod, parameters: Parameters?, completion: @escaping (HttpResponse) -> Void) {
+    private func performDataRequest(url: URL, method: HttpMethod, parameters: Parameters?, completion: @escaping (Result) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
