@@ -15,11 +15,16 @@ class UserConfig {
     private init() {}
     
     var isLoggedIn = false
-    var user: User?
+    var loggedUser: User?
     
-    func update(user: User) {
-        self.user = user
+    func userLogin(_ user: User) {
+        loggedUser = user
         isLoggedIn = true
+    }
+    
+    func userLogout() {
+        loggedUser = nil
+        isLoggedIn = false
     }
     
 }
