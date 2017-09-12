@@ -87,7 +87,7 @@ class BookingTabViewController: UIViewController {
     
     @objc func loginTapped() {
         let url = URL(string: URLs.Host + URLs.Login)!
-        let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
+        let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode2": ""]
         Alamofire.request(url, parameters: params).responseJSON { (jsonData) in
             print(jsonData)
         }
