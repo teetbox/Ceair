@@ -16,7 +16,12 @@ protocol FlightTabDataModelProtocol {
 struct FlightTabDateModel: FlightTabDataModelProtocol {
     
     func performLogin(user: String, pwd: String) {
+        var requestInfo: RequestInfo = NetworkHandler.GetRequest
+        requestInfo["url"] = URLs.Host + URLs.Login
         
+        NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (data, error) in
+            
+        }
     }
     
     func performQueryFlights(completionHandler: @escaping ([Flight]) -> Void) {

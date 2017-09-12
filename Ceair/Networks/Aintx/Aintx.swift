@@ -15,6 +15,8 @@ enum HttpMethod: String {
 
 typealias Parameters = [String: Any]
 
+// MARK: -
+
 class Aintx {
     
     let session: URLSession
@@ -29,13 +31,16 @@ class Aintx {
         return Aintx(session: session)
     }()
     
+    class func background(identifier: String) -> Aintx {
+        let session = URLSession(configuration: URLSessionConfiguration.background(withIdentifier: identifier))
+        return Aintx(session: session)
+    }
+    
     private init(session: URLSession) {
         self.session = session
     }
     
-    init(bgIdentifier: String) {
-        session = URLSession(configuration: URLSessionConfiguration.background(withIdentifier: bgIdentifier))
-    }
+    // MARK: - Methods
     
     func request(endPoint: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (Result) -> Void) {
         guard let url = composeURL(endPoint: endPoint, method: method, parameters: parameters) else {

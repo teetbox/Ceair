@@ -106,7 +106,7 @@ class BookingTabViewController: UIViewController {
         
         let requestInfo: RequestInfo = ["method": "GET", "params": params]
         
-        RequestHandler.performLogin(requestInfo: requestInfo) { (data, error) in
+        NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (data, error) in
             
         }
         
@@ -126,6 +126,7 @@ class BookingTabViewController: UIViewController {
                 self.loginNameLabel.text = user.fullname
             }
         }
+        
     }
 
 }
