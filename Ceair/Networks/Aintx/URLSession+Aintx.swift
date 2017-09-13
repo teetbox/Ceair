@@ -10,14 +10,12 @@ import Foundation
 
 extension URLSession {
 
-    func performDataTask(with request: URLRequest, completion: @escaping (Result) -> Void) {
+    func performDataTask(with request: URLRequest, completion: @escaping (Response) -> Void) {
         let task = dataTask(with: request) { (data, response, error) in
-            let httpResponse = Response(data: data, response: response, error: error)
-            
-            let result = Result.success(httpResponse)
+            let response = Response(data: data, response: response, error: error)
             
             DispatchQueue.main.async {
-                completion(result)
+                completion(response)
             }
         }
         task.resume()

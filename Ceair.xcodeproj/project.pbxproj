@@ -33,8 +33,8 @@
 		C98C76261F57DEC6007EB4E2 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76251F57DEC6007EB4E2 /* Defaults.swift */; };
 		C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */; };
 		C99A97DE1F5950C500318E83 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99A97DD1F5950C500318E83 /* Identifiers.swift */; };
-		C99F31B81F67C04500CBB258 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99F31B71F67C04500CBB258 /* Result.swift */; };
 		C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */; };
+		C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD96EA1F69161900640E80 /* NetworkError.swift */; };
 		C9C306651F627F600020A316 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306641F627F600020A316 /* User.swift */; };
 		C9C306671F62809F0020A316 /* Centificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306661F62809F0020A316 /* Centificate.swift */; };
 		C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CF91A21F554F4800F352F0 /* Flight.swift */; };
@@ -96,8 +96,8 @@
 		C98C76251F57DEC6007EB4E2 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C99A97DD1F5950C500318E83 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
-		C99F31B71F67C04500CBB258 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		C9BD96EA1F69161900640E80 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C9C306641F627F600020A316 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9C306661F62809F0020A316 /* Centificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centificate.swift; sourceTree = "<group>"; };
 		C9CF91A21F554F4800F352F0 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
@@ -154,14 +154,14 @@
 		C9171AF61F56308300D9BE66 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				C9171AF71F5630DA00D9BE66 /* Images.swift */,
 				C9171AF91F56317500D9BE66 /* Colors.swift */,
-				C9171AFB1F5631D900D9BE66 /* TabBars.swift */,
-				C9FCBAC11F577EFE00B6788A /* URLs.swift */,
-				C9FCBAC31F57847700B6788A /* Labels.swift */,
 				C98C76251F57DEC6007EB4E2 /* Defaults.swift */,
 				C99A97DD1F5950C500318E83 /* Identifiers.swift */,
+				C9171AF71F5630DA00D9BE66 /* Images.swift */,
+				C9FCBAC31F57847700B6788A /* Labels.swift */,
 				C9E09DDE1F68A76C007D0698 /* Networks.swift */,
+				C9171AFB1F5631D900D9BE66 /* TabBars.swift */,
+				C9FCBAC11F577EFE00B6788A /* URLs.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -277,10 +277,10 @@
 		C92BDF281F54E07000284B44 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */,
-				C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */,
-				C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */,
 				C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */,
+				C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */,
+				C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */,
+				C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,8 +315,8 @@
 		C98C76221F57DE4E007EB4E2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */,
 				C922E5551F5F747400689AE7 /* DateUtility.swift */,
+				C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */,
 				C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */,
 			);
 			path = Utilities;
@@ -335,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */,
+				C9BD96EA1F69161900640E80 /* NetworkError.swift */,
 				C9FCBABE1F577D5400B6788A /* Aintx */,
 			);
 			path = Networks;
@@ -398,9 +399,8 @@
 			isa = PBXGroup;
 			children = (
 				C9FCBABF1F577D6F00B6788A /* Aintx.swift */,
-				C99F31B71F67C04500CBB258 /* Result.swift */,
-				C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */,
 				C96AF2961F6755D900E5B6F8 /* Response.swift */,
+				C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */,
 			);
 			path = Aintx;
 			sourceTree = "<group>";
@@ -572,7 +572,6 @@
 				C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */,
 				C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */,
 				C9FCBAC21F577EFE00B6788A /* URLs.swift in Sources */,
-				C99F31B81F67C04500CBB258 /* Result.swift in Sources */,
 				C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */,
 				C9EB9DE71F57E83000A39AB0 /* FlightTabViewModel.swift in Sources */,
 				C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */,
@@ -589,6 +588,7 @@
 				C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */,
 				C9EE0B6B1F59575A009AF961 /* FlightTabFlightTVCell.swift in Sources */,
 				C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */,
+				C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */,
 				C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */,
 				C96AF2971F6755D900E5B6F8 /* Response.swift in Sources */,
 				C9E09DDF1F68A76C007D0698 /* Networks.swift in Sources */,

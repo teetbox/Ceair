@@ -13,6 +13,19 @@ enum HttpMethod: String {
     case post = "POST"
 }
 
+enum SessionType: String {
+    case standard = "standard"
+    case ephemeral = "ephemeral"
+    case background = "background"
+}
+
+enum RequestType: String {
+    case data = "Data"
+    case upload = "Upload"
+    case downLoad = "Download"
+    case image = "Image"
+}
+
 typealias Parameters = [String: Any]
 
 // MARK: -
@@ -42,20 +55,20 @@ class Aintx {
     
     // MARK: - Methods
     
-    func request(endPoint: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (Result) -> Void) {
-        guard let url = composeURL(endPoint: endPoint, method: method, parameters: parameters) else {
+    func request(urlString: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (Response) -> Void) {
+        guard let url = composeURL(urlString: urlString, method: method, parameters: parameters) else {
             return
         }
         performDataRequest(url: url, method: method, parameters: parameters, completion: completion)
     }
     
-    private func composeURL(endPoint: String, method: HttpMethod, parameters: Parameters?) -> URL? {
+    private func composeURL(urlString: String, method: HttpMethod, parameters: Parameters?) -> URL? {
         guard method == .get, let params = parameters else {
-            return URL(string: URLs.Host + endPoint)
+            return URL(string: URLs.Host + urlString)
         }
-        
-        let urlString = URLs.Host + endPoint + queryString(with: params)
-        return URL(string: urlString)
+        var url = urlString
+        url += queryString(with: params)
+        return URL(string: url)
     }
     
     private func queryString(with params: Parameters) -> String {
@@ -68,7 +81,7 @@ class Aintx {
         return queryString
     }
     
-    private func performDataRequest(url: URL, method: HttpMethod, parameters: Parameters?, completion: @escaping (Result) -> Void) {
+    private func performDataRequest(url: URL, method: HttpMethod, parameters: Parameters?, completion: @escaping (Response) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

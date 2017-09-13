@@ -86,7 +86,7 @@ class BookingTabViewController: UIViewController {
     }
     
     @objc func loginTapped() {
-        let url = URL(string: URLs.Host + URLs.Login)!
+        let url = URL(string: URLs.Host + "%&2")!
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode2": ""]
         Alamofire.request(url, parameters: params).responseJSON { (jsonData) in
             print(jsonData)
@@ -104,28 +104,36 @@ class BookingTabViewController: UIViewController {
     @objc func goAintx() {
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
         
-        let requestInfo: RequestInfo = ["method": "GET", "params": params]
+        var requestInfo: RequestInfo = NetworkHandler.GetRequest
+        requestInfo[Networks.EndPoint] = nil
+        requestInfo[Networks.Params] = params
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (data, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
             
-        }
-        
-        Aintx.standard.request(endPoint: URLs.Login, parameters: params) { [unowned self] (result) in
-            switch result {
-            case .failure(let response):
-                print(response.error!)
-                
-            case .success(let response):
-                let user = try! JSONDecoder().decode(User.self, from: response.data!)
-                
-                UserConfig.shared.userLogin(user)
-                self.loginButton.alpha = 0
-                self.aintxButton.alpha = 0
-                self.logoutButton.alpha = 1
-                self.loginNameLabel.alpha = 1
-                self.loginNameLabel.text = user.fullname
+            if let _ = data {
+                print("Got Data")
             }
         }
+        
+//        Aintx.standard.request(urlString: URLs.Login, parameters: params) { (result) in
+//            switch result {
+//            case .failure(let response):
+//                print(response.error!)
+//
+//            case .success(let response):
+//                let user = try! JSONDecoder().decode(User.self, from: response.data!)
+//
+//                UserConfig.shared.userLogin(user)
+//                self.loginButton.alpha = 0
+//                self.aintxButton.alpha = 0
+//                self.logoutButton.alpha = 1
+//                self.loginNameLabel.alpha = 1
+//                self.loginNameLabel.text = user.fullname
+//            }
+//        }
         
     }
 

@@ -11,7 +11,24 @@ import Foundation
 struct Networks {
     
     static let Method = "method"
+    struct MethodType {
+        static let Get = "GET"
+        static let Post = "POST"
+        static let Delete = "DELETE"
+        static let Update = "UPDATE"
+    }
+    
+    static let Session = "session"
+    struct SessionType {
+        static let Standard = "standard"
+        static let Ephemeral = "ephemeral"
+        static let Background = "background"
+    }
+    static let BackgroundIdentifier = "backgroundIdentifier"
+    
     static let Host = "host"
     static let EndPoint = "endPoint"
+    static let QueryString = "queryString"
+    static let Params = "params"
     
 }
