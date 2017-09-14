@@ -105,17 +105,19 @@ class BookingTabViewController: UIViewController {
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
         
         var requestInfo: RequestInfo = NetworkHandler.GetRequest
-        requestInfo[Networks.EndPoint] = nil
+        requestInfo[Networks.EndPoint] = URLs.Login
         requestInfo[Networks.Params] = params
         
-        NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (data, error) in
-            if let error = error {
+        NetworkHandler.performHttpRequest(requestInfo: requestInfo) { responseInfo in
+            if let error = responseInfo[Networks.Response.Error] as? NetworkError {
                 print(error.localizedDescription)
+                return
             }
             
-            if let _ = data {
-                print("Got Data")
+            if let data = responseInfo[Networks.Response.Data] as? Data {
+                print("Got data: \(data.count)")
             }
+
         }
         
 //        Aintx.standard.request(urlString: URLs.Login, parameters: params) { (result) in

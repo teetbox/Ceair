@@ -23,12 +23,18 @@ struct Networks {
         static let Standard = "standard"
         static let Ephemeral = "ephemeral"
         static let Background = "background"
+        static let BackgroundIdentifier = "backgroundIdentifier"
     }
-    static let BackgroundIdentifier = "backgroundIdentifier"
     
     static let Host = "host"
     static let EndPoint = "endPoint"
     static let QueryString = "queryString"
     static let Params = "params"
+    
+    struct Response {
+        static let Status = "status"
+        static let Error = "error"
+        static let Data = "data"
+    }
     
 }

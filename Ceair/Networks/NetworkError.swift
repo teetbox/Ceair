@@ -21,9 +21,9 @@ enum NetworkError: Error {
     }
     
     enum ResponseFailedReason {
-        case responseError(Error)
         case httpBadStatus
-        case serverNotResponse
+        case serverNotResponse(Error)
+        case encordingFailed
     }
     
 }
@@ -33,8 +33,8 @@ extension NetworkError: LocalizedError {
         switch self {
         case .requestError(let reason):
             return reason.localizedDescription
-        case .responseError:
-            return "Blank Error"
+        case .responseError(let reason):
+            return reason.localizedDescription
         }
     }
 }
@@ -50,6 +50,19 @@ extension NetworkError.RequestFailedReason {
             return "Request Failed: Invalid url string \'\(urlString)\'"
         case .unsupportedSession(let sesson):
             return "Request Failed: Unsupported session type \'\(sesson)\'"
+        }
+    }
+}
+
+extension NetworkError.ResponseFailedReason {
+    var localizedDescription: String {
+        switch self {
+        case .httpBadStatus:
+            return "Response Failed: Bad status"
+        case .encordingFailed:
+            return "Response Failed: Encoding error"
+        case .serverNotResponse(let error):
+            return error.localizedDescription
         }
     }
 }

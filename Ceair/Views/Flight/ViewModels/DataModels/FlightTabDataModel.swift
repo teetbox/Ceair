@@ -19,7 +19,7 @@ struct FlightTabDateModel: FlightTabDataModelProtocol {
         var requestInfo: RequestInfo = NetworkHandler.GetRequest
         requestInfo[Networks.EndPoint] = URLs.Login
         
-        NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (data, error) in
+        NetworkHandler.performHttpRequest(requestInfo: requestInfo) { responseInfo in
             
         }
     }
