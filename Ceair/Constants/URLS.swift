@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct URLs {
+struct URLS {
     
     static let Host = "http://172.31.65.187:8080/"
     

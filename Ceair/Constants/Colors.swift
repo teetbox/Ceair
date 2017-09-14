@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Colors {
+struct COLORS {
     static let BarTintColor = "#E3287F"
     static let DefaultBackground = "#ABCDEF"
 }

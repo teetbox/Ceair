@@ -14,7 +14,7 @@ class BookingTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = TabBars.Booking
+        navigationItem.title = TABBARS.Booking
         view.backgroundColor = UIColor.white
         
         setupViews()
@@ -24,7 +24,7 @@ class BookingTabViewController: UIViewController {
         let button = UIButton()
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.fromHEX(string: "#1D3C5F").cgColor
-        button.setTitle(Labels.Login, for: .normal)
+        button.setTitle(LABELS.Login, for: .normal)
         button.setTitleColor(UIColor.fromHEX(string: "#1D3C5F"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(loginTapped), for: .touchUpInside)
@@ -35,7 +35,7 @@ class BookingTabViewController: UIViewController {
         let button = UIButton()
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.fromHEX(string: "#008080").cgColor
-        button.setTitle(Labels.Aintx, for: .normal)
+        button.setTitle(LABELS.Aintx, for: .normal)
         button.setTitleColor(UIColor.fromHEX(string: "#008080"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(goAintx), for: .touchUpInside)
@@ -46,7 +46,7 @@ class BookingTabViewController: UIViewController {
         let button = UIButton()
         button.layer.borderWidth = 0.5
         button.layer.borderColor = UIColor.fromHEX(string: "#1D3C5F").cgColor
-        button.setTitle(Labels.Logout, for: .normal)
+        button.setTitle(LABELS.Logout, for: .normal)
         button.setTitleColor(UIColor.fromHEX(string: "#1D3C5F"), for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
         button.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
@@ -86,7 +86,7 @@ class BookingTabViewController: UIViewController {
     }
     
     @objc func loginTapped() {
-        let url = URL(string: URLs.Host + "%&2")!
+        let url = URL(string: URLS.Host + "%&2")!
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode2": ""]
         Alamofire.request(url, parameters: params).responseJSON { (jsonData) in
             print(jsonData)
@@ -105,16 +105,16 @@ class BookingTabViewController: UIViewController {
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
         
         var requestInfo: RequestInfo = NetworkHandler.GetRequest
-        requestInfo[Networks.EndPoint] = URLs.Login
-        requestInfo[Networks.Params] = params
+        requestInfo[NETWORKS.EndPoint] = URLS.Login
+        requestInfo[NETWORKS.Params] = params
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { responseInfo in
-            if let error = responseInfo[Networks.Response.Error] as? NetworkError {
+            if let error = responseInfo[NETWORKS.Error] as? NetworkError {
                 print(error.localizedDescription)
                 return
             }
             
-            if let data = responseInfo[Networks.Response.Data] as? Data {
+            if let data = responseInfo[NETWORKS.Response.Data] as? Data {
                 print("Got data: \(data.count)")
             }
 

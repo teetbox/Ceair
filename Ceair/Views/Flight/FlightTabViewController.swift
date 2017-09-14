@@ -40,7 +40,7 @@ class FlightTabViewController: UIViewController {
     
     private func setupViews() {
         let backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        let fligtTabBackgroundImage = UIImage(named: Images.FlightBackground)
+        let fligtTabBackgroundImage = UIImage(named: IMAGES.FlightBackground)
         backgroundImageView.image = fligtTabBackgroundImage
         
         view.addSubview(backgroundImageView)
@@ -58,12 +58,12 @@ class FlightTabViewController: UIViewController {
         
         let naviLabel = UILabel()
         naviLabel.font = UIFont.boldSystemFont(ofSize: 18)
-        naviLabel.text = Labels.MyFlights
+        naviLabel.text = LABELS.MyFlights
         naviLabel.textColor = UIColor.white
         
         let historyLabel = UILabel()
         historyLabel.font = UIFont.systemFont(ofSize: 14)
-        historyLabel.text = Labels.History
+        historyLabel.text = LABELS.History
         historyLabel.textColor = UIColor.white
         
         naviBar.addSubview(naviLabel)
@@ -82,14 +82,14 @@ class FlightTabViewController: UIViewController {
         tableView.backgroundColor = UIColor.clear
         tableView.separatorStyle = .none
         
-        tableView.register(FlightTabFlightTVCell.self, forCellReuseIdentifier: Identifiers.Cell.TVC)
+        tableView.register(FlightTabFlightTVCell.self, forCellReuseIdentifier: IDENTIFIERS.Cell.TVC)
         
         view.addSubview(tableView)
     }
     
     private func setupLogin() {
         let loginButton = UIButton()
-        loginButton.setTitle(Labels.Login, for: .normal)
+        loginButton.setTitle(LABELS.Login, for: .normal)
         loginButton.layer.borderWidth = 1
         loginButton.layer.borderColor = UIColor.white.cgColor
         
@@ -118,7 +118,7 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.Cell.TVC, for: indexPath) as! FlightTabFlightTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: IDENTIFIERS.Cell.TVC, for: indexPath) as! FlightTabFlightTVCell
         
         let flight = viewModel.getFlight(at: indexPath.section)
         cell.viewModel = FlightTabFlightTVCellViewModel(flight: flight)
@@ -144,7 +144,7 @@ extension FlightTabViewController: UITableViewDataSource, UITableViewDelegate {
         arrivalLabel.textAlignment = .left
         
         let dashLineImageView = UIImageView()
-        dashLineImageView.image = UIImage(named: Images.DashLine)
+        dashLineImageView.image = UIImage(named: IMAGES.DashLine)
         
         headerView.addSubview(dashLineImageView)
         headerView.addSubview(departureLabel)

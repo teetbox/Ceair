@@ -19,23 +19,23 @@ class TabBarCoordinator: Coordinator {
     func start() {
         let tabBarController = UITabBarController()
         tabBarController.tabBar.isTranslucent = false
-        tabBarController.tabBar.tintColor = UIColor.fromHEX(string: Colors.BarTintColor)
+        tabBarController.tabBar.tintColor = UIColor.fromHEX(string: COLORS.BarTintColor)
         window.rootViewController = tabBarController
         
         let bookingTab = UINavigationController(rootViewController: BookingTabViewController())
-        bookingTab.tabBarItem.title = TabBars.Booking
-        bookingTab.tabBarItem.image = UIImage(named: Images.Booking)
+        bookingTab.tabBarItem.title = TABBARS.Booking
+        bookingTab.tabBarItem.image = UIImage(named: IMAGES.Booking)
         
         let flightTabViewController = FlightTabViewController()
         let flightTabDataModel = FlightTabDateModel()
         flightTabViewController.viewModel = FlightTabViewModel(dataModel: flightTabDataModel)
         
         let flightTab = UINavigationController(rootViewController: flightTabViewController)
-        flightTab.tabBarItem.title = TabBars.Flight
-        flightTab.tabBarItem.image = UIImage(named: Images.Flight)
+        flightTab.tabBarItem.title = TABBARS.Flight
+        flightTab.tabBarItem.image = UIImage(named: IMAGES.Flight)
         
-        let dummyMoreTab = createDummyTabItem(title: TabBars.More)
-        let dummyMyTab = createDummyTabItem(title: TabBars.My)
+        let dummyMoreTab = createDummyTabItem(title: TABBARS.More)
+        let dummyMyTab = createDummyTabItem(title: TABBARS.My)
         
         tabBarController.viewControllers = [bookingTab, flightTab, dummyMoreTab, dummyMyTab]
         tabBarController.selectedIndex = 1
@@ -43,7 +43,7 @@ class TabBarCoordinator: Coordinator {
     
     private func createDummyTabItem(title: String) -> UINavigationController {
         let dummyViewController = UIViewController()
-        dummyViewController.view.backgroundColor = UIColor.fromHEX(string: Colors.DefaultBackground)
+        dummyViewController.view.backgroundColor = UIColor.fromHEX(string: COLORS.DefaultBackground)
         dummyViewController.navigationItem.title = title
         
         let navController = UINavigationController(rootViewController: dummyViewController)

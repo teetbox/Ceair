@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Identifiers {
+struct IDENTIFIERS {
     
     struct Cell {
         static let TVC = "TableViewCell"

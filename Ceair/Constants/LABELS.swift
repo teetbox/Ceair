@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Labels {
+struct LABELS {
     static let Aintx = "Aintx"
     static let Login = "Login"
     static let Logout = "Logout"

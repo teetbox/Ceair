@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Images {
+struct IMAGES {
     static let Booking = "Booking"
     static let Flight = "Flight"
     static let More = "More"

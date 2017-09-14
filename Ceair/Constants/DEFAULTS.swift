@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Defaults {
+struct DEFAULTS {
     static let IsFirstLaunch = "IsFirstLaunch"
 }

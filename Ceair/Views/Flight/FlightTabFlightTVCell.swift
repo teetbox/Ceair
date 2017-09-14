@@ -14,13 +14,13 @@ class FlightTabFlightTVCell: BaseTVCell {
     
     let airportImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: Images.Airport)
+        imageView.image = UIImage(named: IMAGES.Airport)
         return imageView
     }()
     
     let dateImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: Images.Date)
+        imageView.image = UIImage(named: IMAGES.Date)
         return imageView
     }()
     
@@ -121,19 +121,19 @@ class FlightTabFlightTVCell: BaseTVCell {
 
     private func setupTicketView() { // 13*11 74*7
         let logoImageView = UIImageView()
-        logoImageView.image = UIImage(named: Images.Logo)
+        logoImageView.image = UIImage(named: IMAGES.Logo)
         
         let timeLineImageView = UIImageView()
-        timeLineImageView.image = UIImage(named: Images.TimeLine)
+        timeLineImageView.image = UIImage(named: IMAGES.TimeLine)
         
         let separateLineView = UIView()
         separateLineView.backgroundColor = UIColor.lightGray
         
         let checkInTimeButton = UIButton()
-        checkInTimeButton.setTitle(Labels.CheckInTime, for: .normal)
+        checkInTimeButton.setTitle(LABELS.CheckInTime, for: .normal)
         checkInTimeButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         checkInTimeButton.setTitleColor(UIColor.gray, for: .normal)
-        checkInTimeButton.setImage(UIImage(named: Images.CheckInTime), for: .normal)
+        checkInTimeButton.setImage(UIImage(named: IMAGES.CheckInTime), for: .normal)
         checkInTimeButton.centerImageAndTitle(with: 5)
         
         ticketView.addSubview(logoImageView)

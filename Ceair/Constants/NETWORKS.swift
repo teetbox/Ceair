@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Networks {
+struct NETWORKS {
     
     static let Method = "method"
     struct MethodType {
@@ -33,8 +33,9 @@ struct Networks {
     
     struct Response {
         static let Status = "status"
-        static let Error = "error"
         static let Data = "data"
     }
+    
+    static let Error = "error"
     
 }

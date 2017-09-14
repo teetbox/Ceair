@@ -64,7 +64,7 @@ class Aintx {
     
     private func composeURL(urlString: String, method: HttpMethod, parameters: Parameters?) -> URL? {
         guard method == .get, let params = parameters else {
-            return URL(string: URLs.Host + urlString)
+            return URL(string: URLS.Host + urlString)
         }
         var url = urlString
         url += queryString(with: params)

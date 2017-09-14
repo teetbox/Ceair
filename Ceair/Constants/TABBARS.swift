@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TabBars {
+struct TABBARS {
     static let Booking = "Booking"
     static let Flight = "Flight"
     static let More = "More"

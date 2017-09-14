@@ -10,6 +10,6 @@ import Foundation
 
 struct LaunchUtility {
     
-    static let isFirstLaunch = !UserDefaults.standard.bool(forKey: Defaults.IsFirstLaunch)
+    static let isFirstLaunch = !UserDefaults.standard.bool(forKey: DEFAULTS.IsFirstLaunch)
     
 }
