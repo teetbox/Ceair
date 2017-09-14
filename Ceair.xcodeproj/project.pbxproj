@@ -11,7 +11,7 @@
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
 		C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* IMAGES.swift */; };
-		C9171AFA1F56317500D9BE66 /* COLORS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF91F56317500D9BE66 /* COLORS.swift */; };
+		C9171AFA1F56317500D9BE66 /* ColorConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF91F56317500D9BE66 /* ColorConstant.swift */; };
 		C9171AFC1F5631D900D9BE66 /* TABBARS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AFB1F5631D900D9BE66 /* TABBARS.swift */; };
 		C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5551F5F747400689AE7 /* DateUtility.swift */; };
 		C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5591F5F761100689AE7 /* DateUtilityTests.swift */; };
@@ -71,7 +71,7 @@
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
 		C9171AF71F5630DA00D9BE66 /* IMAGES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAGES.swift; sourceTree = "<group>"; };
-		C9171AF91F56317500D9BE66 /* COLORS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COLORS.swift; sourceTree = "<group>"; };
+		C9171AF91F56317500D9BE66 /* ColorConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstant.swift; sourceTree = "<group>"; };
 		C9171AFB1F5631D900D9BE66 /* TABBARS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TABBARS.swift; sourceTree = "<group>"; };
 		C922E5551F5F747400689AE7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		C922E5591F5F761100689AE7 /* DateUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilityTests.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 		C9171AF61F56308300D9BE66 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				C9171AF91F56317500D9BE66 /* COLORS.swift */,
+				C9171AF91F56317500D9BE66 /* ColorConstant.swift */,
 				C98C76251F57DEC6007EB4E2 /* DEFAULTS.swift */,
 				C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */,
 				C9171AF71F5630DA00D9BE66 /* IMAGES.swift */,
@@ -566,7 +566,7 @@
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,
 				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
 				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
-				C9171AFA1F56317500D9BE66 /* COLORS.swift in Sources */,
+				C9171AFA1F56317500D9BE66 /* ColorConstant.swift in Sources */,
 				C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */,
 				C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */,
