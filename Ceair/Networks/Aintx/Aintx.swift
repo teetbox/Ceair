@@ -17,13 +17,14 @@ enum SessionType: String {
     case standard = "standard"
     case ephemeral = "ephemeral"
     case background = "background"
+    case custom = "custome"
 }
 
 enum RequestType: String {
-    case data = "Data"
-    case upload = "Upload"
-    case downLoad = "Download"
-    case image = "Image"
+    case data = "data"
+    case upload = "upload"
+    case downLoad = "download"
+    case stream = "stream"
 }
 
 typealias Parameters = [String: Any]

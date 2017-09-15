@@ -81,6 +81,9 @@ struct NetworkHandler {
             
             let bgAintx = Aintx.background(identifier: backgroundIdentifier)
             bgAintx.request(urlString: urlString, completion: { (response) in })
+        
+        default:
+            return
         }
     }
     

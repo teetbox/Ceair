@@ -37,5 +37,4 @@ struct NETWORKS {
     }
     
     static let Error = "error"
-    
 }
