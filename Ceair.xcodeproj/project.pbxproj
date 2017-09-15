@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */; };
 		C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
@@ -69,6 +70,7 @@
 		3A7CB6C16C564779086825CD /* Pods-Ceair.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ceair.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ceair/Pods-Ceair.debug.xcconfig"; sourceTree = "<group>"; };
 		5875DC83850EA8E1E300DB03 /* Pods_Ceair.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ceair.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC033018198BD815B0915028 /* Pods-Ceair.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ceair.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ceair/Pods-Ceair.release.xcconfig"; sourceTree = "<group>"; };
+		AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AintxTests.swift; sourceTree = "<group>"; };
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +157,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC7268A21F6C9EA8004C6C36 /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				AC7268A31F6C9EB9004C6C36 /* Aintx */,
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
+		AC7268A31F6C9EB9004C6C36 /* Aintx */ = {
+			isa = PBXGroup;
+			children = (
+				AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */,
+			);
+			path = Aintx;
+			sourceTree = "<group>";
+		};
 		C9171AF61F56308300D9BE66 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,21 +202,6 @@
 				C922E5591F5F761100689AE7 /* DateUtilityTests.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		C922E55B1F5F791500689AE7 /* Networks */ = {
-			isa = PBXGroup;
-			children = (
-				C922E55C1F5F793C00689AE7 /* Aintx */,
-			);
-			path = Networks;
-			sourceTree = "<group>";
-		};
-		C922E55C1F5F793C00689AE7 /* Aintx */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Aintx;
 			sourceTree = "<group>";
 		};
 		C92BDEF91F54E00800284B44 = {
@@ -242,7 +245,7 @@
 			children = (
 				C922E5571F5F75C400689AE7 /* ViewModels */,
 				C922E5581F5F75DD00689AE7 /* Utilities */,
-				C922E55B1F5F791500689AE7 /* Networks */,
+				AC7268A21F6C9EA8004C6C36 /* Networks */,
 				C92BDF1A1F54E00800284B44 /* CeairTests.swift */,
 				C92BDF1C1F54E00800284B44 /* Info.plist */,
 			);
@@ -611,6 +614,7 @@
 			files = (
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
+				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,

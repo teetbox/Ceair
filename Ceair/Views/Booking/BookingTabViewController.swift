@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class BookingTabViewController: UIViewController {
 
@@ -86,11 +85,11 @@ class BookingTabViewController: UIViewController {
     }
     
     @objc func loginTapped() {
-        let url = URL(string: URLS.Host + "%&2")!
-        let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode2": ""]
-        Alamofire.request(url, parameters: params).responseJSON { (jsonData) in
-            print(jsonData)
-        }
+//        let url = URL(string: URLS.Host + "%&2")!
+//        let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode2": ""]
+//        Alamofire.request(url, parameters: params).responseJSON { (jsonData) in
+//            print(jsonData)
+//        }
     }
     
     @objc func logoutTapped() {
