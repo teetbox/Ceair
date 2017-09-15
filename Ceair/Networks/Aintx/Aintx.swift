@@ -13,13 +13,6 @@ enum HttpMethod: String {
     case post = "POST"
 }
 
-enum SessionType: String {
-    case standard = "standard"
-    case ephemeral = "ephemeral"
-    case background = "background"
-    case custom = "custome"
-}
-
 enum RequestType: String {
     case data = "data"
     case upload = "upload"
@@ -33,27 +26,6 @@ typealias Parameters = [String: Any]
 
 class Aintx {
     
-    let session: URLSession
-    
-    static let standard: Aintx = {
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        return Aintx(session: session)
-    }()
-    
-    static let ephemeral: Aintx = {
-        let session = URLSession(configuration: URLSessionConfiguration.ephemeral)
-        return Aintx(session: session)
-    }()
-    
-    class func background(identifier: String) -> Aintx {
-        let session = URLSession(configuration: URLSessionConfiguration.background(withIdentifier: identifier))
-        return Aintx(session: session)
-    }
-    
-    private init(session: URLSession) {
-        self.session = session
-    }
-    
     // MARK: - Methods
     
     func request(urlString: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (Response) -> Void) {
@@ -63,23 +35,29 @@ class Aintx {
         performDataRequest(url: url, method: method, parameters: parameters, completion: completion)
     }
     
-    private func composeURL(urlString: String, method: HttpMethod, parameters: Parameters?) -> URL? {
-        guard method == .get, let params = parameters else {
-            return URL(string: URLS.Host + urlString)
+    class func dataRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+        var responseInfo = ResponseInfo()
+        guard let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
         }
-        var url = urlString
-        url += queryString(with: params)
-        return URL(string: url)
+        
+        let session = SessionManager(sessionType: sessionType)
+        
+        let dataTask = DataTask()
+        
+        session.session
     }
     
-    private func queryString(with params: Parameters) -> String {
-        var queryString = "?"
+    class func uploadRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
-        for (key, value) in params {
-            queryString += "\(key)=\(value)&"
-        }
+    }
+    
+    class func downloadRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
-        return queryString
+    }
+    
+    class func streamRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+        
     }
     
     private func performDataRequest(url: URL, method: HttpMethod, parameters: Parameters?, completion: @escaping (Response) -> Void) {

@@ -9,82 +9,112 @@
 import Foundation
 
 typealias RequestInfo = [String: Any]
+typealias ResponseInfo = [String: Any]
 typealias ResponseHandler = ([String: Any]) -> Void
 
 struct NetworkHandler {
     
-    static let GetRequest = [NETWORKS.Method: NETWORKS.MethodType.Get, NETWORKS.Session: NETWORKS.SessionType.Standard, NETWORKS.Host: URLS.Host]
-    static let PostRequest = [NETWORKS.Method: NETWORKS.MethodType.Post, NETWORKS.Session: NETWORKS.SessionType.Standard, NETWORKS.Host: URLS.Host]
+    static let GetRequest = [NETWORKS.Host: URLS.Host,
+                             NETWORKS.MethodKey: NETWORKS.MethodValue.Get,
+                             NETWORKS.SessionKey: NETWORKS.SessionValue.Standard,
+                             NETWORKS.RequestKey: NETWORKS.RequestValue.Data]
+    
+    static let PostRequest = [NETWORKS.Host: URLS.Host,
+                              NETWORKS.MethodKey: NETWORKS.MethodValue.Post,
+                              NETWORKS.SessionKey: NETWORKS.SessionValue.Standard,
+                              NETWORKS.RequestKey: NETWORKS.RequestValue.Data]
     
     static func performHttpRequest(requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
-        var responseInfo = [String: Any]()
+        var responseInfo = ResponseInfo()
 
-        guard let methodValue = requestInfo[NETWORKS.Method] as? String else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Method))
-            completion(responseInfo)
-            return
-        }
-        guard let method = HttpMethod(rawValue: methodValue) else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.unsupportedMethod(methodValue))
-            completion(responseInfo)
-            return
-        }
-        guard let sessionValue = requestInfo[NETWORKS.Session] as? String else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Session))
-            completion(responseInfo)
-            return
-        }
-        guard let session = SessionType(rawValue: sessionValue) else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.unsupportedSession(sessionValue))
-            completion(responseInfo)
-            return
-        }
         guard let host = requestInfo[NETWORKS.Host] as? String else {
             responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Host))
             completion(responseInfo)
             return
         }
+        
         guard let endPoint = requestInfo[NETWORKS.EndPoint] as? String else {
             responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.EndPoint))
             completion(responseInfo)
             return
         }
-        
-        performAintxRequest(urlString: host + endPoint, method: method, session: session, requestInfo: requestInfo, completion: completion)
-    }
-    
-    private static func performAintxRequest(urlString: String, method: HttpMethod, session: SessionType, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
-        var responseInfo = [String: Any]()
-        
-        let parameters = requestInfo[NETWORKS.Params] as? Parameters
-        
-        switch session {
-        case .standard:
-            Aintx.standard.request(urlString: urlString, method: method, parameters: parameters) { (response) in
-                if let error = response.error {
-                    responseInfo[NETWORKS.Error] = NetworkError.responseError(.serverNotResponse(error))
-                }
-                
-                responseInfo[NETWORKS.Response.Data] = response.data
-                completion(responseInfo)
-            }
-            
-        case .ephemeral:
-            Aintx.ephemeral.request(urlString: urlString, completion: { (response) in })
-            
-        case .background:
-            guard let backgroundIdentifier = requestInfo[NETWORKS.SessionType.BackgroundIdentifier] as? String else {
-                responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionType.BackgroundIdentifier))
-                completion(responseInfo)
-                return
-            }
-            
-            let bgAintx = Aintx.background(identifier: backgroundIdentifier)
-            bgAintx.request(urlString: urlString, completion: { (response) in })
-        
-        default:
+
+        guard let _ = requestInfo[NETWORKS.MethodKey] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.MethodKey))
+            completion(responseInfo)
             return
         }
+        
+        guard let sessionType = requestInfo[NETWORKS.SessionKey] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
+            completion(responseInfo)
+            return
+        }
+        
+        guard let requestType = requestInfo[NETWORKS.RequestKey] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.RequestKey))
+            completion(responseInfo)
+            return
+        }
+        
+        performAintxRequest(url: host + endPoint, sessionType: sessionType, requestType: requestType, requestInfo: requestInfo, completion: completion)
+    }
+    
+    private static func performAintxRequest(url: String, sessionType: String, requestType: String, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
+        var responseInfo = ResponseInfo()
+        
+        guard let request = RequestType(rawValue: requestType) else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.unsupportedRequest(requestType))
+            completion(responseInfo)
+            return
+        }
+        
+        var requestInfo = requestInfo
+        do {
+            let session = try SessionType(rawValue: sessionType, identifier: responseInfo[NETWORKS.SessionValue.Identifier] as? String)
+            requestInfo[NETWORKS.SessionKey] = session
+        } catch {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.throwableError(error))
+            completion(responseInfo)
+            return
+        }
+        
+        switch request {
+        case .data:
+            Aintx.dataRequest(urlString: url, requestInfo: responseInfo) { response in
+                responseInfo = parseResponse(response)
+                completion(responseInfo)
+            }
+            
+        case .upload:
+            Aintx.uploadRequest(urlString: url, requestInfo: requestInfo) { response in
+                responseInfo = parseResponse(response)
+                completion(responseInfo)
+            }
+            
+        case .downLoad:
+            Aintx.downloadRequest(urlString: url, requestInfo: requestInfo) { response in
+                responseInfo = parseResponse(response)
+                completion(responseInfo)
+            }
+            
+        case .stream:
+            Aintx.streamRequest(urlString: url, requestInfo: responseInfo) { response in
+                responseInfo = parseResponse(response)
+                completion(responseInfo)
+            }
+        }
+        
+    }
+    
+    private static func parseResponse(_ response: Response) -> ResponseInfo {
+        var responseInfo = ResponseInfo()
+        
+        responseInfo[NETWORKS.Error] = response.error
+        responseInfo[NETWORKS.Response.Data] = response.data
+        responseInfo[NETWORKS.Response.Status] = response.response
+        
+        return responseInfo
     }
     
 }

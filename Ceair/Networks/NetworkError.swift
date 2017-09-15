@@ -17,7 +17,9 @@ enum NetworkError: Error {
         case missingRequestInfo(String)
         case unsupportedMethod(String)
         case unsupportedSession(String)
+        case unsupportedRequest(String)
         case invaliedURL(String)
+        case throwableError(Error)
     }
     
     enum ResponseFailedReason {
@@ -46,10 +48,14 @@ extension NetworkError.RequestFailedReason {
             return "Request Failed: Missing requestInfo \'\(requestInfo)\'"
         case .unsupportedMethod(let method):
             return "Request Failed: Unexpected http method \'\(method)\'"
-        case .invaliedURL(let urlString):
-            return "Request Failed: Invalid url string \'\(urlString)\'"
         case .unsupportedSession(let sesson):
             return "Request Failed: Unsupported session type \'\(sesson)\'"
+        case .unsupportedRequest(let request):
+            return "Request Failed: Unsupported request type \'\(request)\'"
+        case .invaliedURL(let urlString):
+            return "Request Failed: Invalid url string \'\(urlString)\'"
+        case .throwableError(let error):
+            return error.localizedDescription
         }
     }
 }
