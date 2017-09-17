@@ -12,7 +12,6 @@ enum SessionType {
     case standard
     case ephemeral
     case background(String)
-    case custom(Any)
 }
 
 extension SessionType {
@@ -44,6 +43,8 @@ class SessionManager {
     var ephemeral: URLSession?
     var background: URLSession?
     
+    var sessionTasks: [URLSessionTask] = []
+    
     func getSession(with sessionType: SessionType) -> URLSession {
         switch sessionType {
         case .standard:
@@ -52,13 +53,7 @@ class SessionManager {
             return ephemeral ?? URLSession(configuration: .ephemeral)
         case .background(let identifier):
             return background ?? URLSession(configuration: .background(withIdentifier: identifier))
-        case .custom(let custome):
-            return standard ?? URLSession.shared
         }
-    }
-    
-    func performRequest(_ request: Request) {
-        
     }
     
 }

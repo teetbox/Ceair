@@ -28,24 +28,20 @@ class Aintx {
     
     // MARK: - Methods
     
-    func request(urlString: String, method: HttpMethod = .get, parameters: Parameters? = nil, completion: @escaping (Response) -> Void) {
-        guard let url = composeURL(urlString: urlString, method: method, parameters: parameters) else {
+    class func dataRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+        guard let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType else {
+            let error = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
+            let response = Response(data: nil, response: nil, error: error)
+            completion(response)
             return
         }
-        performDataRequest(url: url, method: method, parameters: parameters, completion: completion)
-    }
-    
-    class func dataRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
-        var responseInfo = ResponseInfo()
-        guard let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
-        }
         
-        let session = SessionManager(sessionType: sessionType)
+        let session = SessionManager.shared.getSession(with: sessionType)
         
-        let dataTask = DataTask()
+        let request = URLRequest(url: URL(string: urlString)!)
         
-        session.session
+        let dataTask = session.dataTask(with: request)
+        dataTask.resume()
     }
     
     class func uploadRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
@@ -65,8 +61,6 @@ class Aintx {
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        session.performDataTask(with: request, completion: completion)
     }
 
 }
