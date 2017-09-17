@@ -31,17 +31,40 @@ class Aintx {
     class func dataRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         guard let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType else {
             let error = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
-            let response = Response(data: nil, response: nil, error: error)
+            let response = Response(error: error)
             completion(response)
             return
         }
         
         let session = SessionManager.shared.getSession(with: sessionType)
         
-        let request = URLRequest(url: URL(string: urlString)!)
+        guard let method = requestInfo[NETWORKS.MethodKey] as? String else {
+            let error = NetworkError.requestError(.missingRequestInfo(NETWORKS.MethodKey))
+            completion(Response(error: error))
+            return
+        }
         
-        let dataTask = session.dataTask(with: request)
-        dataTask.resume()
+        guard let httpMethod = HttpMethod(rawValue: method) else {
+            let error = NetworkError.requestError(.unsupportedMethod(method))
+            completion(Response(error: error))
+            return
+        }
+        
+        do {
+            let url = try URLEncording.encord(urlString: urlString, method: httpMethod, parameters: requestInfo[NETWORKS.Params] as? Parameters)
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = httpMethod.rawValue
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            
+            session.dataTask(with: request, completionHandler: { (data, response, error) in
+                completion(Response(data: data, response: response, error: error))
+            }).resume()
+        } catch {
+            completion(Response(error: error))
+        }
+        
     }
     
     class func uploadRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */; };
+		ACE04F061F6E638B009AAB70 /* URLEncording.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE04F051F6E638B009AAB70 /* URLEncording.swift */; };
 		C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AintxTests.swift; sourceTree = "<group>"; };
+		ACE04F051F6E638B009AAB70 /* URLEncording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncording.swift; sourceTree = "<group>"; };
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			children = (
 				C9FCBABF1F577D6F00B6788A /* Aintx.swift */,
 				C9ECA3101F6B494800CAD558 /* SessionManager.swift */,
+				ACE04F051F6E638B009AAB70 /* URLEncording.swift */,
 				C9ECA3121F6B4FA900CAD558 /* Request.swift */,
 				C96AF2961F6755D900E5B6F8 /* Response.swift */,
 				C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */,
@@ -504,6 +507,7 @@
 				C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */,
 				C9171AFC1F5631D900D9BE66 /* TABBARS.swift in Sources */,
 				C9ECA3111F6B494800CAD558 /* SessionManager.swift in Sources */,
+				ACE04F061F6E638B009AAB70 /* URLEncording.swift in Sources */,
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
 				C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */,
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,

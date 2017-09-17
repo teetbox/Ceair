@@ -81,7 +81,7 @@ struct NetworkHandler {
         
         switch request {
         case .data:
-            Aintx.dataRequest(urlString: url, requestInfo: responseInfo) { response in
+            Aintx.dataRequest(urlString: url, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
@@ -99,7 +99,7 @@ struct NetworkHandler {
             }
             
         case .stream:
-            Aintx.streamRequest(urlString: url, requestInfo: responseInfo) { response in
+            Aintx.streamRequest(urlString: url, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
