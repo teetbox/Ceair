@@ -14,10 +14,10 @@ enum HttpMethod: String {
 }
 
 enum RequestType: String {
-    case data = "data"
-    case upload = "upload"
-    case downLoad = "download"
-    case stream = "stream"
+    case data
+    case upload
+    case downLoad
+    case stream
 }
 
 typealias Parameters = [String: Any]
@@ -25,6 +25,8 @@ typealias Parameters = [String: Any]
 // MARK: -
 
 class Aintx {
+    
+    private init() {}
     
     // MARK: - Methods
     
@@ -36,7 +38,7 @@ class Aintx {
             return
         }
         
-        let session = SessionManager.shared.getSession(with: sessionType)
+        let session = SessionManager.shared.getSession(for: sessionType)
         
         do {
             let url = try URLEncording.encord(urlString: urlString, method: method, parameters: requestInfo[NETWORKS.Parameters] as? Parameters)

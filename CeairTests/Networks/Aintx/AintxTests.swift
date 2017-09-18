@@ -16,14 +16,12 @@ class AintxTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDataRequestMissingSessionKey() {
+        let requestInfo = [NETWORKS.SessionKey: "fakeSession"]
+        Aintx.dataRequest(urlString: "fakeURL", method: .get, requestInfo: requestInfo) { (response) in
+            let error = response.error as? NetworkError
+            XCTAssertEqual(error?.localizedDescription, "Request Failed: Missing requestInfo 'sessionType'")
+        }
     }
     
 }

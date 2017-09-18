@@ -25,6 +25,8 @@
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
 		C93E6B361F6F3C6F00BC8E84 /* NetworkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */; };
+		C93E6B381F6F553500BC8E84 /* URLEncordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6B371F6F553500BC8E84 /* URLEncordingTests.swift */; };
+		C93E6B3A1F6F5DA600BC8E84 /* SessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6B391F6F5DA600BC8E84 /* SessionManagerTests.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C96AF2951F67559E00E5B6F8 /* URLSession+Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */; };
 		C96AF2971F6755D900E5B6F8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF2961F6755D900E5B6F8 /* Response.swift */; };
@@ -89,6 +91,8 @@
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
 		C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandlerTests.swift; sourceTree = "<group>"; };
+		C93E6B371F6F553500BC8E84 /* URLEncordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncordingTests.swift; sourceTree = "<group>"; };
+		C93E6B391F6F5DA600BC8E84 /* SessionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerTests.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Aintx.swift"; sourceTree = "<group>"; };
 		C96AF2961F6755D900E5B6F8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */,
+				C93E6B371F6F553500BC8E84 /* URLEncordingTests.swift */,
+				C93E6B391F6F5DA600BC8E84 /* SessionManagerTests.swift */,
 			);
 			path = Aintx;
 			sourceTree = "<group>";
@@ -553,8 +559,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
+				C93E6B381F6F553500BC8E84 /* URLEncordingTests.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
+				C93E6B3A1F6F5DA600BC8E84 /* SessionManagerTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C93E6B361F6F3C6F00BC8E84 /* NetworkHandlerTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
