@@ -11,13 +11,13 @@ import Foundation
 struct Response {
     
     let data: Data?
-    let response: URLResponse?
+    let urlResponse: URLResponse?
     let error: Error?
     var jsonData: Parameters?
     
     init(data: Data? = nil, response: URLResponse? = nil, error: Error? = nil) {
         self.data = data
-        self.response = response
+        self.urlResponse = response
         self.error = error
     }
 

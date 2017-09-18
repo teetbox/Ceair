@@ -118,7 +118,7 @@ struct NetworkHandler {
         
         responseInfo[NETWORKS.Error] = response.error
         responseInfo[NETWORKS.Response.Data] = response.data
-        responseInfo[NETWORKS.Response.Status] = response.response
+        responseInfo[NETWORKS.Response.Status] = response.urlResponse
         
         return responseInfo
     }

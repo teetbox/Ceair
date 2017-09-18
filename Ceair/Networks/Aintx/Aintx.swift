@@ -43,18 +43,13 @@ class Aintx {
         do {
             let url = try URLEncording.encord(urlString: urlString, method: method, parameters: requestInfo[NETWORKS.Parameters] as? Parameters)
             
-            var request = URLRequest(url: url)
-            request.httpMethod = method.rawValue
-            request.setValue(NETWORKS.ContentTypeValue.Json, forHTTPHeaderField: NETWORKS.ContentTypeKey)
-            request.setValue(NETWORKS.AcceptValue.Json, forHTTPHeaderField: NETWORKS.AcceptKey)
+            let request = Request(url: url)
             
-            session.dataTask(with: request, completionHandler: { (data, response, error) in
-                let response = Response(data: data, response: response, error: error)
-                
+            session.performDataTask(with: request) { (response) in
                 DispatchQueue.main.async {
                     completion(response)
                 }
-            }).resume()
+            }
         } catch {
             completion(Response(error: error))
         }
