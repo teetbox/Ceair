@@ -28,7 +28,7 @@ class Aintx {
     
     // MARK: - Methods
     
-    class func dataRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func dataRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         guard let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType else {
             let error = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
             let response = Response(error: error)
@@ -38,28 +38,20 @@ class Aintx {
         
         let session = SessionManager.shared.getSession(with: sessionType)
         
-        guard let method = requestInfo[NETWORKS.MethodKey] as? String else {
-            let error = NetworkError.requestError(.missingRequestInfo(NETWORKS.MethodKey))
-            completion(Response(error: error))
-            return
-        }
-        
-        guard let httpMethod = HttpMethod(rawValue: method) else {
-            let error = NetworkError.requestError(.unsupportedMethod(method))
-            completion(Response(error: error))
-            return
-        }
-        
         do {
-            let url = try URLEncording.encord(urlString: urlString, method: httpMethod, parameters: requestInfo[NETWORKS.Params] as? Parameters)
+            let url = try URLEncording.encord(urlString: urlString, method: method, parameters: requestInfo[NETWORKS.Parameters] as? Parameters)
             
             var request = URLRequest(url: url)
-            request.httpMethod = httpMethod.rawValue
-            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.httpMethod = method.rawValue
+            request.setValue(NETWORKS.ContentTypeValue.Json, forHTTPHeaderField: NETWORKS.ContentTypeKey)
+            request.setValue(NETWORKS.AcceptValue.Json, forHTTPHeaderField: NETWORKS.AcceptKey)
             
             session.dataTask(with: request, completionHandler: { (data, response, error) in
-                completion(Response(data: data, response: response, error: error))
+                let response = Response(data: data, response: response, error: error)
+                
+                DispatchQueue.main.async {
+                    completion(response)
+                }
             }).resume()
         } catch {
             completion(Response(error: error))
@@ -67,23 +59,16 @@ class Aintx {
         
     }
     
-    class func uploadRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func uploadRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
     }
     
-    class func downloadRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func downloadRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
     }
     
-    class func streamRequest(urlString: String, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func streamRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
-    }
-    
-    private func performDataRequest(url: URL, method: HttpMethod, parameters: Parameters?, completion: @escaping (Response) -> Void) {
-        var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
     }
 
 }

@@ -34,10 +34,20 @@ struct NETWORKS {
         static let Stream = "stream"
     }
     
+    static let ContentTypeKey = "Content-Type"
+    struct ContentTypeValue {
+        static let Json = "application/json"
+    }
+    
+    static let AcceptKey = "Accept"
+    struct AcceptValue {
+        static let Json = "application/json"
+    }
+    
     static let Host = "host"
     static let EndPoint = "endPoint"
     static let QueryString = "queryString"
-    static let Params = "params"
+    static let Parameters = "parameters"
     
     struct Response {
         static let Status = "status"

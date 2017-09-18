@@ -24,6 +24,7 @@
 		C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF1A1F54E00800284B44 /* CeairTests.swift */; };
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
+		C93E6B361F6F3C6F00BC8E84 /* NetworkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C96AF2951F67559E00E5B6F8 /* URLSession+Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */; };
 		C96AF2971F6755D900E5B6F8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF2961F6755D900E5B6F8 /* Response.swift */; };
@@ -87,6 +88,7 @@
 		C92BDF1C1F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
+		C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandlerTests.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Aintx.swift"; sourceTree = "<group>"; };
 		C96AF2961F6755D900E5B6F8 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 		AC7268A21F6C9EA8004C6C36 /* Networks */ = {
 			isa = PBXGroup;
 			children = (
+				C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */,
 				AC7268A31F6C9EB9004C6C36 /* Aintx */,
 			);
 			path = Networks;
@@ -394,8 +397,8 @@
 				C9FCBABF1F577D6F00B6788A /* Aintx.swift */,
 				C9ECA3101F6B494800CAD558 /* SessionManager.swift */,
 				ACE04F051F6E638B009AAB70 /* URLEncording.swift */,
-				C9ECA3121F6B4FA900CAD558 /* Request.swift */,
 				C96AF2961F6755D900E5B6F8 /* Response.swift */,
+				C9ECA3121F6B4FA900CAD558 /* Request.swift */,
 				C96AF2941F67559E00E5B6F8 /* URLSession+Aintx.swift */,
 			);
 			path = Aintx;
@@ -553,6 +556,7 @@
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
+				C93E6B361F6F3C6F00BC8E84 /* NetworkHandlerTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,
 			);

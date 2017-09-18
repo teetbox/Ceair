@@ -14,15 +14,15 @@ typealias ResponseHandler = ([String: Any]) -> Void
 
 struct NetworkHandler {
     
-    static let GetRequest = [NETWORKS.Host: URLS.Host,
+    static let GetRequestInfo = [NETWORKS.Host: URLS.Host,
                              NETWORKS.MethodKey: NETWORKS.MethodValue.Get,
-                             NETWORKS.SessionKey: NETWORKS.SessionValue.Standard,
-                             NETWORKS.RequestKey: NETWORKS.RequestValue.Data]
+                             NETWORKS.RequestKey: NETWORKS.RequestValue.Data,
+                             NETWORKS.SessionKey: NETWORKS.SessionValue.Standard]
     
-    static let PostRequest = [NETWORKS.Host: URLS.Host,
+    static let PostRequestInfo = [NETWORKS.Host: URLS.Host,
                               NETWORKS.MethodKey: NETWORKS.MethodValue.Post,
-                              NETWORKS.SessionKey: NETWORKS.SessionValue.Standard,
-                              NETWORKS.RequestKey: NETWORKS.RequestValue.Data]
+                              NETWORKS.RequestKey: NETWORKS.RequestValue.Data,
+                              NETWORKS.SessionKey: NETWORKS.SessionValue.Standard]
     
     static func performHttpRequest(requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
         var responseInfo = ResponseInfo()
@@ -39,67 +39,73 @@ struct NetworkHandler {
             return
         }
 
-        guard let _ = requestInfo[NETWORKS.MethodKey] as? String else {
+        guard let method = requestInfo[NETWORKS.MethodKey] as? String else {
             responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.MethodKey))
             completion(responseInfo)
             return
         }
         
-        guard let sessionType = requestInfo[NETWORKS.SessionKey] as? String else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
-            completion(responseInfo)
-            return
-        }
-        
-        guard let requestType = requestInfo[NETWORKS.RequestKey] as? String else {
+        guard let request = requestInfo[NETWORKS.RequestKey] as? String else {
             responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.RequestKey))
             completion(responseInfo)
             return
         }
         
-        performAintxRequest(url: host + endPoint, sessionType: sessionType, requestType: requestType, requestInfo: requestInfo, completion: completion)
+        guard let session = requestInfo[NETWORKS.SessionKey] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
+            completion(responseInfo)
+            return
+        }
+        
+        performAintxRequest(url: host + endPoint, method: method, request: request, session: session, requestInfo: requestInfo, completion: completion)
     }
     
-    private static func performAintxRequest(url: String, sessionType: String, requestType: String, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
+    private static func performAintxRequest(url: String, method: String, request: String, session: String, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
         var responseInfo = ResponseInfo()
         
-        guard let request = RequestType(rawValue: requestType) else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.unsupportedRequest(requestType))
+        guard let httpMethod = HttpMethod(rawValue: method) else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.unsupportedMethod(method))
+            completion(responseInfo)
+            return
+        }
+        
+        guard let requestType = RequestType(rawValue: request) else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.unsupportedRequest(request))
             completion(responseInfo)
             return
         }
         
         var requestInfo = requestInfo
         do {
-            let session = try SessionType(rawValue: sessionType, identifier: responseInfo[NETWORKS.SessionValue.Identifier] as? String)
-            requestInfo[NETWORKS.SessionKey] = session
+            let sessionType = try SessionType(rawValue: session, identifier: responseInfo[NETWORKS.SessionValue.Identifier] as? String)
+            requestInfo[NETWORKS.SessionKey] = sessionType
         } catch {
             responseInfo[NETWORKS.Error] = NetworkError.requestError(.throwableError(error))
             completion(responseInfo)
             return
         }
         
-        switch request {
+        switch requestType {
         case .data:
-            Aintx.dataRequest(urlString: url, requestInfo: requestInfo) { response in
+            Aintx.dataRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
             
         case .upload:
-            Aintx.uploadRequest(urlString: url, requestInfo: requestInfo) { response in
+            Aintx.uploadRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
             
         case .downLoad:
-            Aintx.downloadRequest(urlString: url, requestInfo: requestInfo) { response in
+            Aintx.downloadRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
             
         case .stream:
-            Aintx.streamRequest(urlString: url, requestInfo: requestInfo) { response in
+            Aintx.streamRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }

@@ -47,7 +47,7 @@ extension NetworkError.RequestFailedReason {
         case .missingRequestInfo(let requestInfo):
             return "Request Failed: Missing requestInfo \'\(requestInfo)\'"
         case .unsupportedMethod(let method):
-            return "Request Failed: Unexpected http method \'\(method)\'"
+            return "Request Failed: Unsupported http method \'\(method)\'"
         case .unsupportedSession(let sesson):
             return "Request Failed: Unsupported session type \'\(sesson)\'"
         case .unsupportedRequest(let request):
@@ -55,6 +55,9 @@ extension NetworkError.RequestFailedReason {
         case .invaliedURL(let urlString):
             return "Request Failed: Invalid url string \'\(urlString)\'"
         case .throwableError(let error):
+            if let networkError = error as? NetworkError {
+                return networkError.localizedDescription
+            }
             return error.localizedDescription
         }
     }
