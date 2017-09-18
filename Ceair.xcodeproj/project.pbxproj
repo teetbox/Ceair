@@ -20,6 +20,7 @@
 		C9250EC11F6F9B3A005F25BC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC01F6F9B3A005F25BC /* Request.swift */; };
 		C9250EC31F6F9F59005F25BC /* URLSession+Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC21F6F9F59005F25BC /* URLSession+Aintx.swift */; };
 		C9250EC51F6FA612005F25BC /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC41F6FA612005F25BC /* RequestTests.swift */; };
+		C9250EC81F6FB1F8005F25BC /* HttpbinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC71F6FB1F8005F25BC /* HttpbinTests.swift */; };
 		C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */; };
 		C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF051F54E00800284B44 /* AppDelegate.swift */; };
 		C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0C1F54E00800284B44 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		C9250EC01F6F9B3A005F25BC /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		C9250EC21F6F9F59005F25BC /* URLSession+Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Aintx.swift"; sourceTree = "<group>"; };
 		C9250EC41F6FA612005F25BC /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
+		C9250EC71F6FB1F8005F25BC /* HttpbinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpbinTests.swift; sourceTree = "<group>"; };
 		C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TopAlign.swift"; sourceTree = "<group>"; };
 		C92BDF021F54E00800284B44 /* Ceair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ceair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92BDF051F54E00800284B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */,
 				AC7268A31F6C9EB9004C6C36 /* Aintx */,
+				C9250EC61F6FB164005F25BC /* Integration */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -201,6 +204,14 @@
 				C922E5591F5F761100689AE7 /* DateUtilityTests.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C9250EC61F6FB164005F25BC /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				C9250EC71F6FB1F8005F25BC /* HttpbinTests.swift */,
+			);
+			path = Integration;
 			sourceTree = "<group>";
 		};
 		C92BDEF91F54E00800284B44 = {
@@ -566,6 +577,7 @@
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
 				C93E6B3A1F6F5DA600BC8E84 /* SessionManagerTests.swift in Sources */,
+				C9250EC81F6FB1F8005F25BC /* HttpbinTests.swift in Sources */,
 				C9250EC51F6FA612005F25BC /* RequestTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C93E6B361F6F3C6F00BC8E84 /* NetworkHandlerTests.swift in Sources */,

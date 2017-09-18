@@ -31,13 +31,7 @@ class Aintx {
     // MARK: - Methods
     
     class func dataRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
-        guard let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType else {
-            let error = NetworkError.requestError(.missingRequestInfo(NETWORKS.SessionKey))
-            let response = Response(error: error)
-            completion(response)
-            return
-        }
-        
+        let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType ?? .standard
         let session = SessionManager.shared.getSession(for: sessionType)
         
         do {
