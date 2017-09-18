@@ -39,26 +39,26 @@ class SessionManager {
     
     private init() {}
     
-    private var standard: URLSession?
-    private var ephemeral: URLSession?
+    private var standard: URLSession {
+        return URLSession.shared
+    }
+    
+    private var ephemeral: URLSession {
+        return URLSession(configuration: .ephemeral)
+    }
+    
     private var backgrounds = [String: URLSession]()
     
-    var allBackgroundSessions: [String: URLSession] {
+    var allBackgrounds: [String: URLSession] {
         return backgrounds
     }
     
     func getSession(for sessionType: SessionType) -> URLSession {
         switch sessionType {
         case .standard:
-            if standard == nil {
-                standard = URLSession.shared
-            }
-            return standard!
+            return standard
         case .ephemeral:
-            if ephemeral == nil {
-                ephemeral = URLSession(configuration: .ephemeral)
-            }
-            return ephemeral!
+            return ephemeral
         case .background(let identifier):
             if backgrounds[identifier] == nil {
                 backgrounds[identifier] = URLSession(configuration: .background(withIdentifier: identifier))

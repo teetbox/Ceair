@@ -26,8 +26,8 @@ class SessionManagerTests: XCTestCase {
     }
     
     func testGetSessionForBackground() {
-        let bgIndentifier_1 = "background-1"
-        let bgIndentifier_2 = "background-2"
+        let bgIndentifier_1 = "background_1"
+        let bgIndentifier_2 = "background_2"
         
         let sessionType = SessionType.background(bgIndentifier_1)
         let session = SessionManager.shared.getSession(for: sessionType)
@@ -37,8 +37,10 @@ class SessionManagerTests: XCTestCase {
         let session2 = SessionManager.shared.getSession(for: sessionType2)
         XCTAssertEqual(session2.configuration.identifier, bgIndentifier_2)
         
-        let allBackgroundSessions = SessionManager.shared.allBackgroundSessions
-        XCTAssertEqual(allBackgroundSessions.count, 2) 
+        let allBackgrounds = SessionManager.shared.allBackgrounds
+        XCTAssertEqual(allBackgrounds.count, 2)
+        XCTAssertNotNil(allBackgrounds[bgIndentifier_1])
+        XCTAssertNotNil(allBackgrounds[bgIndentifier_2])
     }
     
 }
