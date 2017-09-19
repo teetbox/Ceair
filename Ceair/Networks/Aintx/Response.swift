@@ -12,12 +12,14 @@ struct Response {
     
     let data: Data?
     let urlResponse: URLResponse?
+    let networkError: NetworkError?
     let error: Error?
     var jsonData: Parameters?
     
     init(data: Data? = nil, response: URLResponse? = nil, error: Error? = nil) {
         self.data = data
         self.urlResponse = response
+        self.networkError = error as? NetworkError
         self.error = error
     }
 

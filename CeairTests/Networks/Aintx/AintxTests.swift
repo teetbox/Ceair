@@ -16,11 +16,32 @@ class AintxTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    func testDataRequestMissingSessionKey() {
+    func testDataRequestDefaultMethod() {
+        let requestInfo = [NETWORKS.SessionKey: SessionType.standard]
+        Aintx.dataRequest(path: "fakeURL", requestInfo: requestInfo) { (response) in
+            
+        }
+    }
+    
+    func testDataRequestDefaultSession() {
         let requestInfo = [NETWORKS.SessionKey: "fakeSession"]
-        Aintx.dataRequest(urlString: "fakeURL", method: .get, requestInfo: requestInfo) { (response) in
+        let asyncExpectation = expectation(description: "async")
+        
+        Aintx.dataRequest(path: "fakeURL", method: .get, requestInfo: requestInfo) { (response) in
+            XCTAssertNil(response.networkError)
+            XCTAssertNil(response.error)
+            
+            asyncExpectation.fulfill()
+        }
+        
+        wait(for: [asyncExpectation], timeout: 500)
+    }
+    
+    func testDataRequestMissingRequestInfo() {
+        let requestInfo = [NETWORKS.SessionKey: "fakeSession"]
+        Aintx.dataRequest(path: "fakeURL", method: .get, requestInfo: requestInfo) { (response) in
             let error = response.error as? NetworkError
-            XCTAssertEqual(error?.localizedDescription, "Request Failed: Missing requestInfo 'sessionType'")
+            XCTAssertNotEqual(error?.localizedDescription, "Request Failed: Missing requestInfo 'sessionType'")
         }
     }
     

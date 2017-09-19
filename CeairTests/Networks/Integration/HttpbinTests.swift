@@ -21,11 +21,12 @@ class HttpbinTests: XCTestCase {
     }
     
     func testExample() {
-        requestInfo[NETWORKS.EndPoint] = "/get"
+        requestInfo[NETWORKS.Path] = "/get"
+        
         
         let asyncGet = expectation(description: "get")
         
-        Aintx.dataRequest(urlString: "http://httpbin.org/get", method: .get, requestInfo: requestInfo) { response in
+        Aintx.dataRequest(path: "http://httpbin.org/get", method: .get, requestInfo: requestInfo) { response in
             if let data = response.data {
                 print(data)
             }

@@ -33,8 +33,8 @@ struct NetworkHandler {
             return
         }
         
-        guard let endPoint = requestInfo[NETWORKS.EndPoint] as? String else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.EndPoint))
+        guard let endPoint = requestInfo[NETWORKS.Path] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Path))
             completion(responseInfo)
             return
         }
@@ -57,10 +57,10 @@ struct NetworkHandler {
             return
         }
         
-        performAintxRequest(url: host + endPoint, method: method, request: request, session: session, requestInfo: requestInfo, completion: completion)
+        performAintxRequest(path: host + endPoint, method: method, request: request, session: session, requestInfo: requestInfo, completion: completion)
     }
     
-    private static func performAintxRequest(url: String, method: String, request: String, session: String, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
+    private static func performAintxRequest(path: String, method: String, request: String, session: String, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
         var responseInfo = ResponseInfo()
         
         guard let httpMethod = HttpMethod(rawValue: method) else {
@@ -87,25 +87,25 @@ struct NetworkHandler {
         
         switch requestType {
         case .data:
-            Aintx.dataRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
+            Aintx.dataRequest(path: path, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
             
         case .upload:
-            Aintx.uploadRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
+            Aintx.uploadRequest(path: path, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
             
         case .downLoad:
-            Aintx.downloadRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
+            Aintx.downloadRequest(path: path, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }
             
         case .stream:
-            Aintx.streamRequest(urlString: url, method: httpMethod, requestInfo: requestInfo) { response in
+            Aintx.streamRequest(path: path, method: httpMethod, requestInfo: requestInfo) { response in
                 responseInfo = parseResponse(response)
                 completion(responseInfo)
             }

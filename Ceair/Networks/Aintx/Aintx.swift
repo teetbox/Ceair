@@ -30,12 +30,12 @@ class Aintx {
     
     // MARK: - Methods
     
-    class func dataRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func dataRequest(path: String, method: HttpMethod = .get, session: SessionType = .standard, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType ?? .standard
         let session = SessionManager.shared.getSession(for: sessionType)
         
         do {
-            let url = try URLEncording.encord(urlString: urlString, method: method, parameters: requestInfo[NETWORKS.Parameters] as? Parameters)
+            let url = try URLEncording.encord(urlString: path, method: method, parameters: requestInfo[NETWORKS.Parameters] as? Parameters)
             
             let request = Request(url: url)
             
@@ -50,15 +50,15 @@ class Aintx {
         
     }
     
-    class func uploadRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func uploadRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
     }
     
-    class func downloadRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func downloadRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
     }
     
-    class func streamRequest(urlString: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func streamRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
         
     }
 

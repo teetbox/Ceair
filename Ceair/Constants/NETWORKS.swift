@@ -45,7 +45,7 @@ struct NETWORKS {
     }
     
     static let Host = "host"
-    static let EndPoint = "endPoint"
+    static let Path = "path"
     static let QueryString = "queryString"
     static let Parameters = "parameters"
     
