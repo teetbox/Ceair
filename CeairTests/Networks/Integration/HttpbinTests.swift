@@ -24,7 +24,7 @@ class HttpbinTests: XCTestCase {
         
         let request = aintx.setupHttpRequest(path: "/get")
         request.fire { httpResponse in
-            print(httpResponse.toJSON())
+            print(httpResponse.json)
             
             XCTAssertNil(httpResponse.error)
             XCTAssertNotNil(httpResponse.response)

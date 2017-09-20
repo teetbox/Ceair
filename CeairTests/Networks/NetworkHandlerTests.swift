@@ -14,7 +14,7 @@ class NetworkHandlerTests: XCTestCase {
     func testGetRequestInfo() {
         let requestInfo = NetworkHandler.GetRequestInfo
         
-        XCTAssertEqual(requestInfo[NETWORKS.BaseURL], URLS.Base)
+        XCTAssertEqual(requestInfo[NETWORKS.Domain], URLS.Domain)
         XCTAssertEqual(requestInfo[NETWORKS.MethodKey], NETWORKS.MethodValue.Get)
         XCTAssertEqual(requestInfo[NETWORKS.SessionKey], NETWORKS.SessionValue.Standard)
         XCTAssertEqual(requestInfo[NETWORKS.RequestKey], NETWORKS.RequestValue.Data)
@@ -23,7 +23,7 @@ class NetworkHandlerTests: XCTestCase {
     func testPostRequestInfo() {
         let requestInfo = NetworkHandler.PostRequestInfo
         
-        XCTAssertEqual(requestInfo[NETWORKS.BaseURL], URLS.Base)
+        XCTAssertEqual(requestInfo[NETWORKS.Domain], URLS.Domain)
         XCTAssertEqual(requestInfo[NETWORKS.MethodKey], NETWORKS.MethodValue.Post)
         XCTAssertEqual(requestInfo[NETWORKS.SessionKey], NETWORKS.SessionValue.Standard)
         XCTAssertEqual(requestInfo[NETWORKS.RequestKey], NETWORKS.RequestValue.Data)
@@ -34,24 +34,24 @@ class NetworkHandlerTests: XCTestCase {
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
             let error = responseInfo[NETWORKS.Error] as? NetworkError
-            XCTAssertEqual(error?.localizedDescription, "Request Failed: Missing requestInfo 'path'")
+            XCTAssertEqual(error?.localizedDescription, "Request Failed: Missing requestInfo 'endpoint'")
         }
     }
     
     func testPerformHttpRequestMissingHost() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
-        requestInfo[NETWORKS.BaseURL] = nil
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
+        requestInfo[NETWORKS.Domain] = nil
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
             let error = responseInfo[NETWORKS.Error] as? NetworkError
-            XCTAssertEqual(error?.localizedDescription, "Request Failed: Missing requestInfo 'host'")
+            XCTAssertEqual(error?.localizedDescription, "Request Failed: Missing requestInfo 'domain'")
         }
     }
     
     func testPerformHttpRequestMissingMethodKey() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
         requestInfo[NETWORKS.MethodKey] = nil
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
@@ -62,7 +62,7 @@ class NetworkHandlerTests: XCTestCase {
     
     func testPerformHttpRequestMissingRequestKey() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
         requestInfo[NETWORKS.RequestKey] = nil
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
@@ -73,7 +73,7 @@ class NetworkHandlerTests: XCTestCase {
     
     func testPerformHttpRequestMissingSessionKey() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
         requestInfo[NETWORKS.SessionKey] = nil
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
@@ -84,7 +84,7 @@ class NetworkHandlerTests: XCTestCase {
     
     func testPerformHttpRequestUnsupportedMethod() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
         requestInfo[NETWORKS.MethodKey] = "PPT"
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
@@ -95,7 +95,7 @@ class NetworkHandlerTests: XCTestCase {
     
     func testPerformHttpRequestUnsupportedRequest() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
         requestInfo[NETWORKS.RequestKey] = "PPT"
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
@@ -106,7 +106,7 @@ class NetworkHandlerTests: XCTestCase {
     
     func testPerformHttpRequestUnsupportedSession() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
         requestInfo[NETWORKS.SessionKey] = "PPT"
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
@@ -117,7 +117,7 @@ class NetworkHandlerTests: XCTestCase {
     
     func testPerformHttpRequestBackgroundSessionWithoutIdentifier() {
         var requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = "biubiu"
+        requestInfo[NETWORKS.Endpoint] = "biubiu"
         requestInfo[NETWORKS.SessionKey] = NETWORKS.SessionValue.Background
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in

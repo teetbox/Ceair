@@ -20,8 +20,8 @@ struct HttpResponse: Response {
     let response: URLResponse?
     let error: Error?
     
-    var jsonData: Dictionary<String, String>? {
-        return toJSON()
+    var json: [String: Any]? {
+        return parseJSON()
     }
     
     init(data: Data?, response: URLResponse?, error: Error?) {
@@ -30,8 +30,13 @@ struct HttpResponse: Response {
         self.error = error
     }
     
-    func toJSON() -> Dictionary<String, String>? {
-        return try! JSONSerialization.jsonObject(with: data!, options: []) as? Dictionary<String, String>
+    private func parseJSON() -> [String: Any]? {
+        guard data != nil else { return nil }
+        
+        if let json = try? JSONSerialization.jsonObject(with: data!) as? [String: Any] {
+            return json
+        }
+        return nil
     }
     
 }

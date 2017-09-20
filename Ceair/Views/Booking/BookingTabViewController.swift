@@ -104,7 +104,7 @@ class BookingTabViewController: UIViewController {
         let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
         
         var requestInfo: RequestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Path] = URLS.Login
+        requestInfo[NETWORKS.Endpoint] = URLS.Login
         requestInfo[NETWORKS.Parameters] = params
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { responseInfo in

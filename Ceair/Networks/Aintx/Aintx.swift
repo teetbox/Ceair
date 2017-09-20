@@ -44,7 +44,7 @@ class Aintx {
     }
     
     private init() {
-        baseURL = URLS.Base
+        baseURL = URLS.Domain
     }
     
     func setupHttpRequest(path: String, method: HttpMethod = .get) -> HttpRequest {

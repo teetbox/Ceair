@@ -14,12 +14,12 @@ typealias ResponseHandler = ([String: Any]) -> Void
 
 struct NetworkHandler {
     
-    static let GetRequestInfo = [NETWORKS.BaseURL: URLS.Base,
+    static let GetRequestInfo = [NETWORKS.Domain: URLS.Domain,
                              NETWORKS.MethodKey: NETWORKS.MethodValue.Get,
                              NETWORKS.RequestKey: NETWORKS.RequestValue.Data,
                              NETWORKS.SessionKey: NETWORKS.SessionValue.Standard]
     
-    static let PostRequestInfo = [NETWORKS.BaseURL: URLS.Base,
+    static let PostRequestInfo = [NETWORKS.Domain: URLS.Domain,
                               NETWORKS.MethodKey: NETWORKS.MethodValue.Post,
                               NETWORKS.RequestKey: NETWORKS.RequestValue.Data,
                               NETWORKS.SessionKey: NETWORKS.SessionValue.Standard]
@@ -27,14 +27,14 @@ struct NetworkHandler {
     static func performHttpRequest(requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
         var responseInfo = ResponseInfo()
 
-        guard let host = requestInfo[NETWORKS.BaseURL] as? String else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.BaseURL))
+        guard let host = requestInfo[NETWORKS.Domain] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Domain))
             completion(responseInfo)
             return
         }
         
-        guard let endPoint = requestInfo[NETWORKS.Path] as? String else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Path))
+        guard let endPoint = requestInfo[NETWORKS.Endpoint] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Endpoint))
             completion(responseInfo)
             return
         }
