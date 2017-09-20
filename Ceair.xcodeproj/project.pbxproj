@@ -10,6 +10,7 @@
 		AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */; };
 		ACE04F061F6E638B009AAB70 /* URLEncording.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE04F051F6E638B009AAB70 /* URLEncording.swift */; };
 		C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */; };
+		C904DCB51F732C2A0063C981 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904DCB41F732C2A0063C981 /* HttpError.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
 		C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* IMAGES.swift */; };
@@ -77,6 +78,7 @@
 		AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AintxTests.swift; sourceTree = "<group>"; };
 		ACE04F051F6E638B009AAB70 /* URLEncording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncording.swift; sourceTree = "<group>"; };
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
+		C904DCB41F732C2A0063C981 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
 		C9171AF71F5630DA00D9BE66 /* IMAGES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAGES.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				C9250EC21F6F9F59005F25BC /* URLSession+Aintx.swift */,
 				C91AF0D51F7249E6001A03B1 /* HttpRequest.swift */,
 				C91AF0D71F7249F8001A03B1 /* HttpResponse.swift */,
+				C904DCB41F732C2A0063C981 /* HttpError.swift */,
 			);
 			path = Aintx;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */,
 				C9EB9DE71F57E83000A39AB0 /* FlightTabViewModel.swift in Sources */,
 				C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */,
+				C904DCB51F732C2A0063C981 /* HttpError.swift in Sources */,
 				C91AF0D81F7249F8001A03B1 /* HttpResponse.swift in Sources */,
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,

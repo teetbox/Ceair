@@ -16,7 +16,7 @@ class HttpbinTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        aintx = Aintx(baseURL: "http://httpbin.org")
+        aintx = Aintx(url: "http://httpbin.org")
     }
     
     func testSimpleGet() {
@@ -24,8 +24,6 @@ class HttpbinTests: XCTestCase {
         
         let request = aintx.setupHttpRequest(path: "/get")
         request.fire { httpResponse in
-            print(httpResponse.json)
-            
             XCTAssertNil(httpResponse.error)
             XCTAssertNotNil(httpResponse.response)
             XCTAssertNotNil(httpResponse.data)
