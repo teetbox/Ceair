@@ -44,7 +44,7 @@ struct NETWORKS {
         static let Json = "application/json"
     }
     
-    static let Host = "host"
+    static let BaseURL = "baseURL"
     static let Path = "path"
     static let QueryString = "queryString"
     static let Parameters = "parameters"

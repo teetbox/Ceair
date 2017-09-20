@@ -14,7 +14,7 @@ class NetworkHandlerTests: XCTestCase {
     func testGetRequestInfo() {
         let requestInfo = NetworkHandler.GetRequestInfo
         
-        XCTAssertEqual(requestInfo[NETWORKS.Host], URLS.Host)
+        XCTAssertEqual(requestInfo[NETWORKS.BaseURL], URLS.Base)
         XCTAssertEqual(requestInfo[NETWORKS.MethodKey], NETWORKS.MethodValue.Get)
         XCTAssertEqual(requestInfo[NETWORKS.SessionKey], NETWORKS.SessionValue.Standard)
         XCTAssertEqual(requestInfo[NETWORKS.RequestKey], NETWORKS.RequestValue.Data)
@@ -23,7 +23,7 @@ class NetworkHandlerTests: XCTestCase {
     func testPostRequestInfo() {
         let requestInfo = NetworkHandler.PostRequestInfo
         
-        XCTAssertEqual(requestInfo[NETWORKS.Host], URLS.Host)
+        XCTAssertEqual(requestInfo[NETWORKS.BaseURL], URLS.Base)
         XCTAssertEqual(requestInfo[NETWORKS.MethodKey], NETWORKS.MethodValue.Post)
         XCTAssertEqual(requestInfo[NETWORKS.SessionKey], NETWORKS.SessionValue.Standard)
         XCTAssertEqual(requestInfo[NETWORKS.RequestKey], NETWORKS.RequestValue.Data)
@@ -41,7 +41,7 @@ class NetworkHandlerTests: XCTestCase {
     func testPerformHttpRequestMissingHost() {
         var requestInfo = NetworkHandler.GetRequestInfo
         requestInfo[NETWORKS.Path] = "biubiu"
-        requestInfo[NETWORKS.Host] = nil
+        requestInfo[NETWORKS.BaseURL] = nil
         
         NetworkHandler.performHttpRequest(requestInfo: requestInfo) { (responseInfo) in
             let error = responseInfo[NETWORKS.Error] as? NetworkError

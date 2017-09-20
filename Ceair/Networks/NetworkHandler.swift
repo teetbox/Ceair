@@ -14,12 +14,12 @@ typealias ResponseHandler = ([String: Any]) -> Void
 
 struct NetworkHandler {
     
-    static let GetRequestInfo = [NETWORKS.Host: URLS.Host,
+    static let GetRequestInfo = [NETWORKS.BaseURL: URLS.Base,
                              NETWORKS.MethodKey: NETWORKS.MethodValue.Get,
                              NETWORKS.RequestKey: NETWORKS.RequestValue.Data,
                              NETWORKS.SessionKey: NETWORKS.SessionValue.Standard]
     
-    static let PostRequestInfo = [NETWORKS.Host: URLS.Host,
+    static let PostRequestInfo = [NETWORKS.BaseURL: URLS.Base,
                               NETWORKS.MethodKey: NETWORKS.MethodValue.Post,
                               NETWORKS.RequestKey: NETWORKS.RequestValue.Data,
                               NETWORKS.SessionKey: NETWORKS.SessionValue.Standard]
@@ -27,8 +27,8 @@ struct NetworkHandler {
     static func performHttpRequest(requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
         var responseInfo = ResponseInfo()
 
-        guard let host = requestInfo[NETWORKS.Host] as? String else {
-            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.Host))
+        guard let host = requestInfo[NETWORKS.BaseURL] as? String else {
+            responseInfo[NETWORKS.Error] = NetworkError.requestError(.missingRequestInfo(NETWORKS.BaseURL))
             completion(responseInfo)
             return
         }
@@ -58,6 +58,16 @@ struct NetworkHandler {
         }
         
         performAintxRequest(path: host + endPoint, method: method, request: request, session: session, requestInfo: requestInfo, completion: completion)
+        
+        goAintx(requestInfo: requestInfo, completion: completion)
+    }
+    
+    private static func goAintx(requestInfo: RequestInfo, completion: @escaping (ResponseInfo) -> Void) {
+        let aintx = Aintx(baseURL: "http://httpbin.org")
+        let request = Request(path: "/get")
+        
+        aintx.request = request
+        aintx.go()
     }
     
     private static func performAintxRequest(path: String, method: String, request: String, session: String, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {

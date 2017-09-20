@@ -10,7 +10,7 @@ import Foundation
 
 struct URLS {
     
-    static let Host = "http://172.31.65.187:8080/"
+    static let Base = "http://172.31.65.187:8080/"
     
     static let Login = "portal/member/loginWithFFP"
     

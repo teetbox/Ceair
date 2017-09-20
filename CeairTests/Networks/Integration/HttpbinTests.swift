@@ -17,7 +17,7 @@ class HttpbinTests: XCTestCase {
         super.setUp()
 
         requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.Host] = "http://httpbin.org"
+        requestInfo[NETWORKS.BaseURL] = "http://httpbin.org"
     }
     
     func testExample() {

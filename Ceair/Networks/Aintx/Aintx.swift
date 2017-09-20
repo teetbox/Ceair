@@ -26,7 +26,23 @@ typealias Parameters = [String: Any]
 
 class Aintx {
     
-    private init() {}
+    let baseURL: String
+    
+    var path: String = ""
+    var method: HttpMethod = .get
+    var session: SessionType = .standard
+    
+    var request: Request?
+
+    init(baseURL: String) {
+        self.baseURL = baseURL
+    }
+    
+    private init() {
+        baseURL = URLS.Base
+    }
+    
+    func go() {}
     
     // MARK: - Methods
     

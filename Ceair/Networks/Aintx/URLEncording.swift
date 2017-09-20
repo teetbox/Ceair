@@ -20,7 +20,7 @@ struct URLEncording {
     
     private static func composeURL(urlString: String, method: HttpMethod, parameters: Parameters?) -> URL? {
         guard method == .get, let params = parameters else {
-            return URL(string: URLS.Host + urlString)
+            return URL(string: URLS.Base + urlString)
         }
         var url = urlString
         url += queryString(with: params)

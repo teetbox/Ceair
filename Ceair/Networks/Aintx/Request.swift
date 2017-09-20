@@ -12,8 +12,17 @@ struct Request {
     
     var urlRequest: URLRequest
     
+    var httpHeader: Dictionary<String, String>?
+    var httpBody: Dictionary<String, Any>?
+    
+    var isFake = false
+    
     init(url: URL, httpHeaders: [String: String]? = nil) {
         self.urlRequest = URLRequest(url: url)
+    }
+    
+    init(path: String) {
+        self.urlRequest = URLRequest(url: URL(string: path)!)
     }
     
 }
