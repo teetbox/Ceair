@@ -10,9 +10,9 @@ import Foundation
 
 extension URLSession {
     
-    func performDataTask(with request: Request, completion: @escaping (Response) -> Void) {
+    func performDataTask(with request: Request, completion: @escaping (Response2) -> Void) {
         dataTask(with: request.urlRequest) { (data, response, error) in
-            let response = Response(data: data, response: response, error: error)
+            let response = Response2(data: data, response: response, error: error)
             completion(response)
         }.resume()
     }

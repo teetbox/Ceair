@@ -67,7 +67,9 @@ struct NetworkHandler {
         let request = Request(path: "/get")
         
         aintx.request = request
-        aintx.go()
+        aintx.go { response in
+            
+        }
     }
     
     private static func performAintxRequest(path: String, method: String, request: String, session: String, requestInfo: RequestInfo, completion: @escaping ResponseHandler) {
@@ -123,7 +125,7 @@ struct NetworkHandler {
         
     }
     
-    private static func parseResponse(_ response: Response) -> ResponseInfo {
+    private static func parseResponse(_ response: Response2) -> ResponseInfo {
         var responseInfo = ResponseInfo()
         
         responseInfo[NETWORKS.Error] = response.error

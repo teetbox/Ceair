@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Response {
+struct Response2 {
     
     let data: Data?
     let urlResponse: URLResponse?

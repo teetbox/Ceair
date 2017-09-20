@@ -11,30 +11,28 @@ import XCTest
 
 class HttpbinTests: XCTestCase {
     
-    var requestInfo: ResponseInfo!
+    var aintx: Aintx!
     
     override func setUp() {
         super.setUp()
-
-        requestInfo = NetworkHandler.GetRequestInfo
-        requestInfo[NETWORKS.BaseURL] = "http://httpbin.org"
+        
+        aintx = Aintx(baseURL: "http://httpbin.org")
     }
     
-    func testExample() {
-        requestInfo[NETWORKS.Path] = "/get"
+    func testSimpleGet() {
+        let asyncRequest = expectation(description: "async")
         
-        
-        let asyncGet = expectation(description: "get")
-        
-        Aintx.dataRequest(path: "http://httpbin.org/get", method: .get, requestInfo: requestInfo) { response in
-            if let data = response.data {
-                print(data)
-            }
-            asyncGet.fulfill()
-            XCTAssertNil(response.error)
+        let request = aintx.setupHttpRequest(path: "/get")
+        request.fire { httpResponse in
+            print(httpResponse.toJSON())
+            
+            XCTAssertNil(httpResponse.error)
+            XCTAssertNotNil(httpResponse.response)
+            XCTAssertNotNil(httpResponse.data)
+            asyncRequest.fulfill()
         }
         
-        wait(for: [asyncGet], timeout: 5)
+        wait(for: [asyncRequest], timeout: 5)
     }
     
 }

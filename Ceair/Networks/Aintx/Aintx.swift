@@ -28,9 +28,14 @@ class Aintx {
     
     let baseURL: String
     
+    var session: SessionType = .standard
+    var httpRequest: HttpRequest?
+    
+    
     var path: String = ""
     var method: HttpMethod = .get
-    var session: SessionType = .standard
+    
+    var urlSession: URLSession = .shared
     
     var request: Request?
 
@@ -42,11 +47,23 @@ class Aintx {
         baseURL = URLS.Base
     }
     
-    func go() {}
+    func setupHttpRequest(path: String, method: HttpMethod = .get) -> HttpRequest {
+        let url = URL(string: baseURL + path)!
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        return HttpRequest(path: path, session: urlSession, urlRequest: request)
+    }
+    
+    func go(completion: @escaping (Response2) -> Void) {
+
+    }
     
     // MARK: - Methods
     
-    class func dataRequest(path: String, method: HttpMethod = .get, session: SessionType = .standard, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func dataRequest(path: String, method: HttpMethod = .get, session: SessionType = .standard, requestInfo: RequestInfo, completion: @escaping (Response2) -> Void) {
         let sessionType = requestInfo[NETWORKS.SessionKey] as? SessionType ?? .standard
         let session = SessionManager.shared.getSession(for: sessionType)
         
@@ -61,20 +78,20 @@ class Aintx {
                 }
             }
         } catch {
-            completion(Response(error: error))
+            completion(Response2(error: error))
         }
         
     }
     
-    class func uploadRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func uploadRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response2) -> Void) {
         
     }
     
-    class func downloadRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func downloadRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response2) -> Void) {
         
     }
     
-    class func streamRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response) -> Void) {
+    class func streamRequest(path: String, method: HttpMethod, requestInfo: RequestInfo, completion: @escaping (Response2) -> Void) {
         
     }
 
