@@ -13,45 +13,45 @@ enum HttpMethod: String {
     case post = "POST"
 }
 
-enum RequestType: String {
-    case data
-    case upload
-    case downLoad
-    case stream
-}
-
 typealias Parameters = [String: Any]
 
 // MARK: -
 
 struct Aintx {
     
-    let urlString: String
+    let baseURL: String
     var httpRequest: HttpRequest?
+    
+    var isFake = false
+    var fakeResponse: HttpResponse?
     
     init(url: String) {
         self.init(url: url, session: .standard)
     }
     
     init(url: String, session: SessionType) {
-        urlString = url
+        baseURL = url
         
     }
     
     private init() {
-        urlString = URLS.Domain
+        baseURL = URLS.Domain
     }
     
     // MARK: - Methods
     
+    func go(_ path: String, method: HttpMethod = .get, session: SessionType = .standard, completion: (HttpResponse) -> Void) {
+        
+    }
+    
     func setupHttpRequest(path: String, method: HttpMethod = .get) -> HttpRequest {
-        let url = URL(string: urlString + path)!
+        let url = URL(string: baseURL + path)!
         var request = URLRequest(url: url)
         
         request.httpMethod = method.rawValue
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        return HttpRequest(path: path, session: URLSession.shared, urlRequest: request)
+        return HttpRequest(path: path, request: request, session: URLSession.shared)
     }
 
 }

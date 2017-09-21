@@ -11,20 +11,20 @@ import XCTest
 
 class AintxTests: XCTestCase {
     
+    var aintx: Aintx!
+    
     override func setUp() {
         super.setUp()
+        
+        aintx = Aintx(url: "www.fake.com")
     }
     
-    func testDataRequestDefaultMethod() {
-
-    }
-    
-    func testDataRequestDefaultSession() {
-
-    }
-    
-    func testDataRequestMissingRequestInfo() {
-
+    func testGet() {
+        aintx.isFake = true
+        
+        aintx.go("/get") { response in
+            print("Aintx Go")
+        }
     }
     
 }
