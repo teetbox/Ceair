@@ -22,6 +22,9 @@ struct Aintx {
     let baseURL: String
     var httpRequest: HttpRequest?
     
+    var httpMethod: HttpMethod = .get
+    var requestType: RequestType = .data
+    
     var isFake = false
     var fakeResponse: HttpResponse?
     
@@ -41,7 +44,8 @@ struct Aintx {
     // MARK: - Methods
     
     func go(_ path: String, method: HttpMethod = .get, session: SessionType = .standard, completion: (HttpResponse) -> Void) {
-        
+        let httpResponse = HttpResponse()
+        completion(httpResponse)
     }
     
     func setupHttpRequest(path: String, method: HttpMethod = .get) -> HttpRequest {

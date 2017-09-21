@@ -19,11 +19,14 @@ class AintxTests: XCTestCase {
         aintx = Aintx(url: "www.fake.com")
     }
     
-    func testGet() {
+    func testGoWithPath() {
         aintx.isFake = true
         
         aintx.go("/get") { response in
             print("Aintx Go")
+            
+            XCTAssertEqual(aintx.httpMethod, .get)
+            XCTAssertEqual(aintx.requestType, .data)
         }
     }
     

@@ -24,7 +24,7 @@ struct HttpResponse: Response {
         return parseJSON()
     }
     
-    init(data: Data?, response: URLResponse?, error: Error?) {
+    init(data: Data? = nil, response: URLResponse? = nil, error: Error? = nil) {
         self.data = data
         self.response = response
         self.error = error
