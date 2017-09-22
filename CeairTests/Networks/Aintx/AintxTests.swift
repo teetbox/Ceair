@@ -21,32 +21,56 @@ class AintxTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
         aintx = Aintx(url: "www.fake.com")
     }
     
     func testInitWithDefaultSession() {
-        XCTAssertEqual(aintx.sessionConfig, .default)
+        XCTAssertEqual(aintx.config, .default)
     }
     
     func testInitWithEphemeralSession() {
         aintx = Aintx(url: "www.fake.com", config: .ephemeral)
-        XCTAssertEqual(aintx.sessionConfig, .ephemeral)
+        XCTAssertEqual(aintx.config, .ephemeral)
     }
     
     func testInitWithBackgroundSession() {
         aintx = Aintx(url: "www.fake.com", config: .background("background"))
-        XCTAssertEqual(aintx.sessionConfig, .background("background"))
+        XCTAssertEqual(aintx.config, .background("background"))
     }
     
-    func testGoWithPath() {
-        aintx.isFake = true
+    func testGoWithDefaultHttpMethodAndRequestType() {
+        aintx.go("/fake/path") { response in
+            XCTAssertEqual(self.aintx.httpMethod, .get)
+            XCTAssertEqual(self.aintx.requestType, .data)
+        }
+    }
+    
+    func testGoWithCustomeHttpMethodAndRequestType() {
+        aintx.httpMethod = .post
+        aintx.requestType = .upload
         
-        aintx.go("/get") { response in
-            print("Aintx Go")
+        aintx.go("/fake/path") { response in
+            XCTAssertEqual(self.aintx.httpMethod, .post)
+            XCTAssertEqual(self.aintx.requestType, .upload)
+        }
+        
+        aintx.httpMethod = .delete
+        aintx.requestType = .data
+        
+        aintx.go("/fake/path") { response in
+            XCTAssertEqual(self.aintx.httpMethod, .delete)
+            XCTAssertEqual(self.aintx.requestType, .data)
+        }
+    }
+    
+    func testGoWithHttpMethod() {
+        aintx.go("/fake/post", method: .post) { httpResponse in
+        }
+        
+        let dataRequest = aintx.createHttpRequest(path: "/get")
+        
+        aintx.go(dataRequest) { (httpResponse) in
             
-            XCTAssertEqual(aintx.httpMethod, .get)
-            XCTAssertEqual(aintx.requestType, .data)
         }
     }
     

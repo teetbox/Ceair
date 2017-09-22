@@ -101,25 +101,15 @@ class BookingTabViewController: UIViewController {
     }
     
     @objc func goAintx() {
-//        let params = ["loginType": "0", "password": "00313131", "username": "660265538998", "verifyCode": ""]
+        let baseURL = "http://172.31.65.187:8080"
+        let path = "/portal/member/loginWithFFP?loginType=0&password=00313131&username=660265538998&verifyCode"
         
-//        Aintx.standard.request(urlString: URLs.Login, parameters: params) { (result) in
-//            switch result {
-//            case .failure(let response):
-//                print(response.error!)
-//
-//            case .success(let response):
-//                let user = try! JSONDecoder().decode(User.self, from: response.data!)
-//
-//                UserConfig.shared.userLogin(user)
-//                self.loginButton.alpha = 0
-//                self.aintxButton.alpha = 0
-//                self.logoutButton.alpha = 1
-//                self.loginNameLabel.alpha = 1
-//                self.loginNameLabel.text = user.fullname
-//            }
-//        }
-        
+        let aintx = Aintx(url: baseURL)
+        aintx.go(path) { httpResponse in
+            if let data = httpResponse.data {
+                print(data.count)
+            }
+        }
     }
 
 }

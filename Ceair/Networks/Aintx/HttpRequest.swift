@@ -8,31 +8,42 @@
 
 import Foundation
 
-enum RequestType: String {
-    case data
-    case upload
-    case downLoad
-    case stream
+protocol HttpRequest {
+    var path: String { get }
+    var session: URLSession { get }
+    var queryString: String? { get }
+    var parameters: Parameters? { get }
+    
+    var urlRequest: URLRequest?  { get }
+    
+    init(base: String, path: String, queryString: String?, parameters: Parameters?, session: URLSession)
+    
+    func fire(completion: @escaping (HttpResponse) -> Void)
 }
 
-struct HttpRequest {
+struct DataRequest: HttpRequest {
     
+    let base: String
     let path: String
-    var request: URLRequest
     let session: URLSession
-    var type: RequestType
+    var urlRequest: URLRequest?
+    var queryString: String?
     
-    init(path: String, request: URLRequest, session: URLSession, type: RequestType = .data) {
+    var parameters: Parameters?
+    
+    init(base: String, path: String, queryString: String?, parameters: Parameters?, session: URLSession) {
+        self.base = base
         self.path = path
         self.session = session
-        self.request = request
-        self.type = type
+        
+        urlRequest = URLRequest(url: URL(string: base + path)!)
+        urlRequest!.httpMethod = "GET"
+        urlRequest!.setValue("application/json", forHTTPHeaderField: "Content-Type")
     }
     
-    func fire(compeltion: @escaping (HttpResponse) -> Void) {
-        session.dataTask(with: request) { (data, response, error) in
-            let httpResponse = HttpResponse(data: data, response: response, error: error)
-            compeltion(httpResponse)
+    func fire(completion: @escaping (HttpResponse) -> Void) {
+        session.dataTask(with: urlRequest!) { (data, response, error) in
+            completion(HttpResponse(data: data, response: response, error: error))
         }.resume()
     }
     
