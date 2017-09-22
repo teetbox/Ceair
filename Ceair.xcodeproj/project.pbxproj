@@ -20,10 +20,6 @@
 		C91AF0D81F7249F8001A03B1 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AF0D71F7249F8001A03B1 /* HttpResponse.swift */; };
 		C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5551F5F747400689AE7 /* DateUtility.swift */; };
 		C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5591F5F761100689AE7 /* DateUtilityTests.swift */; };
-		C9250EC11F6F9B3A005F25BC /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC01F6F9B3A005F25BC /* Request.swift */; };
-		C9250EC31F6F9F59005F25BC /* URLSession+Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC21F6F9F59005F25BC /* URLSession+Aintx.swift */; };
-		C9250EC51F6FA612005F25BC /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC41F6FA612005F25BC /* RequestTests.swift */; };
-		C9250EC81F6FB1F8005F25BC /* HttpbinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250EC71F6FB1F8005F25BC /* HttpbinTests.swift */; };
 		C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */; };
 		C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF051F54E00800284B44 /* AppDelegate.swift */; };
 		C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C92BDF0C1F54E00800284B44 /* Assets.xcassets */; };
@@ -31,11 +27,7 @@
 		C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF1A1F54E00800284B44 /* CeairTests.swift */; };
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
-		C93E6B361F6F3C6F00BC8E84 /* NetworkHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */; };
-		C93E6B381F6F553500BC8E84 /* URLEncordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6B371F6F553500BC8E84 /* URLEncordingTests.swift */; };
-		C93E6B3A1F6F5DA600BC8E84 /* SessionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93E6B391F6F5DA600BC8E84 /* SessionManagerTests.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
-		C96AF2971F6755D900E5B6F8 /* Response2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF2961F6755D900E5B6F8 /* Response2.swift */; };
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
 		C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C761E1F57DD97007EB4E2 /* Coordinator.swift */; };
@@ -88,10 +80,6 @@
 		C91AF0D71F7249F8001A03B1 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		C922E5551F5F747400689AE7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		C922E5591F5F761100689AE7 /* DateUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilityTests.swift; sourceTree = "<group>"; };
-		C9250EC01F6F9B3A005F25BC /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		C9250EC21F6F9F59005F25BC /* URLSession+Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Aintx.swift"; sourceTree = "<group>"; };
-		C9250EC41F6FA612005F25BC /* RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
-		C9250EC71F6FB1F8005F25BC /* HttpbinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpbinTests.swift; sourceTree = "<group>"; };
 		C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TopAlign.swift"; sourceTree = "<group>"; };
 		C92BDF021F54E00800284B44 /* Ceair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ceair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92BDF051F54E00800284B44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,11 +90,7 @@
 		C92BDF1C1F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
-		C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandlerTests.swift; sourceTree = "<group>"; };
-		C93E6B371F6F553500BC8E84 /* URLEncordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncordingTests.swift; sourceTree = "<group>"; };
-		C93E6B391F6F5DA600BC8E84 /* SessionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerTests.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
-		C96AF2961F6755D900E5B6F8 /* Response2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response2.swift; sourceTree = "<group>"; };
 		C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		C973BBDF1F59547500391516 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
 		C98C761E1F57DD97007EB4E2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -163,7 +147,6 @@
 		AC7268A21F6C9EA8004C6C36 /* Networks */ = {
 			isa = PBXGroup;
 			children = (
-				C93E6B351F6F3C6F00BC8E84 /* NetworkHandlerTests.swift */,
 				AC7268A31F6C9EB9004C6C36 /* Aintx */,
 				C9250EC61F6FB164005F25BC /* Integration */,
 			);
@@ -174,9 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */,
-				C93E6B391F6F5DA600BC8E84 /* SessionManagerTests.swift */,
-				C93E6B371F6F553500BC8E84 /* URLEncordingTests.swift */,
-				C9250EC41F6FA612005F25BC /* RequestTests.swift */,
 			);
 			path = Aintx;
 			sourceTree = "<group>";
@@ -215,7 +195,6 @@
 		C9250EC61F6FB164005F25BC /* Integration */ = {
 			isa = PBXGroup;
 			children = (
-				C9250EC71F6FB1F8005F25BC /* HttpbinTests.swift */,
 			);
 			path = Integration;
 			sourceTree = "<group>";
@@ -423,9 +402,6 @@
 				C9FCBABF1F577D6F00B6788A /* Aintx.swift */,
 				C9ECA3101F6B494800CAD558 /* SessionManager.swift */,
 				ACE04F051F6E638B009AAB70 /* URLEncording.swift */,
-				C9250EC01F6F9B3A005F25BC /* Request.swift */,
-				C96AF2961F6755D900E5B6F8 /* Response2.swift */,
-				C9250EC21F6F9F59005F25BC /* URLSession+Aintx.swift */,
 				C91AF0D51F7249E6001A03B1 /* HttpRequest.swift */,
 				C91AF0D71F7249F8001A03B1 /* HttpResponse.swift */,
 				C904DCB41F732C2A0063C981 /* HttpError.swift */,
@@ -546,7 +522,6 @@
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,
 				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
 				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
-				C9250EC31F6F9F59005F25BC /* URLSession+Aintx.swift in Sources */,
 				C9171AFA1F56317500D9BE66 /* COLORS.swift in Sources */,
 				C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */,
@@ -563,7 +538,6 @@
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
-				C9250EC11F6F9B3A005F25BC /* Request.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,
 				C9C306651F627F600020A316 /* User.swift in Sources */,
@@ -573,7 +547,6 @@
 				C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */,
 				C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */,
 				C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */,
-				C96AF2971F6755D900E5B6F8 /* Response2.swift in Sources */,
 				C9E09DDF1F68A76C007D0698 /* NETWORKS.swift in Sources */,
 				C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
@@ -585,14 +558,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
-				C93E6B381F6F553500BC8E84 /* URLEncordingTests.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
-				C93E6B3A1F6F5DA600BC8E84 /* SessionManagerTests.swift in Sources */,
-				C9250EC81F6FB1F8005F25BC /* HttpbinTests.swift in Sources */,
-				C9250EC51F6FA612005F25BC /* RequestTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
-				C93E6B361F6F3C6F00BC8E84 /* NetworkHandlerTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,
 			);

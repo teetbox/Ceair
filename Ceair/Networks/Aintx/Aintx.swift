@@ -13,6 +13,12 @@ enum HttpMethod: String {
     case post = "POST"
 }
 
+enum SessionConfig {
+    case `default`
+    case ephemeral
+    case background(String)
+}
+
 typealias Parameters = [String: Any]
 
 // MARK: -
@@ -20,6 +26,7 @@ typealias Parameters = [String: Any]
 struct Aintx {
     
     let baseURL: String
+    let sessionConfig: SessionConfig
     var httpRequest: HttpRequest?
     
     var httpMethod: HttpMethod = .get
@@ -28,17 +35,9 @@ struct Aintx {
     var isFake = false
     var fakeResponse: HttpResponse?
     
-    init(url: String) {
-        self.init(url: url, session: .standard)
-    }
-    
-    init(url: String, session: SessionType) {
-        baseURL = url
-        
-    }
-    
-    private init() {
-        baseURL = URLS.Domain
+    init(url: String, config: SessionConfig = .default) {
+        self.baseURL = url
+        self.sessionConfig = config
     }
     
     // MARK: - Methods
