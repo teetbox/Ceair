@@ -20,7 +20,7 @@ enum HttpMethod: String {
     case delete = "DELETE"
 }
 
-enum RequestType: String {
+enum RequestType {
     case data
     case upload
     case downLoad
@@ -52,12 +52,19 @@ struct Aintx {
     // MARK: - Methods
     
     func go(_ path: String, completion: @escaping (HttpResponse) -> Void) {
-        go(path, method: httpMethod, completion: completion)
+        go(path, method: httpMethod, type: requestType ,completion: completion)
     }
     
-    func go(_ path: String, method: HttpMethod = .get, completion: @escaping (HttpResponse) -> Void) {
-        let request = createHttpRequest(path: path)
-        
+    func go(_ path: String, method: HttpMethod, completion: @escaping (HttpResponse) -> Void) {
+        go(path, method: method, type: requestType ,completion: completion)
+    }
+    
+    func go(_ path: String, type: RequestType, completion: @escaping (HttpResponse) -> Void) {
+        go(path, method: httpMethod, type: type ,completion: completion)
+    }
+    
+    func go(_ path: String, method: HttpMethod, type: RequestType, completion: @escaping (HttpResponse) -> Void) {
+        let request = createHttpRequest(path: path, method: method, type: type)
         request.fire(completion: completion)
     }
     
@@ -65,25 +72,21 @@ struct Aintx {
         request.fire(completion: completion)
     }
     
-    func createHttpRequest(path: String, method: HttpMethod = .get, type: RequestType = .data, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
+     func createHttpRequest(path: String, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
+        return createHttpRequest(path: path, method: httpMethod, type: requestType, queryString: queryString, parameters: parameters)
+    }
+    
+    func createHttpRequest(path: String, method: HttpMethod, type: RequestType, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
         let httpRequest: HttpRequest
         
         switch type {
         case .data:
-            httpRequest = DataRequest(base: baseURL, path: path, queryString: nil, parameters: nil, session: session)
+            httpRequest = HttpDataRequest(base: baseURL, path: path, queryString: nil, parameters: nil, session: session)
         default:
-            httpRequest = DataRequest(base: baseURL, path: path, queryString: nil, parameters: nil, session: session)
+            httpRequest = HttpDataRequest(base: baseURL, path: path, queryString: nil, parameters: nil, session: session)
         }
         
         return httpRequest
-    }
-    
-    private func setupHttpRequest(path: String, method: HttpMethod = .get) {
-        let url = URL(string: baseURL + path)!
-        var request = URLRequest(url: url)
-        
-        request.httpMethod = method.rawValue
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     }
 
 }

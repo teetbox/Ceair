@@ -29,6 +29,7 @@
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
+		C97285851F74E64F0050A261 /* HttpRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97285841F74E64F0050A261 /* HttpRequestTests.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
 		C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C761E1F57DD97007EB4E2 /* Coordinator.swift */; };
 		C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */; };
@@ -93,6 +94,7 @@
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
+		C97285841F74E64F0050A261 /* HttpRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestTests.swift; sourceTree = "<group>"; };
 		C973BBDF1F59547500391516 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
 		C98C761E1F57DD97007EB4E2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */,
+				C97285841F74E64F0050A261 /* HttpRequestTests.swift */,
 			);
 			path = Aintx;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
 				C9EA00411F74A86C00954CA2 /* HttpbinTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
+				C97285851F74E64F0050A261 /* HttpRequestTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,
 			);

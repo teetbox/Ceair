@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SessionManager {
+struct SessionManager {
     
     static func getSession(with config: SessionConfig) -> URLSession {
         switch config {

@@ -63,15 +63,4 @@ class AintxTests: XCTestCase {
         }
     }
     
-    func testGoWithHttpMethod() {
-        aintx.go("/fake/post", method: .post) { httpResponse in
-        }
-        
-        let dataRequest = aintx.createHttpRequest(path: "/get")
-        
-        aintx.go(dataRequest) { (httpResponse) in
-            
-        }
-    }
-    
 }
