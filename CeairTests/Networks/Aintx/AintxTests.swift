@@ -21,46 +21,66 @@ class AintxTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        aintx = Aintx(url: "www.fake.com")
+        aintx = Aintx(base: "http://www.fake.com")
     }
     
-    func testInitWithDefaultSession() {
+    func testInit() {
+        XCTAssertEqual(aintx.base, "http://www.fake.com")
         XCTAssertEqual(aintx.config, .default)
+        XCTAssertEqual(aintx.httpMethod, .get)
+        XCTAssertEqual(aintx.requestType, .data)
     }
     
     func testInitWithEphemeralSession() {
-        aintx = Aintx(url: "www.fake.com", config: .ephemeral)
+        aintx = Aintx(base: "http://www.fake.com", config: .ephemeral)
         XCTAssertEqual(aintx.config, .ephemeral)
     }
     
     func testInitWithBackgroundSession() {
-        aintx = Aintx(url: "www.fake.com", config: .background("background"))
+        aintx = Aintx(base: "http://www.fake.com", config: .background("background"))
         XCTAssertEqual(aintx.config, .background("background"))
     }
     
-    func testGoWithDefaultHttpMethodAndRequestType() {
+    func testGoWithGet() {
+        let exp = expectation(description: "exp")
+        
         aintx.go("/fake/path") { response in
             XCTAssertEqual(self.aintx.httpMethod, .get)
-            XCTAssertEqual(self.aintx.requestType, .data)
+            exp.fulfill()
         }
+        
+        wait(for: [exp], timeout: 1)
     }
     
-    func testGoWithCustomeHttpMethodAndRequestType() {
-        aintx.httpMethod = .post
-        aintx.requestType = .upload
+    func testGoForPost() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
         
+        aintx.httpMethod = .post
         aintx.go("/fake/path") { response in
             XCTAssertEqual(self.aintx.httpMethod, .post)
-            XCTAssertEqual(self.aintx.requestType, .upload)
+            exp.fulfill()
         }
+        
+        aintx.httpMethod = .get
+        aintx.go("/fake/path", method: .post) { (response) in
+            XCTAssertEqual(self.aintx.httpMethod, .post)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithDelete() {
+        let exp = expectation(description: "exp")
         
         aintx.httpMethod = .delete
-        aintx.requestType = .data
-        
         aintx.go("/fake/path") { response in
             XCTAssertEqual(self.aintx.httpMethod, .delete)
-            XCTAssertEqual(self.aintx.requestType, .data)
+            exp.fulfill()
         }
+        
+        wait(for: [exp], timeout: 1)
     }
     
 }

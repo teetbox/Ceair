@@ -11,6 +11,8 @@ import Foundation
 struct SessionManager {
     
     static func getSession(with config: SessionConfig) -> URLSession {
+        _ = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+
         switch config {
         case .default:
             return URLSession.shared

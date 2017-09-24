@@ -15,7 +15,7 @@ class HttpbinTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        aintx = Aintx(url: "http://httpbin.org")
+        aintx = Aintx(base: "http://httpbin.org")
     }
     
     func testGet() {

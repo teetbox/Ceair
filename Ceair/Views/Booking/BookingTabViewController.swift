@@ -101,10 +101,10 @@ class BookingTabViewController: UIViewController {
     }
     
     @objc func goAintx() {
-        let baseURL = "http://172.31.65.187:8080"
+        let base = "http://172.31.65.187:8080"
         let path = "/portal/member/loginWithFFP?loginType=0&password=00313131&username=660265538998&verifyCode"
         
-        let aintx = Aintx(url: baseURL)
+        let aintx = Aintx(base: base)
         aintx.go(path) { httpResponse in
             if let data = httpResponse.data {
                 print(data.count)

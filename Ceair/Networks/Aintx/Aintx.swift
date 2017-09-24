@@ -33,7 +33,7 @@ typealias Parameters = [String: Any]
 
 struct Aintx {
     
-    let baseURL: String
+    let base: String
     let session: URLSession
     let config: SessionConfig
     
@@ -43,8 +43,8 @@ struct Aintx {
     var isFake = false
     var fakeResponse: HttpResponse?
     
-    init(url: String, config: SessionConfig = .default) {
-        self.baseURL = url
+    init(base: String, config: SessionConfig = .default) {
+        self.base = base
         self.config = config
         self.session = SessionManager.getSession(with: config)
     }
@@ -72,7 +72,7 @@ struct Aintx {
         request.fire(completion: completion)
     }
     
-     func createHttpRequest(path: String, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
+    func createHttpRequest(path: String, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
         return createHttpRequest(path: path, method: httpMethod, type: requestType, queryString: queryString, parameters: parameters)
     }
     
@@ -81,9 +81,9 @@ struct Aintx {
         
         switch type {
         case .data:
-            httpRequest = HttpDataRequest(base: baseURL, path: path, queryString: nil, parameters: nil, session: session)
+            httpRequest = HttpDataRequest(base: base, path: path, queryString: nil, parameters: nil, session: session)
         default:
-            httpRequest = HttpDataRequest(base: baseURL, path: path, queryString: nil, parameters: nil, session: session)
+            httpRequest = HttpDataRequest(base: base, path: path, queryString: nil, parameters: nil, session: session)
         }
         
         return httpRequest
