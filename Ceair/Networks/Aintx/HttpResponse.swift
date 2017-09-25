@@ -16,19 +16,33 @@ protocol Response {
 
 struct HttpResponse: Response {
     
-    let data: Data?
-    let response: URLResponse?
-    let error: Error?
+    var data: Data?
+    var response: URLResponse?
+    var error: Error?
     
     var json: [String: Any]? {
         return parseJSON()
     }
+    
+    // MARK: Fake Response
+    
+    var path: String?
+    var httpMethod: HttpMethod?
+    var requestType: RequestType?
     
     init(data: Data? = nil, response: URLResponse? = nil, error: Error? = nil) {
         self.data = data
         self.response = response
         self.error = error
     }
+    
+    init(path: String, method: HttpMethod, type: RequestType) {
+        self.path = path
+        self.httpMethod = method
+        self.requestType = type
+    }
+    
+    // MARK: - Methods
     
     private func parseJSON() -> [String: Any]? {
         guard data != nil else { return nil }

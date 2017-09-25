@@ -22,6 +22,7 @@ class AintxTests: XCTestCase {
     override func setUp() {
         super.setUp()
         aintx = Aintx(base: "http://www.fake.com")
+        aintx.isFake = true
     }
     
     func testInit() {
@@ -41,46 +42,120 @@ class AintxTests: XCTestCase {
         XCTAssertEqual(aintx.config, .background("background"))
     }
     
-    func testGoWithGet() {
+    func testGo() {
         let exp = expectation(description: "exp")
-        
+
         aintx.go("/fake/path") { response in
-            XCTAssertEqual(self.aintx.httpMethod, .get)
+            XCTAssertEqual(response.path, "/fake/path")
+            XCTAssertEqual(response.httpMethod, .get)
+            XCTAssertEqual(response.requestType, .data)
             exp.fulfill()
         }
         
         wait(for: [exp], timeout: 1)
     }
     
-    func testGoForPost() {
+    func testGoWithHttpMethodPost() {
         let exp = expectation(description: "exp")
         let exp2 = expectation(description: "exp2")
         
         aintx.httpMethod = .post
         aintx.go("/fake/path") { response in
-            XCTAssertEqual(self.aintx.httpMethod, .post)
+            XCTAssertEqual(response.httpMethod, .post)
             exp.fulfill()
         }
         
         aintx.httpMethod = .get
         aintx.go("/fake/path", method: .post) { (response) in
-            XCTAssertEqual(self.aintx.httpMethod, .post)
+            XCTAssertEqual(response.httpMethod, .post)
             exp2.fulfill()
         }
         
         wait(for: [exp, exp2], timeout: 1)
     }
     
-    func testGoWithDelete() {
+    func testGoWithHttpMethodDelete() {
         let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
         
         aintx.httpMethod = .delete
         aintx.go("/fake/path") { response in
-            XCTAssertEqual(self.aintx.httpMethod, .delete)
+            XCTAssertEqual(response.httpMethod, .delete)
             exp.fulfill()
         }
         
         wait(for: [exp], timeout: 1)
+        
+        aintx.httpMethod = .get
+        aintx.go("/fake/path", method: .delete) { (response) in
+            XCTAssertEqual(response.httpMethod, .delete)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithRequestTypeDownload() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.requestType = .downLoad
+        aintx.go("/fake/path") { response in
+            XCTAssertEqual(response.requestType, .downLoad)
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1)
+        
+        aintx.requestType = .data
+        aintx.go("/fake/path", type: .downLoad) { (response) in
+            XCTAssertEqual(response.requestType, .downLoad)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithRequestTypeUpload() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.requestType = .upload
+        aintx.go("/fake/path") { response in
+            XCTAssertEqual(response.requestType, .upload)
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1)
+        
+        aintx.requestType = .data
+        aintx.go("/fake/path", type: .downLoad) { (response) in
+            XCTAssertEqual(response.requestType, .downLoad)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithRequestTypeStream() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.requestType = .stream
+        aintx.go("/fake/path") { response in
+            XCTAssertEqual(response.requestType, .stream)
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1)
+        
+        aintx.requestType = .data
+        aintx.go("/fake/path", type: .stream) { (response) in
+            XCTAssertEqual(response.requestType, .stream)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
     }
     
 }

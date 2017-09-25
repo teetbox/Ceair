@@ -22,8 +22,8 @@ enum HttpMethod: String {
 
 enum RequestType {
     case data
-    case upload
     case downLoad
+    case upload
     case stream
 }
 
@@ -43,6 +43,7 @@ struct Aintx {
     var isFake = false
     var fakeResponse: HttpResponse?
     
+    /* ✅ */
     init(base: String, config: SessionConfig = .default) {
         self.base = base
         self.config = config
@@ -51,19 +52,29 @@ struct Aintx {
     
     // MARK: - Methods
     
+    /* ✅ */
     func go(_ path: String, completion: @escaping (HttpResponse) -> Void) {
         go(path, method: httpMethod, type: requestType ,completion: completion)
     }
     
+    /* ✅ */
     func go(_ path: String, method: HttpMethod, completion: @escaping (HttpResponse) -> Void) {
         go(path, method: method, type: requestType ,completion: completion)
     }
     
+    /* ✅ */
     func go(_ path: String, type: RequestType, completion: @escaping (HttpResponse) -> Void) {
         go(path, method: httpMethod, type: type ,completion: completion)
     }
     
+    /* ✅ */
     func go(_ path: String, method: HttpMethod, type: RequestType, completion: @escaping (HttpResponse) -> Void) {
+        if (isFake) {
+            let fakeResponse = HttpResponse(path: path, method: method, type: type)
+            completion(fakeResponse)
+            return
+        }
+        
         let request = createHttpRequest(path: path, method: method, type: type)
         request.fire(completion: completion)
     }
