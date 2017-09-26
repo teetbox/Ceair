@@ -88,11 +88,22 @@ struct Aintx {
         return createHttpRequest(path: path, method: httpMethod, type: requestType, queryString: queryString, parameters: parameters)
     }
     
+    /* ✅ */
+    func createHttpRequest(path: String, method: HttpMethod, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
+        return createHttpRequest(path: path, method: method, type: requestType, queryString: queryString, parameters: parameters)
+    }
+    
+    /* ✅ */
+    func createHttpRequest(path: String, type: RequestType, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
+        return createHttpRequest(path: path, method: httpMethod, type: type, queryString: queryString, parameters: parameters)
+    }
+    
+    /* ✅ */
     func createHttpRequest(path: String, method: HttpMethod, type: RequestType, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
         let httpRequest: HttpRequest
         
         if (isFake) {
-            httpRequest = FakeHttpRequest(base: base, path: path, method: method, type: type, session: session)
+            httpRequest = FakeRequest(base: base, path: path, method: method, type: type, queryString: queryString, parameters: parameters, session: session)
             return httpRequest
         }
         

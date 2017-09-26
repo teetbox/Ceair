@@ -79,22 +79,26 @@ struct HttpUploadRequest: HttpRequest {
     
 }
 
-struct FakeHttpRequest: HttpRequest {
+struct FakeRequest: HttpRequest {
     
     var base: String?
     var path: String?
     var httpMethod: HttpMethod?
     var requestType: RequestType?
+    var queryString: String?
+    var parameters: Parameters?
     var session: URLSession?
     
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, method: HttpMethod, type: RequestType, session: URLSession) {
+    init(base: String, path: String, method: HttpMethod, type: RequestType, queryString: String? = nil, parameters: Parameters? = nil, session: URLSession) {
         self.base = base
         self.path = path
         self.httpMethod = method
         self.requestType = type
+        self.queryString = queryString
+        self.parameters = parameters
         self.session = session
     }
     
