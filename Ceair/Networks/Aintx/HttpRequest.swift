@@ -78,3 +78,28 @@ struct HttpUploadRequest: HttpRequest {
     }
     
 }
+
+struct FakeHttpRequest: HttpRequest {
+    
+    var base: String?
+    var path: String?
+    var httpMethod: HttpMethod?
+    var requestType: RequestType?
+    var session: URLSession?
+    
+    var urlRequest: URLRequest?
+    var error: HttpError?
+    
+    init(base: String, path: String, method: HttpMethod, type: RequestType, session: URLSession) {
+        self.base = base
+        self.path = path
+        self.httpMethod = method
+        self.requestType = type
+        self.session = session
+    }
+    
+    func fire(completion: @escaping (HttpResponse) -> Void) {
+        
+    }
+    
+}

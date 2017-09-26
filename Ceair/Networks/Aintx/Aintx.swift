@@ -83,12 +83,18 @@ struct Aintx {
         request.fire(completion: completion)
     }
     
+    /* ✅ */
     func createHttpRequest(path: String, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
         return createHttpRequest(path: path, method: httpMethod, type: requestType, queryString: queryString, parameters: parameters)
     }
     
     func createHttpRequest(path: String, method: HttpMethod, type: RequestType, queryString: String? = nil, parameters: Parameters? = nil) -> HttpRequest {
         let httpRequest: HttpRequest
+        
+        if (isFake) {
+            httpRequest = FakeHttpRequest(base: base, path: path, method: method, type: type, session: session)
+            return httpRequest
+        }
         
         switch type {
         case .data:
