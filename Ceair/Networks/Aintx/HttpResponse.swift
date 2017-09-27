@@ -29,6 +29,8 @@ struct HttpResponse: Response {
     var path: String?
     var httpMethod: HttpMethod?
     var requestType: RequestType?
+    var querys: Dictionary<String, String>?
+    var params: Dictionary<String, Any>?
     
     init(data: Data? = nil, response: URLResponse? = nil, error: Error? = nil) {
         self.data = data
@@ -36,10 +38,12 @@ struct HttpResponse: Response {
         self.error = error
     }
     
-    init(path: String, method: HttpMethod, type: RequestType) {
+    init(path: String, method: HttpMethod, type: RequestType, querys: Dictionary<String, String>? = nil, params: Parameters? = nil) {
         self.path = path
         self.httpMethod = method
         self.requestType = type
+        self.querys = querys
+        self.params = params
     }
     
     // MARK: - Methods

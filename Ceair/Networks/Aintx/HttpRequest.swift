@@ -21,13 +21,13 @@ struct HttpDataRequest: HttpRequest {
     let path: String
     let session: URLSession
     
-    var queryString: String?
-    var parameters: Parameters?
+    var querys: Dictionary<String, String>?
+    var params: Dictionary<String, Any>?
     
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, queryString: String?, parameters: Parameters?, session: URLSession) {
+    init(base: String, path: String, querys: Dictionary<String, String>?, params: Parameters?, session: URLSession) {
         self.base = base
         self.path = path
         self.session = session
@@ -35,6 +35,12 @@ struct HttpDataRequest: HttpRequest {
         guard let url = URL(string: base + path) else {
             error = HttpError.invalidURL(base + path)
             return
+        }
+        
+        do {
+            let _ = try URLEncording.encord(urlString: base + path, method: .get, parameters: nil)
+        } catch {
+            self.error = error as? HttpError
         }
         
         urlRequest = URLRequest(url: url)
@@ -61,13 +67,13 @@ struct HttpUploadRequest: HttpRequest {
     let path: String
     let session: URLSession
 
-    var queryString: String?
-    var parameters: Parameters?
+    var querys: Dictionary<String, String>?
+    var params: Dictionary<String, Any>?
     
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, queryString: String?, parameters: Parameters?, session: URLSession) {
+    init(base: String, path: String, querys: Dictionary<String, String>?, params: Parameters?, session: URLSession) {
         self.base = base
         self.path = path
         self.session = session
@@ -85,20 +91,20 @@ struct FakeRequest: HttpRequest {
     var path: String?
     var httpMethod: HttpMethod?
     var requestType: RequestType?
-    var queryString: String?
-    var parameters: Parameters?
+    var querys: Dictionary<String, String>?
+    var params: Dictionary<String, Any>?
     var session: URLSession?
     
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, method: HttpMethod, type: RequestType, queryString: String? = nil, parameters: Parameters? = nil, session: URLSession) {
+    init(base: String, path: String, method: HttpMethod, type: RequestType, querys: Dictionary<String, String>? = nil, params: Parameters? = nil, session: URLSession) {
         self.base = base
         self.path = path
         self.httpMethod = method
         self.requestType = type
-        self.queryString = queryString
-        self.parameters = parameters
+        self.querys = querys
+        self.params = params
         self.session = session
     }
     
