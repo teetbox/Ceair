@@ -20,8 +20,8 @@ class HttpRequestTests: XCTestCase {
         XCTAssertEqual(httpDataRequest.base, base)
         XCTAssertEqual(httpDataRequest.path, path)
         XCTAssertEqual(httpDataRequest.session, URLSession.shared)
-        XCTAssertNil(httpDataRequest.querys)
-        XCTAssertNil(httpDataRequest.params)
+        XCTAssertNil(httpDataRequest.queryDic)
+        XCTAssertNil(httpDataRequest.paramDic)
         XCTAssertNotNil(httpDataRequest.urlRequest)
         XCTAssertNil(httpDataRequest.error)
     }

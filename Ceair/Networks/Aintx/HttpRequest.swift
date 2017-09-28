@@ -21,13 +21,13 @@ struct HttpDataRequest: HttpRequest {
     let path: String
     let session: URLSession
     
-    var querys: Dictionary<String, String>?
-    var params: Dictionary<String, Any>?
+    var queryString: Dictionary<String, String>?
+    var parameters: Dictionary<String, Any>?
     
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, querys: Dictionary<String, String>?, params: Parameters?, session: URLSession) {
+    init(base: String, path: String, queryString: Dictionary<String, String>?, parameters: Parameters?, session: URLSession) {
         self.base = base
         self.path = path
         self.session = session
@@ -67,13 +67,13 @@ struct HttpUploadRequest: HttpRequest {
     let path: String
     let session: URLSession
 
-    var querys: Dictionary<String, String>?
-    var params: Dictionary<String, Any>?
+    var queryString: Dictionary<String, String>?
+    var parameters: Dictionary<String, Any>?
     
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, querys: Dictionary<String, String>?, params: Parameters?, session: URLSession) {
+    init(base: String, path: String, queryString: Dictionary<String, String>?, parameters: Parameters?, session: URLSession) {
         self.base = base
         self.path = path
         self.session = session
@@ -91,20 +91,20 @@ struct FakeRequest: HttpRequest {
     var path: String?
     var httpMethod: HttpMethod?
     var requestType: RequestType?
-    var querys: Dictionary<String, String>?
-    var params: Dictionary<String, Any>?
+    var queryString: Dictionary<String, String>?
+    var parameters: Dictionary<String, Any>?
     var session: URLSession?
     
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, method: HttpMethod, type: RequestType, querys: Dictionary<String, String>? = nil, params: Parameters? = nil, session: URLSession) {
+    init(base: String, path: String, method: HttpMethod, type: RequestType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil, session: URLSession) {
         self.base = base
         self.path = path
         self.httpMethod = method
         self.requestType = type
-        self.querys = querys
-        self.params = params
+        self.queryString = queryString
+        self.parameters = parameters
         self.session = session
     }
     
