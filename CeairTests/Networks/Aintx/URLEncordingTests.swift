@@ -14,13 +14,13 @@ class URLEncordingTests: XCTestCase {
     let fakeBase = "http://www.fake.com"
     let fakePath = "/fake/path"
     
-    override func setUp() {
-        super.setUp()
-
-    }
-    
-    func testComposeURL() {
-        let queryString = ["key": "value"];
+    func testEncordQueryString() {
+        let queryString = ["key": "value", "key2": "value2"];
+        let encordedURL = try? URLEncording.encordQueryString(path: fakePath, queryString: queryString)
+        
+        XCTAssertTrue(encordedURL!.contains("\(fakePath)?"))
+        XCTAssertTrue(encordedURL!.contains("key=value&"))
+        XCTAssertTrue(encordedURL!.contains("key2=value2"))
     }
     
 }

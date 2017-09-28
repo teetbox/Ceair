@@ -10,6 +10,18 @@ import Foundation
 
 struct URLEncording {
     
+    static func encordQueryString(path: String, queryString: [String: String]?) throws -> String {
+        guard let query = queryString else {
+            return path
+        }
+        
+        var url = path + "?"
+        for (key, value) in query {
+            url += "\(key)=\(value)&"
+        }
+        return url
+    }
+    
     static func encord(urlString: String, method: HttpMethod, parameters: Parameters?) throws -> URL {
         if let url = composeURL(urlString: urlString, method: method, parameters: parameters) {
             return url

@@ -53,7 +53,7 @@ struct Aintx {
     // MARK: - Methods
     
     /* ✅ */
-    func go(_ path: String, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil, completion: @escaping (HttpResponse) -> Void) {
+    func go(_ path: String, queryString: [String: String]? = nil, parameters: [String: Any]? = nil, completion: @escaping (HttpResponse) -> Void) {
         go(path, method: httpMethod, type: requestType, queryString: queryString, parameters: parameters ,completion: completion)
     }
     

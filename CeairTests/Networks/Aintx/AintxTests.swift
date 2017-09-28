@@ -177,7 +177,7 @@ class AintxTests: XCTestCase {
         wait(for: [exp, exp2], timeout: 1)
     }
     
-    func testGoWithQuerys() {
+    func testGoWithQueryString() {
         let exp = expectation(description: "exp")
         
         aintx.go(fakePath, queryString: ["fake": "queryString"]) { (response) in

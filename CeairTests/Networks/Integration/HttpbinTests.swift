@@ -31,6 +31,20 @@ class HttpbinTests: XCTestCase {
         wait(for: [asyncExpectation], timeout: 5)
     }
     
+    func testGetWithQueryString() {
+        let asyncExpectation = expectation(description: "async")
+        
+        // https://httpbin.org/get?show_env=1
+        aintx.go("/get", queryString: ["show_env": "1"]) { (httpResponse) in
+            XCTAssertNil(httpResponse.error)
+            XCTAssertNotNil(httpResponse.data)
+            
+            asyncExpectation.fulfill()
+        }
+        
+        wait(for: [asyncExpectation], timeout: 5)
+    }
+    
     func testPost() {
         let asyncExpectation = expectation(description: "async")
         
