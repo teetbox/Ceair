@@ -24,19 +24,19 @@ struct HttpResponse: Response {
         return parseJSON()
     }
     
-    // MARK: Fake Response
-    
-    var path: String?
-    var httpMethod: HttpMethod?
-    var requestType: RequestType?
-    var queryString: Dictionary<String, String>?
-    var parameters: Dictionary<String, Any>?
-    
     init(data: Data? = nil, response: URLResponse? = nil, error: Error? = nil) {
         self.data = data
         self.response = response
         self.error = error
     }
+    
+    // MARK: Fake Response
+    
+    var path: String?
+    var httpMethod: HttpMethod?
+    var requestType: RequestType?
+    var queryString: [String: String]?
+    var parameters: [String: Any]?
     
     init(path: String, method: HttpMethod, type: RequestType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) {
         self.path = path

@@ -33,6 +33,7 @@ class AintxTests: XCTestCase {
         XCTAssertEqual(aintx.config, .default)
         XCTAssertEqual(aintx.httpMethod, .get)
         XCTAssertEqual(aintx.requestType, .data)
+        XCTAssertEqual(aintx.responseType, .json)
     }
     
     func testInitWithEphemeralSession() {

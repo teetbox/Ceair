@@ -27,6 +27,13 @@ enum RequestType {
     case stream
 }
 
+enum ResponseType {
+    case json
+    case data
+    case image
+    case stream
+}
+
 typealias Parameters = [String: Any]
 
 // MARK: -
@@ -39,6 +46,7 @@ struct Aintx {
     
     var httpMethod: HttpMethod = .get
     var requestType: RequestType = .data
+    var responseType: ResponseType = .json
     
     var isFake = false
     var fakeResponse: HttpResponse?
