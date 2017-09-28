@@ -180,9 +180,9 @@ class AintxTests: XCTestCase {
     func testGoWithQuerys() {
         let exp = expectation(description: "exp")
         
-        aintx.go(fakePath, querys: ["fake": "queryString"]) { (response) in
+        aintx.go(fakePath, queryString: ["fake": "queryString"]) { (response) in
             XCTAssertEqual(response.path, "/fake/path")
-            XCTAssertEqual(response.querys!, ["fake": "queryString"])
+            XCTAssertEqual(response.queryString!, ["fake": "queryString"])
             exp.fulfill()
         }
         
@@ -252,12 +252,12 @@ class AintxTests: XCTestCase {
     }
     
     func testCreateHttpRequestWithHttpMethodAndRequestType() {
-        let fakeRequest = aintx.createHttpRequest(path: fakePath, method: .post, type: .upload, querys: ["fake": "queryString"], params: ["fake": "parameters"]) as! FakeRequest
+        let fakeRequest = aintx.createHttpRequest(path: fakePath, method: .post, type: .upload, queryString: ["fake": "queryString"], parameters: ["fake": "parameters"]) as! FakeRequest
         
         XCTAssertEqual(fakeRequest.httpMethod, .post)
         XCTAssertEqual(fakeRequest.requestType, .upload)
-        XCTAssertEqual(fakeRequest.querys!, ["fake": "queryString"])
-        XCTAssertEqual(fakeRequest.params as! Dictionary, ["fake": "parameters"])
+        XCTAssertEqual(fakeRequest.queryString!, ["fake": "queryString"])
+        XCTAssertEqual(fakeRequest.parameters as! Dictionary, ["fake": "parameters"])
     }
     
 }

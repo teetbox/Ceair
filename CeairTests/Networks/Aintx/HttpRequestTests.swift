@@ -15,20 +15,20 @@ class HttpRequestTests: XCTestCase {
     let path = "/fake/path"
 
     func testInitHttpDataRequest() {
-        let httpDataRequest = HttpDataRequest(base: base, path: path, querys: nil, params: nil, session: URLSession.shared)
+        let httpDataRequest = HttpDataRequest(base: base, path: path, queryString: nil, parameters: nil, session: URLSession.shared)
         
         XCTAssertEqual(httpDataRequest.base, base)
         XCTAssertEqual(httpDataRequest.path, path)
         XCTAssertEqual(httpDataRequest.session, URLSession.shared)
-        XCTAssertNil(httpDataRequest.queryDic)
-        XCTAssertNil(httpDataRequest.paramDic)
+        XCTAssertNil(httpDataRequest.queryString)
+        XCTAssertNil(httpDataRequest.parameters)
         XCTAssertNotNil(httpDataRequest.urlRequest)
         XCTAssertNil(httpDataRequest.error)
     }
     
     func testInitHttpDataRequestFailed() {
         let invalidBase = "http:\\www.fake.com"
-        let httpDataRequest = HttpDataRequest(base: invalidBase, path: path, querys: nil, params: nil, session: URLSession.shared)
+        let httpDataRequest = HttpDataRequest(base: invalidBase, path: path, queryString: nil, parameters: nil, session: URLSession.shared)
         
         XCTAssertNil(httpDataRequest.urlRequest)
         XCTAssertNotNil(httpDataRequest.error)

@@ -59,12 +59,12 @@ struct Aintx {
     
     /* ✅ */
     func go(_ path: String, method: HttpMethod, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil, completion: @escaping (HttpResponse) -> Void) {
-        go(path, method: httpMethod, type: requestType, queryString: queryString, parameters: parameters ,completion: completion)
+        go(path, method: method, type: requestType, queryString: queryString, parameters: parameters ,completion: completion)
     }
     
     /* ✅ */
     func go(_ path: String, type: RequestType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil, completion: @escaping (HttpResponse) -> Void) {
-        go(path, method: httpMethod, type: requestType, queryString: queryString, parameters: parameters ,completion: completion)
+        go(path, method: httpMethod, type: type, queryString: queryString, parameters: parameters ,completion: completion)
     }
     
     /* ✅ */
