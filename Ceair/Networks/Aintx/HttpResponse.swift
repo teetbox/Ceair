@@ -35,13 +35,15 @@ struct HttpResponse: Response {
     var path: String?
     var httpMethod: HttpMethod?
     var requestType: RequestType?
+    var responseType: ResponseType?
     var queryString: [String: String]?
     var parameters: [String: Any]?
     
-    init(path: String, method: HttpMethod, type: RequestType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) {
+    init(path: String, method: HttpMethod, requestType: RequestType, responseType: ResponseType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) {
         self.path = path
         self.httpMethod = method
-        self.requestType = type
+        self.requestType = requestType
+        self.responseType = responseType
         self.queryString = queryString
         self.parameters = parameters
     }

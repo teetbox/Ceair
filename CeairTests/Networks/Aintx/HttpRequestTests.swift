@@ -19,6 +19,7 @@ class HttpRequestTests: XCTestCase {
         
         XCTAssertEqual(httpDataRequest.base, base)
         XCTAssertEqual(httpDataRequest.path, path)
+        XCTAssertEqual(httpDataRequest.responseType, .json)
         XCTAssertEqual(httpDataRequest.session, URLSession.shared)
         XCTAssertNil(httpDataRequest.queryString)
         XCTAssertNil(httpDataRequest.parameters)

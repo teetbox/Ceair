@@ -9,6 +9,8 @@
 import Foundation
 
 protocol HttpRequest {
+    var responseType: ResponseType { get set }
+    
     var urlRequest: URLRequest? { get set }
     var error: HttpError? { get set  }
     
@@ -20,6 +22,7 @@ struct HttpDataRequest: HttpRequest {
     let base: String
     let path: String
     let session: URLSession
+    var responseType: ResponseType
     
     var queryString: Dictionary<String, String>?
     var parameters: Dictionary<String, Any>?
@@ -27,10 +30,11 @@ struct HttpDataRequest: HttpRequest {
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, queryString: Dictionary<String, String>?, parameters: Parameters?, session: URLSession) {
+    init(base: String, path: String, responseType: ResponseType = .json, queryString: Dictionary<String, String>?, parameters: Parameters?, session: URLSession) {
         self.base = base
         self.path = path
         self.session = session
+        self.responseType = responseType
         
         guard let url = URL(string: base + path) else {
             error = HttpError.invalidURL(base + path)
@@ -55,7 +59,8 @@ struct HttpDataRequest: HttpRequest {
         }
         
         session.dataTask(with: urlRequest!) { (data, response, error) in
-            completion(HttpResponse(data: data, response: response, error: error))
+            let httpResponse = HttpResponse(data: data, response: response, error: error)
+            completion(httpResponse)
         }.resume()
     }
     
@@ -66,6 +71,7 @@ struct HttpUploadRequest: HttpRequest {
     let base: String
     let path: String
     let session: URLSession
+    var responseType: ResponseType
 
     var queryString: Dictionary<String, String>?
     var parameters: Dictionary<String, Any>?
@@ -73,10 +79,11 @@ struct HttpUploadRequest: HttpRequest {
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, queryString: Dictionary<String, String>?, parameters: Parameters?, session: URLSession) {
+    init(base: String, path: String, responseType: ResponseType = .json, queryString: Dictionary<String, String>?, parameters: Parameters?, session: URLSession) {
         self.base = base
         self.path = path
         self.session = session
+        self.responseType = responseType
     }
     
     func fire(completion: @escaping (HttpResponse) -> Void) {
@@ -91,6 +98,7 @@ struct FakeRequest: HttpRequest {
     var path: String?
     var httpMethod: HttpMethod?
     var requestType: RequestType?
+    var responseType: ResponseType
     var queryString: Dictionary<String, String>?
     var parameters: Dictionary<String, Any>?
     var session: URLSession?
@@ -98,11 +106,12 @@ struct FakeRequest: HttpRequest {
     var urlRequest: URLRequest?
     var error: HttpError?
     
-    init(base: String, path: String, method: HttpMethod, type: RequestType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil, session: URLSession) {
+    init(base: String, path: String, method: HttpMethod, requestType: RequestType, responseType: ResponseType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil, session: URLSession) {
         self.base = base
         self.path = path
         self.httpMethod = method
-        self.requestType = type
+        self.requestType = requestType
+        self.responseType = responseType
         self.queryString = queryString
         self.parameters = parameters
         self.session = session

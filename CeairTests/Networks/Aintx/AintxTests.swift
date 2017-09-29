@@ -46,13 +46,14 @@ class AintxTests: XCTestCase {
         XCTAssertEqual(aintx.config, .background("background"))
     }
     
-    func testGoPath() {
+    func testGoPathWithDefaultSettings() {
         let exp = expectation(description: "exp")
 
         aintx.go(fakePath) { response in
             XCTAssertEqual(response.path, "/fake/path")
             XCTAssertEqual(response.httpMethod, .get)
             XCTAssertEqual(response.requestType, .data)
+            XCTAssertEqual(response.responseType, .json)
             exp.fulfill()
         }
         
@@ -108,7 +109,7 @@ class AintxTests: XCTestCase {
         }
         
         aintx.requestType = .data
-        aintx.go(fakePath, type: .downLoad) { (response) in
+        aintx.go(fakePath, requestType: .downLoad) { (response) in
             XCTAssertEqual(response.requestType, .downLoad)
             exp2.fulfill()
         }
@@ -127,7 +128,7 @@ class AintxTests: XCTestCase {
         }
         
         aintx.requestType = .data
-        aintx.go(fakePath, type: .downLoad) { (response) in
+        aintx.go(fakePath, requestType: .downLoad) { (response) in
             XCTAssertEqual(response.requestType, .downLoad)
             exp2.fulfill()
         }
@@ -146,7 +147,7 @@ class AintxTests: XCTestCase {
         }
         
         aintx.requestType = .data
-        aintx.go(fakePath, type: .stream) { (response) in
+        aintx.go(fakePath, requestType: .stream) { (response) in
             XCTAssertEqual(response.requestType, .stream)
             exp2.fulfill()
         }
@@ -154,24 +155,152 @@ class AintxTests: XCTestCase {
         wait(for: [exp, exp2], timeout: 1)
     }
     
-    func testGoPathWithHttpMethodAndRequestType() {
+    func testGoWithResponseTypeData() {
         let exp = expectation(description: "exp")
         let exp2 = expectation(description: "exp2")
         
-        aintx.go(fakePath, method: .post, type: .downLoad) { (response) in
+        aintx.responseType = .data
+        aintx.go(fakePath) { (response) in
+            XCTAssertEqual(response.responseType, .data)
+            exp.fulfill()
+        }
+        
+        aintx.responseType = .json
+        aintx.go(fakePath, responseType: .data) { (response) in
+            XCTAssertEqual(response.responseType, .data)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithResponseTypeImage() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.responseType = .image
+        aintx.go(fakePath) { (response) in
+            XCTAssertEqual(response.responseType, .image)
+            exp.fulfill()
+        }
+        
+        aintx.responseType = .json
+        aintx.go(fakePath, responseType: .image) { (response) in
+            XCTAssertEqual(response.responseType, .image)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithResponseTypeStream() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.responseType = .stream
+        aintx.go(fakePath) { (response) in
+            XCTAssertEqual(response.responseType, .stream)
+            exp.fulfill()
+        }
+        
+        aintx.responseType = .json
+        aintx.go(fakePath, responseType: .stream) { (response) in
+            XCTAssertEqual(response.responseType, .stream)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithHttpMethodAndRequestType() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.httpMethod = .post
+        aintx.requestType = .upload
+        aintx.go(fakePath) { (response) in
+            XCTAssertEqual(response.httpMethod, .post)
+            XCTAssertEqual(response.requestType, .upload)
+            exp.fulfill()
+        }
+        
+        aintx.httpMethod = .get
+        aintx.responseType = .json
+        aintx.go(fakePath, method: .post, requestType: .upload) { (response) in
+            XCTAssertEqual(response.httpMethod, .post)
+            XCTAssertEqual(response.requestType, .upload)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithHttpMethodAndResponseType() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.httpMethod = .post
+        aintx.responseType = .image
+        aintx.go(fakePath) { (response) in
+            XCTAssertEqual(response.httpMethod, .post)
+            XCTAssertEqual(response.responseType, .image)
+            exp.fulfill()
+        }
+        
+        aintx.httpMethod = .get
+        aintx.responseType = .json
+        aintx.go(fakePath, method: .post, responseType: .image) { (response) in
+            XCTAssertEqual(response.httpMethod, .post)
+            XCTAssertEqual(response.responseType, .image)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoWithRequestTypeAndResponseType() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.requestType = .downLoad
+        aintx.responseType = .image
+        aintx.go(fakePath) { (response) in
+            XCTAssertEqual(response.requestType, .downLoad)
+            XCTAssertEqual(response.responseType, .image)
+            exp.fulfill()
+        }
+        
+        aintx.requestType = .data
+        aintx.responseType = .json
+        aintx.go(fakePath, requestType: .downLoad, responseType: .image) { (response) in
+            XCTAssertEqual(response.requestType, .downLoad)
+            XCTAssertEqual(response.responseType, .image)
+            exp2.fulfill()
+        }
+        
+        wait(for: [exp, exp2], timeout: 1)
+    }
+    
+    func testGoPathWithHttpMethodAndRequestTypeAndResponseType() {
+        let exp = expectation(description: "exp")
+        let exp2 = expectation(description: "exp2")
+        
+        aintx.go(fakePath, method: .post, requestType: .downLoad, responseType: .image) { (response) in
             XCTAssertEqual(response.path, "/fake/path")
             XCTAssertEqual(response.httpMethod, .post)
             XCTAssertEqual(response.requestType, .downLoad)
+            XCTAssertEqual(response.responseType, .image)
             exp.fulfill()
         }
         
         aintx.httpMethod = .get
         aintx.requestType = .data
         
-        aintx.go(fakePath, method: .post, type: .upload) { (response) in
+        aintx.go(fakePath, method: .post, requestType: .upload, responseType: .data) { (response) in
             XCTAssertEqual(response.path, "/fake/path")
             XCTAssertEqual(response.httpMethod, .post)
             XCTAssertEqual(response.requestType, .upload)
+            XCTAssertEqual(response.responseType, .data)
             exp2.fulfill()
         }
         
@@ -232,7 +361,7 @@ class AintxTests: XCTestCase {
         XCTAssertEqual(fakeRequest.requestType, .downLoad)
         
         aintx.requestType = .data
-        fakeRequest = aintx.createHttpRequest(path: fakePath, type: .downLoad) as! FakeRequest
+        fakeRequest = aintx.createHttpRequest(path: fakePath, requestType: .downLoad) as! FakeRequest
         XCTAssertEqual(fakeRequest.requestType, .downLoad)
         
         aintx.requestType = .upload
@@ -240,7 +369,7 @@ class AintxTests: XCTestCase {
         XCTAssertEqual(fakeRequest.requestType, .upload)
         
         aintx.requestType = .data
-        fakeRequest = aintx.createHttpRequest(path: fakePath, type: .upload) as! FakeRequest
+        fakeRequest = aintx.createHttpRequest(path: fakePath, requestType: .upload) as! FakeRequest
         XCTAssertEqual(fakeRequest.requestType, .upload)
         
         aintx.requestType = .stream
@@ -248,12 +377,12 @@ class AintxTests: XCTestCase {
         XCTAssertEqual(fakeRequest.requestType, .stream)
         
         aintx.requestType = .data
-        fakeRequest = aintx.createHttpRequest(path: fakePath, type: .stream) as! FakeRequest
+        fakeRequest = aintx.createHttpRequest(path: fakePath, requestType: .stream) as! FakeRequest
         XCTAssertEqual(fakeRequest.requestType, .stream)
     }
     
     func testCreateHttpRequestWithHttpMethodAndRequestType() {
-        let fakeRequest = aintx.createHttpRequest(path: fakePath, method: .post, type: .upload, queryString: ["fake": "queryString"], parameters: ["fake": "parameters"]) as! FakeRequest
+        let fakeRequest = aintx.createHttpRequest(path: fakePath, method: .post, requestType: .upload, responseType: .data, queryString: ["fake": "queryString"], parameters: ["fake": "parameters"]) as! FakeRequest
         
         XCTAssertEqual(fakeRequest.httpMethod, .post)
         XCTAssertEqual(fakeRequest.requestType, .upload)
