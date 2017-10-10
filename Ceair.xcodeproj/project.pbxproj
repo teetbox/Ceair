@@ -333,8 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				C98A15F61F8C3AA700B5B477 /* MoreTabViewController.swift */,
-				C982F3C11F8CA2B50046197A /* Main.storyboard */,
 				C982F3C31F8CA2DA0046197A /* DetailViewController.swift */,
+				C982F3C11F8CA2B50046197A /* Main.storyboard */,
 			);
 			path = More;
 			sourceTree = "<group>";

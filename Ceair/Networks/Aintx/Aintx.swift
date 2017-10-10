@@ -127,6 +127,26 @@ struct Aintx {
     }
     
     /* ✅ */
+    func createHttpRequest(path: String, responseType: ResponseType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) -> HttpRequest {
+        return createHttpRequest(path: path, method: httpMethod, requestType: requestType, responseType: responseType, queryString: queryString, parameters: parameters)
+    }
+    
+    /* ✅ */
+    func createHttpRequest(path: String, method: HttpMethod, requestType: RequestType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) -> HttpRequest {
+        return createHttpRequest(path: path, method: method, requestType: requestType, responseType: responseType, queryString: queryString, parameters: parameters)
+    }
+    
+    /* ✅ */
+    func createHttpRequest(path: String, method: HttpMethod, responseType: ResponseType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) -> HttpRequest {
+        return createHttpRequest(path: path, method: method, requestType: requestType, responseType: responseType, queryString: queryString, parameters: parameters)
+    }
+    
+    /* ✅ */
+    func createHttpRequest(path: String, requestType: RequestType, responseType: ResponseType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) -> HttpRequest {
+        return createHttpRequest(path: path, method: httpMethod, requestType: requestType, responseType: responseType, queryString: queryString, parameters: parameters)
+    }
+    
+    /* ✅ */
     func createHttpRequest(path: String, method: HttpMethod, requestType: RequestType, responseType: ResponseType, queryString: Dictionary<String, String>? = nil, parameters: Parameters? = nil) -> HttpRequest {
         let httpRequest: HttpRequest
         

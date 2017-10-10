@@ -381,11 +381,65 @@ class AintxTests: XCTestCase {
         XCTAssertEqual(fakeRequest.requestType, .stream)
     }
     
+    func testCreateHttpRequestWithResponseType() {
+        aintx.responseType = .data
+        var fakeRequest = aintx.createHttpRequest(path: fakePath) as! FakeRequest
+        XCTAssertEqual(fakeRequest.responseType, .data)
+        
+        aintx.responseType = .json
+        fakeRequest = aintx.createHttpRequest(path: fakePath, responseType: .data) as! FakeRequest
+        XCTAssertEqual(fakeRequest.responseType, .data)
+        
+        aintx.responseType = .image
+        fakeRequest = aintx.createHttpRequest(path: fakePath) as! FakeRequest
+        XCTAssertEqual(fakeRequest.responseType, .image)
+        
+        aintx.responseType = .json
+        fakeRequest = aintx.createHttpRequest(path: fakePath, responseType: .image) as! FakeRequest
+        XCTAssertEqual(fakeRequest.responseType, .image)
+        
+        aintx.responseType = .stream
+        fakeRequest = aintx.createHttpRequest(path: fakePath) as! FakeRequest
+        XCTAssertEqual(fakeRequest.responseType, .stream)
+        
+        aintx.responseType = .json
+        fakeRequest = aintx.createHttpRequest(path: fakePath, responseType: .stream) as! FakeRequest
+        XCTAssertEqual(fakeRequest.responseType, .stream)
+    }
+    
     func testCreateHttpRequestWithHttpMethodAndRequestType() {
+        let fakeRequest = aintx.createHttpRequest(path: fakePath, method: .post, requestType: .upload, queryString: ["fake": "queryString"], parameters: ["fake": "parameters"]) as! FakeRequest
+        
+        XCTAssertEqual(fakeRequest.httpMethod, .post)
+        XCTAssertEqual(fakeRequest.requestType, .upload)
+        XCTAssertEqual(fakeRequest.queryString!, ["fake": "queryString"])
+        XCTAssertEqual(fakeRequest.parameters as! Dictionary, ["fake": "parameters"])
+    }
+    
+    func testCreateHttpRequestWithHttpMethodAndResponseType() {
+        let fakeRequest = aintx.createHttpRequest(path: fakePath, method: .post, responseType: .data, queryString: ["fake": "queryString"], parameters: ["fake": "parameters"]) as! FakeRequest
+        
+        XCTAssertEqual(fakeRequest.httpMethod, .post)
+        XCTAssertEqual(fakeRequest.responseType, .data)
+        XCTAssertEqual(fakeRequest.queryString!, ["fake": "queryString"])
+        XCTAssertEqual(fakeRequest.parameters as! Dictionary, ["fake": "parameters"])
+    }
+    
+    func testCreateHttpRequestWithRequestTypeAndResponseType() {
+        let fakeRequest = aintx.createHttpRequest(path: fakePath, requestType: .upload, responseType: .data, queryString: ["fake": "queryString"], parameters: ["fake": "parameters"]) as! FakeRequest
+        
+        XCTAssertEqual(fakeRequest.requestType, .upload)
+        XCTAssertEqual(fakeRequest.responseType, .data)
+        XCTAssertEqual(fakeRequest.queryString!, ["fake": "queryString"])
+        XCTAssertEqual(fakeRequest.parameters as! Dictionary, ["fake": "parameters"])
+    }
+    
+    func testCreateHttpRequestWithHttpMethodAndRequestTypeAndResponseType() {
         let fakeRequest = aintx.createHttpRequest(path: fakePath, method: .post, requestType: .upload, responseType: .data, queryString: ["fake": "queryString"], parameters: ["fake": "parameters"]) as! FakeRequest
         
         XCTAssertEqual(fakeRequest.httpMethod, .post)
         XCTAssertEqual(fakeRequest.requestType, .upload)
+        XCTAssertEqual(fakeRequest.responseType, .data)
         XCTAssertEqual(fakeRequest.queryString!, ["fake": "queryString"])
         XCTAssertEqual(fakeRequest.parameters as! Dictionary, ["fake": "parameters"])
     }
