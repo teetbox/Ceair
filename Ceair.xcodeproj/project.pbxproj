@@ -31,6 +31,9 @@
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
 		C97285851F74E64F0050A261 /* HttpRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97285841F74E64F0050A261 /* HttpRequestTests.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
+		C982F3C21F8CA2B50046197A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C982F3C11F8CA2B50046197A /* Main.storyboard */; };
+		C982F3C41F8CA2DA0046197A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F3C31F8CA2DA0046197A /* DetailViewController.swift */; };
+		C98A15F71F8C3AA700B5B477 /* MoreTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98A15F61F8C3AA700B5B477 /* MoreTabViewController.swift */; };
 		C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C761E1F57DD97007EB4E2 /* Coordinator.swift */; };
 		C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */; };
 		C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */; };
@@ -97,6 +100,9 @@
 		C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		C97285841F74E64F0050A261 /* HttpRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestTests.swift; sourceTree = "<group>"; };
 		C973BBDF1F59547500391516 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
+		C982F3C11F8CA2B50046197A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C982F3C31F8CA2DA0046197A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		C98A15F61F8C3AA700B5B477 /* MoreTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTabViewController.swift; sourceTree = "<group>"; };
 		C98C761E1F57DD97007EB4E2 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchUtility.swift; sourceTree = "<group>"; };
@@ -271,6 +277,7 @@
 				C973BBDE1F59545F00391516 /* Bases */,
 				C92BDF2E1F54E14600284B44 /* Booking */,
 				C9CF91A41F5552C400F352F0 /* Flight */,
+				C98A15F51F8C3A7A00B5B477 /* More */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +327,16 @@
 				C973BBDF1F59547500391516 /* BaseCVCell.swift */,
 			);
 			path = Bases;
+			sourceTree = "<group>";
+		};
+		C98A15F51F8C3A7A00B5B477 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				C98A15F61F8C3AA700B5B477 /* MoreTabViewController.swift */,
+				C982F3C11F8CA2B50046197A /* Main.storyboard */,
+				C982F3C31F8CA2DA0046197A /* DetailViewController.swift */,
+			);
+			path = More;
 			sourceTree = "<group>";
 		};
 		C98C76221F57DE4E007EB4E2 /* Utilities */ = {
@@ -504,6 +521,7 @@
 				C92BDF101F54E00800284B44 /* LaunchScreen.storyboard in Resources */,
 				C92BDF0D1F54E00800284B44 /* Assets.xcassets in Resources */,
 				C9EE6F101F6128C3009A4268 /* Info.plist in Resources */,
+				C982F3C21F8CA2B50046197A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +546,7 @@
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
 				C91AF0D61F7249E6001A03B1 /* HttpRequest.swift in Sources */,
 				C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */,
+				C982F3C41F8CA2DA0046197A /* DetailViewController.swift in Sources */,
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,
 				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
 				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
@@ -547,6 +566,7 @@
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
+				C98A15F71F8C3AA700B5B477 /* MoreTabViewController.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,
 				C9C306651F627F600020A316 /* User.swift in Sources */,
@@ -714,7 +734,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Ceair/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bizersoft.Ceair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -731,7 +751,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Ceair/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bizersoft.Ceair;
 				PRODUCT_NAME = "$(TARGET_NAME)";
