@@ -48,7 +48,15 @@ class MoreTabViewController: UIViewController {
         view.addSubview(tableView)
         
         view.addConstraints(format: "H:|[v0]|", views: tableView)
-        view.addConstraints(format: "V:|-120-[v0]-80-|", views: tableView)
+        view.addConstraints(format: "V:[v0]-80-|", views: tableView)
+        
+        if #available(iOS 11.0, *) {
+            let safeLayoutGuide = view.safeAreaLayoutGuide
+            tableView.topAnchor.constraint(equalTo: safeLayoutGuide.topAnchor).isActive = true
+        } else {
+            let topLayoutGuide = self.topLayoutGuide
+            view.addConstraints(format: "V:|-\(topLayoutGuide.length)-[v0]", views: tableView)
+        }
     }
     
 }
