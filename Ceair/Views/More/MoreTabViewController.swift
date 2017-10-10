@@ -37,7 +37,7 @@ class MoreTabViewController: UIViewController {
     
     let tableView: UITableView = {
         let table = UITableView()
-        table.backgroundColor = UIColor.gray
+        table.backgroundColor = UIColor.lightGray
         table.register(TableCell.self, forCellReuseIdentifier: "Cell")
         return table
     }()
@@ -48,7 +48,7 @@ class MoreTabViewController: UIViewController {
         view.addSubview(tableView)
         
         view.addConstraints(format: "H:|[v0]|", views: tableView)
-        view.addConstraints(format: "V:[v0]-80-|", views: tableView)
+        view.addConstraints(format: "V:[v0]|", views: tableView)
         
         if #available(iOS 11.0, *) {
             let safeLayoutGuide = view.safeAreaLayoutGuide
@@ -64,7 +64,7 @@ class MoreTabViewController: UIViewController {
 extension MoreTabViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 15
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
