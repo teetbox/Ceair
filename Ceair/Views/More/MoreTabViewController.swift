@@ -23,6 +23,11 @@ class MoreTabViewController: UIViewController {
         setupTableView()
     }
     
+    let searchView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     private func setupSearchBar() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.scopeButtonTitles = ["One", "Two", "Three"]
@@ -31,7 +36,11 @@ class MoreTabViewController: UIViewController {
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
         } else {
+            view.addSubview(searchView)
+            view.addConstraints(format: "H:|[v0]|", views: searchView)
+            view.addConstraints(format: "V:|-64-[v0(44)]", views: searchView)
             
+            searchView.addSubview(searchController.searchBar)
         }
     }
     
@@ -54,8 +63,9 @@ class MoreTabViewController: UIViewController {
             let safeLayoutGuide = view.safeAreaLayoutGuide
             tableView.topAnchor.constraint(equalTo: safeLayoutGuide.topAnchor).isActive = true
         } else {
-            let topLayoutGuide = self.topLayoutGuide
-            view.addConstraints(format: "V:|-\(topLayoutGuide.length)-[v0]", views: tableView)
+//            let topLayoutGuide = self.topLayoutGuide
+//            view.addConstraints(format: "V:|-\(topLayoutGuide.length)-[v0]", views: tableView)
+            tableView.topAnchor.constraint(equalTo: searchView.bottomAnchor).isActive = true
         }
     }
     
