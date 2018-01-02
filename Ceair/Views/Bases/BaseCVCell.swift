@@ -13,10 +13,10 @@ class BaseCVCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setupViews()
+        setUpViews()
     }
     
-    func setupViews() {}
+    func setUpViews() {}
     
     func config() {}
     

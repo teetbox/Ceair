@@ -37,7 +37,7 @@ class FlightTabFlightTVCell: BaseTVCell {
         return view
     }()
     
-    override func setupViews() {
+    override func setUpViews() {
         backgroundColor = UIColor.clear
         
         addSubview(airportImageView)

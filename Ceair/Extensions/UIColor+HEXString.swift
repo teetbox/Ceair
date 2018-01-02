@@ -17,7 +17,7 @@ extension UIColor {
             cString.remove(at: cString.startIndex)
         }
         
-        if ((cString.characters.count) != 6) {
+        if ((cString.count) != 6) {
             return UIColor.gray
         }
         
@@ -45,4 +45,22 @@ extension UIColor {
         return String(format:"#%06X", rgb)
     }
     
+    static var random: UIColor {
+        return UIColor(red: .random, green: .random, blue: .random, alpha: 1.0)
+    }
+    
+    func getImage(size: CGSize) -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: size)
+        return renderer.image(actions: { rendererContext in
+            self.setFill()
+            rendererContext.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        })
+    }
+    
+}
+
+extension CGFloat {
+    static var random: CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
 }

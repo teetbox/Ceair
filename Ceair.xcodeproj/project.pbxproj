@@ -39,12 +39,23 @@
 		C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */; };
 		C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76251F57DEC6007EB4E2 /* DEFAULTS.swift */; };
 		C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */; };
+		C9979CA71FFB05D300540B2C /* DiscoveryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CA61FFB05D300540B2C /* DiscoveryTabViewController.swift */; };
+		C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */; };
+		C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CAC1FFB073C00540B2C /* DiscoveryTabDataModel.swift */; };
+		C9979CB01FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CAF1FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift */; };
+		C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */; };
 		C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */; };
 		C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */; };
 		C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD96EA1F69161900640E80 /* NetworkError.swift */; };
 		C9C306651F627F600020A316 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306641F627F600020A316 /* User.swift */; };
 		C9C306671F62809F0020A316 /* Centificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306661F62809F0020A316 /* Centificate.swift */; };
 		C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CF91A21F554F4800F352F0 /* Flight.swift */; };
+		C9DBDF701FFB409E00BFC093 /* DiscoveryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF6F1FFB409E00BFC093 /* DiscoveryCollectionView.swift */; };
+		C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF711FFB425500BFC093 /* DiscoveryCollectionCell.swift */; };
+		C9DBDF741FFB586800BFC093 /* DiscoverySubCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF731FFB586800BFC093 /* DiscoverySubCollectionView.swift */; };
+		C9DBDF761FFB588400BFC093 /* DiscoverySubCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF751FFB588400BFC093 /* DiscoverySubCollectionCell.swift */; };
+		C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF771FFB73EE00BFC093 /* ThemeCollectionView.swift */; };
+		C9DBDF7A1FFB740900BFC093 /* ThemeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF791FFB740900BFC093 /* ThemeCollectionCell.swift */; };
 		C9E09DDF1F68A76C007D0698 /* NETWORKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E09DDE1F68A76C007D0698 /* NETWORKS.swift */; };
 		C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */; };
 		C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */; };
@@ -108,12 +119,23 @@
 		C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchUtility.swift; sourceTree = "<group>"; };
 		C98C76251F57DEC6007EB4E2 /* DEFAULTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEFAULTS.swift; sourceTree = "<group>"; };
 		C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		C9979CA61FFB05D300540B2C /* DiscoveryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabViewController.swift; sourceTree = "<group>"; };
+		C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabViewModel.swift; sourceTree = "<group>"; };
+		C9979CAC1FFB073C00540B2C /* DiscoveryTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabDataModel.swift; sourceTree = "<group>"; };
+		C9979CAF1FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabViewModelTests.swift; sourceTree = "<group>"; };
+		C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryTabDataModel.swift; sourceTree = "<group>"; };
 		C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDENTIFIERS.swift; sourceTree = "<group>"; };
 		C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		C9BD96EA1F69161900640E80 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C9C306641F627F600020A316 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9C306661F62809F0020A316 /* Centificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centificate.swift; sourceTree = "<group>"; };
 		C9CF91A21F554F4800F352F0 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		C9DBDF6F1FFB409E00BFC093 /* DiscoveryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCollectionView.swift; sourceTree = "<group>"; };
+		C9DBDF711FFB425500BFC093 /* DiscoveryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCollectionCell.swift; sourceTree = "<group>"; };
+		C9DBDF731FFB586800BFC093 /* DiscoverySubCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySubCollectionView.swift; sourceTree = "<group>"; };
+		C9DBDF751FFB588400BFC093 /* DiscoverySubCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySubCollectionCell.swift; sourceTree = "<group>"; };
+		C9DBDF771FFB73EE00BFC093 /* ThemeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionView.swift; sourceTree = "<group>"; };
+		C9DBDF791FFB740900BFC093 /* ThemeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionCell.swift; sourceTree = "<group>"; };
 		C9E09DDE1F68A76C007D0698 /* NETWORKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NETWORKS.swift; sourceTree = "<group>"; };
 		C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabDataModel.swift; sourceTree = "<group>"; };
 		C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewModelTests.swift; sourceTree = "<group>"; };
@@ -194,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E927171F58CE9800BC5183 /* Flight */,
+				C9979CAE1FFB079D00540B2C /* Discovery */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -277,6 +300,7 @@
 				C973BBDE1F59545F00391516 /* Bases */,
 				C92BDF2E1F54E14600284B44 /* Booking */,
 				C9CF91A41F5552C400F352F0 /* Flight */,
+				C9979CA51FFB058F00540B2C /* Discovery */,
 				C98A15F51F8C3A7A00B5B477 /* More */,
 			);
 			path = Views;
@@ -347,6 +371,55 @@
 				C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C9979CA51FFB058F00540B2C /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				C9979CA61FFB05D300540B2C /* DiscoveryTabViewController.swift */,
+				C9DBDF6F1FFB409E00BFC093 /* DiscoveryCollectionView.swift */,
+				C9DBDF711FFB425500BFC093 /* DiscoveryCollectionCell.swift */,
+				C9DBDF731FFB586800BFC093 /* DiscoverySubCollectionView.swift */,
+				C9DBDF751FFB588400BFC093 /* DiscoverySubCollectionCell.swift */,
+				C9DBDF771FFB73EE00BFC093 /* ThemeCollectionView.swift */,
+				C9DBDF791FFB740900BFC093 /* ThemeCollectionCell.swift */,
+				C9979CA81FFB06DC00540B2C /* ViewModels */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		C9979CA81FFB06DC00540B2C /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */,
+				C9979CAB1FFB072400540B2C /* DataModels */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C9979CAB1FFB072400540B2C /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				C9979CAC1FFB073C00540B2C /* DiscoveryTabDataModel.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		C9979CAE1FFB079D00540B2C /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				C9979CAF1FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift */,
+				C9979CB11FFB085900540B2C /* Mocks */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		C9979CB11FFB085900540B2C /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		C9C306631F627F3D0020A316 /* Users */ = {
@@ -542,6 +615,9 @@
 				C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */,
 				C9171AFC1F5631D900D9BE66 /* TABBARS.swift in Sources */,
 				C9ECA3111F6B494800CAD558 /* SessionManager.swift in Sources */,
+				C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */,
+				C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */,
+				C9DBDF761FFB588400BFC093 /* DiscoverySubCollectionCell.swift in Sources */,
 				ACE04F061F6E638B009AAB70 /* URLEncording.swift in Sources */,
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
 				C91AF0D61F7249E6001A03B1 /* HttpRequest.swift in Sources */,
@@ -561,9 +637,13 @@
 				C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */,
 				C904DCB51F732C2A0063C981 /* HttpError.swift in Sources */,
 				C91AF0D81F7249F8001A03B1 /* HttpResponse.swift in Sources */,
+				C9DBDF7A1FFB740900BFC093 /* ThemeCollectionCell.swift in Sources */,
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
+				C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */,
+				C9DBDF701FFB409E00BFC093 /* DiscoveryCollectionView.swift in Sources */,
+				C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
 				C98A15F71F8C3AA700B5B477 /* MoreTabViewController.swift in Sources */,
@@ -572,6 +652,8 @@
 				C9C306651F627F600020A316 /* User.swift in Sources */,
 				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
 				C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */,
+				C9979CA71FFB05D300540B2C /* DiscoveryTabViewController.swift in Sources */,
+				C9DBDF741FFB586800BFC093 /* DiscoverySubCollectionView.swift in Sources */,
 				C9EE0B6B1F59575A009AF961 /* FlightTabFlightTVCell.swift in Sources */,
 				C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */,
 				C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */,
@@ -587,11 +669,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
+				C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
 				C9F898DE1F7CE83B005977C4 /* URLEncordingTests.swift in Sources */,
 				C9EA00411F74A86C00954CA2 /* HttpbinTests.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
+				C9979CB01FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift in Sources */,
 				C97285851F74E64F0050A261 /* HttpRequestTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,

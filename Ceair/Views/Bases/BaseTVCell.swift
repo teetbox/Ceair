@@ -14,10 +14,10 @@ class BaseTVCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        setupViews()
+        setUpViews()
     }
     
-    func setupViews() {}
+    func setUpViews() {}
     
     func config() {}
     
