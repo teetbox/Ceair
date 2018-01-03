@@ -8,12 +8,22 @@
 
 import Foundation
 
+protocol DiscoveryTabViewModelCoordinatorDelegate {
+    func didSelectDestination()
+}
+
 class DiscoveryTabViewModel {
+    
+    var coordinator: DiscoveryTabViewModelCoordinatorDelegate?
     
     let dataModel: DiscoveryTabDataModelProtocol
     
     init(dataModel: DiscoveryTabDataModelProtocol) {
         self.dataModel = dataModel
+    }
+    
+    func didSelectDestination() {
+        coordinator?.didSelectDestination()
     }
     
 }

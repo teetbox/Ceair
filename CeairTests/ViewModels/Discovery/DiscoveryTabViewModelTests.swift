@@ -13,12 +13,21 @@ class DiscoveryTabViewModelTests: XCTestCase {
     
     var sut: DiscoveryTabViewModel!
     var dataModel: MockDiscoveryTabDataModel!
+    var coordinator: MockDiscoveryCoordinator!
     
     override func setUp() {
         super.setUp()
         
         dataModel = MockDiscoveryTabDataModel()
+        coordinator = MockDiscoveryCoordinator()
         sut = DiscoveryTabViewModel(dataModel: dataModel)
+        sut.coordinator = coordinator
+    }
+    
+    func testDidSelectDestination() {
+        sut.didSelectDestination()
+        
+        XCTAssert(coordinator.isDidSelectDestinationCalled)
     }
     
 }

@@ -10,6 +10,12 @@ import UIKit
 
 class DiscoveryCollectionCell: BaseCVCell {
     
+    var viewModel: DiscoveryTabViewModel! {
+        didSet {
+            collectionView.viewModel = viewModel
+        }
+    }
+    
     let titleView: UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
@@ -52,7 +58,7 @@ class DiscoveryCollectionCell: BaseCVCell {
         titleView.addConstraints(format: "H:[v0]-10-|", views: moreLabel)
         titleView.addConstraints(format: "V:|-10-[v0]", views: contentLabel)
         titleView.addConstraints(format: "V:|-10-[v0]", views: moreLabel)
-        
+
         addSubview(collectionView)
         addConstraints(format: "H:|[v0]|", views: collectionView)
         addConstraints(format: "V:|-40-[v0(120)]-40-|", views: collectionView)

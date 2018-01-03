@@ -40,9 +40,11 @@ class DiscoveryTabViewController: UIViewController {
         navigationItem.title = "Discovery"
         view.backgroundColor = UIColor.white
         
-        navigationController?.isNavigationBarHidden = true
-        
         setUpViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
     }
     
     func setUpViews() {
@@ -59,6 +61,7 @@ class DiscoveryTabViewController: UIViewController {
         view.addConstraints(format: "H:|[v0]|", views: themeView)
         view.addConstraints(format: "V:[v0(80)]|", views: themeView)
         
+        collectionView.viewModel = viewModel
         view.addSubview(collectionView)
         view.addConstraints(format: "H:|[v0]|", views: collectionView)
         collectionView.topAnchor.constraint(equalTo: refreshView.bottomAnchor).isActive = true

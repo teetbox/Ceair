@@ -46,6 +46,15 @@
 		C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */; };
 		C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */; };
 		C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */; };
+		C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E961FFC658F0027A93E /* DestinationViewController.swift */; };
+		C9B54E9B1FFC66090027A93E /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */; };
+		C9B54E9D1FFC66240027A93E /* DestinationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9C1FFC66240027A93E /* DestinationDataModel.swift */; };
+		C9B54E9F1FFC672B0027A93E /* DiscoveryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */; };
+		C9B54EA11FFC6FA30027A93E /* MockDiscoveryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA01FFC6FA30027A93E /* MockDiscoveryCoordinator.swift */; };
+		C9B54EA31FFC75140027A93E /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA21FFC75140027A93E /* DiscoveryViewModel.swift */; };
+		C9B54EA51FFC75550027A93E /* DiscoverySubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA41FFC75550027A93E /* DiscoverySubViewModel.swift */; };
+		C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */; };
+		C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */; };
 		C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD96EA1F69161900640E80 /* NetworkError.swift */; };
 		C9C306651F627F600020A316 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306641F627F600020A316 /* User.swift */; };
 		C9C306671F62809F0020A316 /* Centificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306661F62809F0020A316 /* Centificate.swift */; };
@@ -126,6 +135,15 @@
 		C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryTabDataModel.swift; sourceTree = "<group>"; };
 		C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDENTIFIERS.swift; sourceTree = "<group>"; };
 		C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		C9B54E961FFC658F0027A93E /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
+		C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
+		C9B54E9C1FFC66240027A93E /* DestinationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDataModel.swift; sourceTree = "<group>"; };
+		C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCoordinator.swift; sourceTree = "<group>"; };
+		C9B54EA01FFC6FA30027A93E /* MockDiscoveryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryCoordinator.swift; sourceTree = "<group>"; };
+		C9B54EA21FFC75140027A93E /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
+		C9B54EA41FFC75550027A93E /* DiscoverySubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySubViewModel.swift; sourceTree = "<group>"; };
+		C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCoordinator.swift; sourceTree = "<group>"; };
+		C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopController.swift"; sourceTree = "<group>"; };
 		C9BD96EA1F69161900640E80 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C9C306641F627F600020A316 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9C306661F62809F0020A316 /* Centificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centificate.swift; sourceTree = "<group>"; };
@@ -322,6 +340,7 @@
 				C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */,
 				C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */,
 				C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */,
+				C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -332,6 +351,8 @@
 				C98C761E1F57DD97007EB4E2 /* Coordinator.swift */,
 				C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */,
 				C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */,
+				C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */,
+				C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -384,6 +405,7 @@
 				C9DBDF771FFB73EE00BFC093 /* ThemeCollectionView.swift */,
 				C9DBDF791FFB740900BFC093 /* ThemeCollectionCell.swift */,
 				C9979CA81FFB06DC00540B2C /* ViewModels */,
+				C9B54E951FFC65380027A93E /* Destination */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -392,6 +414,8 @@
 			isa = PBXGroup;
 			children = (
 				C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */,
+				C9B54EA21FFC75140027A93E /* DiscoveryViewModel.swift */,
+				C9B54EA41FFC75550027A93E /* DiscoverySubViewModel.swift */,
 				C9979CAB1FFB072400540B2C /* DataModels */,
 			);
 			path = ViewModels;
@@ -418,8 +442,35 @@
 			isa = PBXGroup;
 			children = (
 				C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */,
+				C9B54EA01FFC6FA30027A93E /* MockDiscoveryCoordinator.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C9B54E951FFC65380027A93E /* Destination */ = {
+			isa = PBXGroup;
+			children = (
+				C9B54E961FFC658F0027A93E /* DestinationViewController.swift */,
+				C9B54E981FFC65BD0027A93E /* ViewModels */,
+			);
+			path = Destination;
+			sourceTree = "<group>";
+		};
+		C9B54E981FFC65BD0027A93E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */,
+				C9B54E991FFC65C80027A93E /* DataModels */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C9B54E991FFC65C80027A93E /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				C9B54E9C1FFC66240027A93E /* DestinationDataModel.swift */,
+			);
+			path = DataModels;
 			sourceTree = "<group>";
 		};
 		C9C306631F627F3D0020A316 /* Users */ = {
@@ -617,6 +668,7 @@
 				C9ECA3111F6B494800CAD558 /* SessionManager.swift in Sources */,
 				C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */,
 				C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */,
+				C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */,
 				C9DBDF761FFB588400BFC093 /* DiscoverySubCollectionCell.swift in Sources */,
 				ACE04F061F6E638B009AAB70 /* URLEncording.swift in Sources */,
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
@@ -625,10 +677,14 @@
 				C982F3C41F8CA2DA0046197A /* DetailViewController.swift in Sources */,
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,
 				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
+				C9B54E9B1FFC66090027A93E /* DestinationViewModel.swift in Sources */,
 				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
 				C9171AFA1F56317500D9BE66 /* COLORS.swift in Sources */,
 				C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */,
+				C9B54EA51FFC75550027A93E /* DiscoverySubViewModel.swift in Sources */,
+				C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */,
+				C9B54E9D1FFC66240027A93E /* DestinationDataModel.swift in Sources */,
 				C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */,
 				C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */,
 				C9FCBAC21F577EFE00B6788A /* URLS.swift in Sources */,
@@ -641,17 +697,20 @@
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
+				C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */,
 				C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */,
 				C9DBDF701FFB409E00BFC093 /* DiscoveryCollectionView.swift in Sources */,
 				C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
+				C9B54EA31FFC75140027A93E /* DiscoveryViewModel.swift in Sources */,
 				C98A15F71F8C3AA700B5B477 /* MoreTabViewController.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,
 				C9C306651F627F600020A316 /* User.swift in Sources */,
 				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
 				C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */,
+				C9B54E9F1FFC672B0027A93E /* DiscoveryCoordinator.swift in Sources */,
 				C9979CA71FFB05D300540B2C /* DiscoveryTabViewController.swift in Sources */,
 				C9DBDF741FFB586800BFC093 /* DiscoverySubCollectionView.swift in Sources */,
 				C9EE0B6B1F59575A009AF961 /* FlightTabFlightTVCell.swift in Sources */,
@@ -671,6 +730,7 @@
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
 				C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
+				C9B54EA11FFC6FA30027A93E /* MockDiscoveryCoordinator.swift in Sources */,
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
 				C9F898DE1F7CE83B005977C4 /* URLEncordingTests.swift in Sources */,
 				C9EA00411F74A86C00954CA2 /* HttpbinTests.swift in Sources */,

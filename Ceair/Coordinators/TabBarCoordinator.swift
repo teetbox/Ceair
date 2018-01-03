@@ -12,6 +12,8 @@ class TabBarCoordinator: Coordinator {
     
     let window: UIWindow
     
+    var discoveryCoordinator: DiscoveryCoordinator?
+    
     init(window: UIWindow) {
         self.window = window
     }
@@ -36,7 +38,10 @@ class TabBarCoordinator: Coordinator {
         
         let discoveryTabViewController = DiscoveryTabViewController()
         let discoveryDataModel = DiscoveryTabDataModel()
-        discoveryTabViewController.viewModel = DiscoveryTabViewModel(dataModel: discoveryDataModel)
+        discoveryCoordinator = DiscoveryCoordinator(window: window)
+        let discoveryTabViewModel = DiscoveryTabViewModel(dataModel: discoveryDataModel)
+        discoveryTabViewModel.coordinator = discoveryCoordinator
+        discoveryTabViewController.viewModel = discoveryTabViewModel
         
         let discoveryTab = UINavigationController(rootViewController: discoveryTabViewController)
         discoveryTab.tabBarItem.title = TABBARS.Discovery
