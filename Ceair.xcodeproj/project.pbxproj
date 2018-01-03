@@ -55,6 +55,13 @@
 		C9B54EA51FFC75550027A93E /* DiscoverySubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA41FFC75550027A93E /* DiscoverySubViewModel.swift */; };
 		C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */; };
 		C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */; };
+		C9B54EAB1FFC9D710027A93E /* DestinationFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EAA1FFC9D710027A93E /* DestinationFilterView.swift */; };
+		C9B54EAD1FFCA5590027A93E /* UITabBarController+Hide.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EAC1FFCA5590027A93E /* UITabBarController+Hide.swift */; };
+		C9B54EAF1FFCBCCE0027A93E /* DestinationViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EAE1FFCBCCE0027A93E /* DestinationViewModelTests.swift */; };
+		C9B54EB11FFCBD2A0027A93E /* MockDestinationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EB01FFCBD2A0027A93E /* MockDestinationDataModel.swift */; };
+		C9B54EB31FFCBD660027A93E /* MockDestinationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EB21FFCBD660027A93E /* MockDestinationCoordinator.swift */; };
+		C9B54EB51FFCBFE90027A93E /* DestinationFilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EB41FFCBFE90027A93E /* DestinationFilterCoordinator.swift */; };
+		C9B54EB71FFCC21C0027A93E /* DestinationFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EB61FFCC21C0027A93E /* DestinationFilterViewModel.swift */; };
 		C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BD96EA1F69161900640E80 /* NetworkError.swift */; };
 		C9C306651F627F600020A316 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306641F627F600020A316 /* User.swift */; };
 		C9C306671F62809F0020A316 /* Centificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306661F62809F0020A316 /* Centificate.swift */; };
@@ -144,6 +151,13 @@
 		C9B54EA41FFC75550027A93E /* DiscoverySubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySubViewModel.swift; sourceTree = "<group>"; };
 		C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCoordinator.swift; sourceTree = "<group>"; };
 		C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopController.swift"; sourceTree = "<group>"; };
+		C9B54EAA1FFC9D710027A93E /* DestinationFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterView.swift; sourceTree = "<group>"; };
+		C9B54EAC1FFCA5590027A93E /* UITabBarController+Hide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Hide.swift"; sourceTree = "<group>"; };
+		C9B54EAE1FFCBCCE0027A93E /* DestinationViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModelTests.swift; sourceTree = "<group>"; };
+		C9B54EB01FFCBD2A0027A93E /* MockDestinationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDestinationDataModel.swift; sourceTree = "<group>"; };
+		C9B54EB21FFCBD660027A93E /* MockDestinationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDestinationCoordinator.swift; sourceTree = "<group>"; };
+		C9B54EB41FFCBFE90027A93E /* DestinationFilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterCoordinator.swift; sourceTree = "<group>"; };
+		C9B54EB61FFCC21C0027A93E /* DestinationFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterViewModel.swift; sourceTree = "<group>"; };
 		C9BD96EA1F69161900640E80 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		C9C306641F627F600020A316 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9C306661F62809F0020A316 /* Centificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centificate.swift; sourceTree = "<group>"; };
@@ -341,6 +355,7 @@
 				C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */,
 				C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */,
 				C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */,
+				C9B54EAC1FFCA5590027A93E /* UITabBarController+Hide.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +368,7 @@
 				C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */,
 				C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */,
 				C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */,
+				C9B54EB41FFCBFE90027A93E /* DestinationFilterCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -433,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				C9979CAF1FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift */,
+				C9B54EAE1FFCBCCE0027A93E /* DestinationViewModelTests.swift */,
 				C9979CB11FFB085900540B2C /* Mocks */,
 			);
 			path = Discovery;
@@ -443,6 +460,8 @@
 			children = (
 				C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */,
 				C9B54EA01FFC6FA30027A93E /* MockDiscoveryCoordinator.swift */,
+				C9B54EB01FFCBD2A0027A93E /* MockDestinationDataModel.swift */,
+				C9B54EB21FFCBD660027A93E /* MockDestinationCoordinator.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -451,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				C9B54E961FFC658F0027A93E /* DestinationViewController.swift */,
+				C9B54EAA1FFC9D710027A93E /* DestinationFilterView.swift */,
 				C9B54E981FFC65BD0027A93E /* ViewModels */,
 			);
 			path = Destination;
@@ -460,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */,
+				C9B54EB61FFCC21C0027A93E /* DestinationFilterViewModel.swift */,
 				C9B54E991FFC65C80027A93E /* DataModels */,
 			);
 			path = ViewModels;
@@ -685,6 +706,7 @@
 				C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */,
 				C9B54E9D1FFC66240027A93E /* DestinationDataModel.swift in Sources */,
+				C9B54EB71FFCC21C0027A93E /* DestinationFilterViewModel.swift in Sources */,
 				C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */,
 				C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */,
 				C9FCBAC21F577EFE00B6788A /* URLS.swift in Sources */,
@@ -714,12 +736,15 @@
 				C9979CA71FFB05D300540B2C /* DiscoveryTabViewController.swift in Sources */,
 				C9DBDF741FFB586800BFC093 /* DiscoverySubCollectionView.swift in Sources */,
 				C9EE0B6B1F59575A009AF961 /* FlightTabFlightTVCell.swift in Sources */,
+				C9B54EAB1FFC9D710027A93E /* DestinationFilterView.swift in Sources */,
 				C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */,
+				C9B54EB51FFCBFE90027A93E /* DestinationFilterCoordinator.swift in Sources */,
 				C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */,
 				C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */,
 				C9E09DDF1F68A76C007D0698 /* NETWORKS.swift in Sources */,
 				C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
+				C9B54EAD1FFCA5590027A93E /* UITabBarController+Hide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,8 +759,11 @@
 				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
 				C9F898DE1F7CE83B005977C4 /* URLEncordingTests.swift in Sources */,
 				C9EA00411F74A86C00954CA2 /* HttpbinTests.swift in Sources */,
+				C9B54EAF1FFCBCCE0027A93E /* DestinationViewModelTests.swift in Sources */,
+				C9B54EB11FFCBD2A0027A93E /* MockDestinationDataModel.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C9979CB01FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift in Sources */,
+				C9B54EB31FFCBD660027A93E /* MockDestinationCoordinator.swift in Sources */,
 				C97285851F74E64F0050A261 /* HttpRequestTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,

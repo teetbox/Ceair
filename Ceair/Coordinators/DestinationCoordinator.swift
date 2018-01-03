@@ -30,11 +30,20 @@ class DestinationCoordinator: Coordinator {
         destinationVC.viewModel = viewModel
         
         let topViewController = UIApplication.topViewController()
+        // Easiest way to hide tabBar in the next view
+        topViewController?.hidesBottomBarWhenPushed = true
         topViewController?.navigationController?.pushViewController(destinationVC, animated: true)
+        // Make tabBar back when dismiss the next view
+        topViewController?.hidesBottomBarWhenPushed = false
     }
     
 }
 
 extension DestinationCoordinator: DestinationViewModelCoordinatorDelegate {
+    
+    func showFilter() {
+        let filterCoordinator = DestinationFilterCoordinator(window: window)
+        filterCoordinator.start()
+    }
     
 }

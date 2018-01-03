@@ -43,10 +43,6 @@ class DiscoveryTabViewController: UIViewController {
         setUpViews()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     func setUpViews() {
         view.addSubview(searchView)
         view.addConstraints(format: "H:|[v0]|", views: searchView)
