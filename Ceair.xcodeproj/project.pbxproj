@@ -66,6 +66,8 @@
 		C9C306651F627F600020A316 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306641F627F600020A316 /* User.swift */; };
 		C9C306671F62809F0020A316 /* Centificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C306661F62809F0020A316 /* Centificate.swift */; };
 		C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CF91A21F554F4800F352F0 /* Flight.swift */; };
+		C9DB6C0B1FFDB512001F2AA2 /* FilterCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DB6C0A1FFDB512001F2AA2 /* FilterCollectionView.swift */; };
+		C9DB6C0D1FFDB528001F2AA2 /* FilterCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DB6C0C1FFDB528001F2AA2 /* FilterCollectionCell.swift */; };
 		C9DBDF701FFB409E00BFC093 /* DiscoveryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF6F1FFB409E00BFC093 /* DiscoveryCollectionView.swift */; };
 		C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF711FFB425500BFC093 /* DiscoveryCollectionCell.swift */; };
 		C9DBDF741FFB586800BFC093 /* DiscoverySubCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF731FFB586800BFC093 /* DiscoverySubCollectionView.swift */; };
@@ -162,6 +164,8 @@
 		C9C306641F627F600020A316 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C9C306661F62809F0020A316 /* Centificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Centificate.swift; sourceTree = "<group>"; };
 		C9CF91A21F554F4800F352F0 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		C9DB6C0A1FFDB512001F2AA2 /* FilterCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionView.swift; sourceTree = "<group>"; };
+		C9DB6C0C1FFDB528001F2AA2 /* FilterCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionCell.swift; sourceTree = "<group>"; };
 		C9DBDF6F1FFB409E00BFC093 /* DiscoveryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCollectionView.swift; sourceTree = "<group>"; };
 		C9DBDF711FFB425500BFC093 /* DiscoveryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCollectionCell.swift; sourceTree = "<group>"; };
 		C9DBDF731FFB586800BFC093 /* DiscoverySubCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySubCollectionView.swift; sourceTree = "<group>"; };
@@ -471,6 +475,8 @@
 			children = (
 				C9B54E961FFC658F0027A93E /* DestinationViewController.swift */,
 				C9B54EAA1FFC9D710027A93E /* DestinationFilterView.swift */,
+				C9DB6C0A1FFDB512001F2AA2 /* FilterCollectionView.swift */,
+				C9DB6C0C1FFDB528001F2AA2 /* FilterCollectionCell.swift */,
 				C9B54E981FFC65BD0027A93E /* ViewModels */,
 			);
 			path = Destination;
@@ -722,6 +728,7 @@
 				C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */,
 				C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */,
 				C9DBDF701FFB409E00BFC093 /* DiscoveryCollectionView.swift in Sources */,
+				C9DB6C0B1FFDB512001F2AA2 /* FilterCollectionView.swift in Sources */,
 				C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
@@ -730,6 +737,7 @@
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,
 				C9C306651F627F600020A316 /* User.swift in Sources */,
+				C9DB6C0D1FFDB528001F2AA2 /* FilterCollectionCell.swift in Sources */,
 				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
 				C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */,
 				C9B54E9F1FFC672B0027A93E /* DiscoveryCoordinator.swift in Sources */,

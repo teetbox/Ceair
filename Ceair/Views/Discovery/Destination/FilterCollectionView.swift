@@ -1,0 +1,68 @@
+//
+//  FilterCollectionView.swift
+//  Ceair
+//
+//  Created by Matt Tian on 04/01/2018.
+//  Copyright © 2018 Bizersoft. All rights reserved.
+//
+
+import UIKit
+
+class FilterCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.backgroundColor = .white
+        collection.dataSource = self
+        collection.delegate = self
+        return collection
+    }()
+    
+    let cellId = "FilterCell"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        collectionView.register(FilterCollectionCell.self, forCellWithReuseIdentifier: cellId)
+        
+        addSubview(collectionView)
+        addConstraints(format: "H:|[v0]|", views: collectionView)
+        addConstraints(format: "V:|[v0]|", views: collectionView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 12
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FilterCollectionCell
+        
+        cell.backgroundColor = UIColor.random
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: frame.width / 4.0, height: 40)
+    }
+    
+    // Maybe this is for section spacing
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    // Horizontal and Vertical spacing between each item
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+}
