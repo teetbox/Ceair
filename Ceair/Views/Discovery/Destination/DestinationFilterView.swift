@@ -74,6 +74,9 @@ class DestinationFilterView: UIView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
         blackView.addGestureRecognizer(tapGesture)
         
+        collectionView.viewModel = viewModel
+        collectionView.viewModel.getFilters {}
+    
         window.addSubview(blackView)
         
         setUpViews(window)
@@ -107,7 +110,6 @@ class DestinationFilterView: UIView {
         collectionView.topAnchor.constraint(equalTo: titleBar.bottomAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: filterBar.topAnchor).isActive = true
         
-        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackView.alpha = 1
             self.filterView.frame = CGRect(x: 0, y: window.frame.height - 200, width: window.frame.width, height: 200)
@@ -125,8 +127,13 @@ class DestinationFilterView: UIView {
     }
     
     @objc func handleMenuButton(_ button: UIButton) {
-        areaButton.backgroundColor = (button.tag == 1) ? .white : .darkGray
-        dateButton.backgroundColor = (button.tag == 2) ? .white : .darkGray
+        let tag = button.tag
+        areaButton.backgroundColor = (tag == 1) ? .white : .darkGray
+        dateButton.backgroundColor = (tag == 2) ? .white : .darkGray
+        
+        viewModel.updateFilter(with: tag) {
+            collectionView.reloadData()
+        }
     }
     
 }

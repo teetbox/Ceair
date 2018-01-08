@@ -10,6 +10,8 @@ import UIKit
 
 class FilterCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    var viewModel: DestinationFilterViewModel!
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -35,8 +37,12 @@ class FilterCollectionView: UIView, UICollectionViewDataSource, UICollectionView
         fatalError("init(coder:) has not been implemented")
     }
     
+    func reloadData() {
+        collectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return viewModel.filterNumber
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

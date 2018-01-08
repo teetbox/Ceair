@@ -24,7 +24,8 @@ class DestinationFilterCoordinator: Coordinator {
     }
     
     func start() {
-        let viewModel = DestinationFilterViewModel()
+        let dataModel = DestinationFilterDataModel()
+        let viewModel = DestinationFilterViewModel(dataModel: dataModel)
         viewModel.coordinator = self
         destinationFilterView.viewModel = viewModel
         destinationFilterView.show(window)
