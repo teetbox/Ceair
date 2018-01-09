@@ -1,0 +1,11 @@
+framework module CEHTTP {
+  umbrella header "CEHTTP.h"
+
+  export *
+  module * { export * }
+}
+
+module CEHTTP.Swift {
+    header "CEHTTP-Swift.h"
+    requires objc
+}

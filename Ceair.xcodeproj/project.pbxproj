@@ -71,6 +71,8 @@
 		C9DBDF761FFB588400BFC093 /* DiscoverySubCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF751FFB588400BFC093 /* DiscoverySubCollectionCell.swift */; };
 		C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF771FFB73EE00BFC093 /* ThemeCollectionView.swift */; };
 		C9DBDF7A1FFB740900BFC093 /* ThemeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBDF791FFB740900BFC093 /* ThemeCollectionCell.swift */; };
+		C9DDAF4A200467AC0036132A /* CEHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDAF42200465900036132A /* CEHTTP.framework */; };
+		C9DDAF4B200467AC0036132A /* CEHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C9DDAF42200465900036132A /* CEHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9E09DDF1F68A76C007D0698 /* NETWORKS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E09DDE1F68A76C007D0698 /* NETWORKS.swift */; };
 		C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */; };
 		C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */; };
@@ -93,6 +95,20 @@
 			remoteInfo = Ceair;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9DDAF4C200467AC0036132A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C9DDAF4B200467AC0036132A /* CEHTTP.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +178,7 @@
 		C9DBDF751FFB588400BFC093 /* DiscoverySubCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverySubCollectionCell.swift; sourceTree = "<group>"; };
 		C9DBDF771FFB73EE00BFC093 /* ThemeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionView.swift; sourceTree = "<group>"; };
 		C9DBDF791FFB740900BFC093 /* ThemeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeCollectionCell.swift; sourceTree = "<group>"; };
+		C9DDAF42200465900036132A /* CEHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CEHTTP.framework; path = Frameworks/CEHTTP.framework; sourceTree = "<group>"; };
 		C9E09DDE1F68A76C007D0698 /* NETWORKS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NETWORKS.swift; sourceTree = "<group>"; };
 		C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabDataModel.swift; sourceTree = "<group>"; };
 		C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewModelTests.swift; sourceTree = "<group>"; };
@@ -180,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9DDAF4A200467AC0036132A /* CEHTTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +214,7 @@
 		034381E5067D15B48F34E863 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9DDAF42200465900036132A /* CEHTTP.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -543,6 +562,7 @@
 				C92BDEFE1F54E00800284B44 /* Sources */,
 				C92BDEFF1F54E00800284B44 /* Frameworks */,
 				C92BDF001F54E00800284B44 /* Resources */,
+				C9DDAF4C200467AC0036132A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -850,12 +870,14 @@
 		C92BDF201F54E00800284B44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "${inherited}";
 				INFOPLIST_FILE = Ceair/Info.plist;
@@ -872,12 +894,14 @@
 		C92BDF211F54E00800284B44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"${inherited}",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				INFOPLIST_FILE = Ceair/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;

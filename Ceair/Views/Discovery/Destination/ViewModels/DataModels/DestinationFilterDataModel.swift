@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//import Aintx
+import CEHTTP
 
 protocol DestinationFilterDataModelProtocol {
     func getFilters(completion: @escaping ([[String]]) -> Void)
@@ -15,23 +15,23 @@ protocol DestinationFilterDataModelProtocol {
 
 class DestinationFilterDataModel: DestinationFilterDataModelProtocol {
     
-//    var aintx = Aintx(base: "")
+    var http = CEHttp(base: "")
     
     // Dummy Data
     private let dummyFilters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"], ["O", "P", "Q"]]
 
     func getFilters(completion: @escaping ([[String]]) -> Void) {
         
-//        let fakeData = NSKeyedArchiver.archivedData(withRootObject: dummyFilters)
-//        let httpResponse = HttpResponse(data: fakeData)
-//
-//        aintx.fakeResponse = httpResponse
-//        aintx.get("/destinationFilter") { response in
-//            let data = response.data!
-//            if let filters = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String]] {
-//                completion(filters)
-//            }
-//        }
+        let fakeData = NSKeyedArchiver.archivedData(withRootObject: dummyFilters)
+        let httpResponse = HttpResponse(data: fakeData)
+
+        http.fakeResponse = httpResponse
+        http.get("/destinationFilter") { response in
+            let data = response.data!
+            if let filters = NSKeyedUnarchiver.unarchiveObject(with: data) as? [[String]] {
+                completion(filters)
+            }
+        }
     }
     
 }
