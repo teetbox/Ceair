@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DestinationViewModelCoordinatorDelegate {
-    func showFilter()
+    func showFilter(with tag: Int)
 }
 
 class DestinationViewModel {
@@ -22,8 +22,8 @@ class DestinationViewModel {
         self.dataModel = dataModel
     }
     
-    func showFilter() {
-        coordinator?.showFilter()
+    func showFilter(with tag: Int) {
+        coordinator?.showFilter(with: tag)
     }
     
 }

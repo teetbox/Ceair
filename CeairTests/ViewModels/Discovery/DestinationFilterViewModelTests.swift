@@ -13,12 +13,15 @@ class DestinationFilterViewModelTests: XCTestCase {
     
     var sut: DestinationFilterViewModel!
     var dataModel: MockDestinationFilterDataModel!
+    var coordinator: MockDestinationFilterCoordinator!
     
     override func setUp() {
         super.setUp()
         
         dataModel = MockDestinationFilterDataModel()
+        coordinator = MockDestinationFilterCoordinator()
         sut = DestinationFilterViewModel(dataModel: dataModel)
+        sut.coordinator = coordinator
     }
     
     func testGetFilters() {
@@ -41,6 +44,12 @@ class DestinationFilterViewModelTests: XCTestCase {
         
         sut.updateFilter(with: 2, completion: {})
         XCTAssertEqual(sut.filterNumber, 3)
+    }
+    
+    func testDismiss() {
+        sut.dismiss()
+        
+        XCTAssert(coordinator.isDismissCalled)
     }
     
 }

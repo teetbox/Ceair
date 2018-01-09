@@ -56,4 +56,8 @@ class DestinationFilterViewModel {
         completion()
     }
     
+    func dismiss() {
+        coordinator?.dismiss()
+    }
+    
 }

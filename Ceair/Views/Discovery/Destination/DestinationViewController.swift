@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DestinationViewController: UIViewController {
+class DestinationViewController: UIViewController, UITabBarDelegate {
     
     // TODO: - Using its own viewModel. Do not share with parent's viewModel
     var viewModel: DestinationViewModel!
@@ -35,10 +35,15 @@ class DestinationViewController: UIViewController {
         return view
     }()
     
-    let filterBar: UIView = {
-        let view = UIView()
-        view.backgroundColor = .orange
-        return view
+    lazy var filterBar: UITabBar = {
+        let tabBar = UITabBar()
+        let sortItem = UITabBarItem(title: "Sort", image: UIImage(named: "Sort"), tag: 1)
+        let filterItem = UITabBarItem(title: "Filter", image: UIImage(named: "Filter"), tag: 2)
+        tabBar.tintColor = UIColor.fromHEX(string: COLORS.BarTintColor)
+        tabBar.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
+        tabBar.delegate = self
+        tabBar.items = [sortItem, filterItem]
+        return tabBar
     }()
     
     override func viewDidLoad() {
@@ -70,31 +75,40 @@ class DestinationViewController: UIViewController {
         view.addConstraints(format: "V:[v0]", views: collectionView)
         collectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: themeView.topAnchor).isActive = true
-        
-        let sortButton = UIButton()
-        sortButton.setTitle("Sort", for: .normal)
-        sortButton.backgroundColor = .magenta
-        sortButton.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
-        
-        let filterButton = UIButton()
-        filterButton.setTitle("Filter", for: .normal)
-        filterButton.backgroundColor = .cyan
-        filterButton.addTarget(self, action: #selector(showData), for: .touchUpInside)
-        
-        filterBar.addSubview(sortButton)
-        filterBar.addSubview(filterButton)
-        let buttonWidth = view.frame.width / 2
-        filterBar.addConstraints(format: "H:|[v0(\(buttonWidth))][v1(\(buttonWidth))]|", views: sortButton, filterButton)
-        filterBar.addConstraints(format: "V:|[v0]|", views: sortButton)
-        filterBar.addConstraints(format: "V:|[v0]|", views: filterButton)
+//
+//        let sortButton = UIButton()
+//        sortButton.setTitle("Sort", for: .normal)
+//        sortButton.backgroundColor = .magenta
+//        sortButton.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
+//
+//        let filterButton = UIButton()
+//        filterButton.setTitle("Filter", for: .normal)
+//        filterButton.backgroundColor = .cyan
+//        filterButton.addTarget(self, action: #selector(showData), for: .touchUpInside)
+//
+//        filterBar.addSubview(sortButton)
+//        filterBar.addSubview(filterButton)
+//        let buttonWidth = view.frame.width / 2
+//        filterBar.addConstraints(format: "H:|[v0(\(buttonWidth))][v1(\(buttonWidth))]|", views: sortButton, filterButton)
+//        filterBar.addConstraints(format: "V:|[v0]|", views: sortButton)
+//        filterBar.addConstraints(format: "V:|[v0]|", views: filterButton)
     }
     
     @objc func showFilter() {
-        viewModel.showFilter()
+        viewModel.showFilter(with: 1)
     }
     
     @objc func showData() {
-        print(#function)
+        viewModel.showFilter(with: 2)
+    }
+    
+    // UITabBar Delegate
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        viewModel.showFilter(with: item.tag)
+    }
+    
+    func dismissFilter() {
+        filterBar.selectedItem = nil
     }
     
 }

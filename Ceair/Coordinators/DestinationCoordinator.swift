@@ -41,9 +41,14 @@ class DestinationCoordinator: Coordinator {
 
 extension DestinationCoordinator: DestinationViewModelCoordinatorDelegate {
     
-    func showFilter() {
-        let filterCoordinator = DestinationFilterCoordinator(window: window)
+    func showFilter(with tag: Int) {
+        let filterCoordinator = DestinationFilterCoordinator(window: window, parent: self)
         filterCoordinator.start()
+        filterCoordinator.showFilter(with: tag)
+    }
+    
+    func dismissFilter() {
+        destinationVC.dismissFilter()
     }
     
 }

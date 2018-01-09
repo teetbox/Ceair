@@ -12,8 +12,10 @@ import Foundation
 class MockDestinationCoordinator: DestinationViewModelCoordinatorDelegate {
     
     var isShowFilterCalled = false
+    var tag = 0
     
-    func showFilter() {
+    func showFilter(with tag: Int) {
+        self.tag = tag
         isShowFilterCalled = true
     }
     

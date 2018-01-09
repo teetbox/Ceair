@@ -11,6 +11,8 @@
 		C903830A20033E900021C340 /* DestinationFilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830920033E900021C340 /* DestinationFilterDataModel.swift */; };
 		C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830B200341FF0021C340 /* DestinationFilterViewModelTests.swift */; };
 		C903830E200342590021C340 /* MockDestinationFilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */; };
+		C9084C582004B10B00800FF9 /* UIImage+MaskColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9084C572004B10B00800FF9 /* UIImage+MaskColor.swift */; };
+		C9084C5A2004B66100800FF9 /* MockDestinationFilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9084C592004B66100800FF9 /* MockDestinationFilterCoordinator.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
 		C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* IMAGES.swift */; };
@@ -115,6 +117,8 @@
 		C903830920033E900021C340 /* DestinationFilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterDataModel.swift; sourceTree = "<group>"; };
 		C903830B200341FF0021C340 /* DestinationFilterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterViewModelTests.swift; sourceTree = "<group>"; };
 		C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDestinationFilterDataModel.swift; sourceTree = "<group>"; };
+		C9084C572004B10B00800FF9 /* UIImage+MaskColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+MaskColor.swift"; sourceTree = "<group>"; };
+		C9084C592004B66100800FF9 /* MockDestinationFilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDestinationFilterCoordinator.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
 		C9171AF71F5630DA00D9BE66 /* IMAGES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAGES.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 				C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */,
 				C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */,
 				C9B54EAC1FFCA5590027A93E /* UITabBarController+Hide.swift */,
+				C9084C572004B10B00800FF9 /* UIImage+MaskColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				C9B54EB01FFCBD2A0027A93E /* MockDestinationDataModel.swift */,
 				C9B54EB21FFCBD660027A93E /* MockDestinationCoordinator.swift */,
 				C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */,
+				C9084C592004B66100800FF9 /* MockDestinationFilterCoordinator.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -666,6 +672,7 @@
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
 				C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */,
 				C982F3C41F8CA2DA0046197A /* DetailViewController.swift in Sources */,
+				C9084C582004B10B00800FF9 /* UIImage+MaskColor.swift in Sources */,
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,
 				C9B54E9B1FFC66090027A93E /* DestinationViewModel.swift in Sources */,
 				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
@@ -723,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
+				C9084C5A2004B66100800FF9 /* MockDestinationFilterCoordinator.swift in Sources */,
 				C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				C903830E200342590021C340 /* MockDestinationFilterDataModel.swift in Sources */,

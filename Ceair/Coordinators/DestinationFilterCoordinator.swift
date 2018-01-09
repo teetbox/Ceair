@@ -11,10 +11,12 @@ import UIKit
 class DestinationFilterCoordinator: Coordinator {
     
     let window: UIWindow
+    let parent: Coordinator
     let destinationFilterView: DestinationFilterView
     
-    init(window: UIWindow) {
+    init(window: UIWindow, parent: Coordinator) {
         self.window = window
+        self.parent = parent
         self.destinationFilterView = DestinationFilterView()
         print("Init Destination Filter Coordinator")
     }
@@ -31,12 +33,18 @@ class DestinationFilterCoordinator: Coordinator {
         destinationFilterView.show(window)
     }
     
+    func showFilter(with tag: Int) {
+        destinationFilterView.handleFilter(with: tag)
+    }
+    
 }
 
 extension DestinationFilterCoordinator: DestinationFilterViewModelCoordinatorDelegate {
     
     func dismiss() {
-        
+        if let destinationCoordinator = parent as? DestinationCoordinator {
+            destinationCoordinator.dismissFilter()
+        }
     }
     
 }

@@ -25,9 +25,13 @@ class DestinationViewModelTests: XCTestCase {
     }
 
     func testShowFilter() {
-        sut.showFilter()
+        sut.showFilter(with: 1)
         
         XCTAssert(coordinator.isShowFilterCalled)
+        XCTAssertEqual(coordinator.tag, 1)
+        
+        sut.showFilter(with: 2)
+        XCTAssertEqual(coordinator.tag, 2)
     }
     
 }
