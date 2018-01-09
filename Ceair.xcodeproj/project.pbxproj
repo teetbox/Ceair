@@ -7,20 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */; };
-		ACE04F061F6E638B009AAB70 /* URLEncording.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE04F051F6E638B009AAB70 /* URLEncording.swift */; };
 		C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */; };
 		C903830A20033E900021C340 /* DestinationFilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830920033E900021C340 /* DestinationFilterDataModel.swift */; };
 		C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830B200341FF0021C340 /* DestinationFilterViewModelTests.swift */; };
 		C903830E200342590021C340 /* MockDestinationFilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */; };
-		C904DCB51F732C2A0063C981 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C904DCB41F732C2A0063C981 /* HttpError.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
 		C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* IMAGES.swift */; };
 		C9171AFA1F56317500D9BE66 /* COLORS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF91F56317500D9BE66 /* COLORS.swift */; };
 		C9171AFC1F5631D900D9BE66 /* TABBARS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AFB1F5631D900D9BE66 /* TABBARS.swift */; };
-		C91AF0D61F7249E6001A03B1 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AF0D51F7249E6001A03B1 /* HttpRequest.swift */; };
-		C91AF0D81F7249F8001A03B1 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91AF0D71F7249F8001A03B1 /* HttpResponse.swift */; };
 		C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5551F5F747400689AE7 /* DateUtility.swift */; };
 		C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C922E5591F5F761100689AE7 /* DateUtilityTests.swift */; };
 		C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */; };
@@ -32,7 +27,6 @@
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
-		C97285851F74E64F0050A261 /* HttpRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97285841F74E64F0050A261 /* HttpRequestTests.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
 		C982F3C21F8CA2B50046197A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C982F3C11F8CA2B50046197A /* Main.storyboard */; };
 		C982F3C41F8CA2DA0046197A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982F3C31F8CA2DA0046197A /* DetailViewController.swift */; };
@@ -81,14 +75,10 @@
 		C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */; };
 		C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */; };
 		C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9271B1F58D0A800BC5183 /* MockFlightTabDataModel.swift */; };
-		C9EA00411F74A86C00954CA2 /* HttpbinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EA00401F74A86C00954CA2 /* HttpbinTests.swift */; };
 		C9EB9DE71F57E83000A39AB0 /* FlightTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB9DE61F57E83000A39AB0 /* FlightTabViewModel.swift */; };
-		C9ECA3111F6B494800CAD558 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ECA3101F6B494800CAD558 /* SessionManager.swift */; };
 		C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE0B681F5956C9009AF961 /* BaseTVCell.swift */; };
 		C9EE0B6B1F59575A009AF961 /* FlightTabFlightTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE0B6A1F59575A009AF961 /* FlightTabFlightTVCell.swift */; };
 		C9EE6F101F6128C3009A4268 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9EE6F0F1F6128C2009A4268 /* Info.plist */; };
-		C9F898DE1F7CE83B005977C4 /* URLEncordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F898DD1F7CE83B005977C4 /* URLEncordingTests.swift */; };
-		C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBABF1F577D6F00B6788A /* Aintx.swift */; };
 		C9FCBAC21F577EFE00B6788A /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC11F577EFE00B6788A /* URLS.swift */; };
 		C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC31F57847700B6788A /* LABELS.swift */; };
 		C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */; };
@@ -105,20 +95,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AintxTests.swift; sourceTree = "<group>"; };
-		ACE04F051F6E638B009AAB70 /* URLEncording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncording.swift; sourceTree = "<group>"; };
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
 		C903830920033E900021C340 /* DestinationFilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterDataModel.swift; sourceTree = "<group>"; };
 		C903830B200341FF0021C340 /* DestinationFilterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterViewModelTests.swift; sourceTree = "<group>"; };
 		C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDestinationFilterDataModel.swift; sourceTree = "<group>"; };
-		C904DCB41F732C2A0063C981 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
 		C9171AF71F5630DA00D9BE66 /* IMAGES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAGES.swift; sourceTree = "<group>"; };
 		C9171AF91F56317500D9BE66 /* COLORS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = COLORS.swift; sourceTree = "<group>"; };
 		C9171AFB1F5631D900D9BE66 /* TABBARS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TABBARS.swift; sourceTree = "<group>"; };
-		C91AF0D51F7249E6001A03B1 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
-		C91AF0D71F7249F8001A03B1 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		C922E5551F5F747400689AE7 /* DateUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtility.swift; sourceTree = "<group>"; };
 		C922E5591F5F761100689AE7 /* DateUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilityTests.swift; sourceTree = "<group>"; };
 		C9250FFD1F6116D1005CA7D1 /* UILabel+TopAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+TopAlign.swift"; sourceTree = "<group>"; };
@@ -133,7 +118,6 @@
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
-		C97285841F74E64F0050A261 /* HttpRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestTests.swift; sourceTree = "<group>"; };
 		C973BBDF1F59547500391516 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
 		C982F3C11F8CA2B50046197A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C982F3C31F8CA2DA0046197A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -182,14 +166,10 @@
 		C9E927151F58CDA000BC5183 /* FlightTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabDataModel.swift; sourceTree = "<group>"; };
 		C9E927191F58CF0F00BC5183 /* FlightTabViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewModelTests.swift; sourceTree = "<group>"; };
 		C9E9271B1F58D0A800BC5183 /* MockFlightTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFlightTabDataModel.swift; sourceTree = "<group>"; };
-		C9EA00401F74A86C00954CA2 /* HttpbinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpbinTests.swift; sourceTree = "<group>"; };
 		C9EB9DE61F57E83000A39AB0 /* FlightTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewModel.swift; sourceTree = "<group>"; };
-		C9ECA3101F6B494800CAD558 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		C9EE0B681F5956C9009AF961 /* BaseTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTVCell.swift; sourceTree = "<group>"; };
 		C9EE0B6A1F59575A009AF961 /* FlightTabFlightTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCell.swift; sourceTree = "<group>"; };
 		C9EE6F0F1F6128C2009A4268 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9F898DD1F7CE83B005977C4 /* URLEncordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLEncordingTests.swift; sourceTree = "<group>"; };
-		C9FCBABF1F577D6F00B6788A /* Aintx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aintx.swift; sourceTree = "<group>"; };
 		C9FCBAC11F577EFE00B6788A /* URLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
 		C9FCBAC31F57847700B6788A /* LABELS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABELS.swift; sourceTree = "<group>"; };
 		C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
@@ -218,25 +198,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		AC7268A21F6C9EA8004C6C36 /* Networks */ = {
-			isa = PBXGroup;
-			children = (
-				AC7268A31F6C9EB9004C6C36 /* Aintx */,
-				C9250EC61F6FB164005F25BC /* Integration */,
-			);
-			path = Networks;
-			sourceTree = "<group>";
-		};
-		AC7268A31F6C9EB9004C6C36 /* Aintx */ = {
-			isa = PBXGroup;
-			children = (
-				AC7268A41F6C9EF8004C6C36 /* AintxTests.swift */,
-				C97285841F74E64F0050A261 /* HttpRequestTests.swift */,
-				C9F898DD1F7CE83B005977C4 /* URLEncordingTests.swift */,
-			);
-			path = Aintx;
 			sourceTree = "<group>";
 		};
 		C9171AF61F56308300D9BE66 /* Constants */ = {
@@ -269,14 +230,6 @@
 				C922E5591F5F761100689AE7 /* DateUtilityTests.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		C9250EC61F6FB164005F25BC /* Integration */ = {
-			isa = PBXGroup;
-			children = (
-				C9EA00401F74A86C00954CA2 /* HttpbinTests.swift */,
-			);
-			path = Integration;
 			sourceTree = "<group>";
 		};
 		C92BDEF91F54E00800284B44 = {
@@ -319,7 +272,6 @@
 			children = (
 				C922E5571F5F75C400689AE7 /* ViewModels */,
 				C922E5581F5F75DD00689AE7 /* Utilities */,
-				AC7268A21F6C9EA8004C6C36 /* Networks */,
 				C92BDF1A1F54E00800284B44 /* CeairTests.swift */,
 				C92BDF1C1F54E00800284B44 /* Info.plist */,
 			);
@@ -523,7 +475,6 @@
 			children = (
 				C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */,
 				C9BD96EA1F69161900640E80 /* NetworkError.swift */,
-				C9FCBABE1F577D5400B6788A /* Aintx */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -580,19 +531,6 @@
 				C9E927141F58CD8300BC5183 /* DataModels */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		C9FCBABE1F577D5400B6788A /* Aintx */ = {
-			isa = PBXGroup;
-			children = (
-				C9FCBABF1F577D6F00B6788A /* Aintx.swift */,
-				C9ECA3101F6B494800CAD558 /* SessionManager.swift */,
-				ACE04F051F6E638B009AAB70 /* URLEncording.swift */,
-				C91AF0D51F7249E6001A03B1 /* HttpRequest.swift */,
-				C91AF0D71F7249F8001A03B1 /* HttpResponse.swift */,
-				C904DCB41F732C2A0063C981 /* HttpError.swift */,
-			);
-			path = Aintx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -701,18 +639,14 @@
 			files = (
 				C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */,
 				C9171AFC1F5631D900D9BE66 /* TABBARS.swift in Sources */,
-				C9ECA3111F6B494800CAD558 /* SessionManager.swift in Sources */,
 				C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */,
 				C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */,
 				C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */,
 				C9DBDF761FFB588400BFC093 /* DiscoverySubCollectionCell.swift in Sources */,
-				ACE04F061F6E638B009AAB70 /* URLEncording.swift in Sources */,
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
-				C91AF0D61F7249E6001A03B1 /* HttpRequest.swift in Sources */,
 				C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */,
 				C982F3C41F8CA2DA0046197A /* DetailViewController.swift in Sources */,
 				C9250FFE1F6116D1005CA7D1 /* UILabel+TopAlign.swift in Sources */,
-				C9FCBAC01F577D6F00B6788A /* Aintx.swift in Sources */,
 				C9B54E9B1FFC66090027A93E /* DestinationViewModel.swift in Sources */,
 				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
 				C9171AFA1F56317500D9BE66 /* COLORS.swift in Sources */,
@@ -729,8 +663,6 @@
 				C9EB9DE71F57E83000A39AB0 /* FlightTabViewModel.swift in Sources */,
 				C903830A20033E900021C340 /* DestinationFilterDataModel.swift in Sources */,
 				C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */,
-				C904DCB51F732C2A0063C981 /* HttpError.swift in Sources */,
-				C91AF0D81F7249F8001A03B1 /* HttpResponse.swift in Sources */,
 				C9DBDF7A1FFB740900BFC093 /* ThemeCollectionCell.swift in Sources */,
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
@@ -775,16 +707,12 @@
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				C903830E200342590021C340 /* MockDestinationFilterDataModel.swift in Sources */,
 				C9B54EA11FFC6FA30027A93E /* MockDiscoveryCoordinator.swift in Sources */,
-				AC7268A51F6C9EF8004C6C36 /* AintxTests.swift in Sources */,
-				C9F898DE1F7CE83B005977C4 /* URLEncordingTests.swift in Sources */,
-				C9EA00411F74A86C00954CA2 /* HttpbinTests.swift in Sources */,
 				C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */,
 				C9B54EAF1FFCBCCE0027A93E /* DestinationViewModelTests.swift in Sources */,
 				C9B54EB11FFCBD2A0027A93E /* MockDestinationDataModel.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C9979CB01FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift in Sources */,
 				C9B54EB31FFCBD660027A93E /* MockDestinationCoordinator.swift in Sources */,
-				C97285851F74E64F0050A261 /* HttpRequestTests.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,
 			);
@@ -925,6 +853,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"${inherited}",
+					"$(PROJECT_DIR)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "${inherited}";
 				INFOPLIST_FILE = Ceair/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -942,6 +875,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"${inherited}",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Ceair/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
