@@ -24,16 +24,58 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         button.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         return button
     }()
+    
+    let navTitle: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.text = "Island"
+        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let subtitle: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.text = "Sunshine Beach"
+        label.font = UIFont.boldSystemFont(ofSize: 24.0)
+        return label
+    }()
 
-    let collectionView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .green
-        return view
+    let subtitle2: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.text = "There is an old captain"
+        label.font = UIFont.systemFont(ofSize: 20.0)
+        return label
+    }()
+    
+    let destinationCollection: DestinationCollectionView = {
+        let collection = DestinationCollectionView()
+        return collection
     }()
 
     let themeView: UIView = {
         let view = UIView()
-        view.backgroundColor = .brown
+        view.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
+        return view
+    }()
+    
+    let themeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.text = "More themes"
+        return label
+    }()
+    
+    let themeCollection: MoreThemeCollectionView = {
+        let collection = MoreThemeCollectionView()
+        return collection
+    }()
+    
+    let barSeparator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
         return view
     }()
 
@@ -51,7 +93,7 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         
         navigationItem.title = "Destination"
         navigationController?.isNavigationBarHidden = true
@@ -62,26 +104,48 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     private func setUpViews() {
         view.addSubview(titleView)
         view.addConstraints(format: "H:|[v0]|", views: titleView)
-        view.addConstraints(format: "V:|[v0(100)]", views: titleView)
+        view.addConstraints(format: "V:|[v0(160)]", views: titleView)
         
         titleView.addSubview(backButton)
         titleView.addConstraints(format: "H:|-15-[v0]", views: backButton)
         titleView.addConstraints(format: "V:|-30-[v0]", views: backButton)
+        
+        titleView.addSubview(navTitle)
+        titleView.addSubview(subtitle)
+        titleView.addSubview(subtitle2)
+        titleView.addConstraints(format: "V:|-70-[v0]-10-[v1]", views: subtitle, subtitle2)
+        titleView.addConstraints(format: "H:|-40-[v0]", views: subtitle)
+        titleView.addConstraints(format: "H:[v0]-40-|", views: subtitle2)
+        navTitle.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
+        navTitle.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
 
         view.addSubview(filterBar)
         view.addConstraints(format: "H:|[v0]|", views: filterBar)
         view.addConstraints(format: "V:[v0(50)]|", views: filterBar)
+        
+        view.addSubview(barSeparator)
+        view.addConstraints(format: "H:|[v0]|", views: barSeparator)
+        view.addConstraints(format: "V:[v0(0.5)]", views: barSeparator)
+        barSeparator.topAnchor.constraint(equalTo: filterBar.topAnchor, constant: 0.5).isActive = true
 
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
-        view.addConstraints(format: "V:[v0(140)]", views: themeView)
+        view.addConstraints(format: "V:[v0(160)]", views: themeView)
         themeView.bottomAnchor.constraint(equalTo: filterBar.topAnchor).isActive = true
+        
+        themeView.addSubview(themeLabel)
+        themeView.addConstraints(format: "H:|-10-[v0]", views: themeLabel)
+        themeView.addConstraints(format: "V:|-5-[v0]", views: themeLabel)
+        
+        themeView.addSubview(themeCollection)
+        themeView.addConstraints(format: "H:|-10-[v0]-10-|", views: themeCollection)
+        themeView.addConstraints(format: "V:[v0(120)]-10-|", views: themeCollection)
 
-        view.addSubview(collectionView)
-        view.addConstraints(format: "H:|[v0]|", views: collectionView)
-        view.addConstraints(format: "V:[v0]", views: collectionView)
-        collectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: themeView.topAnchor).isActive = true
+        view.addSubview(destinationCollection)
+        view.addConstraints(format: "H:|-5-[v0]-5-|", views: destinationCollection)
+        view.addConstraints(format: "V:[v0]", views: destinationCollection)
+        destinationCollection.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
+        destinationCollection.bottomAnchor.constraint(equalTo: themeView.topAnchor, constant: -10).isActive = true
     }
     
     @objc func handleBack() {

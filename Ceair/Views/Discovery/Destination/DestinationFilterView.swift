@@ -69,6 +69,12 @@ class DestinationFilterView: UIView, UITabBarDelegate {
         return view
     }()
     
+    let memuSeparator: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     lazy var areaButton:  UIButton = {
         let button = UIButton()
         button.tag = 1
@@ -100,12 +106,6 @@ class DestinationFilterView: UIView, UITabBarDelegate {
         return view
     }()
     
-    let memuSeparator: UIView = {
-        let view = UIView()
-        view.backgroundColor = .lightGray
-        return view
-    }()
-    
     lazy var filterBar: UITabBar = {
         let tabBar = UITabBar()
         let sortItem = UITabBarItem(title: "Sort", image: UIImage(named: "Sort"), tag: 1)
@@ -118,7 +118,7 @@ class DestinationFilterView: UIView, UITabBarDelegate {
     }()
     
     func show(_ window: UIWindow) {
-        blackView.backgroundColor = UIColor(white: 1, alpha: 0.8)
+        blackView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
         blackView.frame = window.frame
         blackView.alpha = 0.5
         
