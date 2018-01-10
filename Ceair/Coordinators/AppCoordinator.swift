@@ -8,12 +8,15 @@
 
 import UIKit
 
+var coordinatorStack = Stack<AppCoordinator>()
+
 class AppCoordinator: Coordinator {
     
     let window: UIWindow
     
     init(window: UIWindow) {
         self.window = window
+        coordinatorStack.push(self)
     }
     
     func start() {

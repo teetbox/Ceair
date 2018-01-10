@@ -23,6 +23,11 @@ class DestinationViewModelTests: XCTestCase {
         sut = DestinationViewModel(dataModel: dataModel)
         sut.coordinator = coordinator
     }
+    
+    func testBack() {
+        sut.back()
+        XCTAssert(coordinator.isBackCalled)
+    }
 
     func testShowFilter() {
         sut.showFilter(with: 1)

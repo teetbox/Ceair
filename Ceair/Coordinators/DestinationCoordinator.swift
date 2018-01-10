@@ -8,31 +8,25 @@
 
 import UIKit
 
-class DestinationCoordinator: Coordinator {
-    
-    let window: UIWindow
-    let destinationVC: DestinationViewController
-    
-    init(window: UIWindow) {
-        self.window = window
-        self.destinationVC = DestinationViewController()
-        print("Init Destination Coordinator")
-    }
-    
+class DestinationCoordinator: AppCoordinator {
+
+    var destinationVC: DestinationViewController?
+
     deinit {
         print("Deinit Destination Coordinator")
     }
     
-    func start() {
+    override func start() {
         let dataModel = DestinationDataModel()
         let viewModel = DestinationViewModel(dataModel: dataModel)
         viewModel.coordinator = self
-        destinationVC.viewModel = viewModel
+        destinationVC = DestinationViewController()
+        destinationVC!.viewModel = viewModel
         
         let topViewController = UIApplication.topViewController()
         // Easiest way to hide tabBar in the next view
         topViewController?.hidesBottomBarWhenPushed = true
-        topViewController?.navigationController?.pushViewController(destinationVC, animated: true)
+        topViewController?.navigationController?.pushViewController(destinationVC!, animated: true)
         // Make tabBar back when dismiss the next view
         topViewController?.hidesBottomBarWhenPushed = false
     }
@@ -41,14 +35,20 @@ class DestinationCoordinator: Coordinator {
 
 extension DestinationCoordinator: DestinationViewModelCoordinatorDelegate {
     
+    func back() {
+        let topViewController = UIApplication.topViewController()
+        topViewController?.navigationController?.popViewController(animated: true)
+        destinationVC = nil
+        coordinatorStack.pop()
+    }
+    
     func showFilter(with tag: Int) {
-        let filterCoordinator = DestinationFilterCoordinator(window: window, parent: self)
-        filterCoordinator.start()
+        let filterCoordinator = DestinationFilterCoordinator(window: window)
         filterCoordinator.showFilter(with: tag)
     }
     
     func dismissFilter() {
-        destinationVC.dismissFilter()
+        destinationVC?.dismissFilter()
     }
     
 }

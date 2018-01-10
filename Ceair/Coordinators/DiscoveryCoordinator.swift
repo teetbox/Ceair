@@ -8,20 +8,14 @@
 
 import UIKit
 
-class DiscoveryCoordinator: Coordinator {
-    
-    let window: UIWindow
-    
-    init(window: UIWindow) {
-        self.window = window
-    }
-    
+class DiscoveryCoordinator: AppCoordinator {
+
     deinit {
         print("Deinit Discovery Coordinator")
     }
     
-    func start() {
-    
+    override func start() {
+        
     }
  
 }

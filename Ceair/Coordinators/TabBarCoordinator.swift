@@ -8,17 +8,11 @@
 
 import UIKit
 
-class TabBarCoordinator: Coordinator {
-    
-    let window: UIWindow
+class TabBarCoordinator: AppCoordinator {
     
     var discoveryCoordinator: DiscoveryCoordinator?
     
-    init(window: UIWindow) {
-        self.window = window
-    }
-    
-    func start() {
+    override func start() {
         let tabBarController = UITabBarController()
         tabBarController.tabBar.isTranslucent = false
         tabBarController.tabBar.tintColor = UIColor.fromHEX(string: COLORS.BarTintColor)

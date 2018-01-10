@@ -100,8 +100,52 @@ class BookingTabViewController: UIViewController {
         loginNameLabel.alpha = 0
     }
     
+    var alertView: AlertView?
+    
     @objc func goAintx() {
-        
+        print(#function)
+        alertView = AlertView()
+        alertView?.show(UIApplication.shared.keyWindow!, parent: self)
+    }
+    
+    func removeAlert() {
+        alertView = nil
     }
 
+}
+
+class AlertView: UIView {
+    
+    deinit {
+        print(#function)
+    }
+
+    let blackView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    var parent: UIViewController?
+    
+    func show(_ window: UIWindow, parent: UIViewController) {
+        blackView.backgroundColor = UIColor(white: 1, alpha: 0.8)
+        blackView.frame = window.frame
+        blackView.alpha = 0.5
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
+        blackView.addGestureRecognizer(tapGesture)
+        
+        window.addSubview(blackView)
+        self.parent = parent
+    }
+    
+    @objc func handleDismiss() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.blackView.alpha = 0
+        }, completion: { _ in
+        })
+        if let parent = parent as? BookingTabViewController {
+            parent.removeAlert()
+        }
+    }
 }

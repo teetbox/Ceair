@@ -8,33 +8,27 @@
 
 import UIKit
 
-class DestinationFilterCoordinator: Coordinator {
-    
-    let window: UIWindow
-    let parent: Coordinator
-    let destinationFilterView: DestinationFilterView
-    
-    init(window: UIWindow, parent: Coordinator) {
-        self.window = window
-        self.parent = parent
-        self.destinationFilterView = DestinationFilterView()
-        print("Init Destination Filter Coordinator")
-    }
-    
+class DestinationFilterCoordinator: AppCoordinator {
+
+    var destinationFilterView: DestinationFilterView?
+
     deinit {
         print("Deinit Destination Filter Coordinator")
     }
     
-    func start() {
+    override func start() {
         let dataModel = DestinationFilterDataModel()
         let viewModel = DestinationFilterViewModel(dataModel: dataModel)
         viewModel.coordinator = self
-        destinationFilterView.viewModel = viewModel
-        destinationFilterView.show(window)
+        
+        destinationFilterView = DestinationFilterView()
+        destinationFilterView?.viewModel = viewModel
+        destinationFilterView?.show(window)
     }
     
     func showFilter(with tag: Int) {
-        destinationFilterView.handleFilter(with: tag)
+        start()
+        destinationFilterView?.handleFilter(with: tag)
     }
     
 }
@@ -42,7 +36,9 @@ class DestinationFilterCoordinator: Coordinator {
 extension DestinationFilterCoordinator: DestinationFilterViewModelCoordinatorDelegate {
     
     func dismiss() {
-        if let destinationCoordinator = parent as? DestinationCoordinator {
+        destinationFilterView = nil
+        coordinatorStack.pop()
+        if let destinationCoordinator = coordinatorStack.peek() as? DestinationCoordinator {
             destinationCoordinator.dismissFilter()
         }
     }

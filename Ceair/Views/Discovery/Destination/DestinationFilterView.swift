@@ -185,13 +185,14 @@ class DestinationFilterView: UIView, UITabBarDelegate {
     }
     
     @objc func handleDismiss() {
-        print(#function)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackView.alpha = 0
             if let window = UIApplication.shared.keyWindow {
                 self.filterView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 240)
             }
-        }, completion: nil)
+        }, completion: { _ in
+            self.filterView.removeFromSuperview()
+        })
         
         viewModel.dismiss()
     }

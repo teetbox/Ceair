@@ -10,31 +10,33 @@ import UIKit
 
 class DestinationViewController: UIViewController, UITabBarDelegate {
     
-    // TODO: - Using its own viewModel. Do not share with parent's viewModel
     var viewModel: DestinationViewModel!
-    
-    deinit {
-        print("Deinit Destination View Controller")
-    }
-    
+
     let titleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .lightGray
         return view
     }()
     
+    lazy var backButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Back", for: .normal)
+        button.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
+        return button
+    }()
+
     let collectionView: UIView = {
         let view = UIView()
         view.backgroundColor = .green
         return view
     }()
-    
+
     let themeView: UIView = {
         let view = UIView()
         view.backgroundColor = .brown
         return view
     }()
-    
+
     lazy var filterBar: UITabBar = {
         let tabBar = UITabBar()
         let sortItem = UITabBarItem(title: "Sort", image: UIImage(named: "Sort"), tag: 1)
@@ -52,46 +54,38 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         view.backgroundColor = .white
         
         navigationItem.title = "Destination"
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
         
         setUpViews()
     }
-    
+
     private func setUpViews() {
         view.addSubview(titleView)
         view.addConstraints(format: "H:|[v0]|", views: titleView)
         view.addConstraints(format: "V:|[v0(100)]", views: titleView)
         
+        titleView.addSubview(backButton)
+        titleView.addConstraints(format: "H:|-15-[v0]", views: backButton)
+        titleView.addConstraints(format: "V:|-30-[v0]", views: backButton)
+
         view.addSubview(filterBar)
         view.addConstraints(format: "H:|[v0]|", views: filterBar)
         view.addConstraints(format: "V:[v0(50)]|", views: filterBar)
+
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
         view.addConstraints(format: "V:[v0(140)]", views: themeView)
         themeView.bottomAnchor.constraint(equalTo: filterBar.topAnchor).isActive = true
-        
+
         view.addSubview(collectionView)
         view.addConstraints(format: "H:|[v0]|", views: collectionView)
         view.addConstraints(format: "V:[v0]", views: collectionView)
         collectionView.topAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: themeView.topAnchor).isActive = true
-//
-//        let sortButton = UIButton()
-//        sortButton.setTitle("Sort", for: .normal)
-//        sortButton.backgroundColor = .magenta
-//        sortButton.addTarget(self, action: #selector(showFilter), for: .touchUpInside)
-//
-//        let filterButton = UIButton()
-//        filterButton.setTitle("Filter", for: .normal)
-//        filterButton.backgroundColor = .cyan
-//        filterButton.addTarget(self, action: #selector(showData), for: .touchUpInside)
-//
-//        filterBar.addSubview(sortButton)
-//        filterBar.addSubview(filterButton)
-//        let buttonWidth = view.frame.width / 2
-//        filterBar.addConstraints(format: "H:|[v0(\(buttonWidth))][v1(\(buttonWidth))]|", views: sortButton, filterButton)
-//        filterBar.addConstraints(format: "V:|[v0]|", views: sortButton)
-//        filterBar.addConstraints(format: "V:|[v0]|", views: filterButton)
+    }
+    
+    @objc func handleBack() {
+        viewModel.back()
     }
     
     @objc func showFilter() {

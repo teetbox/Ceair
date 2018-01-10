@@ -86,6 +86,8 @@
 		C9FCBAC21F577EFE00B6788A /* URLS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC11F577EFE00B6788A /* URLS.swift */; };
 		C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC31F57847700B6788A /* LABELS.swift */; };
 		C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */; };
+		C9FD533820059A3F00D7B2ED /* StackStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD533720059A3F00D7B2ED /* StackStructure.swift */; };
+		C9FD533A20059B4900D7B2ED /* StackStructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD533920059B4900D7B2ED /* StackStructureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +196,8 @@
 		C9FCBAC11F577EFE00B6788A /* URLS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLS.swift; sourceTree = "<group>"; };
 		C9FCBAC31F57847700B6788A /* LABELS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LABELS.swift; sourceTree = "<group>"; };
 		C9FCBAC51F578CA500B6788A /* UIView+Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraint.swift"; sourceTree = "<group>"; };
+		C9FD533720059A3F00D7B2ED /* StackStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackStructure.swift; sourceTree = "<group>"; };
+		C9FD533920059B4900D7B2ED /* StackStructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackStructureTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				C922E5591F5F761100689AE7 /* DateUtilityTests.swift */,
+				C9FD533920059B4900D7B2ED /* StackStructureTests.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				C922E5551F5F747400689AE7 /* DateUtility.swift */,
 				C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */,
 				C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */,
+				C9FD533720059A3F00D7B2ED /* StackStructure.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				C98C761F1F57DD97007EB4E2 /* Coordinator.swift in Sources */,
 				C9EB9DE71F57E83000A39AB0 /* FlightTabViewModel.swift in Sources */,
 				C903830A20033E900021C340 /* DestinationFilterDataModel.swift in Sources */,
+				C9FD533820059A3F00D7B2ED /* StackStructure.swift in Sources */,
 				C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */,
 				C9DBDF7A1FFB740900BFC093 /* ThemeCollectionCell.swift in Sources */,
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
@@ -734,6 +741,7 @@
 				C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				C903830E200342590021C340 /* MockDestinationFilterDataModel.swift in Sources */,
+				C9FD533A20059B4900D7B2ED /* StackStructureTests.swift in Sources */,
 				C9B54EA11FFC6FA30027A93E /* MockDiscoveryCoordinator.swift in Sources */,
 				C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */,
 				C9B54EAF1FFCBCCE0027A93E /* DestinationViewModelTests.swift in Sources */,
