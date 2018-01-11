@@ -56,8 +56,17 @@ class DestinationFilterViewModel {
         completion()
     }
     
+    func getCellViewModel(at index: Int) -> DestinationFilterCellViewModel {
+        let cellViewModel = DestinationFilterCellViewModel(filterName: selectedFilter![index])
+        return cellViewModel
+    }
+    
     func dismiss() {
         coordinator?.dismiss()
     }
     
+}
+
+struct DestinationFilterCellViewModel {
+    let filterName: String
 }

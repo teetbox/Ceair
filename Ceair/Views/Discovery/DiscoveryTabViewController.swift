@@ -18,20 +18,46 @@ class DiscoveryTabViewController: UIViewController {
         return search
     }()
     
+    let navTitle: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.textAlignment = .center
+        label.textColor = .white
+        label.text = "Island"
+        return label
+    }()
+    
+    let searchStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 10
+        stack.alignment = .center
+        stack.distribution = .fillProportionally
+        return stack
+    }()
+    
     let areaLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 16.0)
         label.text = "From"
         label.textColor = .white
         label.textAlignment = .right
+        label.clipsToBounds = true
         return label
     }()
     
     let areaTextField: UITextField = {
-        let field = UITextField()
-        field.backgroundColor = UIColor.fromHEX(string: "#465E7D")
-        field.translatesAutoresizingMaskIntoConstraints = false
-        return field
+        let textField = UITextField()
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.backgroundColor = UIColor.fromHEX(string: "#465E7D")
+        textField.textColor = .white
+        // Cursor color
+        textField.tintColor = .white
+        textField.font = UIFont.systemFont(ofSize: 16.0)
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 7, height: 30))
+        textField.leftViewMode = .always
+        return textField
     }()
     
     let searchButton: UIButton = {
@@ -65,7 +91,6 @@ class DiscoveryTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Discovery"
         navigationController?.isNavigationBarHidden = true
         
         setUpViews()
@@ -74,21 +99,23 @@ class DiscoveryTabViewController: UIViewController {
     func setUpViews() {
         view.addSubview(searchView)
         view.addConstraints(format: "H:|[v0]|", views: searchView)
-        view.addConstraints(format: "V:|[v0(100)]", views: searchView)
+        view.addConstraints(format: "V:|[v0(120)]", views: searchView)
+        
+        searchView.addSubview(navTitle)
+        searchView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
+        navTitle.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
         
         searchView.addSubview(areaLabel)
-        searchView.addConstraints(format: "H:|-10-[v0(80)]", views: areaLabel)
+        searchView.addConstraints(format: "H:|[v0(70)]", views: areaLabel)
         searchView.addConstraints(format: "V:[v0(30)]-10-|", views: areaLabel)
 
         searchView.addSubview(searchButton)
-        searchView.addConstraints(format: "H:[v0(80)]-10-|", views: searchButton)
-        searchView.addConstraints(format: "V:[v0(30)]", views: searchButton)
-        searchButton.centerYAnchor.constraint(equalTo: areaLabel.centerYAnchor).isActive = true
-        
+        searchView.addConstraints(format: "H:[v0(60)]-10-|", views: searchButton)
+        searchView.addConstraints(format: "V:[v0(30)]-10-|", views: searchButton)
+
         searchView.addSubview(areaTextField)
-        areaTextField.leadingAnchor.constraint(equalTo: areaLabel.trailingAnchor, constant: 10).isActive = true
-        areaTextField.trailingAnchor.constraint(equalTo: searchButton.leadingAnchor, constant: -10).isActive = true
-        areaTextField.centerYAnchor.constraint(equalTo: areaLabel.centerYAnchor).isActive = true
+        searchView.addConstraints(format: "H:|-80-[v0]-80-|", views: areaTextField)
+        searchView.addConstraints(format: "V:[v0(30)]-10-|", views: areaTextField)
         
         view.addSubview(refreshView)
         view.addConstraints(format: "H:|[v0]|", views: refreshView)

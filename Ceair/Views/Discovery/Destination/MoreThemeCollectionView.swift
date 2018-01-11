@@ -18,6 +18,7 @@ class MoreThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionV
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsHorizontalScrollIndicator = false
         collection.backgroundColor = .white
         collection.dataSource = self
         collection.delegate = self

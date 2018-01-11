@@ -46,6 +46,18 @@ class DestinationFilterViewModelTests: XCTestCase {
         XCTAssertEqual(sut.filterNumber, 3)
     }
     
+    func testGetCellViewModel() {
+        dataModel.fakeFilters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"], ["O", "P", "Q"]]
+        sut.getFilters(completion: {})
+        
+        var cellViewModel = sut.getCellViewModel(at: 1)
+        XCTAssertEqual(cellViewModel.filterName, "B")
+        
+        sut.updateFilter(with: 2, completion: {})
+        cellViewModel = sut.getCellViewModel(at: 2)
+        XCTAssertEqual(cellViewModel.filterName, "Q")
+    }
+    
     func testDismiss() {
         sut.dismiss()
         

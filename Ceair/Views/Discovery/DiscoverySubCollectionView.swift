@@ -17,6 +17,7 @@ class DiscoverySubCollectionView: UIView, UICollectionViewDataSource, UICollecti
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsHorizontalScrollIndicator = false
         collection.backgroundColor = .white
         collection.dataSource = self
         collection.delegate = self

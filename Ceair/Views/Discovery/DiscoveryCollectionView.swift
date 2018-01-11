@@ -15,6 +15,7 @@ class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsVerticalScrollIndicator = false
         collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         collection.dataSource = self
         collection.delegate = self

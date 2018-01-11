@@ -15,6 +15,7 @@ class FilterCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsVerticalScrollIndicator = false
         collection.backgroundColor = .white
         collection.dataSource = self
         collection.delegate = self
@@ -47,9 +48,8 @@ class FilterCollectionView: UIView, UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FilterCollectionCell
-        
-        cell.backgroundColor = UIColor.random
-        
+        let cellViewModel = viewModel.getCellViewModel(at: indexPath.row)
+        cell.themeLabel.text = cellViewModel.filterName
         return cell
     }
     

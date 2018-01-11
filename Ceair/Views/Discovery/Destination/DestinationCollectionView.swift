@@ -18,6 +18,7 @@ class DestinationCollectionView: UIView, UICollectionViewDataSource, UICollectio
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 0
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.showsVerticalScrollIndicator = false
         collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         collection.dataSource = self
         collection.delegate = self

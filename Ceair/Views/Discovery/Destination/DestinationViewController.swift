@@ -106,18 +106,19 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         view.addConstraints(format: "H:|[v0]|", views: titleView)
         view.addConstraints(format: "V:|[v0(160)]", views: titleView)
         
+        titleView.addSubview(navTitle)
+        titleView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
+        navTitle.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
+        
         titleView.addSubview(backButton)
         titleView.addConstraints(format: "H:|-15-[v0]", views: backButton)
-        titleView.addConstraints(format: "V:|-30-[v0]", views: backButton)
+        backButton.centerYAnchor.constraint(equalTo: navTitle.centerYAnchor).isActive = true
         
-        titleView.addSubview(navTitle)
         titleView.addSubview(subtitle)
         titleView.addSubview(subtitle2)
         titleView.addConstraints(format: "V:|-70-[v0]-10-[v1]", views: subtitle, subtitle2)
         titleView.addConstraints(format: "H:|-40-[v0]", views: subtitle)
         titleView.addConstraints(format: "H:[v0]-40-|", views: subtitle2)
-        navTitle.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
-        navTitle.centerYAnchor.constraint(equalTo: backButton.centerYAnchor).isActive = true
 
         view.addSubview(filterBar)
         view.addConstraints(format: "H:|[v0]|", views: filterBar)
