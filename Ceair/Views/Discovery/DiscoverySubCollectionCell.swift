@@ -15,27 +15,62 @@ class DiscoverySubCollectionCell: BaseCVCell {
         return image
     }()
     
-    override var isHighlighted: Bool {
-        didSet {
-            imageView.tintColor = isHighlighted ? UIColor.white : UIColor.orange
-        }
-    }
+    let upwardLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+        return view
+    }()
     
-    override var isSelected: Bool {
-        didSet {
-            imageView.tintColor = isSelected ? UIColor.white : UIColor.purple
-        }
-    }
+    let themeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16.0)
+        label.text = "Zoo"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let downwardLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 1.0, alpha: 0.5)
+        return view
+    }()
+    
+    let priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14.0)
+        label.text = "¥1800"
+        label.textColor = .white
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     override func setUpViews() {
         super.setUpViews()
         
         addSubview(imageView)
-        addConstraints(format: "H:[v0(28)]", views: imageView)
-        addConstraints(format: "V:[v0(28)]", views: imageView)
+        addConstraints(format: "H:[v0]", views: imageView)
+        addConstraints(format: "V:[v0]", views: imageView)
         
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+        addSubview(upwardLine)
+        addConstraints(format: "H:[v0(60)]", views: upwardLine)
+        addConstraints(format: "V:|-40-[v0(1)]", views: upwardLine)
+        upwardLine.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        addSubview(themeLabel)
+        themeLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        themeLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        addSubview(downwardLine)
+        addConstraints(format: "H:[v0(60)]", views: downwardLine)
+        addConstraints(format: "V:[v0(1)]-40-|", views: downwardLine)
+        downwardLine.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        addSubview(priceLabel)
+        priceLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: downwardLine.bottomAnchor, constant: 5).isActive = true
     }
     
 }

@@ -14,7 +14,7 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.backgroundColor = .white
+        collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         collection.dataSource = self
         collection.delegate = self
         return collection
@@ -28,8 +28,8 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         collectionView.register(ThemeCollectionCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionView)
-        addConstraints(format: "H:|[v0]|", views: collectionView)
-        addConstraints(format: "V:|[v0]|", views: collectionView)
+        addConstraints(format: "H:|-10-[v0]-10-|", views: collectionView)
+        addConstraints(format: "V:|-10-[v0]-10-|", views: collectionView)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,8 +42,7 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ThemeCollectionCell
-        
-        cell.backgroundColor = UIColor.random
+        cell.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         
         return cell
     }
@@ -53,16 +52,16 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 4.0, height: 40)
+        return CGSize(width: 80, height: 33)
     }
     
-    // Maybe this is for section spacing
+    // Horizontal and Vertical spacing between each line
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 5
     }
     
     // Horizontal and Vertical spacing between each item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 5
     }
 }

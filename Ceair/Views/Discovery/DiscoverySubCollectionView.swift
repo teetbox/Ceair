@@ -15,6 +15,7 @@ class DiscoverySubCollectionView: UIView, UICollectionViewDataSource, UICollecti
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.backgroundColor = .white
         collection.dataSource = self

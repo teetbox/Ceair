@@ -15,7 +15,7 @@ class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.backgroundColor = .green
+        collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         collection.dataSource = self
         collection.delegate = self
         return collection
@@ -44,8 +44,7 @@ class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DiscoveryCollectionCell
         cell.viewModel = viewModel
-        cell.backgroundColor = UIColor.random
-        
+        cell.backgroundColor = .white
         return cell
     }
     

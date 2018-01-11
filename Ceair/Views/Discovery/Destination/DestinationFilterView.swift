@@ -127,7 +127,7 @@ class DestinationFilterView: UIView, UITabBarDelegate {
         
         collectionView.viewModel = viewModel
         collectionView.viewModel.getFilters {}
-    
+        
         window.addSubview(blackView)
         
         setUpViews(window)

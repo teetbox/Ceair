@@ -18,30 +18,35 @@ class DiscoveryCollectionCell: BaseCVCell {
     
     let titleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
         return view
     }()
     
     let contentLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14.0)
         label.text = "Content"
         return label
     }()
     
     let moreLabel: UILabel = {
         let label = UILabel()
-        label.text = "More"
+        label.font = UIFont.systemFont(ofSize: 14.0)
+        label.text = "MORE>>"
+        label.textColor = .lightGray
         return label
     }()
     
     let collectionView: DiscoverySubCollectionView = {
         let collection = DiscoverySubCollectionView()
+        collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         return collection
     }()
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14.0)
         label.text = "Sun raise, sunset ..."
+        label.textColor = .lightGray
         return label
     }()
     
