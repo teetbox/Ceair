@@ -85,12 +85,15 @@ class DiscoveryTabViewController: UIViewController {
     }()
     
     var collectionViewTopConstraint: NSLayoutConstraint?
+    var collectionViewBottomConstraint: NSLayoutConstraint?
     
     let collectionView: DiscoveryCollectionView = {
         let collection = DiscoveryCollectionView()
         collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         return collection
     }()
+    
+    var themeViewTopConstraint: NSLayoutConstraint?
     
     let themeView: ThemeCollectionView = {
         let theme = ThemeCollectionView()
@@ -102,7 +105,7 @@ class DiscoveryTabViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = .white
+        
         setUpViews()
     }
     
@@ -132,10 +135,6 @@ class DiscoveryTabViewController: UIViewController {
         searchView.addSubview(areaTextField)
         searchView.addConstraints(format: "H:|-80-[v0]-80-|", views: areaTextField)
         searchView.addConstraints(format: "V:[v0(30)]-12-|", views: areaTextField)
-       
-        view.addSubview(themeView)
-        view.addConstraints(format: "H:|[v0]|", views: themeView)
-        view.addConstraints(format: "V:[v0(91)]|", views: themeView)
         
         collectionView.viewModel = viewModel
         collectionView.scrollDelegate = self
@@ -144,7 +143,14 @@ class DiscoveryTabViewController: UIViewController {
         collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: navView.bottomAnchor,
                                                                           constant: 60)
         collectionViewTopConstraint?.isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: themeView.topAnchor).isActive = true
+        collectionViewBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
+        collectionViewBottomConstraint?.isActive = true
+        
+        view.addSubview(themeView)
+        view.addConstraints(format: "H:|[v0]|", views: themeView)
+        view.addConstraints(format: "V:[v0(91)]", views: themeView)
+        themeViewTopConstraint = themeView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
+        themeViewTopConstraint?.isActive = true
         
         view.bringSubview(toFront: navView)
     }
@@ -157,22 +163,40 @@ extension DiscoveryTabViewController: ScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
-        let constant = searchViewBottomConstraint!.constant
+        let searchBottomConstant = searchViewBottomConstraint!.constant
+        let themeTopConstant = themeViewTopConstraint!.constant
 
+        // Scroll Down
         if (previousOffSetY > offSetY && previousOffSetY < (scrollView.contentSize.height - scrollView.frame.height)) {
-            // Scroll down
+            
+            // Search View
             let distance = previousOffSetY - offSetY
-            let gap = constant + distance
-            let newConstant = (gap < 60) ? gap : 60
-            searchViewBottomConstraint?.constant = newConstant
-            collectionViewTopConstraint?.constant = newConstant
+            let gap = searchBottomConstant + distance
+            let newSearchConstant = (gap < 60) ? gap : 60
+            searchViewBottomConstraint?.constant = newSearchConstant
+            collectionViewTopConstraint?.constant = newSearchConstant
+            
+            // Theme View
+            let themeGap = themeTopConstant - distance
+            let newThemeConstant = (themeGap > -91) ? themeGap : -91
+            themeViewTopConstraint?.constant = newThemeConstant
+            collectionViewBottomConstraint?.constant = newThemeConstant
+            
+        // Scroll Up
         } else if (previousOffSetY < offSetY && offSetY > 0) {
-            // Scroll up
+            
+            // Search View
             let distance = offSetY - previousOffSetY
-            let gap = constant - distance
-            let newConstant = (gap > 0) ? gap : 0
-            searchViewBottomConstraint?.constant = newConstant
-            collectionViewTopConstraint?.constant = newConstant
+            let gap = searchBottomConstant - distance
+            let newSearchConstant = (gap > 0) ? gap : 0
+            searchViewBottomConstraint?.constant = newSearchConstant
+            collectionViewTopConstraint?.constant = newSearchConstant
+            
+            // Theme View
+            let themeGap = themeTopConstant + distance
+            let newThemeConstant = (themeGap < 0) ? themeGap : 0
+            themeViewTopConstraint?.constant = newThemeConstant
+            collectionViewBottomConstraint?.constant = newThemeConstant
         }
         
         previousOffSetY = offSetY
