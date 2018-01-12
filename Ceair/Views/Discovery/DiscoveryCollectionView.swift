@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol ScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+}
+
 class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var viewModel: DiscoveryTabViewModel!
+    
+    var scrollDelegate: ScrollViewDelegate?
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -65,6 +71,10 @@ class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     // Horizontal and Vertical spacing between each item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewDidScroll(scrollView)
     }
     
 }

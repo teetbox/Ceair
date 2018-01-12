@@ -12,10 +12,10 @@ class DiscoveryTabViewController: UIViewController {
     
     var viewModel: DiscoveryTabViewModel!
     
-    let searchView: UIView = {
-        let search = UIView()
-        search.backgroundColor = UIColor.fromHEX(string: "#273B5E")
-        return search
+    let navView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.fromHEX(string: "#273B5E")
+        return view
     }()
     
     let navTitle: UILabel = {
@@ -25,6 +25,14 @@ class DiscoveryTabViewController: UIViewController {
         label.textColor = .white
         label.text = "Island"
         return label
+    }()
+    
+    var searchViewBottomConstraint: NSLayoutConstraint?
+    
+    let searchView: UIView = {
+        let search = UIView()
+        search.backgroundColor = UIColor.fromHEX(string: "#273B5E")
+        return search
     }()
     
     let searchStack: UIStackView = {
@@ -76,6 +84,8 @@ class DiscoveryTabViewController: UIViewController {
         return refresh
     }()
     
+    var collectionViewTopConstraint: NSLayoutConstraint?
+    
     let collectionView: DiscoveryCollectionView = {
         let collection = DiscoveryCollectionView()
         collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
@@ -92,45 +102,80 @@ class DiscoveryTabViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
-        
+        view.backgroundColor = .white
         setUpViews()
     }
     
     func setUpViews() {
+        view.addSubview(navView)
+        view.addConstraints(format: "H:|[v0]|", views: navView)
+        view.addConstraints(format: "V:|[v0(60)]", views: navView)
+        
+        navView.addSubview(navTitle)
+        navView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
+        navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
+        
         view.addSubview(searchView)
         view.addConstraints(format: "H:|[v0]|", views: searchView)
-        view.addConstraints(format: "V:|[v0(120)]", views: searchView)
-        
-        searchView.addSubview(navTitle)
-        searchView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
-        navTitle.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
+        view.addConstraints(format: "V:[v0(60)]", views: searchView)
+        searchViewBottomConstraint = searchView.bottomAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
+        searchViewBottomConstraint?.isActive = true
         
         searchView.addSubview(areaLabel)
         searchView.addConstraints(format: "H:|[v0(70)]", views: areaLabel)
-        searchView.addConstraints(format: "V:[v0(30)]-10-|", views: areaLabel)
-
+        searchView.addConstraints(format: "V:[v0(30)]-12-|", views: areaLabel)
+        
         searchView.addSubview(searchButton)
         searchView.addConstraints(format: "H:[v0(60)]-10-|", views: searchButton)
-        searchView.addConstraints(format: "V:[v0(30)]-10-|", views: searchButton)
-
+        searchView.addConstraints(format: "V:[v0(30)]-12-|", views: searchButton)
+        
         searchView.addSubview(areaTextField)
         searchView.addConstraints(format: "H:|-80-[v0]-80-|", views: areaTextField)
-        searchView.addConstraints(format: "V:[v0(30)]-10-|", views: areaTextField)
-        
-        view.addSubview(refreshView)
-        view.addConstraints(format: "H:|[v0]|", views: refreshView)
-        view.addConstraints(format: "V:[v0(0)]", views: refreshView)
-        refreshView.topAnchor.constraint(equalTo: searchView.bottomAnchor).isActive = true
-        
+        searchView.addConstraints(format: "V:[v0(30)]-12-|", views: areaTextField)
+       
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
         view.addConstraints(format: "V:[v0(91)]|", views: themeView)
         
         collectionView.viewModel = viewModel
+        collectionView.scrollDelegate = self
         view.addSubview(collectionView)
         view.addConstraints(format: "H:|[v0]|", views: collectionView)
-        collectionView.topAnchor.constraint(equalTo: refreshView.bottomAnchor).isActive = true
+        collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: navView.bottomAnchor,
+                                                                          constant: 60)
+        collectionViewTopConstraint?.isActive = true
         collectionView.bottomAnchor.constraint(equalTo: themeView.topAnchor).isActive = true
+        
+        view.bringSubview(toFront: navView)
+    }
+    
+    var previousOffSetY: CGFloat = 0
+    
+}
+
+extension DiscoveryTabViewController: ScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSetY = scrollView.contentOffset.y
+        let constant = searchViewBottomConstraint!.constant
+
+        if (previousOffSetY > offSetY && previousOffSetY < (scrollView.contentSize.height - scrollView.frame.height)) {
+            // Scroll down
+            let distance = previousOffSetY - offSetY
+            let gap = constant + distance
+            let newConstant = (gap < 60) ? gap : 60
+            searchViewBottomConstraint?.constant = newConstant
+            collectionViewTopConstraint?.constant = newConstant
+        } else if (previousOffSetY < offSetY && offSetY > 0) {
+            // Scroll up
+            let distance = offSetY - previousOffSetY
+            let gap = constant - distance
+            let newConstant = (gap > 0) ? gap : 0
+            searchViewBottomConstraint?.constant = newConstant
+            collectionViewTopConstraint?.constant = newConstant
+        }
+        
+        previousOffSetY = offSetY
     }
     
 }
