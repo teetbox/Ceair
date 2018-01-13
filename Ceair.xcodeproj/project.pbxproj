@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35F0438520098FE4000B5935 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F0438420098FE4000B5935 /* NotificationCenter.framework */; };
+		35F0438820098FE4000B5935 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0438720098FE4000B5935 /* TodayViewController.swift */; };
+		35F0438B20098FE4000B5935 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35F0438920098FE4000B5935 /* MainInterface.storyboard */; };
+		35F0438F20098FE4000B5935 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35F0438320098FE4000B5935 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */; };
 		C903830A20033E900021C340 /* DestinationFilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830920033E900021C340 /* DestinationFilterDataModel.swift */; };
 		C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830B200341FF0021C340 /* DestinationFilterViewModelTests.swift */; };
@@ -95,6 +99,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		35F0438D20098FE4000B5935 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C92BDEFA1F54E00800284B44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35F0438220098FE4000B5935;
+			remoteInfo = Widget;
+		};
 		C92BDF171F54E00800284B44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C92BDEFA1F54E00800284B44 /* Project object */;
@@ -105,6 +116,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		35F0439320098FE4000B5935 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				35F0438F20098FE4000B5935 /* Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9DDAF4C200467AC0036132A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -119,6 +141,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		35F0438320098FE4000B5935 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		35F0438420098FE4000B5935 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		35F0438720098FE4000B5935 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		35F0438A20098FE4000B5935 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		35F0438C20098FE4000B5935 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
 		C903830920033E900021C340 /* DestinationFilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterDataModel.swift; sourceTree = "<group>"; };
 		C903830B200341FF0021C340 /* DestinationFilterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterViewModelTests.swift; sourceTree = "<group>"; };
@@ -209,6 +236,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		35F0438020098FE4000B5935 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F0438520098FE4000B5935 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C92BDEFF1F54E00800284B44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,8 +266,19 @@
 			isa = PBXGroup;
 			children = (
 				C9DDAF42200465900036132A /* CEHTTP.framework */,
+				35F0438420098FE4000B5935 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35F0438620098FE4000B5935 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				35F0438720098FE4000B5935 /* TodayViewController.swift */,
+				35F0438920098FE4000B5935 /* MainInterface.storyboard */,
+				35F0438C20098FE4000B5935 /* Info.plist */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		C9171AF61F56308300D9BE66 /* Constants */ = {
@@ -273,6 +319,7 @@
 			children = (
 				C92BDF041F54E00800284B44 /* Ceair */,
 				C92BDF191F54E00800284B44 /* CeairTests */,
+				35F0438620098FE4000B5935 /* Widget */,
 				C92BDF031F54E00800284B44 /* Products */,
 				034381E5067D15B48F34E863 /* Frameworks */,
 			);
@@ -283,6 +330,7 @@
 			children = (
 				C92BDF021F54E00800284B44 /* Ceair.app */,
 				C92BDF161F54E00800284B44 /* CeairTests.xctest */,
+				35F0438320098FE4000B5935 /* Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -579,6 +627,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		35F0438220098FE4000B5935 /* Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35F0439020098FE4000B5935 /* Build configuration list for PBXNativeTarget "Widget" */;
+			buildPhases = (
+				35F0437F20098FE4000B5935 /* Sources */,
+				35F0438020098FE4000B5935 /* Frameworks */,
+				35F0438120098FE4000B5935 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Widget;
+			productName = Widget;
+			productReference = 35F0438320098FE4000B5935 /* Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		C92BDF011F54E00800284B44 /* Ceair */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C92BDF1F1F54E00800284B44 /* Build configuration list for PBXNativeTarget "Ceair" */;
@@ -587,10 +652,12 @@
 				C92BDEFF1F54E00800284B44 /* Frameworks */,
 				C92BDF001F54E00800284B44 /* Resources */,
 				C9DDAF4C200467AC0036132A /* Embed Frameworks */,
+				35F0439320098FE4000B5935 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				35F0438E20098FE4000B5935 /* PBXTargetDependency */,
 			);
 			name = Ceair;
 			productName = Ceair;
@@ -621,10 +688,14 @@
 		C92BDEFA1F54E00800284B44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Bizersoft;
 				TargetAttributes = {
+					35F0438220098FE4000B5935 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					C92BDF011F54E00800284B44 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Manual;
@@ -651,11 +722,20 @@
 			targets = (
 				C92BDF011F54E00800284B44 /* Ceair */,
 				C92BDF151F54E00800284B44 /* CeairTests */,
+				35F0438220098FE4000B5935 /* Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		35F0438120098FE4000B5935 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F0438B20098FE4000B5935 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C92BDF001F54E00800284B44 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -677,6 +757,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		35F0437F20098FE4000B5935 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35F0438820098FE4000B5935 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C92BDEFE1F54E00800284B44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -773,6 +861,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		35F0438E20098FE4000B5935 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35F0438220098FE4000B5935 /* Widget */;
+			targetProxy = 35F0438D20098FE4000B5935 /* PBXContainerItemProxy */;
+		};
 		C92BDF181F54E00800284B44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C92BDF011F54E00800284B44 /* Ceair */;
@@ -781,6 +874,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		35F0438920098FE4000B5935 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35F0438A20098FE4000B5935 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		C92BDF0E1F54E00800284B44 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -792,6 +893,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		35F0439120098FE4000B5935 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizersoft.Ceair.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		35F0439220098FE4000B5935 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizersoft.Ceair.Widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		C92BDF1D1F54E00800284B44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -902,7 +1035,7 @@
 		C92BDF201F54E00800284B44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -919,14 +1052,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C92BDF211F54E00800284B44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -942,7 +1075,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -981,6 +1114,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		35F0439020098FE4000B5935 /* Build configuration list for PBXNativeTarget "Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35F0439120098FE4000B5935 /* Debug */,
+				35F0439220098FE4000B5935 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C92BDEFD1F54E00800284B44 /* Build configuration list for PBXProject "Ceair" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
