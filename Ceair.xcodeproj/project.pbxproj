@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35F0438520098FE4000B5935 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F0438420098FE4000B5935 /* NotificationCenter.framework */; };
-		35F0438820098FE4000B5935 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0438720098FE4000B5935 /* TodayViewController.swift */; };
+		35F0438820098FE4000B5935 /* WidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0438720098FE4000B5935 /* WidgetViewController.swift */; };
 		35F0438B20098FE4000B5935 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35F0438920098FE4000B5935 /* MainInterface.storyboard */; };
 		35F0438F20098FE4000B5935 /* Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 35F0438320098FE4000B5935 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */; };
@@ -143,7 +143,7 @@
 /* Begin PBXFileReference section */
 		35F0438320098FE4000B5935 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		35F0438420098FE4000B5935 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		35F0438720098FE4000B5935 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		35F0438720098FE4000B5935 /* WidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewController.swift; sourceTree = "<group>"; };
 		35F0438A20098FE4000B5935 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		35F0438C20098FE4000B5935 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9037B441F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModel.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 		35F0438620098FE4000B5935 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				35F0438720098FE4000B5935 /* TodayViewController.swift */,
+				35F0438720098FE4000B5935 /* WidgetViewController.swift */,
 				35F0438920098FE4000B5935 /* MainInterface.storyboard */,
 				35F0438C20098FE4000B5935 /* Info.plist */,
 			);
@@ -761,7 +761,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F0438820098FE4000B5935 /* TodayViewController.swift in Sources */,
+				35F0438820098FE4000B5935 /* WidgetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
