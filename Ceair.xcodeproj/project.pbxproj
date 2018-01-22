@@ -33,6 +33,9 @@
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C958809E2015783700420FB2 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */; };
+		C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A02015C38300420FB2 /* MyTabViewController.swift */; };
+		C95880A32015C3C200420FB2 /* MyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A22015C3C200420FB2 /* MyCoordinator.swift */; };
+		C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A42015D6FA00420FB2 /* RadialGradientView.swift */; };
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
 		C982F3C21F8CA2B50046197A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C982F3C11F8CA2B50046197A /* Main.storyboard */; };
@@ -172,6 +175,9 @@
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
+		C95880A02015C38300420FB2 /* MyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabViewController.swift; sourceTree = "<group>"; };
+		C95880A22015C3C200420FB2 /* MyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoordinator.swift; sourceTree = "<group>"; };
+		C95880A42015D6FA00420FB2 /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		C973BBDF1F59547500391516 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
 		C982F3C11F8CA2B50046197A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -382,6 +388,7 @@
 				C9CF91A41F5552C400F352F0 /* Flight */,
 				C9979CA51FFB058F00540B2C /* Discovery */,
 				C98A15F51F8C3A7A00B5B477 /* More */,
+				C958809F2015C30800420FB2 /* My */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,6 +413,7 @@
 				C9B54EAC1FFCA5590027A93E /* UITabBarController+Hide.swift */,
 				C9084C572004B10B00800FF9 /* UIImage+MaskColor.swift */,
 				C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */,
+				C95880A42015D6FA00420FB2 /* RadialGradientView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 				C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */,
 				C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */,
 				C9B54EB41FFCBFE90027A93E /* DestinationFilterCoordinator.swift */,
+				C95880A22015C3C200420FB2 /* MyCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -429,6 +438,14 @@
 				C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */,
 			);
 			path = Booking;
+			sourceTree = "<group>";
+		};
+		C958809F2015C30800420FB2 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				C95880A02015C38300420FB2 /* MyTabViewController.swift */,
+			);
+			path = My;
 			sourceTree = "<group>";
 		};
 		C973BBDE1F59545F00391516 /* Bases */ = {
@@ -777,6 +794,7 @@
 				C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */,
 				C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */,
 				C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */,
+				C95880A32015C3C200420FB2 /* MyCoordinator.swift in Sources */,
 				C9DBDF761FFB588400BFC093 /* DiscoverySubCollectionCell.swift in Sources */,
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
 				C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */,
@@ -804,9 +822,11 @@
 				C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */,
 				C9DBDF7A1FFB740900BFC093 /* ThemeCollectionCell.swift in Sources */,
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
+				C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */,
+				C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */,
 				C9FD533C2005DC8B00D7B2ED /* DestinationCollectionView.swift in Sources */,
 				C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */,
 				C9DBDF701FFB409E00BFC093 /* DiscoveryCollectionView.swift in Sources */,

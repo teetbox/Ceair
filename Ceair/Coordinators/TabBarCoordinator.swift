@@ -43,10 +43,12 @@ class TabBarCoordinator: AppCoordinator {
         let moreTab = UINavigationController(rootViewController: MoreTabViewController())
         moreTab.tabBarItem.title = TABBARS.More
         moreTab.tabBarItem.image = UIImage(named: IMAGES.More)
-
-        let dummyMyTab = createDummyTabItem(title: TABBARS.My)
         
-        tabBarController.viewControllers = [bookingTab, flightTab, discoveryTab, moreTab, dummyMyTab]
+        let myTab = UINavigationController(rootViewController: MyTabViewController())
+        myTab.tabBarItem.title = TABBARS.My
+        myTab.tabBarItem.image = UIImage(named: IMAGES.My)
+        
+        tabBarController.viewControllers = [bookingTab, flightTab, discoveryTab, moreTab, myTab]
         tabBarController.selectedIndex = 2
     }
     
