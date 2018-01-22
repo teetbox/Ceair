@@ -65,6 +65,9 @@ class DiscoveryTabViewController: UIViewController {
         textField.font = UIFont.systemFont(ofSize: 16.0)
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 7, height: 30))
         textField.leftViewMode = .always
+        // Placeholder
+        let attributedPlaceholder = NSAttributedString(string: "your place", attributes: [NSAttributedStringKey.foregroundColor: UIColor(white: 1.0, alpha: 0.5)])
+        textField.attributedPlaceholder = attributedPlaceholder
         return textField
     }()
     
@@ -107,6 +110,8 @@ class DiscoveryTabViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         setUpViews()
+        
+        hideKeyboardWhenTappedAround()
     }
     
     func setUpViews() {
