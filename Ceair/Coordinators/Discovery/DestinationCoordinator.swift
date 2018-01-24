@@ -47,6 +47,11 @@ extension DestinationCoordinator: DestinationViewModelCoordinatorDelegate {
         filterCoordinator.showFilter(with: tag)
     }
     
+    func showRoute(at index: Int) {
+        let routeCoordinator = RouteCoordinator(window: window)
+        routeCoordinator.start()
+    }
+    
     func dismissFilter() {
         destinationVC?.dismissFilter()
     }

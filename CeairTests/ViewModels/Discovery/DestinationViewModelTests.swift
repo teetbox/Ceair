@@ -39,4 +39,10 @@ class DestinationViewModelTests: XCTestCase {
         XCTAssertEqual(coordinator.tag, 2)
     }
     
+    func testShowRoute() {
+        sut.showRoute(at: 0)
+        
+        XCTAssert(coordinator.isShowRouteCalled)
+    }
+    
 }

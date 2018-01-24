@@ -11,6 +11,7 @@ import Foundation
 protocol DestinationViewModelCoordinatorDelegate {
     func back()
     func showFilter(with tag: Int)
+    func showRoute(at index: Int)
 }
 
 class DestinationViewModel {
@@ -29,6 +30,10 @@ class DestinationViewModel {
     
     func showFilter(with tag: Int) {
         coordinator?.showFilter(with: tag)
+    }
+    
+    func showRoute(at index: Int) {
+        coordinator?.showRoute(at: index)
     }
     
 }

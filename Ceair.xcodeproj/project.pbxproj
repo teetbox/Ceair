@@ -31,10 +31,16 @@
 		C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF1A1F54E00800284B44 /* CeairTests.swift */; };
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
+		C94272ED2018239A00E97620 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272EC2018239A00E97620 /* RouteViewController.swift */; };
+		C94272EF201823E400E97620 /* RouteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272EE201823E400E97620 /* RouteCollectionView.swift */; };
+		C94272F22018247D00E97620 /* RouteCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F12018247D00E97620 /* RouteCollectionCell.swift */; };
+		C94272F52018272700E97620 /* RouteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F42018272700E97620 /* RouteCoordinator.swift */; };
+		C94272F820182C1000E97620 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F720182C1000E97620 /* RouteViewModel.swift */; };
+		C94272FA20182F7900E97620 /* RouteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F920182F7900E97620 /* RouteViewModelTests.swift */; };
+		C94272FC20182F9B00E97620 /* MockRouteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272FB20182F9B00E97620 /* MockRouteCoordinator.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C958809E2015783700420FB2 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */; };
 		C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A02015C38300420FB2 /* MyTabViewController.swift */; };
-		C95880A32015C3C200420FB2 /* MyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A22015C3C200420FB2 /* MyCoordinator.swift */; };
 		C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A42015D6FA00420FB2 /* RadialGradientView.swift */; };
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
@@ -173,10 +179,16 @@
 		C92BDF1C1F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
+		C94272EC2018239A00E97620 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
+		C94272EE201823E400E97620 /* RouteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionView.swift; sourceTree = "<group>"; };
+		C94272F12018247D00E97620 /* RouteCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionCell.swift; sourceTree = "<group>"; };
+		C94272F42018272700E97620 /* RouteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCoordinator.swift; sourceTree = "<group>"; };
+		C94272F720182C1000E97620 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
+		C94272F920182F7900E97620 /* RouteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModelTests.swift; sourceTree = "<group>"; };
+		C94272FB20182F9B00E97620 /* MockRouteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouteCoordinator.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		C95880A02015C38300420FB2 /* MyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabViewController.swift; sourceTree = "<group>"; };
-		C95880A22015C3C200420FB2 /* MyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoordinator.swift; sourceTree = "<group>"; };
 		C95880A42015D6FA00420FB2 /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		C973BBDF1F59547500391516 /* BaseCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCVCell.swift; sourceTree = "<group>"; };
@@ -424,10 +436,7 @@
 				C98C761E1F57DD97007EB4E2 /* Coordinator.swift */,
 				C98C76201F57DDD3007EB4E2 /* AppCoordinator.swift */,
 				C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */,
-				C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */,
-				C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */,
-				C9B54EB41FFCBFE90027A93E /* DestinationFilterCoordinator.swift */,
-				C95880A22015C3C200420FB2 /* MyCoordinator.swift */,
+				C94272F3201826D100E97620 /* Discovery */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -438,6 +447,36 @@
 				C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */,
 			);
 			path = Booking;
+			sourceTree = "<group>";
+		};
+		C94272F02018241000E97620 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				C94272EC2018239A00E97620 /* RouteViewController.swift */,
+				C94272EE201823E400E97620 /* RouteCollectionView.swift */,
+				C94272F12018247D00E97620 /* RouteCollectionCell.swift */,
+				C94272F620182BF200E97620 /* ViewModels */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		C94272F3201826D100E97620 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */,
+				C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */,
+				C9B54EB41FFCBFE90027A93E /* DestinationFilterCoordinator.swift */,
+				C94272F42018272700E97620 /* RouteCoordinator.swift */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		C94272F620182BF200E97620 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C94272F720182C1000E97620 /* RouteViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C958809F2015C30800420FB2 /* My */ = {
@@ -519,6 +558,7 @@
 				C9979CAF1FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift */,
 				C9B54EAE1FFCBCCE0027A93E /* DestinationViewModelTests.swift */,
 				C903830B200341FF0021C340 /* DestinationFilterViewModelTests.swift */,
+				C94272F920182F7900E97620 /* RouteViewModelTests.swift */,
 				C9979CB11FFB085900540B2C /* Mocks */,
 			);
 			path = Discovery;
@@ -533,6 +573,7 @@
 				C9B54EB21FFCBD660027A93E /* MockDestinationCoordinator.swift */,
 				C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */,
 				C9084C592004B66100800FF9 /* MockDestinationFilterCoordinator.swift */,
+				C94272FB20182F9B00E97620 /* MockRouteCoordinator.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -549,6 +590,7 @@
 				C9DB6C0A1FFDB512001F2AA2 /* FilterCollectionView.swift */,
 				C9DB6C0C1FFDB528001F2AA2 /* FilterCollectionCell.swift */,
 				C9B54E981FFC65BD0027A93E /* ViewModels */,
+				C94272F02018241000E97620 /* Route */,
 			);
 			path = Destination;
 			sourceTree = "<group>";
@@ -794,10 +836,10 @@
 				C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */,
 				C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */,
 				C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */,
-				C95880A32015C3C200420FB2 /* MyCoordinator.swift in Sources */,
 				C9DBDF761FFB588400BFC093 /* DiscoverySubCollectionCell.swift in Sources */,
 				C9FCBAC41F57847700B6788A /* LABELS.swift in Sources */,
 				C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */,
+				C94272F52018272700E97620 /* RouteCoordinator.swift in Sources */,
 				C982F3C41F8CA2DA0046197A /* DetailViewController.swift in Sources */,
 				C9084C582004B10B00800FF9 /* UIImage+MaskColor.swift in Sources */,
 				C958809E2015783700420FB2 /* UIViewController+DismissKeyboard.swift in Sources */,
@@ -824,14 +866,18 @@
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
 				C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
+				C94272ED2018239A00E97620 /* RouteViewController.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */,
 				C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */,
 				C9FD533C2005DC8B00D7B2ED /* DestinationCollectionView.swift in Sources */,
+				C94272EF201823E400E97620 /* RouteCollectionView.swift in Sources */,
 				C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */,
+				C94272F820182C1000E97620 /* RouteViewModel.swift in Sources */,
 				C9DBDF701FFB409E00BFC093 /* DiscoveryCollectionView.swift in Sources */,
 				C9FD533E2005DCA400D7B2ED /* DestinationCollectionCell.swift in Sources */,
 				C9DB6C0B1FFDB512001F2AA2 /* FilterCollectionView.swift in Sources */,
+				C94272F22018247D00E97620 /* RouteCollectionCell.swift in Sources */,
 				C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
@@ -866,6 +912,7 @@
 			files = (
 				C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */,
 				C9084C5A2004B66100800FF9 /* MockDestinationFilterCoordinator.swift in Sources */,
+				C94272FA20182F7900E97620 /* RouteViewModelTests.swift in Sources */,
 				C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */,
 				C9E9271A1F58CF0F00BC5183 /* FlightTabViewModelTests.swift in Sources */,
 				C903830E200342590021C340 /* MockDestinationFilterDataModel.swift in Sources */,
@@ -874,6 +921,7 @@
 				C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */,
 				C9B54EAF1FFCBCCE0027A93E /* DestinationViewModelTests.swift in Sources */,
 				C9B54EB11FFCBD2A0027A93E /* MockDestinationDataModel.swift in Sources */,
+				C94272FC20182F9B00E97620 /* MockRouteCoordinator.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C9979CB01FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift in Sources */,
 				C9B54EB31FFCBD660027A93E /* MockDestinationCoordinator.swift in Sources */,

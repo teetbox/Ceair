@@ -13,6 +13,7 @@ class MockDestinationCoordinator: DestinationViewModelCoordinatorDelegate {
     
     var isBackCalled = false
     var isShowFilterCalled = false
+    var isShowRouteCalled = false
     var tag = 0
     
     func back() {
@@ -22,6 +23,10 @@ class MockDestinationCoordinator: DestinationViewModelCoordinatorDelegate {
     func showFilter(with tag: Int) {
         self.tag = tag
         isShowFilterCalled = true
+    }
+    
+    func showRoute(at index: Int) {
+        isShowRouteCalled = true
     }
     
 }

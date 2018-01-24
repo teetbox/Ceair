@@ -142,6 +142,7 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         themeView.addConstraints(format: "H:|-10-[v0]-10-|", views: themeCollection)
         themeView.addConstraints(format: "V:[v0(120)]-10-|", views: themeCollection)
 
+        destinationCollection.viewModel = viewModel
         view.addSubview(destinationCollection)
         view.addConstraints(format: "H:|-5-[v0]-5-|", views: destinationCollection)
         view.addConstraints(format: "V:[v0]", views: destinationCollection)
