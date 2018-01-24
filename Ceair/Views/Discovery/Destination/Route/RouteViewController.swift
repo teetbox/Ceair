@@ -58,9 +58,9 @@ class RouteViewController: UIViewController {
         return view
     }()
     
-    let priceChart: PriceChartView = {
-        let chart = PriceChartView()
-        return chart
+    let chartCollection: ChartCollectionView = {
+        let collection = ChartCollectionView()
+        return collection
     }()
     
     let routeLabel: UILabel = {
@@ -113,9 +113,9 @@ class RouteViewController: UIViewController {
         chartView.topAnchor.constraint(equalTo: navView.bottomAnchor).isActive = true
         chartView.bottomAnchor.constraint(equalTo: routeView.topAnchor).isActive = true
         
-        chartView.addSubview(priceChart)
-        chartView.addConstraints(format: "H:|[v0]|", views: priceChart)
-        chartView.addConstraints(format: "V:|[v0]-35-|", views: priceChart)
+        chartView.addSubview(chartCollection)
+        chartView.addConstraints(format: "H:|[v0]|", views: chartCollection)
+        chartView.addConstraints(format: "V:|[v0]-35-|", views: chartCollection)
         
         chartView.addSubview(infoIcon)
         chartView.addSubview(infoLabel)

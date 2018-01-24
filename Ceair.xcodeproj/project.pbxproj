@@ -38,7 +38,8 @@
 		C94272F820182C1000E97620 /* RouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F720182C1000E97620 /* RouteViewModel.swift */; };
 		C94272FA20182F7900E97620 /* RouteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F920182F7900E97620 /* RouteViewModelTests.swift */; };
 		C94272FC20182F9B00E97620 /* MockRouteCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272FB20182F9B00E97620 /* MockRouteCoordinator.swift */; };
-		C94272FE20184F9000E97620 /* PriceChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272FD20184F9000E97620 /* PriceChartView.swift */; };
+		C94273002018521A00E97620 /* ChartCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272FF2018521A00E97620 /* ChartCollectionView.swift */; };
+		C94273022018523A00E97620 /* ChartCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94273012018523A00E97620 /* ChartCollectionCell.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C958809E2015783700420FB2 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */; };
 		C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A02015C38300420FB2 /* MyTabViewController.swift */; };
@@ -187,7 +188,8 @@
 		C94272F720182C1000E97620 /* RouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModel.swift; sourceTree = "<group>"; };
 		C94272F920182F7900E97620 /* RouteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewModelTests.swift; sourceTree = "<group>"; };
 		C94272FB20182F9B00E97620 /* MockRouteCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRouteCoordinator.swift; sourceTree = "<group>"; };
-		C94272FD20184F9000E97620 /* PriceChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceChartView.swift; sourceTree = "<group>"; };
+		C94272FF2018521A00E97620 /* ChartCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionView.swift; sourceTree = "<group>"; };
+		C94273012018523A00E97620 /* ChartCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionCell.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		C95880A02015C38300420FB2 /* MyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabViewController.swift; sourceTree = "<group>"; };
@@ -457,7 +459,8 @@
 				C94272EC2018239A00E97620 /* RouteViewController.swift */,
 				C94272EE201823E400E97620 /* RouteCollectionView.swift */,
 				C94272F12018247D00E97620 /* RouteCollectionCell.swift */,
-				C94272FD20184F9000E97620 /* PriceChartView.swift */,
+				C94272FF2018521A00E97620 /* ChartCollectionView.swift */,
+				C94273012018523A00E97620 /* ChartCollectionCell.swift */,
 				C94272F620182BF200E97620 /* ViewModels */,
 			);
 			path = Route;
@@ -873,6 +876,7 @@
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */,
 				C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */,
+				C94273022018523A00E97620 /* ChartCollectionCell.swift in Sources */,
 				C9FD533C2005DC8B00D7B2ED /* DestinationCollectionView.swift in Sources */,
 				C94272EF201823E400E97620 /* RouteCollectionView.swift in Sources */,
 				C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */,
@@ -900,11 +904,11 @@
 				C9FD53422005FDB400D7B2ED /* MoreThemeCollectionView.swift in Sources */,
 				C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */,
 				C9B54EB51FFCBFE90027A93E /* DestinationFilterCoordinator.swift in Sources */,
-				C94272FE20184F9000E97620 /* PriceChartView.swift in Sources */,
 				C9BD96EB1F69161900640E80 /* NetworkError.swift in Sources */,
 				C98C76241F57DE72007EB4E2 /* LaunchUtility.swift in Sources */,
 				C9E09DDF1F68A76C007D0698 /* NETWORKS.swift in Sources */,
 				C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */,
+				C94273002018521A00E97620 /* ChartCollectionView.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
 				C9B54EAD1FFCA5590027A93E /* UITabBarController+Hide.swift in Sources */,
 			);
