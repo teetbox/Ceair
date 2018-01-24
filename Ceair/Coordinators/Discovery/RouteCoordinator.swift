@@ -26,8 +26,8 @@ class RouteCoordinator: AppCoordinator {
         // Easiest way to hide tabBar in the next view
         topViewController?.hidesBottomBarWhenPushed = true
         topViewController?.navigationController?.pushViewController(routeViewController!, animated: true)
-        // Make tabBar back when dismiss the next view
-        topViewController?.hidesBottomBarWhenPushed = false
+        // Make tabBar still hidden when dismiss the view
+        topViewController?.hidesBottomBarWhenPushed = true
     }
     
 }
