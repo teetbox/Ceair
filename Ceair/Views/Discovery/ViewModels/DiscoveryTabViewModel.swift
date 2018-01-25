@@ -22,6 +22,14 @@ class DiscoveryTabViewModel {
         self.dataModel = dataModel
     }
     
+    func fetchThemes(completion: @escaping () -> Void) {
+        dataModel.fetchThemes { themes in
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+    }
+    
     func didSelectDestination() {
         coordinator?.didSelectDestination()
     }

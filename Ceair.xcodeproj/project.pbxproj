@@ -31,6 +31,7 @@
 		C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF1A1F54E00800284B44 /* CeairTests.swift */; };
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
+		C92CBDC320196BD4004B64D7 /* DiscoveryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CBDC220196BD4004B64D7 /* DiscoveryTheme.swift */; };
 		C94272ED2018239A00E97620 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272EC2018239A00E97620 /* RouteViewController.swift */; };
 		C94272EF201823E400E97620 /* RouteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272EE201823E400E97620 /* RouteCollectionView.swift */; };
 		C94272F22018247D00E97620 /* RouteCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F12018247D00E97620 /* RouteCollectionCell.swift */; };
@@ -181,6 +182,7 @@
 		C92BDF1C1F54E00800284B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
+		C92CBDC220196BD4004B64D7 /* DiscoveryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTheme.swift; sourceTree = "<group>"; };
 		C94272EC2018239A00E97620 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		C94272EE201823E400E97620 /* RouteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionView.swift; sourceTree = "<group>"; };
 		C94272F12018247D00E97620 /* RouteCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionCell.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 		C92BDF271F54E06700284B44 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C92CBDC120196B3B004B64D7 /* Discovery */,
 				C9C306631F627F3D0020A316 /* Users */,
 				C9CF91A11F554F2200F352F0 /* Flights */,
 			);
@@ -451,6 +454,14 @@
 				C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */,
 			);
 			path = Booking;
+			sourceTree = "<group>";
+		};
+		C92CBDC120196B3B004B64D7 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				C92CBDC220196BD4004B64D7 /* DiscoveryTheme.swift */,
+			);
+			path = Discovery;
 			sourceTree = "<group>";
 		};
 		C94272F02018241000E97620 /* Route */ = {
@@ -858,6 +869,7 @@
 				C9B54EA51FFC75550027A93E /* DiscoverySubViewModel.swift in Sources */,
 				C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */,
+				C92CBDC320196BD4004B64D7 /* DiscoveryTheme.swift in Sources */,
 				C9B54E9D1FFC66240027A93E /* DestinationDataModel.swift in Sources */,
 				C9B54EB71FFCC21C0027A93E /* DestinationFilterViewModel.swift in Sources */,
 				C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */,

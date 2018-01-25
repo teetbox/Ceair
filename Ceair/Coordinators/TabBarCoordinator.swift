@@ -30,14 +30,18 @@ class TabBarCoordinator: AppCoordinator {
         flightTab.tabBarItem.title = TABBARS.Flight
         flightTab.tabBarItem.image = UIImage(named: IMAGES.Flight)
         
+        /*
         let discoveryTabViewController = DiscoveryTabViewController()
         let discoveryDataModel = DiscoveryTabDataModel()
         discoveryCoordinator = DiscoveryCoordinator(window: window)
         let discoveryTabViewModel = DiscoveryTabViewModel(dataModel: discoveryDataModel)
         discoveryTabViewModel.coordinator = discoveryCoordinator
         discoveryTabViewController.viewModel = discoveryTabViewModel
+        */
+        let discoveryCoordinator = DiscoveryCoordinator(window: window)
+        discoveryCoordinator.start()
         
-        let discoveryTab = UINavigationController(rootViewController: discoveryTabViewController)
+        let discoveryTab = UINavigationController(rootViewController: discoveryCoordinator.discoveryViewController)
         discoveryTab.tabBarItem.title = TABBARS.Discovery
         
         let moreTab = UINavigationController(rootViewController: MoreTabViewController())

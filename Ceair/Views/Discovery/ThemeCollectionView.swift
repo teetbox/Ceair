@@ -37,8 +37,12 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         fatalError("init(coder:) has not been implemented")
     }
     
+    func reloadData() {
+        collectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -112,6 +112,11 @@ class DiscoveryTabViewController: UIViewController {
         setUpViews()
         
         hideKeyboardWhenTappedAround()
+        
+        viewModel.fetchThemes {
+            self.themeView.reloadData()
+            print("Got themes")
+        }
     }
     
     func setUpViews() {
