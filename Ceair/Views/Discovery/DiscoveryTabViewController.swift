@@ -113,16 +113,24 @@ class DiscoveryTabViewController: UIViewController {
         
         hideKeyboardWhenTappedAround()
         
-        viewModel.fetchThemes {
-            self.themeView.reloadData()
-            print("Got themes")
-        }
+//        viewModel.fetchThemes {
+//            self.themeView.reloadData()
+//            print("Got themes")
+//        }
     }
     
     func setUpViews() {
+        
+        // 64 = 20 + 44
+        // 88 = 44 + 44
+        
+        // 0
+        // 34
         view.addSubview(navView)
         view.addConstraints(format: "H:|[v0]|", views: navView)
-        view.addConstraints(format: "V:|[v0(60)]", views: navView)
+        view.addConstraints(format: "V:|[v0(80)]", views: navView)
+//        navView.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive = true
+        
         
         navView.addSubview(navTitle)
         navView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
@@ -212,4 +220,39 @@ extension DiscoveryTabViewController: ScrollViewDelegate {
         previousOffSetY = offSetY
     }
     
+}
+
+extension UIView {
+    
+    var safeTopAnchor: NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.topAnchor
+        } else {
+            return self.topAnchor
+        }
+    }
+    
+    var safeLeftAnchor: NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *){
+            return self.safeAreaLayoutGuide.leftAnchor
+        }else {
+            return self.leftAnchor
+        }
+    }
+    
+    var safeRightAnchor: NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *){
+            return self.safeAreaLayoutGuide.rightAnchor
+        }else {
+            return self.rightAnchor
+        }
+    }
+    
+    var safeBottomAnchor: NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return self.safeAreaLayoutGuide.bottomAnchor
+        } else {
+            return self.bottomAnchor
+        }
+    }
 }
