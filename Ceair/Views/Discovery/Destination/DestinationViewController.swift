@@ -25,6 +25,12 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         return button
     }()
     
+    let navView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.blue
+        return view
+    }()
+    
     let navTitle: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -102,27 +108,41 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     }
 
     private func setUpViews() {
+        view.addSubview(navView)
+        view.addConstraints(format: "H:|[v0]|", views: navView)
+        if DeviceUtility.isPhoneX {
+            view.addConstraints(format: "V:|[v0(84)]", views: navView)  // +24
+        } else {
+            view.addConstraints(format: "V:|[v0(60)]", views: navView)
+        }
+        
+        navView.addSubview(navTitle)
+        navView.addConstraints(format: "V:[v0(30)]-10-|", views: navTitle)
+        navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
+        
+        navView.addSubview(backButton)
+        navView.addConstraints(format: "H:|-15-[v0]", views: backButton)
+        backButton.centerYAnchor.constraint(equalTo: navTitle.centerYAnchor).isActive = true
+        
         view.addSubview(titleView)
         view.addConstraints(format: "H:|[v0]|", views: titleView)
-        view.addConstraints(format: "V:|[v0(160)]", views: titleView)
-        
-        titleView.addSubview(navTitle)
-        titleView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
-        navTitle.centerXAnchor.constraint(equalTo: titleView.centerXAnchor).isActive = true
-        
-        titleView.addSubview(backButton)
-        titleView.addConstraints(format: "H:|-15-[v0]", views: backButton)
-        backButton.centerYAnchor.constraint(equalTo: navTitle.centerYAnchor).isActive = true
+        view.addConstraints(format: "V:[v0(100)]", views: titleView)
+        titleView.topAnchor.constraint(equalTo: navView.bottomAnchor).isActive = true
         
         titleView.addSubview(subtitle)
         titleView.addSubview(subtitle2)
-        titleView.addConstraints(format: "V:|-70-[v0]-10-[v1]", views: subtitle, subtitle2)
+        titleView.addConstraints(format: "V:|-10-[v0]-10-[v1]", views: subtitle, subtitle2)
         titleView.addConstraints(format: "H:|-40-[v0]", views: subtitle)
         titleView.addConstraints(format: "H:[v0]-40-|", views: subtitle2)
 
         view.addSubview(filterBar)
         view.addConstraints(format: "H:|[v0]|", views: filterBar)
-        view.addConstraints(format: "V:[v0(50)]|", views: filterBar)
+        view.addConstraints(format: "V:[v0]|", views: filterBar)
+        if DeviceUtility.isPhoneX {
+            filterBar.heightAnchor.constraint(equalToConstant: 50 + 34).isActive = true // +34
+        } else {
+            filterBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        }
         
         view.addSubview(barSeparator)
         view.addConstraints(format: "H:|[v0]|", views: barSeparator)

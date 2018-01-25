@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35441E082019EE44002DA4B4 /* DeviceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35441E072019EE44002DA4B4 /* DeviceUtility.swift */; };
 		35F0438520098FE4000B5935 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F0438420098FE4000B5935 /* NotificationCenter.framework */; };
 		35F0438820098FE4000B5935 /* WidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0438720098FE4000B5935 /* WidgetViewController.swift */; };
 		35F0438B20098FE4000B5935 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35F0438920098FE4000B5935 /* MainInterface.storyboard */; };
@@ -154,6 +155,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		35441E072019EE44002DA4B4 /* DeviceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUtility.swift; sourceTree = "<group>"; };
 		35F0438320098FE4000B5935 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		35F0438420098FE4000B5935 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		35F0438720098FE4000B5935 /* WidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewController.swift; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 				C98C76231F57DE72007EB4E2 /* LaunchUtility.swift */,
 				C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */,
 				C9FD533720059A3F00D7B2ED /* StackStructure.swift */,
+				35441E072019EE44002DA4B4 /* DeviceUtility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 			files = (
 				C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */,
 				C9171AFC1F5631D900D9BE66 /* TABBARS.swift in Sources */,
+				35441E082019EE44002DA4B4 /* DeviceUtility.swift in Sources */,
 				C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */,
 				C9DBDF721FFB425500BFC093 /* DiscoveryCollectionCell.swift in Sources */,
 				C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */,

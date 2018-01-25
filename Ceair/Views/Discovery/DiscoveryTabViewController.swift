@@ -119,6 +119,18 @@ class DiscoveryTabViewController: UIViewController {
 //        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     func setUpViews() {
         
         // 64 = 20 + 44
@@ -128,12 +140,14 @@ class DiscoveryTabViewController: UIViewController {
         // 34
         view.addSubview(navView)
         view.addConstraints(format: "H:|[v0]|", views: navView)
-        view.addConstraints(format: "V:|[v0(80)]", views: navView)
-//        navView.topAnchor.constraint(equalTo: view.safeTopAnchor).isActive = true
-        
+        if DeviceUtility.isPhoneX {
+            view.addConstraints(format: "V:|[v0(84)]", views: navView)  // +24
+        } else {
+            view.addConstraints(format: "V:|[v0(60)]", views: navView)
+        }
         
         navView.addSubview(navTitle)
-        navView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
+        navView.addConstraints(format: "V:[v0]-10-|", views: navTitle)
         navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
         
         view.addSubview(searchView)
@@ -158,8 +172,7 @@ class DiscoveryTabViewController: UIViewController {
         collectionView.scrollDelegate = self
         view.addSubview(collectionView)
         view.addConstraints(format: "H:|[v0]|", views: collectionView)
-        collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: navView.bottomAnchor,
-                                                                          constant: 60)
+        collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
         collectionViewTopConstraint?.isActive = true
         collectionViewBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
         collectionViewBottomConstraint?.isActive = true

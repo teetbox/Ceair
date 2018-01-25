@@ -19,7 +19,6 @@ class DestinationFilterView: UIView, UITabBarDelegate {
     
     let filterView: UIView = {
         let view = UIView()
-        view.backgroundColor = .green
         return view
     }()
     
@@ -134,7 +133,11 @@ class DestinationFilterView: UIView, UITabBarDelegate {
     }
     
     private func setUpViews(_ window: UIView) {
-        filterView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 240)
+        if DeviceUtility.isPhoneX {
+            filterView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 240 + 34)    // +34
+        } else {
+            filterView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 240)
+        }
         window.addSubview(filterView)
         
         filterView.addSubview(titleBar)
@@ -166,7 +169,12 @@ class DestinationFilterView: UIView, UITabBarDelegate {
         
         filterView.addSubview(filterBar)
         filterView.addConstraints(format: "H:|[v0]|", views: filterBar)
-        filterView.addConstraints(format: "V:[v0(50)]|", views: filterBar)
+        filterView.addConstraints(format: "V:[v0]|", views: filterBar)
+        if DeviceUtility.isPhoneX {
+            filterBar.heightAnchor.constraint(equalToConstant: 50 + 34).isActive = true // +34
+        } else {
+            filterBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        }
         
         filterView.addSubview(collectionView)
         filterView.addConstraints(format: "H:|-100-[v0]|", views: collectionView)
@@ -179,8 +187,9 @@ class DestinationFilterView: UIView, UITabBarDelegate {
         barSeparator.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: -0.5).isActive = true
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            let height: CGFloat = DeviceUtility.isPhoneX ? 240 + 34 : 240
+            self.filterView.frame = CGRect(x: 0, y: window.frame.height - height, width: window.frame.width, height: height)
             self.blackView.alpha = 1
-            self.filterView.frame = CGRect(x: 0, y: window.frame.height - 240, width: window.frame.width, height: 240)
         }, completion: nil)
     }
     
@@ -188,7 +197,8 @@ class DestinationFilterView: UIView, UITabBarDelegate {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.blackView.alpha = 0
             if let window = UIApplication.shared.keyWindow {
-                self.filterView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: 240)
+                let height: CGFloat = DeviceUtility.isPhoneX ? 240 + 34 : 240
+                self.filterView.frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height)
             }
         }, completion: { _ in
             self.filterView.removeFromSuperview()

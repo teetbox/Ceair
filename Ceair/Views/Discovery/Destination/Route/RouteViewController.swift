@@ -86,10 +86,14 @@ class RouteViewController: UIViewController {
     private func setUpViews() {
         view.addSubview(navView)
         view.addConstraints(format: "H:|[v0]|", views: navView)
-        view.addConstraints(format: "V:|[v0(60)]", views: navView)
+        if DeviceUtility.isPhoneX {
+            view.addConstraints(format: "V:|[v0(84)]", views: navView)  // +24
+        } else {
+            view.addConstraints(format: "V:|[v0(60)]", views: navView)
+        }
         
         navView.addSubview(navTitle)
-        navView.addConstraints(format: "V:|-30-[v0]", views: navTitle)
+        navView.addConstraints(format: "V:[v0]-10-|", views: navTitle)
         navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
         
         navView.addSubview(backButton)
@@ -98,7 +102,11 @@ class RouteViewController: UIViewController {
         
         view.addSubview(routeView)
         view.addConstraints(format: "H:|[v0]|", views: routeView)
-        view.addConstraints(format: "V:[v0(360)]|", views: routeView)
+        if DeviceUtility.isPhoneX {
+            view.addConstraints(format: "V:[v0(360)]-34-|", views: routeView)   // +34
+        } else {
+            view.addConstraints(format: "V:[v0(360)]|", views: routeView)
+        }
         
         routeView.addSubview(routeLabel)
         routeView.addConstraints(format: "H:|-15-[v0]|", views: routeLabel)
