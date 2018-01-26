@@ -90,8 +90,8 @@ class DiscoveryTabViewController: UIViewController {
     var collectionViewTopConstraint: NSLayoutConstraint?
     var collectionViewBottomConstraint: NSLayoutConstraint?
     
-    let collectionView: DiscoveryCollectionView = {
-        let collection = DiscoveryCollectionView()
+    let cityView: ActivityCollectionView = {
+        let collection = ActivityCollectionView()
         collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         return collection
     }()
@@ -113,10 +113,15 @@ class DiscoveryTabViewController: UIViewController {
         
         hideKeyboardWhenTappedAround()
         
-//        viewModel.fetchThemes {
-//            self.themeView.reloadData()
-//            print("Got themes")
-//        }
+        viewModel.fetchThemes {
+            self.themeView.reloadData()
+            print("Got themes")
+        }
+        
+        viewModel.fetchCities {
+            self.cityView.reloadData()
+            print("Got cities")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -168,15 +173,16 @@ class DiscoveryTabViewController: UIViewController {
         searchView.addConstraints(format: "H:|-80-[v0]-80-|", views: areaTextField)
         searchView.addConstraints(format: "V:[v0(30)]-12-|", views: areaTextField)
         
-        collectionView.viewModel = viewModel
-        collectionView.scrollDelegate = self
-        view.addSubview(collectionView)
-        view.addConstraints(format: "H:|[v0]|", views: collectionView)
-        collectionViewTopConstraint = collectionView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
+        cityView.viewModel = viewModel
+        cityView.scrollDelegate = self
+        view.addSubview(cityView)
+        view.addConstraints(format: "H:|[v0]|", views: cityView)
+        collectionViewTopConstraint = cityView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
         collectionViewTopConstraint?.isActive = true
-        collectionViewBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
+        collectionViewBottomConstraint = cityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
         collectionViewBottomConstraint?.isActive = true
         
+        themeView.viewModel = viewModel
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
         view.addConstraints(format: "V:[v0(91)]", views: themeView)

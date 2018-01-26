@@ -9,6 +9,17 @@
 import Foundation
 @testable import Ceair
 
-struct MockDiscoveryTabDataModel: DiscoveryTabDataModelProtocol {
+class MockDiscoveryTabDataModel: DiscoveryTabDataModelProtocol {
+    
+    var isFetchThemesCalled = false
+    var isFetchCitiesCalled = false
+    
+    func fetchThemes(completion: @escaping ([DiscoveryTheme]) -> Void) {
+        isFetchThemesCalled = true
+    }
+    
+    func fetchCities(completion: @escaping ([[DiscoveryCity]]) -> Void) {
+        isFetchCitiesCalled = true
+    }
     
 }

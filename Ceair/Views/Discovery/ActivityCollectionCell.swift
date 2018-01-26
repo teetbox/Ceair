@@ -1,5 +1,5 @@
 //
-//  DiscoveryCollectionCell.swift
+//  ActivityCollectionCell.swift
 //  Ceair
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiscoveryCollectionCell: BaseCVCell {
+class ActivityCollectionCell: BaseCVCell {
     
     var viewModel: DiscoveryTabViewModel! {
         didSet {
@@ -36,8 +36,8 @@ class DiscoveryCollectionCell: BaseCVCell {
         return label
     }()
     
-    let collectionView: DiscoverySubCollectionView = {
-        let collection = DiscoverySubCollectionView()
+    let collectionView: CityCollectionView = {
+        let collection = CityCollectionView()
         collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         return collection
     }()

@@ -50,11 +50,15 @@ extension UIColor {
     }
     
     func getImage(size: CGSize) -> UIImage {
-        let renderer = UIGraphicsImageRenderer(size: size)
-        return renderer.image(actions: { rendererContext in
-            self.setFill()
-            rendererContext.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        })
+        if #available(iOS 10.0, *) {
+            let renderer = UIGraphicsImageRenderer(size: size)
+            return renderer.image(actions: { rendererContext in
+                self.setFill()
+                rendererContext.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            })
+        } else {
+            return UIImage()
+        }
     }
     
 }

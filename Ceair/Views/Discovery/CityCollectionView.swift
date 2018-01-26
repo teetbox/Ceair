@@ -1,5 +1,5 @@
 //
-//  DiscoveryCollectionView.swift
+//  CityCollectionView.swift
 //  Ceair
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -8,32 +8,28 @@
 
 import UIKit
 
-protocol ScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView)
-}
-
-class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var viewModel: DiscoveryTabViewModel!
     
-    var scrollDelegate: ScrollViewDelegate?
-    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.showsVerticalScrollIndicator = false
-        collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
+        collection.showsHorizontalScrollIndicator = false
+        collection.backgroundColor = .white
         collection.dataSource = self
         collection.delegate = self
         return collection
     }()
     
-    let cellId = "DiscoveryCell"
+    let cellId = "DiscoverySubCell"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        collectionView.register(DiscoveryCollectionCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(CityCollectionCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionView)
         addConstraints(format: "H:|[v0]|", views: collectionView)
@@ -49,18 +45,19 @@ class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DiscoveryCollectionCell
-        cell.viewModel = viewModel
-        cell.backgroundColor = .white
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CityCollectionCell
+        
+        cell.backgroundColor = UIColor.random
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        viewModel.didSelectDestination()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width, height: 200)
+        return CGSize(width: 120, height: 120)
     }
     
     // Maybe this is for section spacing
@@ -71,10 +68,6 @@ class DiscoveryCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     // Horizontal and Vertical spacing between each item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollDelegate?.scrollViewDidScroll(scrollView)
     }
     
 }

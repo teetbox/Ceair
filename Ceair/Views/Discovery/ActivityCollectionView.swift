@@ -1,5 +1,5 @@
 //
-//  DiscoverySubCollectionView.swift
+//  ActivityCollectionView.swift
 //  Ceair
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -8,28 +8,32 @@
 
 import UIKit
 
-class DiscoverySubCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+protocol ScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView)
+}
+
+class ActivityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var viewModel: DiscoveryTabViewModel!
     
+    var scrollDelegate: ScrollViewDelegate?
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.showsHorizontalScrollIndicator = false
-        collection.backgroundColor = .white
+        collection.showsVerticalScrollIndicator = false
+        collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
         collection.dataSource = self
         collection.delegate = self
         return collection
     }()
     
-    let cellId = "DiscoverySubCell"
+    let cellId = "DiscoveryCell"
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        collectionView.register(DiscoverySubCollectionCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(ActivityCollectionCell.self, forCellWithReuseIdentifier: cellId)
         
         addSubview(collectionView)
         addConstraints(format: "H:|[v0]|", views: collectionView)
@@ -40,24 +44,27 @@ class DiscoverySubCollectionView: UIView, UICollectionViewDataSource, UICollecti
         fatalError("init(coder:) has not been implemented")
     }
     
+    func reloadData() {
+        collectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DiscoverySubCollectionCell
-        
-        cell.backgroundColor = UIColor.random
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ActivityCollectionCell
+        cell.viewModel = viewModel
+        cell.backgroundColor = .white
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.didSelectDestination()
+        print(indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
+        return CGSize(width: frame.width, height: 200)
     }
     
     // Maybe this is for section spacing
@@ -68,6 +75,10 @@ class DiscoverySubCollectionView: UIView, UICollectionViewDataSource, UICollecti
     // Horizontal and Vertical spacing between each item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewDidScroll(scrollView)
     }
     
 }

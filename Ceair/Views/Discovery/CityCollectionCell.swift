@@ -1,5 +1,5 @@
 //
-//  DiscoverySubCollectionCell.swift
+//  CityCollectionCell.swift
 //  Ceair
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiscoverySubCollectionCell: BaseCVCell {
+class CityCollectionCell: BaseCVCell {
     
     let imageView: UIImageView = {
         let image = UIImageView()

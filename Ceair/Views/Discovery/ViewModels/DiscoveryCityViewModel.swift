@@ -1,5 +1,5 @@
 //
-//  DiscoverySubViewModel.swift
+//  DiscoveryCityViewModel.swift
 //  Ceair
 //
 //  Created by Matt Tian on 03/01/2018.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class DiscoverySubViewModel {
+class DiscoveryCityViewModel {
     
 }
