@@ -55,10 +55,9 @@ struct DiscoveryTabDataModel: DiscoveryTabDataModelProtocol {
                 return
             }
             
-            var themeCities: [[DiscoveryCity]] = [[]]
+            var themeCities = [[DiscoveryCity]]()
             if let json = try? JSON(data: data) {
                 let city2DArr = json["themeActivitiesInfoVOList"].arrayValue
-                
                 for cityArr in city2DArr {
                     let themeJson = cityArr.arrayValue[0]
                     let themeCode = themeJson["themeCode"].stringValue

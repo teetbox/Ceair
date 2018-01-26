@@ -11,6 +11,7 @@ import UIKit
 class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     var viewModel: DiscoveryTabViewModel!
+    var activityIndex: Int!
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -40,14 +41,19 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
         fatalError("init(coder:) has not been implemented")
     }
     
+    func reloadData() {
+        collectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.themeCities[activityIndex].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CityCollectionCell
         
         cell.backgroundColor = UIColor.random
+        cell.themeLabel.text = viewModel.themeCities[activityIndex][indexPath.item].cityName
         
         return cell
     }

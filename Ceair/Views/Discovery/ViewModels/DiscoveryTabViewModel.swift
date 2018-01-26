@@ -29,7 +29,7 @@ class DiscoveryTabViewModel {
     func fetchThemes(completion: @escaping () -> Void) {
         dataModel.fetchThemes { themes in
             self.themes = themes
-
+           
             DispatchQueue.main.async {
                 completion()
             }

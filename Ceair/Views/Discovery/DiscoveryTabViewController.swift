@@ -137,12 +137,6 @@ class DiscoveryTabViewController: UIViewController {
     }
     
     func setUpViews() {
-        
-        // 64 = 20 + 44
-        // 88 = 44 + 44
-        
-        // 0
-        // 34
         view.addSubview(navView)
         view.addConstraints(format: "H:|[v0]|", views: navView)
         if DeviceUtility.isPhoneX {

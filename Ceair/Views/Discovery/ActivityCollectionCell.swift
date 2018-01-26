@@ -16,6 +16,12 @@ class ActivityCollectionCell: BaseCVCell {
         }
     }
     
+    var activityIndex: Int! {
+        didSet {
+            collectionView.activityIndex = activityIndex
+        }
+    }
+    
     let titleView: UIView = {
         let view = UIView()
         return view
