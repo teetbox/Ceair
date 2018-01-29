@@ -1,5 +1,5 @@
 //
-//  DiscoveryTabDataModel.swift
+//  DiscoveryDataModel.swift
 //  Ceair
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -17,7 +17,7 @@ protocol DiscoveryTabDataModelProtocol {
     func fetchCities(completion: @escaping ([[DiscoveryCity]]) -> Void)
 }
 
-struct DiscoveryTabDataModel: DiscoveryTabDataModelProtocol {
+struct DiscoveryDataModel: DiscoveryTabDataModelProtocol {
     
     let http = CEHttp(base: "http://172.31.65.187:8080")
     let themePath = "/portal/mobile/getThemeCodeList"

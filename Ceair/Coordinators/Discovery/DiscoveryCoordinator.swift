@@ -22,7 +22,7 @@ class DiscoveryCoordinator: AppCoordinator {
     }
     
     override func start() {
-        let discoveryDataModel = DiscoveryTabDataModel()
+        let discoveryDataModel = DiscoveryDataModel()
         let discoveryTabViewModel = DiscoveryViewModel(dataModel: discoveryDataModel)
         discoveryTabViewModel.coordinator = self
         discoveryViewController.viewModel = discoveryTabViewModel
