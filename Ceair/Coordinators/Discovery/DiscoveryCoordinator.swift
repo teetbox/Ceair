@@ -10,10 +10,10 @@ import UIKit
 
 class DiscoveryCoordinator: AppCoordinator {
     
-    let discoveryViewController: DiscoveryTabViewController
+    let discoveryViewController: DiscoveryViewController
     
     override init(window: UIWindow) {
-        self.discoveryViewController = DiscoveryTabViewController()
+        self.discoveryViewController = DiscoveryViewController()
         super.init(window: window)
     }
 

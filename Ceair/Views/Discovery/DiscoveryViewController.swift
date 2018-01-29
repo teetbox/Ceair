@@ -1,5 +1,5 @@
 //
-//  DiscoveryTabViewController.swift
+//  DiscoveryViewController.swift
 //  Ceair
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DiscoveryTabViewController: UIViewController {
+class DiscoveryViewController: UIViewController {
     
     var viewModel: DiscoveryViewModel!
     
@@ -190,7 +190,7 @@ class DiscoveryTabViewController: UIViewController {
     
 }
 
-extension DiscoveryTabViewController: ScrollViewDelegate {
+extension DiscoveryViewController: ScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offSetY = scrollView.contentOffset.y
