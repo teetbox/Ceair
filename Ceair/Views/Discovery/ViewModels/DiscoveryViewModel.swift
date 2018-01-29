@@ -9,7 +9,8 @@
 import Foundation
 
 protocol DiscoveryViewModelCoordinatorDelegate {
-    func didSelectDestination()
+    func showRoute(at index: Int)
+    func showTheme(at index: Int)
 }
 
 class DiscoveryViewModel {
@@ -46,8 +47,12 @@ class DiscoveryViewModel {
         }
     }
     
-    func didSelectDestination() {
-        coordinator?.didSelectDestination()
+    func showRoute(at index: Int) {
+        coordinator?.showRoute(at: index)
+    }
+    
+    func showTheme(at index: Int) {
+        coordinator?.showTheme(at: index)
     }
     
 }

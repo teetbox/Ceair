@@ -24,9 +24,14 @@ class DiscoveryTabViewModelTests: XCTestCase {
         sut.coordinator = coordinator
     }
     
-    func testDidSelectDestination() {
-        sut.didSelectDestination()
-        XCTAssert(coordinator.isDidSelectDestinationCalled)
+    func testShowRoute() {
+        sut.showRoute(at: 0)
+        XCTAssert(coordinator.isShowRouteCalled)
+    }
+    
+    func testShowTheme() {
+        sut.showTheme(at: 0)
+        XCTAssert(coordinator.isShowThemeCalled)
     }
     
     func testFetchThemes() {

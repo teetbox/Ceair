@@ -32,9 +32,25 @@ class DiscoveryCoordinator: AppCoordinator {
 
 extension DiscoveryCoordinator: DiscoveryViewModelCoordinatorDelegate {
     
-    func didSelectDestination() {
+    func showRoute(at index: Int) {
+        let topViewController = UIApplication.topViewController()
+        topViewController?.hidesBottomBarWhenPushed = true
+        
+        let routeCoordinator = RouteCoordinator(window: window)
+        routeCoordinator.start()
+        
+        // Show tabBar back when dismiss the next view
+        topViewController?.hidesBottomBarWhenPushed = false
+    }
+    
+    func showTheme(at index: Int) {
+        let topViewController = UIApplication.topViewController()
+        topViewController?.hidesBottomBarWhenPushed = true
+        
         let destinationCoordinator = DestinationCoordinator(window: window)
         destinationCoordinator.start()
+        
+        topViewController?.hidesBottomBarWhenPushed = false
     }
     
 }

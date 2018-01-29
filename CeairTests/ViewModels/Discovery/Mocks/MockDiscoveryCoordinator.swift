@@ -11,10 +11,15 @@ import Foundation
 
 class MockDiscoveryCoordinator: DiscoveryViewModelCoordinatorDelegate {
     
-    var isDidSelectDestinationCalled = false
+    var isShowRouteCalled = false
+    var isShowThemeCalled = false
     
-    func didSelectDestination() {
-        isDidSelectDestinationCalled = true
+    func showRoute(at index: Int) {
+        isShowRouteCalled = true
+    }
+    
+    func showTheme(at index: Int) {
+        isShowThemeCalled = true
     }
     
 }
