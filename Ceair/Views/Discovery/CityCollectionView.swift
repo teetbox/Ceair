@@ -46,14 +46,26 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.themeCities[activityIndex].count
+        let count: Int
+        if viewModel.themeCities.count == 0 {
+            count = 8
+        } else {
+            count = viewModel.themeCities[activityIndex].count
+        }
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CityCollectionCell
         
         cell.backgroundColor = UIColor.random
-        cell.themeLabel.text = viewModel.themeCities[activityIndex][indexPath.item].cityName
+        let cityName: String
+        if viewModel.themeCities.count == 0 {
+            cityName = "Sanya"
+        } else {
+            cityName = viewModel.themeCities[activityIndex][indexPath.item].cityName
+        }
+        cell.themeLabel.text = cityName
         
         return cell
     }

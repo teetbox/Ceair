@@ -49,7 +49,13 @@ class ActivityCollectionView: UIView, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.themeCities.count
+        let count: Int
+        if viewModel.themeCities.count == 0 {
+            count = 4
+        } else {
+            count = viewModel.themeCities.count
+        }
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

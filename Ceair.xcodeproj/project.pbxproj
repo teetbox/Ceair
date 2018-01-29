@@ -75,8 +75,6 @@
 		C9B54E9D1FFC66240027A93E /* DestinationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9C1FFC66240027A93E /* DestinationDataModel.swift */; };
 		C9B54E9F1FFC672B0027A93E /* DiscoveryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */; };
 		C9B54EA11FFC6FA30027A93E /* MockDiscoveryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA01FFC6FA30027A93E /* MockDiscoveryCoordinator.swift */; };
-		C9B54EA31FFC75140027A93E /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA21FFC75140027A93E /* DiscoveryViewModel.swift */; };
-		C9B54EA51FFC75550027A93E /* DiscoveryCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA41FFC75550027A93E /* DiscoveryCityViewModel.swift */; };
 		C9B54EA71FFC7E150027A93E /* DestinationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */; };
 		C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */; };
 		C9B54EAB1FFC9D710027A93E /* DestinationFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54EAA1FFC9D710027A93E /* DestinationFilterView.swift */; };
@@ -245,8 +243,6 @@
 		C9B54E9C1FFC66240027A93E /* DestinationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDataModel.swift; sourceTree = "<group>"; };
 		C9B54E9E1FFC672B0027A93E /* DiscoveryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCoordinator.swift; sourceTree = "<group>"; };
 		C9B54EA01FFC6FA30027A93E /* MockDiscoveryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryCoordinator.swift; sourceTree = "<group>"; };
-		C9B54EA21FFC75140027A93E /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
-		C9B54EA41FFC75550027A93E /* DiscoveryCityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryCityViewModel.swift; sourceTree = "<group>"; };
 		C9B54EA61FFC7E150027A93E /* DestinationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCoordinator.swift; sourceTree = "<group>"; };
 		C9B54EA81FFC8AB00027A93E /* UIApplication+TopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+TopController.swift"; sourceTree = "<group>"; };
 		C9B54EAA1FFC9D710027A93E /* DestinationFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationFilterView.swift; sourceTree = "<group>"; };
@@ -589,8 +585,6 @@
 			isa = PBXGroup;
 			children = (
 				C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */,
-				C9B54EA41FFC75550027A93E /* DiscoveryCityViewModel.swift */,
-				C9B54EA21FFC75140027A93E /* DiscoveryViewModel.swift */,
 				C9979CAB1FFB072400540B2C /* DataModels */,
 			);
 			path = ViewModels;
@@ -903,7 +897,6 @@
 				C9C306671F62809F0020A316 /* Centificate.swift in Sources */,
 				C9171AFA1F56317500D9BE66 /* COLORS.swift in Sources */,
 				C9EE0B691F5956C9009AF961 /* BaseTVCell.swift in Sources */,
-				C9B54EA51FFC75550027A93E /* DiscoveryCityViewModel.swift in Sources */,
 				C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */,
 				C92CBDC320196BD4004B64D7 /* DiscoveryTheme.swift in Sources */,
@@ -938,7 +931,6 @@
 				C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
-				C9B54EA31FFC75140027A93E /* DiscoveryViewModel.swift in Sources */,
 				C98A15F71F8C3AA700B5B477 /* MoreTabViewController.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,

@@ -22,9 +22,9 @@ class DiscoveryTabViewModel {
         self.dataModel = dataModel
     }
     
-    var themes: [DiscoveryTheme] = Array(repeating: DiscoveryTheme(themeName: "Theme", themeCode: "", delFlag: false), count: 8)
+    var themes = [DiscoveryTheme]()
     
-    var themeCities: [[DiscoveryCity]] = [[]]
+    var themeCities = [[DiscoveryCity]]()
     
     func fetchThemes(completion: @escaping () -> Void) {
         dataModel.fetchThemes { themes in
@@ -37,7 +37,7 @@ class DiscoveryTabViewModel {
     }
     
     func fetchCities(completion: @escaping () -> Void) {
-        dataModel.fetchCities { (cities) in
+        dataModel.fetchCities { cities in
             self.themeCities = cities
             
             DispatchQueue.main.async {
