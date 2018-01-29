@@ -10,7 +10,7 @@ import UIKit
 
 class DiscoveryTabViewController: UIViewController {
     
-    var viewModel: DiscoveryTabViewModel!
+    var viewModel: DiscoveryViewModel!
     
     let navView: UIView = {
         let view = UIView()

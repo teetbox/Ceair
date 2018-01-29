@@ -10,7 +10,7 @@ import UIKit
 
 class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var viewModel: DiscoveryTabViewModel!
+    var viewModel: DiscoveryViewModel!
     var activityIndex: Int!
     
     lazy var collectionView: UICollectionView = {

@@ -10,7 +10,7 @@ import UIKit
 
 class ActivityCollectionCell: BaseCVCell {
     
-    var viewModel: DiscoveryTabViewModel! {
+    var viewModel: DiscoveryViewModel! {
         didSet {
             collectionView.viewModel = viewModel
         }

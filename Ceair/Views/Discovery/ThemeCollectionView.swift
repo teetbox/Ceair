@@ -10,7 +10,7 @@ import UIKit
 
 class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var viewModel: DiscoveryTabViewModel!
+    var viewModel: DiscoveryViewModel!
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

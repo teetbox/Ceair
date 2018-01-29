@@ -9,7 +9,7 @@
 import Foundation
 @testable import Ceair
 
-class MockDiscoveryCoordinator: DiscoveryTabViewModelCoordinatorDelegate {
+class MockDiscoveryCoordinator: DiscoveryViewModelCoordinatorDelegate {
     
     var isDidSelectDestinationCalled = false
     

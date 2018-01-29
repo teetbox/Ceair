@@ -64,7 +64,7 @@
 		C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76251F57DEC6007EB4E2 /* DEFAULTS.swift */; };
 		C98C76281F57E156007EB4E2 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */; };
 		C9979CA71FFB05D300540B2C /* DiscoveryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CA61FFB05D300540B2C /* DiscoveryTabViewController.swift */; };
-		C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */; };
+		C9979CAA1FFB070100540B2C /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CA91FFB070100540B2C /* DiscoveryViewModel.swift */; };
 		C9979CAD1FFB073C00540B2C /* DiscoveryTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CAC1FFB073C00540B2C /* DiscoveryTabDataModel.swift */; };
 		C9979CB01FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CAF1FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift */; };
 		C9979CB31FFB089300540B2C /* MockDiscoveryTabDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */; };
@@ -232,7 +232,7 @@
 		C98C76251F57DEC6007EB4E2 /* DEFAULTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEFAULTS.swift; sourceTree = "<group>"; };
 		C98C76271F57E156007EB4E2 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		C9979CA61FFB05D300540B2C /* DiscoveryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabViewController.swift; sourceTree = "<group>"; };
-		C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabViewModel.swift; sourceTree = "<group>"; };
+		C9979CA91FFB070100540B2C /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
 		C9979CAC1FFB073C00540B2C /* DiscoveryTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabDataModel.swift; sourceTree = "<group>"; };
 		C9979CAF1FFB07CA00540B2C /* DiscoveryTabViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTabViewModelTests.swift; sourceTree = "<group>"; };
 		C9979CB21FFB089300540B2C /* MockDiscoveryTabDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryTabDataModel.swift; sourceTree = "<group>"; };
@@ -584,7 +584,7 @@
 		C9979CA81FFB06DC00540B2C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C9979CA91FFB070100540B2C /* DiscoveryTabViewModel.swift */,
+				C9979CA91FFB070100540B2C /* DiscoveryViewModel.swift */,
 				C9979CAB1FFB072400540B2C /* DataModels */,
 			);
 			path = ViewModels;
@@ -921,7 +921,7 @@
 				C94273022018523A00E97620 /* ChartCollectionCell.swift in Sources */,
 				C9FD533C2005DC8B00D7B2ED /* DestinationCollectionView.swift in Sources */,
 				C94272EF201823E400E97620 /* RouteCollectionView.swift in Sources */,
-				C9979CAA1FFB070100540B2C /* DiscoveryTabViewModel.swift in Sources */,
+				C9979CAA1FFB070100540B2C /* DiscoveryViewModel.swift in Sources */,
 				C94272F820182C1000E97620 /* RouteViewModel.swift in Sources */,
 				C9DBDF701FFB409E00BFC093 /* ActivityCollectionView.swift in Sources */,
 				C9FD533E2005DCA400D7B2ED /* DestinationCollectionCell.swift in Sources */,

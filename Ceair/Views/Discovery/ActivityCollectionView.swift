@@ -14,7 +14,7 @@ protocol ScrollViewDelegate {
 
 class ActivityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var viewModel: DiscoveryTabViewModel!
+    var viewModel: DiscoveryViewModel!
     
     var scrollDelegate: ScrollViewDelegate?
     

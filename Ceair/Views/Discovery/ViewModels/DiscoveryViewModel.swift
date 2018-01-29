@@ -1,5 +1,5 @@
 //
-//  DiscoveryTabViewModel.swift
+//  DiscoveryViewModel.swift
 //  Ceair
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol DiscoveryTabViewModelCoordinatorDelegate {
+protocol DiscoveryViewModelCoordinatorDelegate {
     func didSelectDestination()
 }
 
-class DiscoveryTabViewModel {
+class DiscoveryViewModel {
     
-    var coordinator: DiscoveryTabViewModelCoordinatorDelegate?
+    var coordinator: DiscoveryViewModelCoordinatorDelegate?
     
     let dataModel: DiscoveryTabDataModelProtocol
     

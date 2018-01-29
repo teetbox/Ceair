@@ -11,7 +11,7 @@ import XCTest
 
 class DiscoveryTabViewModelTests: XCTestCase {
     
-    var sut: DiscoveryTabViewModel!
+    var sut: DiscoveryViewModel!
     var dataModel: MockDiscoveryTabDataModel!
     var coordinator: MockDiscoveryCoordinator!
     
@@ -20,7 +20,7 @@ class DiscoveryTabViewModelTests: XCTestCase {
         
         dataModel = MockDiscoveryTabDataModel()
         coordinator = MockDiscoveryCoordinator()
-        sut = DiscoveryTabViewModel(dataModel: dataModel)
+        sut = DiscoveryViewModel(dataModel: dataModel)
         sut.coordinator = coordinator
     }
     

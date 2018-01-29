@@ -23,14 +23,14 @@ class DiscoveryCoordinator: AppCoordinator {
     
     override func start() {
         let discoveryDataModel = DiscoveryTabDataModel()
-        let discoveryTabViewModel = DiscoveryTabViewModel(dataModel: discoveryDataModel)
+        let discoveryTabViewModel = DiscoveryViewModel(dataModel: discoveryDataModel)
         discoveryTabViewModel.coordinator = self
         discoveryViewController.viewModel = discoveryTabViewModel
     }
  
 }
 
-extension DiscoveryCoordinator: DiscoveryTabViewModelCoordinatorDelegate {
+extension DiscoveryCoordinator: DiscoveryViewModelCoordinatorDelegate {
     
     func didSelectDestination() {
         let destinationCoordinator = DestinationCoordinator(window: window)
