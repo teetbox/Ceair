@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CEHTTP
 
 class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -67,6 +68,14 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
         }
         cell.themeLabel.text = cityName
         
+        let http = CEHttp(base: "https://efbplus.ceair.com:600", config: .ephemeral)
+        http.get("/muws/themePic/Osakagj561.jpg") { response in
+            DispatchQueue.main.async {
+                if let imageDate = response.data {
+                    cell.imageView.image = UIImage(data: imageDate)
+                }
+            }
+        }
         return cell
     }
     

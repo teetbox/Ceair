@@ -51,8 +51,8 @@ class CityCollectionCell: BaseCVCell {
         super.setUpViews()
         
         addSubview(imageView)
-        addConstraints(format: "H:[v0]", views: imageView)
-        addConstraints(format: "V:[v0]", views: imageView)
+        addConstraints(format: "H:|[v0]|", views: imageView)
+        addConstraints(format: "V:|[v0]|", views: imageView)
         
         addSubview(upwardLine)
         addConstraints(format: "H:[v0(60)]", views: upwardLine)
