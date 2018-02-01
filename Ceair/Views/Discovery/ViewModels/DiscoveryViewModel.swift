@@ -19,14 +19,17 @@ class DiscoveryViewModel {
     
     let dataModel: DiscoveryDataModelProtocol
     
+    /* ✅ */
     init(dataModel: DiscoveryDataModelProtocol) {
         self.dataModel = dataModel
     }
     
+    /* ✅ */
     var themeCount: Int {
         return themes.count
     }
     
+    /* ✅ */
     var themeCityCount: Int {
         return themeCities.count
     }
@@ -38,6 +41,7 @@ class DiscoveryViewModel {
         return themes[indexPath.item]
     }
     
+    /* ✅ */
     func fetchThemes(completion: @escaping () -> Void) {
         dataModel.fetchThemes { themes in
             self.themes = themes
@@ -56,6 +60,7 @@ class DiscoveryViewModel {
         return themeCities[themeIndex]
     }
     
+    /* ✅ */
     func fetchCities(completion: @escaping () -> Void) {
         dataModel.fetchCities { cities in
             self.themeCities = cities
@@ -66,6 +71,7 @@ class DiscoveryViewModel {
         }
     }
     
+    /* ✅ */
     func loadImage(from url: String, completion: @escaping (String, Data) -> Void) {
         dataModel.loadImage(from: url) { (imageUrl, imageData) in
             DispatchQueue.main.async {
@@ -74,10 +80,12 @@ class DiscoveryViewModel {
         }
     }
     
+    /* ✅ */
     func showRoute(at index: Int) {
         coordinator?.showRoute(at: index)
     }
     
+    /* ✅ */
     func showTheme(at index: Int) {
         coordinator?.showTheme(at: index)
     }

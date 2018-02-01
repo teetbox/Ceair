@@ -15,12 +15,17 @@ class MockDiscoveryDataModel: DiscoveryDataModelProtocol {
     var isFetchCitiesCalled = false
     var isLoadImageCalled = false
     
+    var fakeThemes: [DiscoveryTheme]?
+    var fakeCities: [[DiscoveryCity]]?
+    
     func fetchThemes(completion: @escaping ([DiscoveryTheme]) -> Void) {
         isFetchThemesCalled = true
+        completion(fakeThemes ?? [])
     }
     
     func fetchCities(completion: @escaping ([[DiscoveryCity]]) -> Void) {
         isFetchCitiesCalled = true
+        completion(fakeCities ?? [])
     }
     
     func loadImage(from url: String, completion: @escaping (String, Data) -> Void) {
