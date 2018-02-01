@@ -16,9 +16,9 @@ class ActivityCollectionCell: BaseCVCell {
         }
     }
     
-    var activityIndex: Int! {
+    var themeIndex: Int! {
         didSet {
-            collectionView.activityIndex = activityIndex
+            collectionView.themeIndex = themeIndex
         }
     }
     

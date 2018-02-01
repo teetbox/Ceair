@@ -10,6 +10,8 @@ import UIKit
 
 class CityCollectionCell: BaseCVCell {
     
+    var imageUrl: String?
+    
     let imageView: UIImageView = {
         let image = UIImageView()
         return image

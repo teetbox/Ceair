@@ -12,15 +12,17 @@ import SwiftyJSON
 import SwiftyBeaver
 typealias Log = SwiftyBeaver
 
-protocol DiscoveryTabDataModelProtocol {
+protocol DiscoveryDataModelProtocol {
     func fetchThemes(completion: @escaping ([DiscoveryTheme]) -> Void)
     func fetchCities(completion: @escaping ([[DiscoveryCity]]) -> Void)
+    func loadImage(from url: String, completion: @escaping (String, Data) -> Void)
 }
 
-struct DiscoveryDataModel: DiscoveryTabDataModelProtocol {
+struct DiscoveryDataModel: DiscoveryDataModelProtocol {
     
     let http = CEHttp(base: "http://172.31.65.187:8080")
     let themePath = "/portal/mobile/getThemeCodeList"
+    let cache = Cache<Data>()
     
     func fetchThemes(completion: @escaping ([DiscoveryTheme]) -> Void) {
         http.get(themePath) { response in
@@ -71,4 +73,23 @@ struct DiscoveryDataModel: DiscoveryTabDataModelProtocol {
             completion(themeCities)
         }
     }
+    
+    func loadImage(from urlString: String, completion: @escaping (String, Data) -> Void) {
+        if let imageData = cache.object(forKey: urlString) {
+            completion(urlString, imageData)
+        } else {
+            CEHttp(base: urlString, config: .ephemeral).get("") { response in
+                guard let url = response.urlResponse?.url else {
+                    return
+                }
+                guard let data = response.data else {
+                    return
+                }
+                self.cache.cache(data, forKey: url.absoluteString)
+                completion(url.absoluteString, data)
+            }
+        }
+        
+    }
+    
 }

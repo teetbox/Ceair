@@ -49,20 +49,14 @@ class ActivityCollectionView: UIView, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count: Int
-        if viewModel.themeCities.count == 0 {
-            count = 4
-        } else {
-            count = viewModel.themeCities.count
-        }
-        return count
+        return viewModel.themeCityCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ActivityCollectionCell
         cell.backgroundColor = .white
         cell.viewModel = viewModel
-        cell.activityIndex = indexPath.item
+        cell.themeIndex = indexPath.item
         cell.collectionView.reloadData()
         return cell
     }

@@ -15,10 +15,12 @@ struct DiscoveryCity {
     let oriEngCode: String
     let desEngCode: String
     let price: Int
+    let imageUrl: String
     let themeCode: String
 }
 
 extension DiscoveryCity {
+    
     init(json: JSON, themeCode: String) {
         cityName = json["cityName"].stringValue
         oriEngCode = json["oriEngCode"].stringValue
@@ -29,6 +31,13 @@ extension DiscoveryCity {
         } else {
             tagList = []
         }
+        let imageUrls = json["imageFileVOList"].arrayValue
+        if imageUrls.count > 0 {
+            imageUrl = imageUrls[0]["imgUrl"].stringValue
+        } else {
+            imageUrl = ""
+        }
         self.themeCode = themeCode
     }
+    
 }

@@ -17,15 +17,26 @@ class DiscoveryViewModel {
     
     var coordinator: DiscoveryViewModelCoordinatorDelegate?
     
-    let dataModel: DiscoveryTabDataModelProtocol
+    let dataModel: DiscoveryDataModelProtocol
     
-    init(dataModel: DiscoveryTabDataModelProtocol) {
+    init(dataModel: DiscoveryDataModelProtocol) {
         self.dataModel = dataModel
     }
     
-    var themes = [DiscoveryTheme]()
+    var themeCount: Int {
+        return themes.count
+    }
     
-    var themeCities = [[DiscoveryCity]]()
+    var themeCityCount: Int {
+        return themeCities.count
+    }
+    
+    private var themes = [DiscoveryTheme]()
+    private var themeCities = [[DiscoveryCity]]()
+    
+    func theme(at indexPath: IndexPath) -> DiscoveryTheme {
+        return themes[indexPath.item]
+    }
     
     func fetchThemes(completion: @escaping () -> Void) {
         dataModel.fetchThemes { themes in
@@ -37,12 +48,28 @@ class DiscoveryViewModel {
         }
     }
     
+    func city(at index: IndexPath, forTheme themeIndex: Int) -> DiscoveryCity {
+        return themeCities[themeIndex][index.item]
+    }
+    
+    func cities(forTheme themeIndex: Int) -> [DiscoveryCity] {
+        return themeCities[themeIndex]
+    }
+    
     func fetchCities(completion: @escaping () -> Void) {
         dataModel.fetchCities { cities in
             self.themeCities = cities
             
             DispatchQueue.main.async {
                 completion()
+            }
+        }
+    }
+    
+    func loadImage(from url: String, completion: @escaping (String, Data) -> Void) {
+        dataModel.loadImage(from: url) { (imageUrl, imageData) in
+            DispatchQueue.main.async {
+                completion(imageUrl, imageData)
             }
         }
     }

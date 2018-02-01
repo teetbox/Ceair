@@ -1,5 +1,5 @@
 //
-//  DiscoveryTabViewModelTests.swift
+//  DiscoveryViewModelTests.swift
 //  CeairTests
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -9,16 +9,16 @@
 import XCTest
 @testable import Ceair
 
-class DiscoveryTabViewModelTests: XCTestCase {
+class DiscoveryViewModelTests: XCTestCase {
     
     var sut: DiscoveryViewModel!
-    var dataModel: MockDiscoveryTabDataModel!
+    var dataModel: MockDiscoveryDataModel!
     var coordinator: MockDiscoveryCoordinator!
     
     override func setUp() {
         super.setUp()
         
-        dataModel = MockDiscoveryTabDataModel()
+        dataModel = MockDiscoveryDataModel()
         coordinator = MockDiscoveryCoordinator()
         sut = DiscoveryViewModel(dataModel: dataModel)
         sut.coordinator = coordinator

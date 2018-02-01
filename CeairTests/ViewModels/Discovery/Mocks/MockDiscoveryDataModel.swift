@@ -1,5 +1,5 @@
 //
-//  MockDiscoveryTabDataModel.swift
+//  MockDiscoveryDataModel.swift
 //  CeairTests
 //
 //  Created by Matt Tian on 02/01/2018.
@@ -9,10 +9,11 @@
 import Foundation
 @testable import Ceair
 
-class MockDiscoveryTabDataModel: DiscoveryTabDataModelProtocol {
+class MockDiscoveryDataModel: DiscoveryDataModelProtocol {
     
     var isFetchThemesCalled = false
     var isFetchCitiesCalled = false
+    var isLoadImageCalled = false
     
     func fetchThemes(completion: @escaping ([DiscoveryTheme]) -> Void) {
         isFetchThemesCalled = true
@@ -20,6 +21,10 @@ class MockDiscoveryTabDataModel: DiscoveryTabDataModelProtocol {
     
     func fetchCities(completion: @escaping ([[DiscoveryCity]]) -> Void) {
         isFetchCitiesCalled = true
+    }
+    
+    func loadImage(from url: String, completion: @escaping (String, Data) -> Void) {
+        isLoadImageCalled = true
     }
     
 }
