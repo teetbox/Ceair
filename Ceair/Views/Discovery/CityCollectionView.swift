@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CEHTTP
 
 class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
