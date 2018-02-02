@@ -12,6 +12,14 @@ class DiscoveryViewController: UIViewController {
     
     var viewModel: DiscoveryViewModel!
     
+    var playViewBottomConstraint: NSLayoutConstraint?
+    
+    let playView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .brown
+        return view
+    }()
+    
     let navView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.fromHEX(string: "#273B5E")
@@ -130,11 +138,86 @@ class DiscoveryViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .lightContent
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        initialCenter = playView.center
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         UIApplication.shared.statusBarStyle = .default
     }
+    
+    var initialCenter = CGPoint()
+    var previousCenter = CGPoint()
+    var isPlayDisplayed = false
+    
+    @objc func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
+        guard gestureRecognizer.view != nil else {
+            return
+        }
+        let panView = gestureRecognizer.view!
+        
+//        if (panView.center.x != initialCenter.x) {
+//            panView.center.x = initialCenter.x
+//            return
+//        }
+        
+        let translation = gestureRecognizer.translation(in: panView.superview)
+        if gestureRecognizer.state == .began {
+            // Save the view's original position.
+            previousCenter = panView.center
+        }
+        // Update the position for the .began, .changed, and .ended states
+        if gestureRecognizer.state != .cancelled {
+            // Add the X and Y translation to the view's original position.
+            let newCenter = CGPoint(x: previousCenter.x, y: previousCenter.y + translation.y)
+            panView.center = newCenter
+        }
+        else {
+            // On cancellation, return the piece to its original location.
+            panView.center = previousCenter
+        }
+        
+        if gestureRecognizer.state == .ended {
+            let distance = panView.center.y - initialCenter.y
+            
+            if isPlayDisplayed {
+                if previousCenter.y - panView.center.y > 20 {
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.playView.center = self.initialCenter
+                    }, completion: { (true) in
+                        self.isPlayDisplayed = false
+                    })
+                } else {
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.playView.center = self.view.center
+                    }, completion: { (true) in
+                        self.isPlayDisplayed = true
+                    })
+                }
+            } else {
+                if distance > 50 {
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.playView.center = self.view.center
+                    }, completion: { (true) in
+                        self.isPlayDisplayed = true
+                    })
+                } else {
+                    UIView.animate(withDuration: 0.4, animations: {
+                        self.playView.center = self.initialCenter
+                    }, completion: { (true) in
+                        self.isPlayDisplayed = false
+                    })
+                }
+
+                self.previousCenter = panView.center
+            }
+        }
+    }
+    
     
     func setUpViews() {
         view.addSubview(navView)
@@ -148,6 +231,17 @@ class DiscoveryViewController: UIViewController {
         navView.addSubview(navTitle)
         navView.addConstraints(format: "V:[v0]-10-|", views: navTitle)
         navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
+        
+        view.addSubview(playView)
+        view.addConstraints(format: "H:|[v0]|", views: playView)
+        view.addConstraints(format: "V:[v0(400)]", views: playView)
+        playView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        playViewBottomConstraint = playView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
+        playViewBottomConstraint?.isActive = true
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panPiece))
+//        panGesture.delegate = self
+        playView.addGestureRecognizer(panGesture)
         
         view.addSubview(searchView)
         view.addConstraints(format: "H:|[v0]|", views: searchView)
@@ -184,10 +278,11 @@ class DiscoveryViewController: UIViewController {
         themeViewTopConstraint?.isActive = true
         
         view.bringSubview(toFront: navView)
+        view.bringSubview(toFront: playView)
     }
     
     var previousOffSetY: CGFloat = 0
-    
+    var counter = 0
 }
 
 extension DiscoveryViewController: ScrollViewDelegate {
@@ -232,5 +327,14 @@ extension DiscoveryViewController: ScrollViewDelegate {
         
         previousOffSetY = offSetY
     }
-    
+
+}
+
+extension DiscoveryViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let panGesture = gestureRecognizer as! UIPanGestureRecognizer
+        let velocity = panGesture.velocity(in: panGesture.view?.superview)
+        print(velocity)
+        return fabs(velocity.y) > fabs(velocity.x)
+    }
 }
