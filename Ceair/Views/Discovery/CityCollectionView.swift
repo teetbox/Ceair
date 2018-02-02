@@ -54,6 +54,7 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
         let city = viewModel.city(at: indexPath, forTheme: themeIndex!)
         cell.backgroundColor = UIColor.random
         cell.themeLabel.text = city.cityName
+        cell.priceLabel.text = "$\(city.price)"
         cell.imageUrl = city.imageUrl
         
         viewModel.loadImage(from: city.imageUrl) { (imageUrl, imageData) in
