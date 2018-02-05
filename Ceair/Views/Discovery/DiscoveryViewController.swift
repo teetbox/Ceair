@@ -154,16 +154,11 @@ class DiscoveryViewController: UIViewController {
     var previousCenter = CGPoint()
     var isPlayDisplayed = false
     
-    @objc func panPiece(_ gestureRecognizer : UIPanGestureRecognizer) {
+    @objc func handlePanGesture(_ gestureRecognizer : UIPanGestureRecognizer) {
         guard gestureRecognizer.view != nil else {
             return
         }
         let panView = gestureRecognizer.view!
-        
-//        if (panView.center.x != initialCenter.x) {
-//            panView.center.x = initialCenter.x
-//            return
-//        }
         
         let translation = gestureRecognizer.translation(in: panView.superview)
         if gestureRecognizer.state == .began {
@@ -212,7 +207,7 @@ class DiscoveryViewController: UIViewController {
                         self.isPlayDisplayed = false
                     })
                 }
-
+                
                 self.previousCenter = panView.center
             }
         }
@@ -239,8 +234,7 @@ class DiscoveryViewController: UIViewController {
         playViewBottomConstraint = playView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
         playViewBottomConstraint?.isActive = true
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panPiece))
-//        panGesture.delegate = self
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
         playView.addGestureRecognizer(panGesture)
         
         view.addSubview(searchView)
