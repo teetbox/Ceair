@@ -12,9 +12,12 @@ class DiscoveryViewController: UIViewController {
     
     var viewModel: DiscoveryViewModel!
     
-    var playViewBottomConstraint: NSLayoutConstraint?
+    var cartoonInitialCenter = CGPoint()
+    var cartoonPreviousCenter = CGPoint()
+    var cartoonViewBottomConstraint: NSLayoutConstraint?
+    var isCartoonDisplayed = false
     
-    let playView: UIView = {
+    let cartoonView: UIView = {
         let view = UIView()
         view.backgroundColor = .brown
         return view
@@ -95,8 +98,9 @@ class DiscoveryViewController: UIViewController {
         return refresh
     }()
     
-    var collectionViewTopConstraint: NSLayoutConstraint?
-    var collectionViewBottomConstraint: NSLayoutConstraint?
+    var cityViewTopConstraint: NSLayoutConstraint?
+    var cityViewBottomConstraint: NSLayoutConstraint?
+    var previousOffSetY: CGFloat = 0
     
     let cityView: ActivityCollectionView = {
         let collection = ActivityCollectionView()
@@ -141,7 +145,7 @@ class DiscoveryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        initialCenter = playView.center
+        cartoonInitialCenter = cartoonView.center
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -150,69 +154,57 @@ class DiscoveryViewController: UIViewController {
         UIApplication.shared.statusBarStyle = .default
     }
     
-    var initialCenter = CGPoint()
-    var previousCenter = CGPoint()
-    var isPlayDisplayed = false
-    
     @objc func handlePanGesture(_ gestureRecognizer : UIPanGestureRecognizer) {
-        guard gestureRecognizer.view != nil else {
-            return
-        }
         let panView = gestureRecognizer.view!
+        let point = gestureRecognizer.translation(in: view)
         
-        let translation = gestureRecognizer.translation(in: panView.superview)
         if gestureRecognizer.state == .began {
-            // Save the view's original position.
-            previousCenter = panView.center
+            cartoonPreviousCenter = panView.center
         }
-        // Update the position for the .began, .changed, and .ended states
+        
         if gestureRecognizer.state != .cancelled {
-            // Add the X and Y translation to the view's original position.
-            let newCenter = CGPoint(x: previousCenter.x, y: previousCenter.y + translation.y)
+            let newCenter = CGPoint(x: cartoonPreviousCenter.x, y: cartoonPreviousCenter.y + point.y)
             panView.center = newCenter
-        }
-        else {
-            // On cancellation, return the piece to its original location.
-            panView.center = previousCenter
+        } else {
+            panView.center = cartoonPreviousCenter
         }
         
         if gestureRecognizer.state == .ended {
-            let distance = panView.center.y - initialCenter.y
+            let distance = panView.center.y - cartoonInitialCenter.y
             
-            if isPlayDisplayed {
-                if previousCenter.y - panView.center.y > 20 {
+            if isCartoonDisplayed {
+                if cartoonPreviousCenter.y - panView.center.y > 20 {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.playView.center = self.initialCenter
+                        self.cartoonView.center = self.cartoonInitialCenter
                     }, completion: { (true) in
-                        self.isPlayDisplayed = false
+                        self.isCartoonDisplayed = false
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.playView.center = self.view.center
+                        self.cartoonView.center = self.view.center
                     }, completion: { (true) in
-                        self.isPlayDisplayed = true
+                        self.isCartoonDisplayed = true
                     })
                 }
             } else {
                 if distance > 50 {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.playView.center = self.view.center
+                        self.cartoonView.center = self.view.center
                     }, completion: { (true) in
-                        self.isPlayDisplayed = true
+                        self.isCartoonDisplayed = true
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.playView.center = self.initialCenter
+                        self.cartoonView.center = self.cartoonInitialCenter
                     }, completion: { (true) in
-                        self.isPlayDisplayed = false
+                        self.isCartoonDisplayed = false
                     })
                 }
                 
-                self.previousCenter = panView.center
+                self.cartoonPreviousCenter = panView.center
             }
         }
     }
-    
     
     func setUpViews() {
         view.addSubview(navView)
@@ -227,15 +219,15 @@ class DiscoveryViewController: UIViewController {
         navView.addConstraints(format: "V:[v0]-10-|", views: navTitle)
         navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
         
-        view.addSubview(playView)
-        view.addConstraints(format: "H:|[v0]|", views: playView)
-        view.addConstraints(format: "V:[v0(400)]", views: playView)
-        playView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        playViewBottomConstraint = playView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
-        playViewBottomConstraint?.isActive = true
+        view.addSubview(cartoonView)
+        view.addConstraints(format: "H:|[v0]|", views: cartoonView)
+        view.addConstraints(format: "V:[v0(400)]", views: cartoonView)
+        cartoonView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        cartoonViewBottomConstraint = cartoonView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
+        cartoonViewBottomConstraint?.isActive = true
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
-        playView.addGestureRecognizer(panGesture)
+        cartoonView.addGestureRecognizer(panGesture)
         
         view.addSubview(searchView)
         view.addConstraints(format: "H:|[v0]|", views: searchView)
@@ -259,10 +251,10 @@ class DiscoveryViewController: UIViewController {
         cityView.scrollDelegate = self
         view.addSubview(cityView)
         view.addConstraints(format: "H:|[v0]|", views: cityView)
-        collectionViewTopConstraint = cityView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
-        collectionViewTopConstraint?.isActive = true
-        collectionViewBottomConstraint = cityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
-        collectionViewBottomConstraint?.isActive = true
+        cityViewTopConstraint = cityView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
+        cityViewTopConstraint?.isActive = true
+        cityViewBottomConstraint = cityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
+        cityViewBottomConstraint?.isActive = true
         
         themeView.viewModel = viewModel
         view.addSubview(themeView)
@@ -272,11 +264,9 @@ class DiscoveryViewController: UIViewController {
         themeViewTopConstraint?.isActive = true
         
         view.bringSubview(toFront: navView)
-        view.bringSubview(toFront: playView)
+        view.bringSubview(toFront: cartoonView)
     }
-    
-    var previousOffSetY: CGFloat = 0
-    var counter = 0
+
 }
 
 extension DiscoveryViewController: ScrollViewDelegate {
@@ -294,13 +284,13 @@ extension DiscoveryViewController: ScrollViewDelegate {
             let gap = searchBottomConstant + distance
             let newSearchConstant = (gap < 60) ? gap : 60
             searchViewBottomConstraint?.constant = newSearchConstant
-            collectionViewTopConstraint?.constant = newSearchConstant
+            cityViewTopConstraint?.constant = newSearchConstant
             
             // Theme View
             let themeGap = themeTopConstant - distance
             let newThemeConstant = (themeGap > -91) ? themeGap : -91
             themeViewTopConstraint?.constant = newThemeConstant
-            collectionViewBottomConstraint?.constant = newThemeConstant
+            cityViewBottomConstraint?.constant = newThemeConstant
             
         // Scroll Up
         } else if (previousOffSetY < offSetY && offSetY > 0) {
@@ -310,25 +300,16 @@ extension DiscoveryViewController: ScrollViewDelegate {
             let gap = searchBottomConstant - distance
             let newSearchConstant = (gap > 0) ? gap : 0
             searchViewBottomConstraint?.constant = newSearchConstant
-            collectionViewTopConstraint?.constant = newSearchConstant
+            cityViewTopConstraint?.constant = newSearchConstant
             
             // Theme View
             let themeGap = themeTopConstant + distance
             let newThemeConstant = (themeGap < 0) ? themeGap : 0
             themeViewTopConstraint?.constant = newThemeConstant
-            collectionViewBottomConstraint?.constant = newThemeConstant
+            cityViewBottomConstraint?.constant = newThemeConstant
         }
         
         previousOffSetY = offSetY
     }
 
-}
-
-extension DiscoveryViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        let panGesture = gestureRecognizer as! UIPanGestureRecognizer
-        let velocity = panGesture.velocity(in: panGesture.view?.superview)
-        print(velocity)
-        return fabs(velocity.y) > fabs(velocity.x)
-    }
 }
