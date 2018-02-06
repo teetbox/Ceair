@@ -16,13 +16,6 @@ class DiscoveryViewController: UIViewController {
     var cartoonPreviousCenter = CGPoint()
     var cartoonViewBottomConstraint: NSLayoutConstraint?
     var isCartoonDisplayed = false
-//    {
-//        didSet {
-//            if !isCartoonDisplayed {
-//                fetchData()
-//            }
-//        }
-//    }
     
     var cartoonSearchViewBottomConstraint: NSLayoutConstraint?
     lazy var cartoonSearchView: CartoonSearchView = {
@@ -134,25 +127,19 @@ class DiscoveryViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
-        
-        setUpViews()
-        
-        fetchData()
-        
         hideKeyboardWhenTappedAround()
+
+        setUpViews()
+        fetchData()
     }
     
     private func fetchData() {
         viewModel.fetchThemes {
-            if !self.isCartoonDisplayed {
-                self.themeView.reloadData()
-            }
+            self.themeView.reloadData()
         }
         
         viewModel.fetchCities {
-            if !self.isCartoonDisplayed {
-                self.cityView.reloadData()
-            }
+            self.cityView.reloadData()
         }
     }
     
@@ -165,8 +152,15 @@ class DiscoveryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(#function)
+        
         cartoonInitialCenter = cartoonSearchView.center
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if isCartoonDisplayed {
+            cartoonSearchView.center = view.center
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
