@@ -16,16 +16,18 @@ class DiscoveryViewController: UIViewController {
     var cartoonPreviousCenter = CGPoint()
     var cartoonViewBottomConstraint: NSLayoutConstraint?
     var isCartoonDisplayed = false
-    
-    let cartoonView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .brown
-        return view
-    }()
+//    {
+//        didSet {
+//            if !isCartoonDisplayed {
+//                fetchData()
+//            }
+//        }
+//    }
     
     var cartoonSearchViewBottomConstraint: NSLayoutConstraint?
-    let cartoonSearchView: UIView = {
+    lazy var cartoonSearchView: CartoonSearchView = {
         let view = CartoonSearchView()
+        view.delegate = self
         return view
     }()
     
@@ -129,16 +131,22 @@ class DiscoveryViewController: UIViewController {
         
         setUpViews()
         
-        hideKeyboardWhenTappedAround()
+        fetchData()
         
+        hideKeyboardWhenTappedAround()
+    }
+    
+    private func fetchData() {
         viewModel.fetchThemes {
-            self.themeView.reloadData()
-            print("Got themes")
+            if !self.isCartoonDisplayed {
+                self.themeView.reloadData()
+            }
         }
-
+        
         viewModel.fetchCities {
-            self.cityView.reloadData()
-            print("Got cities")
+            if !self.isCartoonDisplayed {
+                self.cityView.reloadData()
+            }
         }
     }
     
@@ -150,8 +158,8 @@ class DiscoveryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        cartoonInitialCenter = cartoonView.center
+        print(#function)
+        cartoonInitialCenter = cartoonSearchView.center
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -181,13 +189,13 @@ class DiscoveryViewController: UIViewController {
             if isCartoonDisplayed {
                 if cartoonPreviousCenter.y - panView.center.y > 20 {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.cartoonView.center = self.cartoonInitialCenter
+                        self.cartoonSearchView.center = self.cartoonInitialCenter
                     }, completion: { (true) in
                         self.isCartoonDisplayed = false
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.cartoonView.center = self.view.center
+                        self.cartoonSearchView.center = self.view.center
                     }, completion: { (true) in
                         self.isCartoonDisplayed = true
                     })
@@ -195,13 +203,13 @@ class DiscoveryViewController: UIViewController {
             } else {
                 if distance > 50 {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.cartoonView.center = self.view.center
+                        self.cartoonSearchView.center = self.view.center
                     }, completion: { (true) in
                         self.isCartoonDisplayed = true
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
-                        self.cartoonView.center = self.cartoonInitialCenter
+                        self.cartoonSearchView.center = self.cartoonInitialCenter
                     }, completion: { (true) in
                         self.isCartoonDisplayed = false
                     })
@@ -224,16 +232,15 @@ class DiscoveryViewController: UIViewController {
         navView.addSubview(navTitle)
         navView.addConstraints(format: "V:[v0]-10-|", views: navTitle)
         navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
-        
-        view.addSubview(cartoonView)
-        view.addConstraints(format: "H:|[v0]|", views: cartoonView)
-        view.addConstraints(format: "V:[v0(400)]", views: cartoonView)
-        cartoonView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cartoonViewBottomConstraint = cartoonView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
-        cartoonViewBottomConstraint?.isActive = true
+
+        view.addSubview(cartoonSearchView)
+        view.addConstraints(format: "H:|[v0]|", views: cartoonSearchView)
+        view.addConstraints(format: "V:[v0(\(view.frame.height))]", views: cartoonSearchView)
+        cartoonSearchViewBottomConstraint = cartoonSearchView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
+        cartoonSearchViewBottomConstraint?.isActive = true
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
-        cartoonView.addGestureRecognizer(panGesture)
+        cartoonSearchView.addGestureRecognizer(panGesture)
         
         view.addSubview(searchView)
         view.addConstraints(format: "H:|[v0]|", views: searchView)
@@ -270,13 +277,7 @@ class DiscoveryViewController: UIViewController {
         themeViewTopConstraint?.isActive = true
         
         view.bringSubview(toFront: navView)
-        view.bringSubview(toFront: cartoonView)
-        
-        view.addSubview(cartoonSearchView)
-        view.addConstraints(format: "H:|[v0]|", views: cartoonSearchView)
-        view.addConstraints(format: "V:[v0(\(view.frame.height))]", views: cartoonSearchView)
-        cartoonSearchViewBottomConstraint = cartoonSearchView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
-        cartoonSearchViewBottomConstraint?.isActive = true
+        view.bringSubview(toFront: cartoonSearchView)
     }
 
 }
@@ -324,4 +325,12 @@ extension DiscoveryViewController: ScrollViewDelegate {
         previousOffSetY = offSetY
     }
 
+}
+
+extension DiscoveryViewController: CartoonSearchViewDelegate {
+    
+    func textFieldBeginEditing(tag: Int) {
+        print(tag)
+    }
+    
 }
