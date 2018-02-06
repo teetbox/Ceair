@@ -16,10 +16,10 @@ class CartoonSearchView: UIView {
     
     var delegate: CartoonSearchViewDelegate?
     
-    let backgroundView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
-        return view
+    let backgroundImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIColor.fromHEX(string: "#719F6C").getImage(size: CGSize(width: 10, height: 10))
+        return imageView
     }()
     
     let searchView: UIView = {
@@ -106,9 +106,9 @@ class CartoonSearchView: UIView {
     }
     
     private func setupViews() {
-        addSubview(backgroundView)
-        addConstraints(format: "H:|[v0]|", views: backgroundView)
-        addConstraints(format: "V:|[v0]|", views: backgroundView)
+        addSubview(backgroundImage)
+        addConstraints(format: "H:|[v0]|", views: backgroundImage)
+        addConstraints(format: "V:|[v0]|", views: backgroundImage)
         
         addSubview(searchView)
         addConstraints(format: "H:[v0(300)]", views: searchView)
