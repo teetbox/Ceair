@@ -23,6 +23,12 @@ class DiscoveryViewController: UIViewController {
         return view
     }()
     
+    var cartoonSearchViewBottomConstraint: NSLayoutConstraint?
+    let cartoonSearchView: UIView = {
+        let view = CartoonSearchView()
+        return view
+    }()
+    
     let navView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.fromHEX(string: "#273B5E")
@@ -265,6 +271,12 @@ class DiscoveryViewController: UIViewController {
         
         view.bringSubview(toFront: navView)
         view.bringSubview(toFront: cartoonView)
+        
+        view.addSubview(cartoonSearchView)
+        view.addConstraints(format: "H:|[v0]|", views: cartoonSearchView)
+        view.addConstraints(format: "V:[v0(\(view.frame.height))]", views: cartoonSearchView)
+        cartoonSearchViewBottomConstraint = cartoonSearchView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
+        cartoonSearchViewBottomConstraint?.isActive = true
     }
 
 }
