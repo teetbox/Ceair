@@ -12,7 +12,11 @@ class DiscoveryViewController: UIViewController {
     
     var viewModel: DiscoveryViewModel!
     
-    var cartoonInitialCenter = CGPoint()
+    var cartoonInitialCenter = CGPoint() {
+        didSet {
+            print(cartoonInitialCenter)
+        }
+    }
     var cartoonPreviousCenter = CGPoint()
     var cartoonViewBottomConstraint: NSLayoutConstraint?
     var isCartoonDisplayed = false
@@ -119,7 +123,8 @@ class DiscoveryViewController: UIViewController {
     
     let dimView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0.2, alpha: 0.5)
+        view.backgroundColor = UIColor(white: 0.2, alpha: 0.8)
+        view.alpha = 0
         return view
     }()
     
@@ -149,13 +154,14 @@ class DiscoveryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         UIApplication.shared.statusBarStyle = .lightContent
-        dimView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        cartoonInitialCenter = cartoonSearchView.center
+        if !isCartoonDisplayed {
+            cartoonInitialCenter = cartoonSearchView.center
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -193,6 +199,7 @@ class DiscoveryViewController: UIViewController {
             if isCartoonDisplayed {
                 if cartoonPreviousCenter.y - panView.center.y > 20 {
                     UIView.animate(withDuration: 0.4, animations: {
+                        print(self.cartoonInitialCenter)
                         self.cartoonSearchView.center = self.cartoonInitialCenter
                         self.dimView.alpha = 0
                     }, completion: { (true) in
@@ -275,7 +282,7 @@ class DiscoveryViewController: UIViewController {
         view.addConstraints(format: "H:|[v0]|", views: cityView)
         cityViewTopConstraint = cityView.topAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
         cityViewTopConstraint?.isActive = true
-        cityViewBottomConstraint = cityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
+        cityViewBottomConstraint = cityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -105)
         cityViewBottomConstraint?.isActive = true
         
         themeView.viewModel = viewModel
@@ -345,6 +352,46 @@ extension DiscoveryViewController: CartoonSearchViewDelegate {
     
     func textFieldBeginEditing(tag: Int) {
         print(tag)
+        let newViewController = NewViewController()
+        newViewController.didSelect = { (text) in
+            self.cartoonSearchView.dateTextfield.text = text
+        }
+        navigationController?.pushViewController(newViewController, animated: true)
+    }
+    
+}
+
+class NewViewController: UIViewController {
+    
+    typealias CallBack = (String) -> Void
+    
+    var didSelect: CallBack?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        navigationController?.isNavigationBarHidden = false
+        
+        let button = UIButton()
+        button.backgroundColor = .green
+        button.addTarget(self, action: #selector(handleShow), for: .touchUpInside)
+        view.addSubview(button)
+        button.setTitle("Show", for: .normal)
+        view.addConstraints(format: "H:[v0(60)]", views: button)
+        view.addConstraints(format: "V:[v0(30)]", views: button)
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    @objc func handleShow() {
+        navigationController?.popViewController(animated: true)
+        if let callBack = didSelect {
+            callBack("TTSY")
+        }
     }
     
 }

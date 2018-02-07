@@ -39,13 +39,15 @@ class CartoonSearchView: UIView {
     }()
     
     lazy var fromTextfield: UITextField = {
-        let textfield = UITextField()
-        textfield.tag = 1
-        textfield.delegate = self
-        textfield.layer.borderWidth = 0.5
-        textfield.layer.borderColor = UIColor.lightGray.cgColor
-        textfield.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
-        return textfield
+        let textField = UITextField()
+        textField.tag = 1
+        textField.delegate = self
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 7, height: 30))
+        textField.leftViewMode = .always
+        return textField
     }()
     
     let toLabel: UILabel = {
@@ -58,13 +60,15 @@ class CartoonSearchView: UIView {
     }()
     
     lazy var toTextfield: UITextField = {
-        let textfield = UITextField()
-        textfield.tag = 2
-        textfield.delegate = self
-        textfield.layer.borderWidth = 0.5
-        textfield.layer.borderColor = UIColor.lightGray.cgColor
-        textfield.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
-        return textfield
+        let textField = UITextField()
+        textField.tag = 2
+        textField.delegate = self
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 7, height: 30))
+        textField.leftViewMode = .always
+        return textField
     }()
     
     let dateLabel: UILabel = {
@@ -77,13 +81,15 @@ class CartoonSearchView: UIView {
     }()
     
     lazy var dateTextfield: UITextField = {
-        let textfield = UITextField()
-        textfield.tag = 3
-        textfield.delegate = self
-        textfield.layer.borderWidth = 0.5
-        textfield.layer.borderColor = UIColor.lightGray.cgColor
-        textfield.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
-        return textfield
+        let textField = UITextField()
+        textField.tag = 3
+        textField.delegate = self
+        textField.layer.borderWidth = 0.5
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 7, height: 30))
+        textField.leftViewMode = .always
+        return textField
     }()
     
     lazy var searchButton: UIButton = {
