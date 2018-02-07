@@ -56,6 +56,9 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
         cell.themeLabel.text = city.cityName
         cell.priceLabel.text = "$\(city.price)"
         cell.imageUrl = city.imageUrl
+        cell.firstLabel.text = city.firstTag
+        cell.secondLabel.text = city.secondTag
+        cell.thirdLabel.text = city.thirdTag
         
         viewModel.loadImage(from: city.imageUrl) { (imageUrl, imageData) in
             if cell.imageUrl == imageUrl {
@@ -70,17 +73,7 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 120)
-    }
-    
-    // Maybe this is for section spacing
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    // Horizontal and Vertical spacing between each item
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return CGSize(width: 187, height: 187)
     }
     
 }

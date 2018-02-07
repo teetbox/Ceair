@@ -59,7 +59,7 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 33)
+        return CGSize(width: 86, height: 40)
     }
     
     // Horizontal and Vertical spacing between each line

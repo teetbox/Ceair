@@ -27,18 +27,36 @@ class ActivityCollectionCell: BaseCVCell {
         return view
     }()
     
+    let contentIcon: UIImageView = {
+        let image = UIImageView(image: #imageLiteral(resourceName: "Triangle"))
+        image.tintColor = .darkGray
+        return image
+    }()
+    
     let contentLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
+        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.textAlignment = .left
+        label.textColor = .darkGray
         label.text = "Content"
         return label
     }()
     
     let moreLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.text = "MORE>>"
+        label.font = UIFont.systemFont(ofSize: 16.0)
+        label.textAlignment = .right
         label.textColor = .lightGray
+        label.text = "MORE>>"
+        return label
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16.0)
+        label.text = "Sun raise, sunset ..."
+        label.textColor = .lightGray
+        label.textAlignment = .left
         return label
     }()
     
@@ -48,14 +66,6 @@ class ActivityCollectionCell: BaseCVCell {
         return collection
     }()
     
-    let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0)
-        label.text = "Sun raise, sunset ..."
-        label.textColor = .lightGray
-        return label
-    }()
-    
     override func setUpViews() {
         super.setUpViews()
         
@@ -63,20 +73,22 @@ class ActivityCollectionCell: BaseCVCell {
         addConstraints(format: "H:|[v0]|", views: titleView)
         addConstraints(format: "V:|[v0(40)]", views: titleView)
         
+        titleView.addSubview(contentIcon)
         titleView.addSubview(contentLabel)
+        titleView.addSubview(descriptionLabel)
         titleView.addSubview(moreLabel)
-        titleView.addConstraints(format: "H:|-10-[v0]", views: contentLabel)
-        titleView.addConstraints(format: "H:[v0]-10-|", views: moreLabel)
-        titleView.addConstraints(format: "V:|-10-[v0]", views: contentLabel)
-        titleView.addConstraints(format: "V:|-10-[v0]", views: moreLabel)
+        titleView.addConstraints(format: "H:|-5-[v0(20)]-5-[v1(80)]-5-[v2]-10-[v3(80)]-10-|", views: contentIcon, contentLabel, descriptionLabel, moreLabel)
+        titleView.addConstraints(format: "V:|-12-[v0(16)]", views: contentIcon)
+        titleView.addConstraints(format: "V:[v0(40)]", views: contentLabel)
+        titleView.addConstraints(format: "V:[v0(40)]", views: descriptionLabel)
+        titleView.addConstraints(format: "V:[v0(40)]", views: moreLabel)
+        contentLabel.centerYAnchor.constraint(equalTo: contentIcon.centerYAnchor).isActive = true
+        descriptionLabel.centerYAnchor.constraint(equalTo: contentIcon.centerYAnchor).isActive = true
+        moreLabel.centerYAnchor.constraint(equalTo: contentIcon.centerYAnchor).isActive = true
 
         addSubview(collectionView)
         addConstraints(format: "H:|[v0]|", views: collectionView)
-        addConstraints(format: "V:|-40-[v0(120)]-40-|", views: collectionView)
-        
-        addSubview(descriptionLabel)
-        addConstraints(format: "H:|-10-[v0]|", views: descriptionLabel)
-        addConstraints(format: "V:[v0(40)]|", views: descriptionLabel)
+        addConstraints(format: "V:|-40-[v0(187)]-10-|", views: collectionView)
     }
     
 }

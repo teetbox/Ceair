@@ -117,7 +117,7 @@ class DiscoveryViewController: UIViewController {
         return theme
     }()
     
-    let blurView: UIView = {
+    let dimView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.2, alpha: 0.5)
         return view
@@ -131,6 +131,8 @@ class DiscoveryViewController: UIViewController {
 
         setUpViews()
         fetchData()
+        
+        print(view.frame.width)
     }
     
     private func fetchData() {
@@ -147,7 +149,7 @@ class DiscoveryViewController: UIViewController {
         super.viewWillAppear(animated)
         
         UIApplication.shared.statusBarStyle = .lightContent
-        blurView.alpha = 0
+        dimView.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -155,6 +157,7 @@ class DiscoveryViewController: UIViewController {
         
         cartoonInitialCenter = cartoonSearchView.center
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -191,14 +194,14 @@ class DiscoveryViewController: UIViewController {
                 if cartoonPreviousCenter.y - panView.center.y > 20 {
                     UIView.animate(withDuration: 0.4, animations: {
                         self.cartoonSearchView.center = self.cartoonInitialCenter
-                        self.blurView.alpha = 0
+                        self.dimView.alpha = 0
                     }, completion: { (true) in
                         self.isCartoonDisplayed = false
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
                         self.cartoonSearchView.center = self.view.center
-                        self.blurView.alpha = 1
+                        self.dimView.alpha = 1
                     }, completion: { (true) in
                         self.isCartoonDisplayed = true
                     })
@@ -207,14 +210,14 @@ class DiscoveryViewController: UIViewController {
                 if distance > 50 {
                     UIView.animate(withDuration: 0.4, animations: {
                         self.cartoonSearchView.center = self.view.center
-                        self.blurView.alpha = 1
+                        self.dimView.alpha = 1
                     }, completion: { (true) in
                         self.isCartoonDisplayed = true
                     })
                 } else {
                     UIView.animate(withDuration: 0.4, animations: {
                         self.cartoonSearchView.center = self.cartoonInitialCenter
-                        self.blurView.alpha = 0
+                        self.dimView.alpha = 0
                     }, completion: { (true) in
                         self.isCartoonDisplayed = false
                     })
@@ -239,10 +242,10 @@ class DiscoveryViewController: UIViewController {
         navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
 
         view.addSubview(cartoonSearchView)
-        view.addConstraints(format: "H:[v0(350)]", views: cartoonSearchView)
-        view.addConstraints(format: "V:[v0(350)]", views: cartoonSearchView)
+        view.addConstraints(format: "H:[v0(320)]", views: cartoonSearchView)
+        view.addConstraints(format: "V:[v0(569)]", views: cartoonSearchView)
         cartoonSearchView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        cartoonSearchViewBottomConstraint = cartoonSearchView.bottomAnchor.constraint(equalTo: navView.bottomAnchor)
+        cartoonSearchViewBottomConstraint = cartoonSearchView.bottomAnchor.constraint(equalTo: navView.bottomAnchor, constant: 60)
         cartoonSearchViewBottomConstraint?.isActive = true
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
@@ -278,16 +281,16 @@ class DiscoveryViewController: UIViewController {
         themeView.viewModel = viewModel
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
-        view.addConstraints(format: "V:[v0(91)]", views: themeView)
-        themeViewTopConstraint = themeView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -91)
+        view.addConstraints(format: "V:[v0(105)]", views: themeView)
+        themeViewTopConstraint = themeView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -105)
         themeViewTopConstraint?.isActive = true
     
-        view.addSubview(blurView)
-        view.addConstraints(format: "H:|[v0]|", views: blurView)
-        view.addConstraints(format: "V:|[v0]|", views: blurView)
+        view.addSubview(dimView)
+        view.addConstraints(format: "H:|[v0]|", views: dimView)
+        view.addConstraints(format: "V:|[v0]|", views: dimView)
         
         view.bringSubview(toFront: navView)
-        view.bringSubview(toFront: blurView)
+        view.bringSubview(toFront: dimView)
         view.bringSubview(toFront: cartoonSearchView)
     }
 
@@ -312,7 +315,7 @@ extension DiscoveryViewController: ScrollViewDelegate {
             
             // Theme View
             let themeGap = themeTopConstant - distance
-            let newThemeConstant = (themeGap > -91) ? themeGap : -91
+            let newThemeConstant = (themeGap > -105) ? themeGap : -105
             themeViewTopConstraint?.constant = newThemeConstant
             cityViewBottomConstraint?.constant = newThemeConstant
             

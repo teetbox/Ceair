@@ -41,3 +41,17 @@ extension DiscoveryCity {
     }
     
 }
+
+extension DiscoveryCity {
+    var firstTag: String? {
+        return tagList.count > 0 ? tagList[0] : nil
+    }
+    
+    var secondTag: String? {
+        return tagList.count > 1 ? tagList[1] : nil
+    }
+    
+    var thirdTag: String? {
+        return tagList.count > 2 ? tagList[2] : nil
+    }
+}

@@ -18,7 +18,8 @@ class CartoonSearchView: UIView {
     
     let backgroundImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIColor.fromHEX(string: "#719F6C").getImage(size: CGSize(width: 10, height: 10))
+//        imageView.image = UIColor.fromHEX(string: "#719F6C").getImage(size: CGSize(width: 10, height: 10))
+        imageView.image = #imageLiteral(resourceName: "Cartoon")
         return imageView
     }()
     
@@ -30,7 +31,7 @@ class CartoonSearchView: UIView {
     
     let fromLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.font = UIFont.systemFont(ofSize: 16.0)
         label.text = "From"
         label.textColor = .black
         label.textAlignment = .right
@@ -49,7 +50,7 @@ class CartoonSearchView: UIView {
     
     let toLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.font = UIFont.systemFont(ofSize: 16.0)
         label.text = "To"
         label.textColor = .black
         label.textAlignment = .right
@@ -69,7 +70,7 @@ class CartoonSearchView: UIView {
     let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "Date"
-        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.font = UIFont.systemFont(ofSize: 16.0)
         label.textColor = .black
         label.textAlignment = .right
         return label
@@ -87,7 +88,7 @@ class CartoonSearchView: UIView {
     
     lazy var searchButton: UIButton = {
         let button = UIButton()
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20.0)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
         button.setTitle("Search", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = UIColor.fromHEX(string: "#2F4263")
@@ -111,35 +112,35 @@ class CartoonSearchView: UIView {
         addConstraints(format: "V:|[v0]|", views: backgroundImage)
         
         addSubview(searchView)
-        addConstraints(format: "H:[v0(300)]", views: searchView)
-        addConstraints(format: "V:[v0(215)]", views: searchView)
+        addConstraints(format: "H:[v0(240)]", views: searchView)
+        addConstraints(format: "V:[v0(180)]", views: searchView)
         searchView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         searchView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         searchView.addSubview(fromLabel)
         searchView.addSubview(fromTextfield)
-        addConstraints(format: "H:|[v0]-10-[v1(180)]-20-|", views: fromLabel, fromTextfield)
-        addConstraints(format: "V:|-20-[v0(30)]", views: fromLabel)
-        addConstraints(format: "V:[v0(35)]", views: fromTextfield)
+        addConstraints(format: "H:|[v0]-5-[v1(150)]-10-|", views: fromLabel, fromTextfield)
+        addConstraints(format: "V:|-15-[v0(25)]", views: fromLabel)
+        addConstraints(format: "V:[v0(30)]", views: fromTextfield)
         fromTextfield.centerYAnchor.constraint(equalTo: fromLabel.centerYAnchor).isActive = true
         
         searchView.addSubview(toLabel)
         searchView.addSubview(toTextfield)
-        addConstraints(format: "H:|[v0]-10-[v1(180)]-20-|", views: toLabel, toTextfield)
-        addConstraints(format: "V:|-65-[v0(30)]", views: toLabel)
-        addConstraints(format: "V:[v0(35)]", views: toTextfield)
+        addConstraints(format: "H:|[v0]-5-[v1(150)]-10-|", views: toLabel, toTextfield)
+        addConstraints(format: "V:|-55-[v0(25)]", views: toLabel)
+        addConstraints(format: "V:[v0(30)]", views: toTextfield)
         toTextfield.centerYAnchor.constraint(equalTo: toLabel.centerYAnchor).isActive = true
         
         searchView.addSubview(dateLabel)
         searchView.addSubview(dateTextfield)
-        addConstraints(format: "H:|[v0]-10-[v1(180)]-20-|", views: dateLabel, dateTextfield)
-        addConstraints(format: "V:|-110-[v0(30)]", views: dateLabel)
-        addConstraints(format: "V:[v0(35)]", views: dateTextfield)
+        addConstraints(format: "H:|[v0]-5-[v1(150)]-10-|", views: dateLabel, dateTextfield)
+        addConstraints(format: "V:|-95-[v0(25)]", views: dateLabel)
+        addConstraints(format: "V:[v0(30)]", views: dateTextfield)
         dateTextfield.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor).isActive = true
         
         searchView.addSubview(searchButton)
-        searchView.addConstraints(format: "H:|-20-[v0]-20-|", views: searchButton)
-        searchView.addConstraints(format: "V:[v0(40)]-20-|", views: searchButton)
+        searchView.addConstraints(format: "H:|-10-[v0]-10-|", views: searchButton)
+        searchView.addConstraints(format: "V:[v0(35)]-10-|", views: searchButton)
     }
     
     required init?(coder aDecoder: NSCoder) {
