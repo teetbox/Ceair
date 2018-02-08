@@ -12,6 +12,8 @@ class DestinationCollectionView: UIView, UICollectionViewDataSource, UICollectio
     
     var viewModel: DestinationViewModel!
     
+    var scrollDelegate: ScrollViewDelegate?
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)

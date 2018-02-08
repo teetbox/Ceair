@@ -44,13 +44,14 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.themeCount
+//        return viewModel.themeCount
+        return 30
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ThemeCollectionCell
         cell.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
-        cell.themeLabel.text = viewModel.theme(at: indexPath).themeName
+//        cell.themeLabel.text = viewModel.theme(at: indexPath).themeName
         return cell
     }
     

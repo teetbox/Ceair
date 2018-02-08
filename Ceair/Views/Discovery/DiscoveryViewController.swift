@@ -155,7 +155,7 @@ class DiscoveryViewController: UIViewController {
         }
         
         DispatchQueue.main.async {
-            sleep(2)
+            sleep(1)
             self.loadingView.stopAnimating()
         }
     }

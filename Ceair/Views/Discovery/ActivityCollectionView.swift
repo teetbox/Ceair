@@ -49,15 +49,16 @@ class ActivityCollectionView: UIView, UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.themeCityCount
+//        return viewModel.themeCityCount
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ActivityCollectionCell
         cell.backgroundColor = .white
-        cell.viewModel = viewModel
-        cell.themeIndex = indexPath.item
-        cell.collectionView.reloadData()
+//        cell.viewModel = viewModel
+//        cell.themeIndex = indexPath.item
+//        cell.collectionView.reloadData()
         return cell
     }
     

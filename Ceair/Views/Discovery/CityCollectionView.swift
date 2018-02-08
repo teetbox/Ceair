@@ -46,30 +46,31 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return themeIndex != nil ? viewModel.cities(forTheme: themeIndex!).count : 1
+//        return themeIndex != nil ? viewModel.cities(forTheme: themeIndex!).count : 1
+        return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CityCollectionCell
-        let city = viewModel.city(at: indexPath, forTheme: themeIndex!)
+//        let city = viewModel.city(at: indexPath, forTheme: themeIndex!)
         cell.backgroundColor = UIColor.random
-        cell.themeLabel.text = city.cityName
-        cell.priceLabel.text = "$\(city.price)"
-        cell.imageUrl = city.imageUrl
-        cell.firstLabel.text = city.firstTag
-        cell.secondLabel.text = city.secondTag
-        cell.thirdLabel.text = city.thirdTag
-        
-        viewModel.loadImage(from: city.imageUrl) { (imageUrl, imageData) in
-            if cell.imageUrl == imageUrl {
-                cell.imageView.image = UIImage(data: imageData)
-            }
-        }
+//        cell.themeLabel.text = city.cityName
+//        cell.priceLabel.text = "$\(city.price)"
+//        cell.imageUrl = city.imageUrl
+//        cell.firstLabel.text = city.firstTag
+//        cell.secondLabel.text = city.secondTag
+//        cell.thirdLabel.text = city.thirdTag
+//
+//        viewModel.loadImage(from: city.imageUrl) { (imageUrl, imageData) in
+//            if cell.imageUrl == imageUrl {
+//                cell.imageView.image = UIImage(data: imageData)
+//            }
+//        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.showRoute(at: indexPath.item)
+//        viewModel.showRoute(at: indexPath.item)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

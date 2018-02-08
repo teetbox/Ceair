@@ -11,10 +11,10 @@ import UIKit
 class DestinationViewController: UIViewController, UITabBarDelegate {
     
     var viewModel: DestinationViewModel!
-
-    let titleView: UIView = {
+    
+    let navView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor.blue
         return view
     }()
     
@@ -25,12 +25,6 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         return button
     }()
     
-    let navView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.blue
-        return view
-    }()
-    
     let navTitle: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -38,6 +32,12 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         label.font = UIFont.systemFont(ofSize: 18.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    let titleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
     }()
     
     let subtitle: UILabel = {
@@ -56,11 +56,21 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         return label
     }()
     
+    let topImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "TopImage")
+        return imageView
+    }()
+    
+    var previousOffSetY: CGFloat = 0
+    
+    var cityViewBottomConstraint: NSLayoutConstraint!
     let destinationCollection: DestinationCollectionView = {
         let collection = DestinationCollectionView()
         return collection
     }()
 
+    var themeViewTopConstraint: NSLayoutConstraint!
     let themeView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
@@ -134,15 +144,23 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         titleView.addConstraints(format: "V:|-10-[v0]-10-[v1]", views: subtitle, subtitle2)
         titleView.addConstraints(format: "H:|-40-[v0]", views: subtitle)
         titleView.addConstraints(format: "H:[v0]-40-|", views: subtitle2)
+        
+        view.addSubview(topImageView)
+        view.addConstraints(format: "H:|[v0]|", views: topImageView)
+        topImageView.topAnchor.constraint(equalTo: navView.topAnchor).isActive = true
+        topImageView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
 
         view.addSubview(filterBar)
         view.addConstraints(format: "H:|[v0]|", views: filterBar)
         view.addConstraints(format: "V:[v0]|", views: filterBar)
         if DeviceUtility.isPhoneX {
-            filterBar.heightAnchor.constraint(equalToConstant: 50 + 34).isActive = true // +34
+//            filterBar.heightAnchor.constraint(equalToConstant: 50 + 34).isActive = true // +34
+            filterBar.heightAnchor.constraint(equalToConstant: 0 + 34).isActive = true
         } else {
-            filterBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//            filterBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            filterBar.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
+        filterBar.alpha = 0
         
         view.addSubview(barSeparator)
         view.addConstraints(format: "H:|[v0]|", views: barSeparator)
@@ -152,7 +170,9 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
         view.addConstraints(format: "V:[v0(160)]", views: themeView)
-        themeView.bottomAnchor.constraint(equalTo: filterBar.topAnchor).isActive = true
+//        themeView.bottomAnchor.constraint(equalTo: filterBar.topAnchor).isActive = true
+        themeViewTopConstraint = themeView.topAnchor.constraint(equalTo: filterBar.topAnchor, constant: -160)
+        themeViewTopConstraint.isActive = true
         
         themeView.addSubview(themeLabel)
         themeView.addConstraints(format: "H:|-10-[v0]", views: themeLabel)
@@ -163,11 +183,14 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         themeView.addConstraints(format: "V:[v0(120)]-10-|", views: themeCollection)
 
         destinationCollection.viewModel = viewModel
+        destinationCollection.scrollDelegate = self
         view.addSubview(destinationCollection)
         view.addConstraints(format: "H:|-5-[v0]-5-|", views: destinationCollection)
         view.addConstraints(format: "V:[v0]", views: destinationCollection)
         destinationCollection.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
-        destinationCollection.bottomAnchor.constraint(equalTo: themeView.topAnchor, constant: -10).isActive = true
+//        destinationCollection.bottomAnchor.constraint(equalTo: themeView.topAnchor, constant: -10).isActive = true
+        cityViewBottomConstraint = destinationCollection.bottomAnchor.constraint(equalTo: themeView.topAnchor, constant: -10)
+        cityViewBottomConstraint.isActive = true
     }
     
     @objc func handleBack() {
@@ -189,6 +212,38 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     
     func dismissFilter() {
         filterBar.selectedItem = nil
+    }
+    
+}
+
+extension DestinationViewController: ScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSetY = scrollView.contentOffset.y
+        let themeTopConstant = themeViewTopConstraint!.constant
+        
+        // Scroll Down
+        if (previousOffSetY > offSetY && previousOffSetY < (scrollView.contentSize.height - scrollView.frame.height)) {
+            
+            // Theme View
+            let distance = previousOffSetY - offSetY
+            let themeGap = themeTopConstant - distance
+            let newThemeConstant = (themeGap > -105) ? themeGap : -105
+            themeViewTopConstraint?.constant = newThemeConstant
+            cityViewBottomConstraint?.constant = newThemeConstant
+            
+            // Scroll Up
+        } else if (previousOffSetY < offSetY && offSetY > 0) {
+            
+            // Theme View
+            let distance = offSetY - previousOffSetY
+            let themeGap = themeTopConstant + distance
+            let newThemeConstant = (themeGap < 0) ? themeGap : 0
+            themeViewTopConstraint?.constant = newThemeConstant
+            cityViewBottomConstraint?.constant = newThemeConstant
+        }
+        
+        previousOffSetY = offSetY
     }
     
 }
