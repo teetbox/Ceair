@@ -34,6 +34,7 @@
 		C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */; };
 		C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */; };
 		C92CBDC320196BD4004B64D7 /* DiscoveryTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92CBDC220196BD4004B64D7 /* DiscoveryTheme.swift */; };
+		C93837DF202BDE2F0093478F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93837DE202BDE2F0093478F /* LoadingView.swift */; };
 		C94272ED2018239A00E97620 /* RouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272EC2018239A00E97620 /* RouteViewController.swift */; };
 		C94272EF201823E400E97620 /* RouteCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272EE201823E400E97620 /* RouteCollectionView.swift */; };
 		C94272F22018247D00E97620 /* RouteCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94272F12018247D00E97620 /* RouteCollectionCell.swift */; };
@@ -206,6 +207,7 @@
 		C92BDF291F54E09200284B44 /* UIColor+HEXString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEXString.swift"; sourceTree = "<group>"; };
 		C92BDF2F1F54E17100284B44 /* BookingTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTabViewController.swift; sourceTree = "<group>"; };
 		C92CBDC220196BD4004B64D7 /* DiscoveryTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryTheme.swift; sourceTree = "<group>"; };
+		C93837DE202BDE2F0093478F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C94272EC2018239A00E97620 /* RouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteViewController.swift; sourceTree = "<group>"; };
 		C94272EE201823E400E97620 /* RouteCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionView.swift; sourceTree = "<group>"; };
 		C94272F12018247D00E97620 /* RouteCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCollectionCell.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 			children = (
 				C9EE0B681F5956C9009AF961 /* BaseTVCell.swift */,
 				C973BBDF1F59547500391516 /* BaseCVCell.swift */,
+				C93837DE202BDE2F0093478F /* LoadingView.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C94272ED2018239A00E97620 /* RouteViewController.swift in Sources */,
+				C93837DF202BDE2F0093478F /* LoadingView.swift in Sources */,
 				C92BDF2A1F54E09200284B44 /* UIColor+HEXString.swift in Sources */,
 				C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */,
 				C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */,

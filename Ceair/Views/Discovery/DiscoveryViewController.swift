@@ -128,6 +128,11 @@ class DiscoveryViewController: UIViewController {
         return view
     }()
     
+    let loadingView: LoadingView = {
+        let view = LoadingView()
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,17 +141,22 @@ class DiscoveryViewController: UIViewController {
 
         setUpViews()
         fetchData()
-        
-        print(view.frame.width)
     }
     
     private func fetchData() {
+        loadingView.startAnimating()
+        
         viewModel.fetchThemes {
             self.themeView.reloadData()
         }
         
         viewModel.fetchCities {
             self.cityView.reloadData()
+        }
+        
+        DispatchQueue.main.async {
+            sleep(2)
+            self.loadingView.stopAnimating()
         }
     }
     
@@ -299,6 +309,10 @@ class DiscoveryViewController: UIViewController {
         view.bringSubview(toFront: navView)
         view.bringSubview(toFront: dimView)
         view.bringSubview(toFront: cartoonSearchView)
+        
+        view.addSubview(loadingView)
+        view.addConstraints(format: "H:|[v0]|", views: loadingView)
+        view.addConstraints(format: "V:|[v0]|", views: loadingView)
     }
 
 }
