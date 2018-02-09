@@ -343,10 +343,16 @@ extension DiscoveryViewController: ScrollViewDelegate {
         // Scroll Up
         } else if (previousOffSetY < offSetY && offSetY > 0) {
             
-            // if scroll view reach the bottom, stop to update the constraint
             let bottomGap = scrollView.contentSize.height - scrollView.frame.size.height
+
+            // if scroll view reach the bottom, stop to update the constraint
             if (offSetY >= bottomGap) {
                 return
+            }
+            
+            // 100 is the threshold for loading more
+            if (bottomGap - offSetY < 100) {
+                print("Load more...")
             }
             
             // Search View
