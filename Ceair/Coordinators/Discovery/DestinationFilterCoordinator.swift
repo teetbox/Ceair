@@ -19,7 +19,6 @@ class DestinationFilterCoordinator: AppCoordinator {
     override func start() {
         let dataModel = DestinationFilterDataModel()
         let viewModel = DestinationFilterViewModel(dataModel: dataModel)
-        viewModel.coordinator = self
         
         destinationFilterView = DestinationFilterView()
         destinationFilterView?.viewModel = viewModel
@@ -29,18 +28,6 @@ class DestinationFilterCoordinator: AppCoordinator {
     func showFilter(with tag: Int) {
         start()
         destinationFilterView?.handleFilter(with: tag)
-    }
-    
-}
-
-extension DestinationFilterCoordinator: DestinationFilterViewModelCoordinatorDelegate {
-    
-    func dismiss() {
-        destinationFilterView = nil
-        coordinatorStack.pop()
-        if let destinationCoordinator = coordinatorStack.peek() as? DestinationCoordinator {
-            destinationCoordinator.dismissFilter()
-        }
     }
     
 }

@@ -54,8 +54,4 @@ extension DestinationCoordinator: DestinationViewModelCoordinatorDelegate {
         topViewController?.hidesBottomBarWhenPushed = true
     }
     
-    func dismissFilter() {
-        destinationVC?.dismissFilter()
-    }
-    
 }

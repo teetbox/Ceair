@@ -118,7 +118,6 @@ class CityCollectionCell: BaseCVCell {
         addConstraints(format: "H:|[v0]|", views: dimView)
         addConstraints(format: "V:|[v0]|", views: dimView)
         
-        
         addSubview(upwardLine)
         addConstraints(format: "H:[v0(80)]", views: upwardLine)
         addConstraints(format: "V:|-42-[v0(1)]", views: upwardLine)

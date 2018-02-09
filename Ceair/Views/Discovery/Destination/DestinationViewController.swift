@@ -14,13 +14,14 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     
     let navView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = .clear
         return view
     }()
     
     lazy var backButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Back", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "Back"), for: .normal)
+        button.tintColor = .white
         button.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
         return button
     }()
@@ -29,14 +30,14 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         let label = UILabel()
         label.textColor = .white
         label.text = "Island"
-        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let titleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -58,6 +59,7 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     
     let topImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.isUserInteractionEnabled = true
         imageView.image = #imageLiteral(resourceName: "TopImage")
         return imageView
     }()
@@ -94,17 +96,6 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         view.backgroundColor = .lightGray
         return view
     }()
-
-    lazy var filterBar: UITabBar = {
-        let tabBar = UITabBar()
-        let sortItem = UITabBarItem(title: "Sort", image: UIImage(named: "Sort"), tag: 1)
-        let filterItem = UITabBarItem(title: "Filter", image: UIImage(named: "Filter"), tag: 2)
-        tabBar.tintColor = UIColor.fromHEX(string: COLORS.BarTintColor)
-        tabBar.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
-        tabBar.delegate = self
-        tabBar.items = [sortItem, filterItem]
-        return tabBar
-    }()
     
     let filterView: UIView = {
         let view = UIView()
@@ -132,14 +123,6 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
             view.addConstraints(format: "V:|[v0(60)]", views: navView)
         }
         
-        navView.addSubview(navTitle)
-        navView.addConstraints(format: "V:[v0(30)]-10-|", views: navTitle)
-        navTitle.centerXAnchor.constraint(equalTo: navView.centerXAnchor).isActive = true
-        
-        navView.addSubview(backButton)
-        navView.addConstraints(format: "H:|-15-[v0]", views: backButton)
-        backButton.centerYAnchor.constraint(equalTo: navTitle.centerYAnchor).isActive = true
-        
         view.addSubview(titleView)
         view.addConstraints(format: "H:|[v0]|", views: titleView)
         view.addConstraints(format: "V:[v0(100)]", views: titleView)
@@ -151,10 +134,19 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         titleView.addConstraints(format: "H:|-40-[v0]", views: subtitle)
         titleView.addConstraints(format: "H:[v0]-40-|", views: subtitle2)
         
-        view.addSubview(topImageView)
+        navView.addSubview(topImageView)
         view.addConstraints(format: "H:|[v0]|", views: topImageView)
         topImageView.topAnchor.constraint(equalTo: navView.topAnchor).isActive = true
-        topImageView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
+        topImageView.bottomAnchor.constraint(equalTo: navView.bottomAnchor, constant: 100).isActive = true
+        
+        topImageView.addSubview(navTitle)
+        topImageView.addConstraints(format: "V:[v0(30)]-100-|", views: navTitle)
+        navTitle.centerXAnchor.constraint(equalTo: topImageView.centerXAnchor).isActive = true
+        
+        topImageView.addSubview(backButton)
+        topImageView.addConstraints(format: "H:|-15-[v0(44)]", views: backButton)
+        topImageView.addConstraints(format: "V:[v0(44)]", views: backButton)
+        backButton.centerYAnchor.constraint(equalTo: navTitle.centerYAnchor).isActive = true
 
         view.addSubview(filterView)
         view.addConstraints(format: "H:|[v0]|", views: filterView)
@@ -198,23 +190,6 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     
     @objc func handleBack() {
         viewModel.back()
-    }
-    
-    @objc func showFilter() {
-        viewModel.showFilter(with: 1)
-    }
-    
-    @objc func showData() {
-        viewModel.showFilter(with: 2)
-    }
-    
-    // UITabBar Delegate
-    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        viewModel.showFilter(with: item.tag)
-    }
-    
-    func dismissFilter() {
-        filterBar.selectedItem = nil
     }
     
 }
