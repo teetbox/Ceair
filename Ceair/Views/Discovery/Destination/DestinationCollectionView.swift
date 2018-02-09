@@ -44,7 +44,7 @@ class DestinationCollectionView: UIView, UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 18
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -63,6 +63,10 @@ class DestinationCollectionView: UIView, UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (frame.width - 20) / 2.0
         return CGSize(width: width, height: 140)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollDelegate?.scrollViewDidScroll(scrollView)
     }
 
 }

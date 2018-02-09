@@ -65,7 +65,7 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
     var previousOffSetY: CGFloat = 0
     
     var cityViewBottomConstraint: NSLayoutConstraint!
-    let destinationCollection: DestinationCollectionView = {
+    let cityCollection: DestinationCollectionView = {
         let collection = DestinationCollectionView()
         return collection
     }()
@@ -104,6 +104,12 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         tabBar.delegate = self
         tabBar.items = [sortItem, filterItem]
         return tabBar
+    }()
+    
+    let filterView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
+        return view
     }()
     
     override func viewDidLoad() {
@@ -150,47 +156,44 @@ class DestinationViewController: UIViewController, UITabBarDelegate {
         topImageView.topAnchor.constraint(equalTo: navView.topAnchor).isActive = true
         topImageView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor).isActive = true
 
-        view.addSubview(filterBar)
-        view.addConstraints(format: "H:|[v0]|", views: filterBar)
-        view.addConstraints(format: "V:[v0]|", views: filterBar)
+        view.addSubview(filterView)
+        view.addConstraints(format: "H:|[v0]|", views: filterView)
+        view.addConstraints(format: "V:[v0]|", views: filterView)
         if DeviceUtility.isPhoneX {
-//            filterBar.heightAnchor.constraint(equalToConstant: 50 + 34).isActive = true // +34
-            filterBar.heightAnchor.constraint(equalToConstant: 0 + 34).isActive = true
+            filterView.heightAnchor.constraint(equalToConstant: 0 + 34).isActive = true
         } else {
-//            filterBar.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            filterBar.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            filterView.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
-        filterBar.alpha = 0
-        
+
         view.addSubview(barSeparator)
         view.addConstraints(format: "H:|[v0]|", views: barSeparator)
         view.addConstraints(format: "V:[v0(0.5)]", views: barSeparator)
-        barSeparator.topAnchor.constraint(equalTo: filterBar.topAnchor, constant: 0.5).isActive = true
+        barSeparator.topAnchor.constraint(equalTo: filterView.topAnchor, constant: 0.5).isActive = true
 
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
-        view.addConstraints(format: "V:[v0(160)]", views: themeView)
-//        themeView.bottomAnchor.constraint(equalTo: filterBar.topAnchor).isActive = true
-        themeViewTopConstraint = themeView.topAnchor.constraint(equalTo: filterBar.topAnchor, constant: -160)
+        view.addConstraints(format: "V:[v0(170)]", views: themeView)
+        themeViewTopConstraint = themeView.topAnchor.constraint(equalTo: filterView.topAnchor, constant: -170)
         themeViewTopConstraint.isActive = true
         
         themeView.addSubview(themeLabel)
         themeView.addConstraints(format: "H:|-10-[v0]", views: themeLabel)
-        themeView.addConstraints(format: "V:|-5-[v0]", views: themeLabel)
+        themeView.addConstraints(format: "V:|-15-[v0]", views: themeLabel)
         
         themeView.addSubview(themeCollection)
         themeView.addConstraints(format: "H:|-10-[v0]-10-|", views: themeCollection)
         themeView.addConstraints(format: "V:[v0(120)]-10-|", views: themeCollection)
 
-        destinationCollection.viewModel = viewModel
-        destinationCollection.scrollDelegate = self
-        view.addSubview(destinationCollection)
-        view.addConstraints(format: "H:|-5-[v0]-5-|", views: destinationCollection)
-        view.addConstraints(format: "V:[v0]", views: destinationCollection)
-        destinationCollection.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
-//        destinationCollection.bottomAnchor.constraint(equalTo: themeView.topAnchor, constant: -10).isActive = true
-        cityViewBottomConstraint = destinationCollection.bottomAnchor.constraint(equalTo: themeView.topAnchor, constant: -10)
+        cityCollection.viewModel = viewModel
+        cityCollection.scrollDelegate = self
+        view.addSubview(cityCollection)
+        view.addConstraints(format: "H:|-5-[v0]-5-|", views: cityCollection)
+        view.addConstraints(format: "V:[v0]", views: cityCollection)
+        cityCollection.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 10).isActive = true
+        cityViewBottomConstraint = cityCollection.bottomAnchor.constraint(equalTo: filterView.topAnchor, constant: -170)
         cityViewBottomConstraint.isActive = true
+        
+        view.bringSubview(toFront: filterView)
     }
     
     @objc func handleBack() {
@@ -228,7 +231,7 @@ extension DestinationViewController: ScrollViewDelegate {
             // Theme View
             let distance = previousOffSetY - offSetY
             let themeGap = themeTopConstant - distance
-            let newThemeConstant = (themeGap > -105) ? themeGap : -105
+            let newThemeConstant = (themeGap > -170) ? themeGap : -170
             themeViewTopConstraint?.constant = newThemeConstant
             cityViewBottomConstraint?.constant = newThemeConstant
             
