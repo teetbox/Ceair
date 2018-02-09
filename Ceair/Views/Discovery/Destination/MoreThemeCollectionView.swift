@@ -12,6 +12,13 @@ class MoreThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     
     var viewModel: DestinationViewModel!
     
+    let themes = ["GUJI", "ZIRAN", "ZIJIA", "PAOTANG", "HAIDAO", "DOGNWU", "HUAXUE", "GOUWU",
+                  "MINSU", "JIXIAN", "JIGUANG", "HUPO", "SHANGHUA", "QINZI", "WENHUA", "ZONGJIAO",
+                  "LENGMEN", "SHANFENG", "JUNMI", "JIEQING", "SAISHI", "SENLING", "MIYUE",
+                  "DUZI", "HONGSELVYOU", "MEISHI", "FUMU", "QIXING", "QIANSHUI", "SHEYING", "TUBU",
+                  "XINGKONG", "SHAMO", "CAOYUAN", "PIAOLIU"]
+    // "QIANSHUI", "SHASHI", "ZONGJIAO", "WENHUA", "HAIDAO", "PAOTANG"
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 10
@@ -42,14 +49,15 @@ class MoreThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return themes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MoreThemeCollectionCell
         cell.viewModel = viewModel
         cell.backgroundColor = .white
-        cell.imageView.image = UIColor.random.getImage(size: CGSize(width: 10, height: 10))
+        cell.imageView.image = UIImage(named: themes[indexPath.item]) ?? #imageLiteral(resourceName: "STAR")
+        cell.themeLabel.text = themes[indexPath.item]
         
         return cell
     }

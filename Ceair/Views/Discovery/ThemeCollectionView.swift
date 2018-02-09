@@ -12,6 +12,12 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     
     var viewModel: DiscoveryViewModel!
     
+    let themes = ["GUJI", "ZIRAN", "ZIJIA", "PAOTANG", "HAIDAO", "DOGNWU", "HUAXUE", "GOUWU",
+                  "MINSU", "JIXIAN", "JIGUANG", "HUPO", "SHANGHUA", "QINZI", "WENHUA", "ZONGJIAO",
+                  "LENGMEN", "SHANFENG", "JUNMI", "JIEQING", "SAISHI", "SENLING", "MIYUE/QINGLV",
+                  "DUZI", "HONGSELVYOU", "MEISHI", "FUMU", "QIXING", "QIANSHUI", "SHEYING", "TUBU",
+                  "XINGKONG", "SHAMO", "CAOYUAN", "PIAOLIU"]
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -45,13 +51,13 @@ class ThemeCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return viewModel.themeCount
-        return 30
+        return themes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ThemeCollectionCell
         cell.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
-//        cell.themeLabel.text = viewModel.theme(at: indexPath).themeName
+        cell.themeLabel.text = themes[indexPath.item]
         return cell
     }
     

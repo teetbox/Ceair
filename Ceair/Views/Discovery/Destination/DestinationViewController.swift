@@ -213,6 +213,11 @@ extension DestinationViewController: ScrollViewDelegate {
             // Scroll Up
         } else if (previousOffSetY < offSetY && offSetY > 0) {
             
+            // if scroll view reach the bottom, stop to update the constraint
+            let bottomGap = scrollView.contentSize.height - scrollView.frame.size.height
+            if (offSetY >= bottomGap) {
+                return
+            }
             // Theme View
             let distance = offSetY - previousOffSetY
             let themeGap = themeTopConstant + distance
