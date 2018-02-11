@@ -97,9 +97,11 @@ class ChartCollectionView: UIView, UICollectionViewDataSource, UICollectionViewD
         cell.backgroundColor = UIColor.fromHEX(string: "#2D4267")
         cell.colors = blueColors
         cell.heightConstraint?.constant = height
+        cell.priceLabel.textColor = UIColor.fromHEX(string: "#4695CD")
         
         if price == minPrice {
             cell.colors = redColors
+            cell.priceLabel.textColor = UIColor.fromHEX(string: "#E958C6")
             minimalLabelBottomConstraint?.constant = -height
             minimalLabel.layoutIfNeeded()
         }

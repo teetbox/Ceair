@@ -15,6 +15,14 @@ class ChartCollectionCell: BaseCVCell {
         return view
     }()
     
+    let priceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 15.0)
+        label.text = "¥200"
+        label.textAlignment = .center
+        return label
+    }()
+    
     var colors: [CGColor] = []
     
     var heightConstraint: NSLayoutConstraint?
@@ -23,9 +31,13 @@ class ChartCollectionCell: BaseCVCell {
         addSubview(priceView)
         addConstraints(format: "H:|[v0]|", views: priceView)
         addConstraints(format: "V:[v0]|", views: priceView)
-        
         heightConstraint = priceView.heightAnchor.constraint(equalToConstant: 100)
         heightConstraint?.isActive = true
+        
+        addSubview(priceLabel)
+        addConstraints(format: "V:[v0(20)]", views: priceLabel)
+        priceLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        priceLabel.bottomAnchor.constraint(equalTo: priceView.topAnchor, constant: -3).isActive = true
     }
     
     override func layoutSubviews() {
