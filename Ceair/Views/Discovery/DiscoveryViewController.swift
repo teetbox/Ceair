@@ -128,10 +128,10 @@ class DiscoveryViewController: UIViewController {
         return view
     }()
     
-    let loadingView: LoadingView = {
-        let view = LoadingView()
-        return view
-    }()
+//    let loadingView: LoadingView = {
+//        let view = LoadingView()
+//        return view
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,20 +144,29 @@ class DiscoveryViewController: UIViewController {
     }
     
     private func fetchData() {
-        loadingView.startAnimating()
+        let loading = LoadingViewController()
+        var isFinishThemeLoading = false
+        var isFinishCityLoading = false
+        add(loading)
         
         viewModel.fetchThemes {
             self.themeView.reloadData()
+            isFinishThemeLoading = true
+            
+            if isFinishCityLoading && isFinishThemeLoading {
+                loading.remove()
+            }
         }
         
         viewModel.fetchCities {
             self.cityView.reloadData()
+            isFinishCityLoading = true
+            
+            if isFinishCityLoading && isFinishThemeLoading {
+                loading.remove()
+            }
         }
         
-        DispatchQueue.main.async {
-            sleep(2)
-            self.loadingView.stopAnimating()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -310,9 +319,9 @@ class DiscoveryViewController: UIViewController {
         view.bringSubview(toFront: dimView)
         view.bringSubview(toFront: cartoonSearchView)
         
-        view.addSubview(loadingView)
-        view.addConstraints(format: "H:|[v0]|", views: loadingView)
-        view.addConstraints(format: "V:|[v0]|", views: loadingView)
+//        view.addSubview(loadingView)
+//        view.addConstraints(format: "H:|[v0]|", views: loadingView)
+//        view.addConstraints(format: "V:|[v0]|", views: loadingView)
     }
 
 }
