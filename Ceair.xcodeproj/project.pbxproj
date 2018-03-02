@@ -18,6 +18,10 @@
 		C903830E200342590021C340 /* MockDestinationFilterDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */; };
 		C9084C582004B10B00800FF9 /* UIImage+MaskColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9084C572004B10B00800FF9 /* UIImage+MaskColor.swift */; };
 		C9084C5A2004B66100800FF9 /* MockDestinationFilterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9084C592004B66100800FF9 /* MockDestinationFilterCoordinator.swift */; };
+		C90970492048E3030058FDD8 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90970482048E3030058FDD8 /* AnalyticsManager.swift */; };
+		C909704B2048E4BA0058FDD8 /* AnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704A2048E4BA0058FDD8 /* AnalyticsEngine.swift */; };
+		C909704D2048E4CA0058FDD8 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */; };
+		C909704F2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
 		C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* IMAGES.swift */; };
@@ -46,7 +50,7 @@
 		C94273022018523A00E97620 /* ChartCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94273012018523A00E97620 /* ChartCollectionCell.swift */; };
 		C95368851F620AE100CFE1F4 /* UIButton+CenterSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */; };
 		C958809E2015783700420FB2 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */; };
-		C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A02015C38300420FB2 /* MyTabViewController.swift */; };
+		C95880A12015C38300420FB2 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A02015C38300420FB2 /* MyViewController.swift */; };
 		C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A42015D6FA00420FB2 /* RadialGradientView.swift */; };
 		C960CE4B2022E5E900DCD69E /* CacheUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C960CE4A2022E5E900DCD69E /* CacheUtility.swift */; };
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
@@ -190,6 +194,10 @@
 		C903830D200342590021C340 /* MockDestinationFilterDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDestinationFilterDataModel.swift; sourceTree = "<group>"; };
 		C9084C572004B10B00800FF9 /* UIImage+MaskColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+MaskColor.swift"; sourceTree = "<group>"; };
 		C9084C592004B66100800FF9 /* MockDestinationFilterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDestinationFilterCoordinator.swift; sourceTree = "<group>"; };
+		C90970482048E3030058FDD8 /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		C909704A2048E4BA0058FDD8 /* AnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngine.swift; sourceTree = "<group>"; };
+		C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
+		C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitAnalyticsEngine.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
 		C9171AF71F5630DA00D9BE66 /* IMAGES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAGES.swift; sourceTree = "<group>"; };
@@ -221,7 +229,7 @@
 		C94273012018523A00E97620 /* ChartCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCollectionCell.swift; sourceTree = "<group>"; };
 		C95368841F620AE100CFE1F4 /* UIButton+CenterSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+CenterSpace.swift"; sourceTree = "<group>"; };
 		C958809D2015783700420FB2 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
-		C95880A02015C38300420FB2 /* MyTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabViewController.swift; sourceTree = "<group>"; };
+		C95880A02015C38300420FB2 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		C95880A42015D6FA00420FB2 /* RadialGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialGradientView.swift; sourceTree = "<group>"; };
 		C960CE4A2022E5E900DCD69E /* CacheUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheUtility.swift; sourceTree = "<group>"; };
 		C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
@@ -342,6 +350,17 @@
 			path = Widget;
 			sourceTree = "<group>";
 		};
+		C90970472048E2CF0058FDD8 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				C90970482048E3030058FDD8 /* AnalyticsManager.swift */,
+				C909704A2048E4BA0058FDD8 /* AnalyticsEngine.swift */,
+				C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */,
+				C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		C9171AF61F56308300D9BE66 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +429,7 @@
 				C9CF91A01F554F1000F352F0 /* Networks */,
 				C92BDF281F54E07000284B44 /* Extensions */,
 				C98C76221F57DE4E007EB4E2 /* Utilities */,
+				C90970472048E2CF0058FDD8 /* Analytics */,
 				C9171AF61F56308300D9BE66 /* Constants */,
 				C92BDF251F54E04100284B44 /* Supporting Files */,
 			);
@@ -541,7 +561,7 @@
 		C958809F2015C30800420FB2 /* My */ = {
 			isa = PBXGroup;
 			children = (
-				C95880A02015C38300420FB2 /* MyTabViewController.swift */,
+				C95880A02015C38300420FB2 /* MyViewController.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -937,7 +957,7 @@
 				C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */,
 				C9DBDF7A1FFB740900BFC093 /* ThemeCollectionCell.swift in Sources */,
 				C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */,
-				C95880A12015C38300420FB2 /* MyTabViewController.swift in Sources */,
+				C95880A12015C38300420FB2 /* MyViewController.swift in Sources */,
 				C92BDF301F54E17100284B44 /* BookingTabViewController.swift in Sources */,
 				C94272ED2018239A00E97620 /* RouteViewController.swift in Sources */,
 				C93837DF202BDE2F0093478F /* LoadingView.swift in Sources */,
@@ -951,17 +971,21 @@
 				C94272F820182C1000E97620 /* RouteViewModel.swift in Sources */,
 				C9DBDF701FFB409E00BFC093 /* ActivityCollectionView.swift in Sources */,
 				C9FD533E2005DCA400D7B2ED /* DestinationCollectionCell.swift in Sources */,
+				C909704D2048E4CA0058FDD8 /* AnalyticsEvent.swift in Sources */,
 				C9DB6C0B1FFDB512001F2AA2 /* FilterCollectionView.swift in Sources */,
 				C94272F22018247D00E97620 /* RouteCollectionCell.swift in Sources */,
 				C9239ED2201ACDAA003DD7BC /* DiscoveryCity.swift in Sources */,
 				C9DBDF781FFB73EE00BFC093 /* ThemeCollectionView.swift in Sources */,
+				C90970492048E3030058FDD8 /* AnalyticsManager.swift in Sources */,
 				C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */,
 				C922E5561F5F747400689AE7 /* DateUtility.swift in Sources */,
 				C98A15F71F8C3AA700B5B477 /* MoreTabViewController.swift in Sources */,
 				C9CF91A31F554F4800F352F0 /* Flight.swift in Sources */,
 				C9E927161F58CDA000BC5183 /* FlightTabDataModel.swift in Sources */,
+				C909704F2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift in Sources */,
 				C9C306651F627F600020A316 /* User.swift in Sources */,
 				C9DB6C0D1FFDB528001F2AA2 /* FilterCollectionCell.swift in Sources */,
+				C909704B2048E4BA0058FDD8 /* AnalyticsEngine.swift in Sources */,
 				C9FCBAC61F578CA500B6788A /* UIView+Constraint.swift in Sources */,
 				C98C76211F57DDD3007EB4E2 /* AppCoordinator.swift in Sources */,
 				C9B54E9F1FFC672B0027A93E /* DiscoveryCoordinator.swift in Sources */,

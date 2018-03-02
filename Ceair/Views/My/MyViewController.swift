@@ -8,7 +8,18 @@
 
 import UIKit
 
-class MyTabViewController: UIViewController {
+class MyViewController: UIViewController {
+    
+    private let analytics: AnalyticsManager
+    
+    init(analytics: AnalyticsManager) {
+        self.analytics = analytics
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     let navView: UIView = {
         let view = UIView()
@@ -39,6 +50,8 @@ class MyTabViewController: UIViewController {
         
         setUpGradients()
         setUpViews()
+        
+        analytics.log(.loginSucceeded)
     }
     
     private func setUpGradients() {
