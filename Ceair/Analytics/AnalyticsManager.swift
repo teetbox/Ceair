@@ -6,7 +6,7 @@
 //  Copyright © 2018 Bizersoft. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class AnalyticsManager {
     
@@ -18,6 +18,18 @@ class AnalyticsManager {
     
     func log(_ event: AnalyticsEvent) {
         engine.sendAnalyticsEvent(named: event.name, metadata: event.metadata)
+    }
+    
+}
+
+extension AnalyticsManager {
+    
+    static func make(with window: UIWindow) -> AnalyticsManager {
+        if CommandLine.arguments.contains("--uitesting") {
+            return AnalyticsManager(engine: AlertAnalyticsEngine(window: window))
+        }
+        
+        return AnalyticsManager(engine: CloudKitAnalyticsEngine())
     }
     
 }

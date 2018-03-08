@@ -63,6 +63,8 @@
 		C95880A12015C38300420FB2 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A02015C38300420FB2 /* MyViewController.swift */; };
 		C95880A52015D6FA00420FB2 /* RadialGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95880A42015D6FA00420FB2 /* RadialGradientView.swift */; };
 		C960CE4B2022E5E900DCD69E /* CacheUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C960CE4A2022E5E900DCD69E /* CacheUtility.swift */; };
+		C965605520511E16004C2E45 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */; };
+		C965605620511E17004C2E45 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */; };
 		C96AF29B1F67609B00E5B6F8 /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */; };
 		C973BBE01F59547500391516 /* BaseCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C973BBDF1F59547500391516 /* BaseCVCell.swift */; };
 		C982F3C21F8CA2B50046197A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C982F3C11F8CA2B50046197A /* Main.storyboard */; };
@@ -1047,6 +1049,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C91384222050E246005BFCDA /* DISPLAY.swift in Sources */,
+				C965605520511E16004C2E45 /* AnalyticsEvent.swift in Sources */,
 				C91384112050D587005BFCDA /* CeairUITests.swift in Sources */,
 				C913841F2050E02E005BFCDA /* XCUIApplication+DisplayView.swift in Sources */,
 			);
@@ -1169,6 +1172,7 @@
 				C9979CB01FFB07CA00540B2C /* DiscoveryViewModelTests.swift in Sources */,
 				C9B54EB31FFCBD660027A93E /* MockDestinationCoordinator.swift in Sources */,
 				C922E55A1F5F761100689AE7 /* DateUtilityTests.swift in Sources */,
+				C965605620511E17004C2E45 /* AnalyticsEvent.swift in Sources */,
 				C91384042050C944005BFCDA /* MyViewModelTests.swift in Sources */,
 				C9E9271C1F58D0A800BC5183 /* MockFlightTabDataModel.swift in Sources */,
 			);

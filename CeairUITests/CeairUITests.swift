@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Ceair
 
 class CeairUITests: XCTestCase {
     
@@ -22,15 +23,29 @@ class CeairUITests: XCTestCase {
         app.launchArguments.append("--uitesting")
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testTapOnMyTab() {
+    func testDisplayDiscoveryView() {
         app.launch()
         
+        XCTAssertTrue(app.isDisplayingDiscovery)
         XCTAssertTrue(app.isDisplayingLoading)
+        XCTAssertFalse(app.isDisplayingCity)
+        
+        print(Date())
+        _ = app.otherElements[DISPLAY.CityView].waitForExistence(timeout: 10)
+        print(Date())
+        XCTAssertTrue(app.isDisplayingCity)
+    }
+    
+    func _testViewMyTab() {
+        app.launch()
+        
+        XCTAssertTrue(app.isDisplayingMy)
+    }
+    
+    func _testLogMyTab() {
+        app.launch()
+        
+        XCTAssertTrue(app.isLogged(for: .myScreenViewed))
     }
     
 }

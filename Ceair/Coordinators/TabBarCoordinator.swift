@@ -48,7 +48,8 @@ class TabBarCoordinator: AppCoordinator {
         moreTab.tabBarItem.title = TABBARS.More
         moreTab.tabBarItem.image = UIImage(named: IMAGES.More)
         
-        let myViewModel = MyViewModel(analytics: AnalyticsManager(engine: CloudKitAnalyticsEngine()))
+        let analyticsManager = AnalyticsManager.make(with: window)
+        let myViewModel = MyViewModel(analytics: analyticsManager)
         let myViewController = MyViewController(viewModel: myViewModel)
         let myTab = UINavigationController(rootViewController: myViewController)
         myTab.tabBarItem.title = TABBARS.My
