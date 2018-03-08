@@ -22,6 +22,8 @@
 		C909704B2048E4BA0058FDD8 /* AnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704A2048E4BA0058FDD8 /* AnalyticsEngine.swift */; };
 		C909704D2048E4CA0058FDD8 /* AnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */; };
 		C909704F2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */; };
+		C909705320492B6B0058FDD8 /* MyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C909705220492B6B0058FDD8 /* MyViewModel.swift */; };
+		C9097055204933EB0058FDD8 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9097054204933EB0058FDD8 /* DependencyContainer.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */; };
 		C9171AF81F5630DA00D9BE66 /* IMAGES.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9171AF71F5630DA00D9BE66 /* IMAGES.swift */; };
@@ -198,6 +200,8 @@
 		C909704A2048E4BA0058FDD8 /* AnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngine.swift; sourceTree = "<group>"; };
 		C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEvent.swift; sourceTree = "<group>"; };
 		C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitAnalyticsEngine.swift; sourceTree = "<group>"; };
+		C909705220492B6B0058FDD8 /* MyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewModel.swift; sourceTree = "<group>"; };
+		C9097054204933EB0058FDD8 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C9171AF41F562F8600D9BE66 /* FlightTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabViewController.swift; sourceTree = "<group>"; };
 		C9171AF71F5630DA00D9BE66 /* IMAGES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMAGES.swift; sourceTree = "<group>"; };
@@ -361,6 +365,22 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		C909705020492A490058FDD8 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				C9097054204933EB0058FDD8 /* DependencyContainer.swift */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		C909705120492B4F0058FDD8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C909705220492B6B0058FDD8 /* MyViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		C9171AF61F56308300D9BE66 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,10 +446,11 @@
 				C92BDF2D1F54E0CF00284B44 /* Coordinators */,
 				C92BDF261F54E06100284B44 /* Views */,
 				C92BDF271F54E06700284B44 /* Models */,
-				C9CF91A01F554F1000F352F0 /* Networks */,
-				C92BDF281F54E07000284B44 /* Extensions */,
 				C98C76221F57DE4E007EB4E2 /* Utilities */,
 				C90970472048E2CF0058FDD8 /* Analytics */,
+				C9CF91A01F554F1000F352F0 /* Networks */,
+				C92BDF281F54E07000284B44 /* Extensions */,
+				C909705020492A490058FDD8 /* Dependency */,
 				C9171AF61F56308300D9BE66 /* Constants */,
 				C92BDF251F54E04100284B44 /* Supporting Files */,
 			);
@@ -562,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				C95880A02015C38300420FB2 /* MyViewController.swift */,
+				C909705120492B4F0058FDD8 /* ViewModels */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -945,6 +967,7 @@
 				C9B54EA91FFC8AB00027A93E /* UIApplication+TopController.swift in Sources */,
 				C98C76261F57DEC6007EB4E2 /* DEFAULTS.swift in Sources */,
 				C92CBDC320196BD4004B64D7 /* DiscoveryTheme.swift in Sources */,
+				C909705320492B6B0058FDD8 /* MyViewModel.swift in Sources */,
 				C9B54E9D1FFC66240027A93E /* DestinationDataModel.swift in Sources */,
 				C9B54EB71FFCC21C0027A93E /* DestinationFilterViewModel.swift in Sources */,
 				C9037B451F5D46AA00FD6FB2 /* FlightTabFlightTVCellViewModel.swift in Sources */,
@@ -1004,6 +1027,7 @@
 				C9C719272047E361000D6416 /* LoadingViewController.swift in Sources */,
 				C94273002018521A00E97620 /* ChartCollectionView.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
+				C9097055204933EB0058FDD8 /* DependencyContainer.swift in Sources */,
 				C9B54EAD1FFCA5590027A93E /* UITabBarController+Hide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

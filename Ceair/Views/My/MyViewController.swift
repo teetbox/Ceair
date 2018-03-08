@@ -11,14 +11,23 @@ import UIKit
 class MyViewController: UIViewController {
     
     private let analytics: AnalyticsManager
+    private let viewModel: MyViewModel
     
-    init(analytics: AnalyticsManager) {
+    init(viewModel: MyViewModel, analytics: AnalyticsManager) {
+        self.viewModel = viewModel
         self.analytics = analytics
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationController?.isNavigationBarHidden = true
+        
+        setUpGradients()
+        setUpViews()
+        
+        analytics.log(.loginSucceeded)
     }
     
     let navView: UIView = {
@@ -43,17 +52,6 @@ class MyViewController: UIViewController {
         return view
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationController?.isNavigationBarHidden = true
-        
-        setUpGradients()
-        setUpViews()
-        
-        analytics.log(.loginSucceeded)
-    }
-    
     private func setUpGradients() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.black.cgColor, UIColor.darkGray.cgColor]
@@ -74,6 +72,10 @@ class MyViewController: UIViewController {
         view.addSubview(radialView)
         view.addConstraints(format: "H:|[v0]|", views: radialView)
         view.addConstraints(format: "V:[v0(\(view.frame.width))]|", views: radialView)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
