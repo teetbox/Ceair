@@ -9,6 +9,7 @@
 import Foundation
 
 enum AnalyticsEvent {
+    case myScreenViewed
     case loginScreenViewed
     case loginAttempted
     case loginFailed(reason: LoginFailureReason)
@@ -26,7 +27,8 @@ enum AnalyticsEvent {
 extension AnalyticsEvent {
     var name: String {
         switch self {
-        case .loginScreenViewed,
+        case .myScreenViewed,
+             .loginScreenViewed,
              .loginAttempted,
              .loginSucceeded,
              .messageListViewed:
@@ -42,7 +44,8 @@ extension AnalyticsEvent {
     
     var metadata: [String: String] {
         switch self {
-        case .loginScreenViewed,
+        case .myScreenViewed,
+             .loginScreenViewed,
              .loginAttempted,
              .loginSucceeded,
              .messageListViewed:

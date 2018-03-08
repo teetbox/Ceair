@@ -10,24 +10,25 @@ import UIKit
 
 class MyViewController: UIViewController {
     
-    private let analytics: AnalyticsManager
     private let viewModel: MyViewModel
     
-    init(viewModel: MyViewModel, analytics: AnalyticsManager) {
+    init(viewModel: MyViewModel) {
         self.viewModel = viewModel
-        self.analytics = analytics
         super.init(nibName: nil, bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // For UI testing identifer
+        view.accessibilityIdentifier = DISPLAY.MyView
+        
         navigationController?.isNavigationBarHidden = true
         
         setUpGradients()
         setUpViews()
         
-        analytics.log(.loginSucceeded)
+        viewModel.fetchData()
     }
     
     let navView: UIView = {

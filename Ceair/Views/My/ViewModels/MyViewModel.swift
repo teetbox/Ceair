@@ -10,4 +10,16 @@ import Foundation
 
 class MyViewModel {
     
+    private let analytics: AnalyticsManager
+    
+    init(analytics: AnalyticsManager) {
+        self.analytics = analytics
+    }
+    
+    func fetchData() {
+        // fetch some data to show
+        
+        analytics.log(.myScreenViewed)
+    }
+    
 }

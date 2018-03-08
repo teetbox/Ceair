@@ -22,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator = AppCoordinator(window: window!)
         appCoordinator?.start()
         
+        if CommandLine.arguments.contains("--uitesting") {
+            // Reset State
+            // For example, clear UserDefaults
+            let defaultsName = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: defaultsName)
+        }
+        
         return true
     }
 

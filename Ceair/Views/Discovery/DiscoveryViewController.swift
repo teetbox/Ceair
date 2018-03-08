@@ -136,6 +136,9 @@ class DiscoveryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // For UI testing identifer
+        view.accessibilityIdentifier = DISPLAY.DiscoveryView
+        
         navigationController?.isNavigationBarHidden = true
         hideKeyboardWhenTappedAround()
 

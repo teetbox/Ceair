@@ -37,6 +37,9 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // For UI testing identifer
+        view.accessibilityIdentifier = DISPLAY.LoadingView
+        
         setupViews()
     }
     
