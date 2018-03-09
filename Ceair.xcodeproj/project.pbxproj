@@ -87,6 +87,7 @@
 		C9979CB01FFB07CA00540B2C /* DiscoveryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CAF1FFB07CA00540B2C /* DiscoveryViewModelTests.swift */; };
 		C9979CB31FFB089300540B2C /* MockDiscoveryDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9979CB21FFB089300540B2C /* MockDiscoveryDataModel.swift */; };
 		C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */; };
+		C99ADB7120523995007AB728 /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99ADB7020523995007AB728 /* AnalyticsTests.swift */; };
 		C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */; };
 		C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E961FFC658F0027A93E /* DestinationViewController.swift */; };
 		C9B54E9B1FFC66090027A93E /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */; };
@@ -282,6 +283,7 @@
 		C9979CAF1FFB07CA00540B2C /* DiscoveryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModelTests.swift; sourceTree = "<group>"; };
 		C9979CB21FFB089300540B2C /* MockDiscoveryDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDiscoveryDataModel.swift; sourceTree = "<group>"; };
 		C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDENTIFIERS.swift; sourceTree = "<group>"; };
+		C99ADB7020523995007AB728 /* AnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTests.swift; sourceTree = "<group>"; };
 		C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		C9B54E961FFC658F0027A93E /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
@@ -393,9 +395,9 @@
 				C90970482048E3030058FDD8 /* AnalyticsManager.swift */,
 				C909704A2048E4BA0058FDD8 /* AnalyticsEngine.swift */,
 				C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */,
-				C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */,
 				C91384082050CCF9005BFCDA /* FileAnalyticsEngine.swift */,
 				C91384182050D71B005BFCDA /* AlertAnalyticsEngine.swift */,
+				C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -535,6 +537,7 @@
 			children = (
 				C91384052050CA09005BFCDA /* Mocks */,
 				C922E5571F5F75C400689AE7 /* ViewModels */,
+				C99ADB6F2052396A007AB728 /* Analytics */,
 				C922E5581F5F75DD00689AE7 /* Utilities */,
 				C92BDF1A1F54E00800284B44 /* CeairTests.swift */,
 				C92BDF1C1F54E00800284B44 /* Info.plist */,
@@ -753,6 +756,14 @@
 				C94272FB20182F9B00E97620 /* MockRouteCoordinator.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		C99ADB6F2052396A007AB728 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				C99ADB7020523995007AB728 /* AnalyticsTests.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		C9B54E951FFC65380027A93E /* Destination */ = {
@@ -1164,6 +1175,7 @@
 				C9FD533A20059B4900D7B2ED /* StackStructureTests.swift in Sources */,
 				C9B54EA11FFC6FA30027A93E /* MockDiscoveryCoordinator.swift in Sources */,
 				C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */,
+				C99ADB7120523995007AB728 /* AnalyticsTests.swift in Sources */,
 				C9B54EAF1FFCBCCE0027A93E /* DestinationViewModelTests.swift in Sources */,
 				C9B54EB11FFCBD2A0027A93E /* MockDestinationDataModel.swift in Sources */,
 				C91384072050CA2A005BFCDA /* MockAnalyticsEngine.swift in Sources */,
