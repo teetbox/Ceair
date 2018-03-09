@@ -13,19 +13,19 @@ import Foundation
 extension XCUIApplication {
     
     var isDisplayingDiscovery: Bool {
-        return otherElements[DISPLAY.DiscoveryView].exists
+        return otherElements[DISPLAY.Discovery.DiscoveryView].exists
     }
     
-    var isDisplayingCity: Bool {
-        return otherElements[DISPLAY.CityView].exists
+    var isDisplayingDiscoveryCity: Bool {
+        return otherElements[DISPLAY.Discovery.CityView].exists
     }
     
     var isDisplayingMy: Bool {
-        return otherElements[DISPLAY.MyView].exists
+        return otherElements[DISPLAY.My.MyView].exists
     }
     
     var isDisplayingLoading: Bool {
-        return otherElements[DISPLAY.LoadingView].exists
+        return otherElements[DISPLAY.Common.LoadingView].exists
     }
  
     func isLogged(for event: AnalyticsEvent) -> Bool {

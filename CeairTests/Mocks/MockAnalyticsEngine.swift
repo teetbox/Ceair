@@ -1,5 +1,5 @@
 //
-//  AnalyticsEngineMock.swift
+//  MockAnalyticsEngine.swift
 //  CeairTests
 //
 //  Created by Matt Tian on 08/03/2018.
@@ -9,7 +9,7 @@
 import Foundation
 @testable import Ceair
 
-class AnalyticsEngineMock: AnalyticsEngine {
+class MockAnalyticsEngine: AnalyticsEngine {
     
     var stubName: String?
     var stubMetadata: [String: String]?

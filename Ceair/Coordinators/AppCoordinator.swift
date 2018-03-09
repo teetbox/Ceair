@@ -13,9 +13,11 @@ var coordinatorStack = Stack<AppCoordinator>()
 class AppCoordinator: Coordinator {
     
     let window: UIWindow
+    let analyticsManager: AnalyticsManager
     
     init(window: UIWindow) {
         self.window = window
+        self.analyticsManager = AnalyticsManager.make(with: window)
         coordinatorStack.push(self)
     }
     

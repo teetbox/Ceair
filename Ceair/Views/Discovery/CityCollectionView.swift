@@ -36,7 +36,7 @@ class CityCollectionView: UIView, UICollectionViewDataSource, UICollectionViewDe
         addConstraints(format: "H:|[v0]|", views: collectionView)
         addConstraints(format: "V:|[v0]|", views: collectionView)
         
-        accessibilityLabel = DISPLAY.CityView
+        accessibilityLabel = DISPLAY.Discovery.CityView
     }
     
     required init?(coder aDecoder: NSCoder) {

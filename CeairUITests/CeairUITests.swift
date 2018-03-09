@@ -26,26 +26,30 @@ class CeairUITests: XCTestCase {
     func testDisplayDiscoveryView() {
         app.launch()
         
-        XCTAssertTrue(app.isDisplayingDiscovery)
-        XCTAssertTrue(app.isDisplayingLoading)
-        XCTAssertFalse(app.isDisplayingCity)
+        XCTAssert(app.isDisplayingDiscovery)
+        XCTAssert(app.isDisplayingLoading)
+        XCTAssert(app.isLogged(for: .discoveryThemeRequested))
+        XCTAssert(app.isLogged(for: .discoveryCityRequested))
+        
+        XCTAssertFalse(app.isDisplayingDiscoveryCity)
         
         print(Date())
-        _ = app.otherElements[DISPLAY.CityView].waitForExistence(timeout: 10)
+        _ = app.otherElements[DISPLAY.Discovery.CityView].waitForExistence(timeout: 10)
         print(Date())
-        XCTAssertTrue(app.isDisplayingCity)
+        XCTAssert(app.isDisplayingDiscoveryCity)
+        
     }
     
     func _testViewMyTab() {
         app.launch()
         
-        XCTAssertTrue(app.isDisplayingMy)
+        XCTAssert(app.isDisplayingMy)
     }
     
     func _testLogMyTab() {
         app.launch()
         
-        XCTAssertTrue(app.isLogged(for: .myScreenViewed))
+        XCTAssert(app.isLogged(for: .myScreenViewed))
     }
     
 }

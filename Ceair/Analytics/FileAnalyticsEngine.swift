@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FileSystemAnalyticsEngine: AnalyticsEngine {
+class FileAnalyticsEngine: AnalyticsEngine {
     
     func sendAnalyticsEvent(named name: String, metadata: [String : String]) {
         

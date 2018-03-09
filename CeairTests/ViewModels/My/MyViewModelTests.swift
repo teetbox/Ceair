@@ -12,10 +12,10 @@ import XCTest
 class MyViewModelTests: XCTestCase {
     
     var sut: MyViewModel!
-    var analyticsEngine: AnalyticsEngineMock!
+    var analyticsEngine: MockAnalyticsEngine!
     
     override func setUp() {
-        analyticsEngine = AnalyticsEngineMock()
+        analyticsEngine = MockAnalyticsEngine()
         sut = MyViewModel(analytics: AnalyticsManager(engine: analyticsEngine))
     }
     

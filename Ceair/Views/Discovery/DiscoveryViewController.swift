@@ -107,6 +107,8 @@ class DiscoveryViewController: UIViewController {
     var cityViewBottomConstraint: NSLayoutConstraint?
     var previousOffSetY: CGFloat = 0
     
+    var refresher: UIRefreshControl!
+    
     let cityView: ActivityCollectionView = {
         let collection = ActivityCollectionView()
         collection.backgroundColor = UIColor.fromHEX(string: "#F8F8F8")
@@ -137,7 +139,7 @@ class DiscoveryViewController: UIViewController {
         super.viewDidLoad()
         
         // For UI testing identifer
-        view.accessibilityIdentifier = DISPLAY.DiscoveryView
+        view.accessibilityIdentifier = DISPLAY.Discovery.DiscoveryView
         
         navigationController?.isNavigationBarHidden = true
         hideKeyboardWhenTappedAround()
@@ -307,6 +309,12 @@ class DiscoveryViewController: UIViewController {
         cityViewBottomConstraint = cityView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -105)
         cityViewBottomConstraint?.isActive = true
         
+        refresher = UIRefreshControl()
+        refresher.tintColor = .red
+        refresher.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        cityView.collectionView.alwaysBounceVertical = true
+        cityView.collectionView.addSubview(refresher)
+        
         themeView.viewModel = viewModel
         view.addSubview(themeView)
         view.addConstraints(format: "H:|[v0]|", views: themeView)
@@ -325,6 +333,19 @@ class DiscoveryViewController: UIViewController {
 //        view.addSubview(loadingView)
 //        view.addConstraints(format: "H:|[v0]|", views: loadingView)
 //        view.addConstraints(format: "V:|[v0]|", views: loadingView)
+    }
+    
+    @objc func handleRefresh() {
+        print(#function)
+        DispatchQueue.global().async {
+            sleep(2)
+//            self.dataItems = self.dataItems + self.dataItems
+//
+            DispatchQueue.main.async {
+                self.refresher.endRefreshing()
+//                self.collectionView.reloadData()
+            }
+        }
     }
 
 }

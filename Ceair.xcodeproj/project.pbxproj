@@ -26,8 +26,8 @@
 		C9097055204933EB0058FDD8 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9097054204933EB0058FDD8 /* DependencyContainer.swift */; };
 		C910CDB41F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */; };
 		C91384042050C944005BFCDA /* MyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91384032050C944005BFCDA /* MyViewModelTests.swift */; };
-		C91384072050CA2A005BFCDA /* AnalyticsEngineMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91384062050CA2A005BFCDA /* AnalyticsEngineMock.swift */; };
-		C91384092050CCF9005BFCDA /* FileSystemAnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91384082050CCF9005BFCDA /* FileSystemAnalyticsEngine.swift */; };
+		C91384072050CA2A005BFCDA /* MockAnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91384062050CA2A005BFCDA /* MockAnalyticsEngine.swift */; };
+		C91384092050CCF9005BFCDA /* FileAnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91384082050CCF9005BFCDA /* FileAnalyticsEngine.swift */; };
 		C91384112050D587005BFCDA /* CeairUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91384102050D587005BFCDA /* CeairUITests.swift */; };
 		C91384192050D71B005BFCDA /* AlertAnalyticsEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91384182050D71B005BFCDA /* AlertAnalyticsEngine.swift */; };
 		C913841F2050E02E005BFCDA /* XCUIApplication+DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C913841E2050E02E005BFCDA /* XCUIApplication+DisplayView.swift */; };
@@ -221,8 +221,8 @@
 		C9097054204933EB0058FDD8 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		C910CDB31F5E104A0018246C /* FlightTabFlightTVCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightTabFlightTVCellViewModelTests.swift; sourceTree = "<group>"; };
 		C91384032050C944005BFCDA /* MyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewModelTests.swift; sourceTree = "<group>"; };
-		C91384062050CA2A005BFCDA /* AnalyticsEngineMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsEngineMock.swift; sourceTree = "<group>"; };
-		C91384082050CCF9005BFCDA /* FileSystemAnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemAnalyticsEngine.swift; sourceTree = "<group>"; };
+		C91384062050CA2A005BFCDA /* MockAnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAnalyticsEngine.swift; sourceTree = "<group>"; };
+		C91384082050CCF9005BFCDA /* FileAnalyticsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileAnalyticsEngine.swift; sourceTree = "<group>"; };
 		C913840E2050D587005BFCDA /* CeairUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CeairUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C91384102050D587005BFCDA /* CeairUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeairUITests.swift; sourceTree = "<group>"; };
 		C91384122050D587005BFCDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 				C909704A2048E4BA0058FDD8 /* AnalyticsEngine.swift */,
 				C909704C2048E4CA0058FDD8 /* AnalyticsEvent.swift */,
 				C909704E2048EE6F0058FDD8 /* CloudKitAnalyticsEngine.swift */,
-				C91384082050CCF9005BFCDA /* FileSystemAnalyticsEngine.swift */,
+				C91384082050CCF9005BFCDA /* FileAnalyticsEngine.swift */,
 				C91384182050D71B005BFCDA /* AlertAnalyticsEngine.swift */,
 			);
 			path = Analytics;
@@ -427,7 +427,7 @@
 		C91384052050CA09005BFCDA /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				C91384062050CA2A005BFCDA /* AnalyticsEngineMock.swift */,
+				C91384062050CA2A005BFCDA /* MockAnalyticsEngine.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1143,7 +1143,7 @@
 				C9E09DDF1F68A76C007D0698 /* NETWORKS.swift in Sources */,
 				C9171AF51F562F8600D9BE66 /* FlightTabViewController.swift in Sources */,
 				C9C719272047E361000D6416 /* LoadingViewController.swift in Sources */,
-				C91384092050CCF9005BFCDA /* FileSystemAnalyticsEngine.swift in Sources */,
+				C91384092050CCF9005BFCDA /* FileAnalyticsEngine.swift in Sources */,
 				C94273002018521A00E97620 /* ChartCollectionView.swift in Sources */,
 				C92BDF061F54E00800284B44 /* AppDelegate.swift in Sources */,
 				C9097055204933EB0058FDD8 /* DependencyContainer.swift in Sources */,
@@ -1166,7 +1166,7 @@
 				C903830C200341FF0021C340 /* DestinationFilterViewModelTests.swift in Sources */,
 				C9B54EAF1FFCBCCE0027A93E /* DestinationViewModelTests.swift in Sources */,
 				C9B54EB11FFCBD2A0027A93E /* MockDestinationDataModel.swift in Sources */,
-				C91384072050CA2A005BFCDA /* AnalyticsEngineMock.swift in Sources */,
+				C91384072050CA2A005BFCDA /* MockAnalyticsEngine.swift in Sources */,
 				C94272FC20182F9B00E97620 /* MockRouteCoordinator.swift in Sources */,
 				C92BDF1B1F54E00800284B44 /* CeairTests.swift in Sources */,
 				C9979CB01FFB07CA00540B2C /* DiscoveryViewModelTests.swift in Sources */,

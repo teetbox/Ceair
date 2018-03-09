@@ -18,10 +18,12 @@ class DiscoveryViewModel {
     var coordinator: DiscoveryViewModelCoordinatorDelegate?
     
     let dataModel: DiscoveryDataModelProtocol
+    let analytics: AnalyticsManager
     
     /* ✅ */
-    init(dataModel: DiscoveryDataModelProtocol) {
+    init(dataModel: DiscoveryDataModelProtocol, analytics: AnalyticsManager) {
         self.dataModel = dataModel
+        self.analytics = analytics
     }
     
     /* ✅ */
@@ -43,6 +45,8 @@ class DiscoveryViewModel {
     
     /* ✅ */
     func fetchThemes(completion: @escaping () -> Void) {
+        analytics.log(.discoveryThemeRequested)
+        
         dataModel.fetchThemes { themes in
             self.themes = themes
            
@@ -62,6 +66,8 @@ class DiscoveryViewModel {
     
     /* ✅ */
     func fetchCities(completion: @escaping () -> Void) {
+        analytics.log(.discoveryCityRequested)
+        
         dataModel.fetchCities { cities in
             self.themeCities = cities
             

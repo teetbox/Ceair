@@ -38,7 +38,7 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
         
         // For UI testing identifer
-        view.accessibilityIdentifier = DISPLAY.LoadingView
+        view.accessibilityIdentifier = DISPLAY.Common.LoadingView
         
         setupViews()
     }

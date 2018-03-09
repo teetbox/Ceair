@@ -9,9 +9,18 @@
 import Foundation
 
 struct DISPLAY {
-    static let LoadingView = "LoadingView"
-    static let DiscoveryView = "DiscoveryView"
-    static let CityView = "CityView"
-    static let MyView = "MyView"
+    
+    struct Common {
+        static let LoadingView = "LoadingView"
+    }
+    
+    struct Discovery {
+        static let DiscoveryView = "DiscoveryView"
+        static let CityView = "CityView"
+    }
+    
+    struct My {
+        static let MyView = "MyView"
+    }
     
 }

@@ -21,7 +21,7 @@ class MyViewController: UIViewController {
         super.viewDidLoad()
         
         // For UI testing identifer
-        view.accessibilityIdentifier = DISPLAY.MyView
+        view.accessibilityIdentifier = DISPLAY.My.MyView
         
         navigationController?.isNavigationBarHidden = true
         

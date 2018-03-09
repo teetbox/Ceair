@@ -14,13 +14,15 @@ class DiscoveryViewModelTests: XCTestCase {
     var sut: DiscoveryViewModel!
     var dataModel: MockDiscoveryDataModel!
     var coordinator: MockDiscoveryCoordinator!
+    var analyticsEngine: MockAnalyticsEngine!
     
     override func setUp() {
         super.setUp()
         
         dataModel = MockDiscoveryDataModel()
         coordinator = MockDiscoveryCoordinator()
-        sut = DiscoveryViewModel(dataModel: dataModel)
+        analyticsEngine = MockAnalyticsEngine()
+        sut = DiscoveryViewModel(dataModel: dataModel, analytics: AnalyticsManager(engine: analyticsEngine))
         sut.coordinator = coordinator
     }
     
@@ -43,11 +45,17 @@ class DiscoveryViewModelTests: XCTestCase {
     func testFetchThemes() {
         sut.fetchThemes {}
         XCTAssert(dataModel.isFetchThemesCalled)
+
+        XCTAssertEqual(analyticsEngine.stubName, "discoveryThemeRequested")
+        XCTAssertEqual(analyticsEngine.stubMetadata?.count, 0)
     }
     
     func testFetchCities() {
         sut.fetchCities {}
         XCTAssert(dataModel.isFetchCitiesCalled)
+        
+        XCTAssertEqual(analyticsEngine.stubName, "discoveryCityRequested")
+        XCTAssertEqual(analyticsEngine.stubMetadata?.count, 0)
     }
     
     func testLoadImage() {
