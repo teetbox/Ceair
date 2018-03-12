@@ -19,19 +19,22 @@ protocol DiscoveryDataModelProtocol {
 }
 
 struct DiscoveryDataModel: DiscoveryDataModelProtocol {
-    
-    let http = CEHttp(base: "http://172.31.65.187:8080")
-    let themePath = "/portal/mobile/getThemeCodeList"
+
+    let http = NetworkUtility(baseURL: "http://172.31.65.187:8080").http
     let cache = Cache<Data>()
+
+    let themePath = "/portal/mobile/getThemeCodeList"
+    let cityPath = "/portal/mobile/getCityThemeInfoList"
     
     func fetchThemes(completion: @escaping ([DiscoveryTheme]) -> Void) {
         http.get(themePath) { response in
+            var themes = [DiscoveryTheme]()
             guard let data = response.data else {
                 Log.error("Fetch themes return no data!")
+                completion(themes)
                 return
             }
             
-            var themes: [DiscoveryTheme] = []
             if let json = try? JSON(data: data) {
                 themes = json["themeCodeB2cVOList"].arrayValue.map { DiscoveryTheme(json: $0) }
             } else {
@@ -44,20 +47,21 @@ struct DiscoveryDataModel: DiscoveryDataModelProtocol {
     func fetchCities(completion: @escaping ([[DiscoveryCity]]) -> Void) {
         let params: Dictionary<String, Any> = ["themeCodeList": ["GUJI","HAIDAO","GOUWU","MEISHI"],
                       "months": [3],
-                      "endDateStr": "2018-03-20",
-                      "startDateStr": "2018-01-20",
+                      "endDateStr": "2018-05-20",
+                      "startDateStr": "2018-03-20",
                       "topNumber": 8,
                       "depCode": "PEK",
                       "classCode": "F,J,Y",
                       "arrCode": "",
                       "airLineCode": "MU/FM"]
-        http.post("/portal/mobile/getCityThemeInfoList", params: params) { response in
+        http.post(cityPath, params: params) { response in
+            var themeCities = [[DiscoveryCity]]()
             guard let data = response.data else {
                 Log.error("Fetch themes return no data!")
+                completion(themeCities)
                 return
             }
             
-            var themeCities = [[DiscoveryCity]]()
             if let json = try? JSON(data: data) {
                 let city2DArr = json["themeActivitiesInfoVOList"].arrayValue
                 for cityArr in city2DArr {

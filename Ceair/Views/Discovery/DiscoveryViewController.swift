@@ -158,6 +158,7 @@ class DiscoveryViewController: UIViewController {
             self.themeView.reloadData()
             isFinishThemeLoading = true
             
+            print("Themes loading finish")
             if isFinishCityLoading && isFinishThemeLoading {
                 loading.remove()
             }
@@ -167,6 +168,7 @@ class DiscoveryViewController: UIViewController {
             self.cityView.reloadData()
             isFinishCityLoading = true
             
+            print("Cities loading finish")
             if isFinishCityLoading && isFinishThemeLoading {
                 loading.remove()
             }
