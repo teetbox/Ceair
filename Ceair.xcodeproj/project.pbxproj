@@ -89,6 +89,7 @@
 		C99A97DE1F5950C500318E83 /* IDENTIFIERS.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */; };
 		C99ADB7120523995007AB728 /* AnalyticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99ADB7020523995007AB728 /* AnalyticsTests.swift */; };
 		C99FBFF41F67D52A00C9210B /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */; };
+		C9B04A8820689E9600660728 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B04A8720689E9600660728 /* Dynamic.swift */; };
 		C9B54E971FFC658F0027A93E /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E961FFC658F0027A93E /* DestinationViewController.swift */; };
 		C9B54E9B1FFC66090027A93E /* DestinationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */; };
 		C9B54E9D1FFC66240027A93E /* DestinationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B54E9C1FFC66240027A93E /* DestinationDataModel.swift */; };
@@ -286,6 +287,7 @@
 		C99A97DD1F5950C500318E83 /* IDENTIFIERS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDENTIFIERS.swift; sourceTree = "<group>"; };
 		C99ADB7020523995007AB728 /* AnalyticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTests.swift; sourceTree = "<group>"; };
 		C99FBFF31F67D52A00C9210B /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
+		C9B04A8720689E9600660728 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		C9B54E961FFC658F0027A93E /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		C9B54E9A1FFC66090027A93E /* DestinationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewModel.swift; sourceTree = "<group>"; };
 		C9B54E9C1FFC66240027A93E /* DestinationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationDataModel.swift; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				C9FD533720059A3F00D7B2ED /* StackStructure.swift */,
 				35441E072019EE44002DA4B4 /* DeviceUtility.swift */,
 				C96AF29A1F67609B00E5B6F8 /* UserConfig.swift */,
+				C9B04A8720689E9600660728 /* Dynamic.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1125,6 +1128,7 @@
 				C9979CAA1FFB070100540B2C /* DiscoveryViewModel.swift in Sources */,
 				C94272F820182C1000E97620 /* RouteViewModel.swift in Sources */,
 				C9DBDF701FFB409E00BFC093 /* ActivityCollectionView.swift in Sources */,
+				C9B04A8820689E9600660728 /* Dynamic.swift in Sources */,
 				C9FD533E2005DCA400D7B2ED /* DestinationCollectionCell.swift in Sources */,
 				C909704D2048E4CA0058FDD8 /* AnalyticsEvent.swift in Sources */,
 				C9DB6C0B1FFDB512001F2AA2 /* FilterCollectionView.swift in Sources */,

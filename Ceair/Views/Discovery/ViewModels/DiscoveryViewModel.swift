@@ -20,10 +20,16 @@ class DiscoveryViewModel {
     let dataModel: DiscoveryDataModelProtocol
     let analytics: AnalyticsManager
     
+    var searchCity = Dynamic<String>("Shanghai")
+    
     /* ✅ */
     init(dataModel: DiscoveryDataModelProtocol, analytics: AnalyticsManager) {
         self.dataModel = dataModel
         self.analytics = analytics
+    }
+    
+    func updateSearch() {
+        searchCity.value = "Beijing"
     }
     
     /* ✅ */

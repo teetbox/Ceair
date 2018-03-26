@@ -146,6 +146,17 @@ class DiscoveryViewController: UIViewController {
 
         setUpViews()
         fetchData()
+        
+        viewModel.searchCity.bindAndFire {
+            self.areaTextField.text = self.viewModel.searchCity.value
+        }
+        
+        DispatchQueue.global().async {
+            sleep(2)
+            DispatchQueue.main.async {
+                self.viewModel.updateSearch()
+            }
+        }
     }
     
     private func fetchData() {
